@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<createTransactionResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetA piSchema.xsd">
+	<refId>123456</refId> 
+	<messages>
+		<resultCode>Ok</resultCode> 
+		<message>
+			<code>I00001</code>
+			<text>Successful.</text> 
+		</message>
+	</messages> 
+	<transactionResponse>
+		<responseCode>1</responseCode> 
+		<authCode>UGELQC</authCode> 
+		<avsResultCode>E</avsResultCode> 
+		<cavvResultCode /> 
+		<transId>2148061808</transId> 
+		<refTransID /> 
+		<transHash>0B428D8A928AAC61121AF2F6EAC5FF3F</transHash> 
+		<testRequest>0</testRequest> 
+		<accountNumber>XXXX0015</accountNumber> 
+		<accountType>MasterCard</accountType>
+		<message> 
+			<code>1</code> 
+			<description>This transaction has been approved.</description> 
+		</message>
+		<userFields> 
+			<userField>
+				<name>MerchantDefinedFieldName1</name>
+				<value>MerchantDefinedFieldValue1</value> 
+			</userField> 
+			<userField>
+				<name>favorite_color</name>
+				<value>lavender</value> 
+			</userField>
+		</userFields> 
+	</transactionResponse>
+</createTransactionResponse>

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Anet SDK' target in the 'Anet SDK' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
