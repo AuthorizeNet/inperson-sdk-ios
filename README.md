@@ -10,7 +10,7 @@ the Authorize.net gateway.
 
 The SDK includes APIs for each of the supported API methods: 
 1) AUTH
-2) PIOR_AUTH_CAPTURE
+2) PRIOR_AUTH_CAPTURE
 3) CAPTURE
 4) VOID
 5) CREDIT
