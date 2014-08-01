@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mobileDeviceLoginResponse xmlns="AnetApi/xml/v1/schema/ AnetApiSchema.xsd">
+	<refId>someRefId</refId>
+	<messages>
+		<resultCode>Ok</resultCode>
+		<message>
+			<code>I00001</code>
+			<text>The record was processed successfully</text>
+		</message>
+		<message>
+			<code>I00003</code>
+			<text>The record has already been deleted</text>
+		</message>
+	</messages>
+	<sessionToken>my_session_token</sessionToken>
+	<merchantContact>
+		<merchantName>My Company</merchantName>
+		<merchantAddress>123 Anywhere St</merchantAddress>
+		<merchantCity>Some City</merchantCity>
+		<merchantState>My state</merchantState>
+		<merchantZip>91111</merchantZip>
+		<merchantPhone>123 456 7890</merchantPhone>
+	</merchantContact>
+	<userPermissions>
+		<permission>
+			<permissionName>API_Merchant_BasicReporting</permissionName>
+		</permission>
+		<permission>
+			<permissionName>MobileAdmin</permissionName>
+		</permission>
+		<permission>
+			<permissionName>Submit_Charge</permissionName>
+		</permission>
+		<permission>
+			<permissionName>Submit_Refund</permissionName>
+		</permission>
+		<permission>
+			<permissionName>Submit_Update</permissionName>
+		</permission>
+	</userPermissions>
+    <merchantAccount>
+        <marketType>2</marketType>
+        <deviceType>7</deviceType>
+    </merchantAccount>
+</mobileDeviceLoginResponse>
