@@ -7,7 +7,6 @@
 //
 
 #import "DecimalKeypadView.h"
-#import "NSBundle+OSVersion.h"
 
 #define FLOAT_COLOR_VALUE(n) (n)/255.0
 

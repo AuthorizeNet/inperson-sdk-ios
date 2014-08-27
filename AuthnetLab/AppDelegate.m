@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  AuthnetLab
 //
-//  Created by Paragyte on 12/06/14.
-//  Copyright (c) 2014 Paragyte. All rights reserved.
+//  Created by Shankar Gosain on 07/23/14.
+//  Copyright (c) 2014. All rights reserved.
 //
 
 #import "AppDelegate.h"

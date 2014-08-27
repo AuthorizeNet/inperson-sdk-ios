@@ -6,7 +6,6 @@
 //
 
 #import "LZNavigationBar.h"
-#import "MobileMerchantPadAppDelegate.h"
 
 #define FLOAT_COLOR_VALUE(n) (n)/255.0
 #define kNavigationButtonFont [UIFont boldSystemFontOfSize:12.0]
@@ -32,10 +31,7 @@
 {
     if ((self = [super initWithCoder:aDecoder])) {
         
-        if ([[[MobileMerchantAppDelegate mobileMerchantAppDelegate].defaults valueForKey:@"LOGGED_IN_TEST"] isEqualToString:@"TRUE"]) {
-        barView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yellow_header_bar"]]; // should be exactly 44px tall
-        }
-        else {
+      {
             barView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_bar"]]; // should be exactly 44px tall
         }
         [barView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -45,23 +41,23 @@
     return self;
 }
 
--(void)setTestBarView
-{
-    
-    [barView removeFromSuperview];
-    barView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yellow_header_bar"]]; // should be exactly 44px tall
-    [barView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    [self addSubview:barView];
-}
-//SHANKAR
-//Set The NavBar image to normal.
--(void)setNormalBarView
-{
-    [barView removeFromSuperview];
-    barView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_bar"]]; // should be exactly 44px tall
-    [barView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    [self addSubview:barView];
-}
+//-(void)setTestBarView
+//{
+//    
+//    [barView removeFromSuperview];
+//    barView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"yellow_header_bar"]]; // should be exactly 44px tall
+//    [barView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+//    [self addSubview:barView];
+//}
+//
+////Set The NavBar image to normal.
+//-(void)setNormalBarView
+//{
+//    [barView removeFromSuperview];
+//    barView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_bar"]]; // should be exactly 44px tall
+//    [barView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+//    [self addSubview:barView];
+//}
 
 - (void)layoutSubviews
 {

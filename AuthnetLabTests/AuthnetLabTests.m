@@ -2,8 +2,8 @@
 //  AuthnetLabTests.m
 //  AuthnetLabTests
 //
-//  Created by Paragyte on 12/06/14.
-//  Copyright (c) 2014 Paragyte. All rights reserved.
+//  Created by Tejus Chavan on 12/06/14.
+//  Copyright (c) 2014 Tejus. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

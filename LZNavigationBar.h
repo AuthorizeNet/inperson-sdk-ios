@@ -23,8 +23,8 @@ typedef enum ButtonType {
 @property (nonatomic, retain) UIImageView *barView;
 
 + (id)navigationControllerWithRoot:(UIViewController *)rootViewController;
-- (void)setTestBarView;
-- (void)setNormalBarView;
+//- (void)setTestBarView;
+//- (void)setNormalBarView;
 @end
 
 
