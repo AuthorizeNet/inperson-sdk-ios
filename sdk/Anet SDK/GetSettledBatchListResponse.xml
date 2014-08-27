@@ -1,0 +1,23 @@
+<getSettledBatchListResponse xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd"> 
+    <messages>
+        <resultCode>Ok</resultCode> 
+        <message>
+                <code>I00001</code>
+                <text>Successful.</text> 
+        </message>
+    </messages> 
+    <batchList> 
+        <batch>
+            <batchId>12345678</batchId> 
+            <settlementTimeUTC>2010-05-30T09:00:00</settlementTimeUTC> 
+            <settlementTimeLocal>2010-05-30T03:00:00</settlementTimeLocal> 
+            <settlementState>settledSuccessfully</settlementState>
+        </batch> 
+        <batch>
+            <batchId>12345678</batchId> 
+            <settlementTimeUTC>2010-05-30T09:00:00</settlementTimeUTC> 
+            <settlementTimeLocal>2010-05-30T03:00:00</settlementTimeLocal> 
+            <settlementState>settledSuccessfully</settlementState>
+        </batch> 
+    </batchList>
+</getSettledBatchListResponse>
