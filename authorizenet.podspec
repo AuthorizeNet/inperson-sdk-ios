@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint sdk-ios.podspec' to ensure this is a
+# Be sure to run `pod lib lint authorizenet.podspec' to ensure this is a
 # valid spec and remove all comments before submitting the spec.
 #
 # Any lines starting with a # are optional, but encouraged
@@ -8,15 +8,15 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "sdk-ios"
+  s.name             = "authorizenet"
   s.version          = "1.8.2"
   s.summary          = "iOS SDK for Authorize.Net Payments"
-  s.description      = "The iPhone SDK provides a fast and easy way for iPhone/iPad application developers to quickly integrate mobile payment without having to write the network communication, XML generation/parsing, and encoding of the data to the Authorize.net gateway."
-  s.homepage         = "https://github.com/brianmc/sdk-ios"
+  s.description      = "The iOS SDK provides a fast and easy way for iPhone/iPad application developers to quickly integrate mobile payment without having to write the network communication, XML generation/parsing, and encoding of the data to the Authorize.net gateway."
+  s.homepage         = "https://github.com/authorizenet/sdk-ios"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'https://github.com/AuthorizeNet/sdk-ios/blob/master/LICENSE'
   s.author           = { "brianmc" => "bmcmanus@authorize.net" }
-  s.source           = { :git => "https://github.com/brianmc/sdk-ios.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/authorizenet/sdk-ios.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/AuthorizeNetDev'
 
   s.platform     = :ios, '7.0'
