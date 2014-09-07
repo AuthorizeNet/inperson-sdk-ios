@@ -1,0 +1,1 @@
+../../../../sdk/Headers/TransactionSummaryType.h

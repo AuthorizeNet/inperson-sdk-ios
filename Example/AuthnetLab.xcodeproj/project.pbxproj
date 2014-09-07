@@ -1,0 +1,1333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D00D6358AD246A68CFA20A0 /* libPods-AuthnetLab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 125495B01FE441B0B0095E4C /* libPods-AuthnetLab.a */; };
+		8090A55B19B92CF900268BFD /* LZNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55A19B92CF900268BFD /* LZNavigationBar.m */; };
+		8090A55F19B9336400268BFD /* DecimalKeypadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55D19B9336400268BFD /* DecimalKeypadView.m */; };
+		8090A56019B9336400268BFD /* DecimalKeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8090A55E19B9336400268BFD /* DecimalKeypadView.xib */; };
+		80A75ACD19B90446008D3EC8 /* ANetApiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1719B90446008D3EC8 /* ANetApiRequest.m */; };
+		80A75ACE19B90446008D3EC8 /* ANetApiResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1819B90446008D3EC8 /* ANetApiResponse.m */; };
+		80A75ACF19B90446008D3EC8 /* AuthNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1919B90446008D3EC8 /* AuthNet.m */; };
+		80A75AD019B90446008D3EC8 /* AuthNetMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1A19B90446008D3EC8 /* AuthNetMessage.m */; };
+		80A75AD119B90446008D3EC8 /* AuthNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1B19B90446008D3EC8 /* AuthNetRequest.m */; };
+		80A75AD219B90446008D3EC8 /* AuthNetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1C19B90446008D3EC8 /* AuthNetResponse.m */; };
+		80A75AD319B90446008D3EC8 /* AuthNetUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1D19B90446008D3EC8 /* AuthNetUnitTests.m */; };
+		80A75AD419B90446008D3EC8 /* BankAccountMaskedType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1E19B90446008D3EC8 /* BankAccountMaskedType.m */; };
+		80A75AD519B90446008D3EC8 /* BankAccountType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1F19B90446008D3EC8 /* BankAccountType.m */; };
+		80A75AD619B90446008D3EC8 /* BatchDetailsType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2019B90446008D3EC8 /* BatchDetailsType.m */; };
+		80A75AD719B90446008D3EC8 /* BatchStatisticType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2119B90446008D3EC8 /* BatchStatisticType.m */; };
+		80A75AD819B90446008D3EC8 /* CCAuthenticationType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2219B90446008D3EC8 /* CCAuthenticationType.m */; };
+		80A75AD919B90446008D3EC8 /* CreateTransactionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2319B90446008D3EC8 /* CreateTransactionRequest.m */; };
+		80A75ADA19B90446008D3EC8 /* CreateTransactionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2419B90446008D3EC8 /* CreateTransactionResponse.m */; };
+		80A75ADB19B90446008D3EC8 /* CreateTransactionResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A2519B90446008D3EC8 /* CreateTransactionResponse.xml */; };
+		80A75ADC19B90446008D3EC8 /* CreditCardMaskedType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2619B90446008D3EC8 /* CreditCardMaskedType.m */; };
+		80A75ADD19B90446008D3EC8 /* CreditCardTrackType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2719B90446008D3EC8 /* CreditCardTrackType.m */; };
+		80A75ADE19B90446008D3EC8 /* CreditCardType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2819B90446008D3EC8 /* CreditCardType.m */; };
+		80A75ADF19B90446008D3EC8 /* CustomerAddressType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2919B90446008D3EC8 /* CustomerAddressType.m */; };
+		80A75AE019B90446008D3EC8 /* CustomerDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2A19B90446008D3EC8 /* CustomerDataType.m */; };
+		80A75AE119B90446008D3EC8 /* Error.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2B19B90446008D3EC8 /* Error.m */; };
+		80A75AE219B90446008D3EC8 /* ExtendedAmountType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2C19B90446008D3EC8 /* ExtendedAmountType.m */; };
+		80A75AE319B90446008D3EC8 /* FDSFilterType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2D19B90446008D3EC8 /* FDSFilterType.m */; };
+		80A75AE419B90446008D3EC8 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2E19B90446008D3EC8 /* GDataXMLNode.m */; };
+		80A75AE519B90446008D3EC8 /* GetBatchStatisticsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2F19B90446008D3EC8 /* GetBatchStatisticsRequest.m */; };
+		80A75AE619B90446008D3EC8 /* GetBatchStatisticsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3019B90446008D3EC8 /* GetBatchStatisticsResponse.m */; };
+		80A75AE719B90446008D3EC8 /* GetBatchStatisticsResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A3119B90446008D3EC8 /* GetBatchStatisticsResponse.xml */; };
+		80A75AE819B90446008D3EC8 /* GetSettledBatchListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3219B90446008D3EC8 /* GetSettledBatchListRequest.m */; };
+		80A75AE919B90446008D3EC8 /* GetSettledBatchListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3319B90446008D3EC8 /* GetSettledBatchListResponse.m */; };
+		80A75AEA19B90446008D3EC8 /* GetSettledBatchListResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A3419B90446008D3EC8 /* GetSettledBatchListResponse.xml */; };
+		80A75AEB19B90446008D3EC8 /* GetTransactionDetailsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3519B90446008D3EC8 /* GetTransactionDetailsRequest.m */; };
+		80A75AEC19B90446008D3EC8 /* GetTransactionDetailsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3619B90446008D3EC8 /* GetTransactionDetailsResponse.m */; };
+		80A75AED19B90446008D3EC8 /* GetTransactionDetailsResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A3719B90446008D3EC8 /* GetTransactionDetailsResponse.xml */; };
+		80A75AEE19B90446008D3EC8 /* GetTransactionListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3819B90446008D3EC8 /* GetTransactionListRequest.m */; };
+		80A75AEF19B90446008D3EC8 /* GetTransactionListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3919B90446008D3EC8 /* GetTransactionListResponse.m */; };
+		80A75AF019B90446008D3EC8 /* GetTransactionListResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A3A19B90446008D3EC8 /* GetTransactionListResponse.xml */; };
+		80A75AF119B90446008D3EC8 /* GetUnsettledTransactionListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3B19B90446008D3EC8 /* GetUnsettledTransactionListRequest.m */; };
+		80A75AF219B90446008D3EC8 /* GetUnsettledTransactionListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3C19B90446008D3EC8 /* GetUnsettledTransactionListResponse.m */; };
+		80A75AF319B90446008D3EC8 /* GetUnsettledTransactionListResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A3D19B90446008D3EC8 /* GetUnsettledTransactionListResponse.xml */; };
+		80A75AF419B90446008D3EC8 /* LineItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3E19B90446008D3EC8 /* LineItemType.m */; };
+		80A75AF519B90446008D3EC8 /* LogoutRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A3F19B90446008D3EC8 /* LogoutRequest.m */; };
+		80A75AF619B90446008D3EC8 /* LogoutResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4019B90446008D3EC8 /* LogoutResponse.m */; };
+		80A75AF719B90446008D3EC8 /* LogoutResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A4119B90446008D3EC8 /* LogoutResponse.xml */; };
+		80A75AF819B90446008D3EC8 /* MerchantAccountType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4219B90446008D3EC8 /* MerchantAccountType.m */; };
+		80A75AF919B90446008D3EC8 /* MerchantAuthenticationType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4319B90446008D3EC8 /* MerchantAuthenticationType.m */; };
+		80A75AFA19B90446008D3EC8 /* MerchantContactType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4419B90446008D3EC8 /* MerchantContactType.m */; };
+		80A75AFB19B90446008D3EC8 /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4519B90446008D3EC8 /* Messages.m */; };
+		80A75AFC19B90446008D3EC8 /* MobileDeviceLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4619B90446008D3EC8 /* MobileDeviceLoginRequest.m */; };
+		80A75AFD19B90446008D3EC8 /* MobileDeviceLoginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4719B90446008D3EC8 /* MobileDeviceLoginResponse.m */; };
+		80A75AFE19B90446008D3EC8 /* MobileDeviceLoginResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A4819B90446008D3EC8 /* MobileDeviceLoginResponse.xml */; };
+		80A75AFF19B90446008D3EC8 /* MobileDeviceRegistrationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4919B90446008D3EC8 /* MobileDeviceRegistrationRequest.m */; };
+		80A75B0019B90446008D3EC8 /* MobileDeviceRegistrationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4A19B90446008D3EC8 /* MobileDeviceRegistrationResponse.m */; };
+		80A75B0119B90446008D3EC8 /* MobileDeviceRegistrationResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A4B19B90446008D3EC8 /* MobileDeviceRegistrationResponse.xml */; };
+		80A75B0219B90446008D3EC8 /* MobileDeviceType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4C19B90446008D3EC8 /* MobileDeviceType.m */; };
+		80A75B0319B90446008D3EC8 /* NameAndAddressType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4D19B90446008D3EC8 /* NameAndAddressType.m */; };
+		80A75B0419B90446008D3EC8 /* OrderExType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4E19B90446008D3EC8 /* OrderExType.m */; };
+		80A75B0519B90446008D3EC8 /* OrderType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A4F19B90446008D3EC8 /* OrderType.m */; };
+		80A75B0619B90446008D3EC8 /* PaymentMaskedType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5019B90446008D3EC8 /* PaymentMaskedType.m */; };
+		80A75B0719B90446008D3EC8 /* PaymentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5119B90446008D3EC8 /* PaymentType.m */; };
+		80A75B0819B90446008D3EC8 /* PermissionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5219B90446008D3EC8 /* PermissionType.m */; };
+		80A75B0919B90446008D3EC8 /* SendCustomerTransactionReceiptRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5319B90446008D3EC8 /* SendCustomerTransactionReceiptRequest.m */; };
+		80A75B0A19B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5419B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.m */; };
+		80A75B0B19B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A5519B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.xml */; };
+		80A75B0C19B90446008D3EC8 /* SettingType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5619B90446008D3EC8 /* SettingType.m */; };
+		80A75B0D19B90446008D3EC8 /* SplitTenderPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5719B90446008D3EC8 /* SplitTenderPayment.m */; };
+		80A75B0E19B90446008D3EC8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5A19B90446008D3EC8 /* Reachability.m */; };
+		80A75B0F19B90446008D3EC8 /* SwiperDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5B19B90446008D3EC8 /* SwiperDataType.m */; };
+		80A75B1019B90446008D3EC8 /* TestAccountCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5C19B90446008D3EC8 /* TestAccountCaptchaRequest.m */; };
+		80A75B1119B90446008D3EC8 /* TestAccountCaptchaResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A5E19B90446008D3EC8 /* TestAccountCaptchaResponse.m */; };
+		80A75B1219B90446008D3EC8 /* TestAccountCaptchaResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A5F19B90446008D3EC8 /* TestAccountCaptchaResponse.xml */; };
+		80A75B1319B90446008D3EC8 /* TestAccountRegistrationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6119B90446008D3EC8 /* TestAccountRegistrationRequest.m */; };
+		80A75B1419B90446008D3EC8 /* TestAccountRegistrationResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A6219B90446008D3EC8 /* TestAccountRegistrationResponse.xml */; };
+		80A75B1519B90446008D3EC8 /* TransactionDetailsType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6319B90446008D3EC8 /* TransactionDetailsType.m */; };
+		80A75B1619B90446008D3EC8 /* TransactionRequestType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6419B90446008D3EC8 /* TransactionRequestType.m */; };
+		80A75B1719B90446008D3EC8 /* TransactionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6519B90446008D3EC8 /* TransactionResponse.m */; };
+		80A75B1819B90446008D3EC8 /* TransactionSummaryType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6619B90446008D3EC8 /* TransactionSummaryType.m */; };
+		80A75B1919B90446008D3EC8 /* TransRetailInfoType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6719B90446008D3EC8 /* TransRetailInfoType.m */; };
+		80A75B1A19B90446008D3EC8 /* UserField.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6819B90446008D3EC8 /* UserField.m */; };
+		80A75B1B19B90446008D3EC8 /* Anet SDKTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A6D19B90446008D3EC8 /* Anet SDKTests-Info.plist */; };
+		80A75B1C19B90446008D3EC8 /* Anet_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6F19B90446008D3EC8 /* Anet_SDKTests.m */; };
+		80A75B1D19B90446008D3EC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A7019B90446008D3EC8 /* InfoPlist.strings */; };
+		80A75B1E19B90446008D3EC8 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A7419B90446008D3EC8 /* README */; };
+		80A75B1F19B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A7519B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf */; };
+		80A75B2019B90446008D3EC8 /* NSArray+PerformSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A7819B90446008D3EC8 /* NSArray+PerformSelector.m */; };
+		80A75B2119B90446008D3EC8 /* NSString+dataFromFilename.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A7A19B90446008D3EC8 /* NSString+dataFromFilename.m */; };
+		80A75B2219B90446008D3EC8 /* NSString+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A7C19B90446008D3EC8 /* NSString+Hex.m */; };
+		80A75B2319B90446008D3EC8 /* NSString+stringForRFC3339DateTimeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A7E19B90446008D3EC8 /* NSString+stringForRFC3339DateTimeString.m */; };
+		80A75B2419B90446008D3EC8 /* NSString+stringValueOfXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A8019B90446008D3EC8 /* NSString+stringValueOfXMLElement.m */; };
+		80A75B2519B90446008D3EC8 /* NSString+stringWithEscapedXMLValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A8219B90446008D3EC8 /* NSString+stringWithEscapedXMLValue.m */; };
+		80A75B2619B90446008D3EC8 /* NSString+stringWithXMLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A8419B90446008D3EC8 /* NSString+stringWithXMLTag.m */; };
+		80A75B2719B90446008D3EC8 /* UIToolbar+BackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A8619B90446008D3EC8 /* UIToolbar+BackgroundImage.m */; };
+		80FA44E919BC233E00C40897 /* authorize_net.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44DB19BC233E00C40897 /* authorize_net.png */; };
+		80FA44EA19BC233E00C40897 /* btn_G.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44DC19BC233E00C40897 /* btn_G.png */; };
+		80FA44EB19BC233E00C40897 /* header_bar_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44DD19BC233E00C40897 /* header_bar_landscape.png */; };
+		80FA44EC19BC233E00C40897 /* header_bar_landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44DE19BC233E00C40897 /* header_bar_landscape@2x.png */; };
+		80FA44ED19BC233E00C40897 /* header_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44DF19BC233E00C40897 /* header_bar.png */; };
+		80FA44EE19BC233E00C40897 /* header_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E019BC233E00C40897 /* header_bar@2x.png */; };
+		80FA44EF19BC233E00C40897 /* ic_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E119BC233E00C40897 /* ic_delete.png */; };
+		80FA44F019BC233E00C40897 /* ic_dev_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E219BC233E00C40897 /* ic_dev_info.png */; };
+		80FA44F119BC233E00C40897 /* ic_empty_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E319BC233E00C40897 /* ic_empty_box.png */; };
+		80FA44F219BC233E00C40897 /* input_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E419BC233E00C40897 /* input_2.png */; };
+		80FA44F319BC233E00C40897 /* input_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E519BC233E00C40897 /* input_2@2x.png */; };
+		80FA44F419BC233E00C40897 /* input.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E619BC233E00C40897 /* input.png */; };
+		80FA44F519BC233E00C40897 /* input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E719BC233E00C40897 /* input@2x.png */; };
+		80FA44F619BC233E00C40897 /* mma_gray-bkgnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E819BC233E00C40897 /* mma_gray-bkgnd.png */; };
+		9CFDD5DC197838F90051D1C4 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDD5DB197838F90051D1C4 /* CreditCardViewController.m */; };
+		B11A382D9E324C0A9C738296 /* libPods-AuthnetLabTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF815B9308094116B3413C45 /* libPods-AuthnetLabTests.a */; };
+		FF3591461949C2D600432E35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3591451949C2D600432E35 /* Foundation.framework */; };
+		FF3591481949C2D600432E35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3591471949C2D600432E35 /* CoreGraphics.framework */; };
+		FF35914A1949C2D600432E35 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3591491949C2D600432E35 /* UIKit.framework */; };
+		FF3591501949C2D600432E35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF35914E1949C2D600432E35 /* InfoPlist.strings */; };
+		FF3591521949C2D600432E35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3591511949C2D600432E35 /* main.m */; };
+		FF3591561949C2D600432E35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3591551949C2D600432E35 /* AppDelegate.m */; };
+		FF35915F1949C2D600432E35 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF35915E1949C2D600432E35 /* ViewController.m */; };
+		FF3591611949C2D600432E35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF3591601949C2D600432E35 /* Images.xcassets */; };
+		FF3591681949C2D600432E35 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3591671949C2D600432E35 /* XCTest.framework */; };
+		FF3591691949C2D600432E35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3591451949C2D600432E35 /* Foundation.framework */; };
+		FF35916A1949C2D600432E35 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3591491949C2D600432E35 /* UIKit.framework */; };
+		FF3591721949C2D600432E35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF3591701949C2D600432E35 /* InfoPlist.strings */; };
+		FF3591741949C2D600432E35 /* AuthnetLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3591731949C2D600432E35 /* AuthnetLabTests.m */; };
+		FF3592A91949C4D600432E35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3592A81949C4D600432E35 /* SystemConfiguration.framework */; };
+		FF3593DC1949CC6A00432E35 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3592AB1949C64500432E35 /* SenTestingKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		80A75B2D19B90446008D3EC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A75A6919B90446008D3EC8 /* Anet SDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DEBA88317D129B700B7A8B9;
+			remoteInfo = "Anet SDK";
+		};
+		80A75B2F19B90446008D3EC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A75A6919B90446008D3EC8 /* Anet SDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DEBA89417D129B700B7A8B9;
+			remoteInfo = "Anet SDKTests";
+		};
+		FF35916B1949C2D600432E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF35913A1949C2D500432E35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF3591411949C2D600432E35;
+			remoteInfo = AuthnetLab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		125495B01FE441B0B0095E4C /* libPods-AuthnetLab.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AuthnetLab.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		273E69BC2F7F4628AE030F75 /* Pods-AuthnetLabTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthnetLabTests.xcconfig"; path = "Pods/Pods-AuthnetLabTests.xcconfig"; sourceTree = "<group>"; };
+		8090A55919B92CF900268BFD /* LZNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNavigationBar.h; sourceTree = "<group>"; };
+		8090A55A19B92CF900268BFD /* LZNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNavigationBar.m; sourceTree = "<group>"; };
+		8090A55C19B9336400268BFD /* DecimalKeypadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecimalKeypadView.h; sourceTree = "<group>"; };
+		8090A55D19B9336400268BFD /* DecimalKeypadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecimalKeypadView.m; sourceTree = "<group>"; };
+		8090A55E19B9336400268BFD /* DecimalKeypadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecimalKeypadView.xib; sourceTree = "<group>"; };
+		80A75A1619B90446008D3EC8 /* Anet SDK-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Anet SDK-Prefix.pch"; sourceTree = "<group>"; };
+		80A75A1719B90446008D3EC8 /* ANetApiRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANetApiRequest.m; sourceTree = "<group>"; };
+		80A75A1819B90446008D3EC8 /* ANetApiResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANetApiResponse.m; sourceTree = "<group>"; };
+		80A75A1919B90446008D3EC8 /* AuthNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNet.m; sourceTree = "<group>"; };
+		80A75A1A19B90446008D3EC8 /* AuthNetMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetMessage.m; sourceTree = "<group>"; };
+		80A75A1B19B90446008D3EC8 /* AuthNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetRequest.m; sourceTree = "<group>"; };
+		80A75A1C19B90446008D3EC8 /* AuthNetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetResponse.m; sourceTree = "<group>"; };
+		80A75A1D19B90446008D3EC8 /* AuthNetUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetUnitTests.m; sourceTree = "<group>"; };
+		80A75A1E19B90446008D3EC8 /* BankAccountMaskedType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountMaskedType.m; sourceTree = "<group>"; };
+		80A75A1F19B90446008D3EC8 /* BankAccountType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountType.m; sourceTree = "<group>"; };
+		80A75A2019B90446008D3EC8 /* BatchDetailsType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchDetailsType.m; sourceTree = "<group>"; };
+		80A75A2119B90446008D3EC8 /* BatchStatisticType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchStatisticType.m; sourceTree = "<group>"; };
+		80A75A2219B90446008D3EC8 /* CCAuthenticationType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAuthenticationType.m; sourceTree = "<group>"; };
+		80A75A2319B90446008D3EC8 /* CreateTransactionRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTransactionRequest.m; sourceTree = "<group>"; };
+		80A75A2419B90446008D3EC8 /* CreateTransactionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTransactionResponse.m; sourceTree = "<group>"; };
+		80A75A2519B90446008D3EC8 /* CreateTransactionResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CreateTransactionResponse.xml; sourceTree = "<group>"; };
+		80A75A2619B90446008D3EC8 /* CreditCardMaskedType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardMaskedType.m; sourceTree = "<group>"; };
+		80A75A2719B90446008D3EC8 /* CreditCardTrackType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardTrackType.m; sourceTree = "<group>"; };
+		80A75A2819B90446008D3EC8 /* CreditCardType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardType.m; sourceTree = "<group>"; };
+		80A75A2919B90446008D3EC8 /* CustomerAddressType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerAddressType.m; sourceTree = "<group>"; };
+		80A75A2A19B90446008D3EC8 /* CustomerDataType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerDataType.m; sourceTree = "<group>"; };
+		80A75A2B19B90446008D3EC8 /* Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Error.m; sourceTree = "<group>"; };
+		80A75A2C19B90446008D3EC8 /* ExtendedAmountType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedAmountType.m; sourceTree = "<group>"; };
+		80A75A2D19B90446008D3EC8 /* FDSFilterType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDSFilterType.m; sourceTree = "<group>"; };
+		80A75A2E19B90446008D3EC8 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		80A75A2F19B90446008D3EC8 /* GetBatchStatisticsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetBatchStatisticsRequest.m; sourceTree = "<group>"; };
+		80A75A3019B90446008D3EC8 /* GetBatchStatisticsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetBatchStatisticsResponse.m; sourceTree = "<group>"; };
+		80A75A3119B90446008D3EC8 /* GetBatchStatisticsResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GetBatchStatisticsResponse.xml; sourceTree = "<group>"; };
+		80A75A3219B90446008D3EC8 /* GetSettledBatchListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetSettledBatchListRequest.m; sourceTree = "<group>"; };
+		80A75A3319B90446008D3EC8 /* GetSettledBatchListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetSettledBatchListResponse.m; sourceTree = "<group>"; };
+		80A75A3419B90446008D3EC8 /* GetSettledBatchListResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GetSettledBatchListResponse.xml; sourceTree = "<group>"; };
+		80A75A3519B90446008D3EC8 /* GetTransactionDetailsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTransactionDetailsRequest.m; sourceTree = "<group>"; };
+		80A75A3619B90446008D3EC8 /* GetTransactionDetailsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTransactionDetailsResponse.m; sourceTree = "<group>"; };
+		80A75A3719B90446008D3EC8 /* GetTransactionDetailsResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GetTransactionDetailsResponse.xml; sourceTree = "<group>"; };
+		80A75A3819B90446008D3EC8 /* GetTransactionListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTransactionListRequest.m; sourceTree = "<group>"; };
+		80A75A3919B90446008D3EC8 /* GetTransactionListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTransactionListResponse.m; sourceTree = "<group>"; };
+		80A75A3A19B90446008D3EC8 /* GetTransactionListResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GetTransactionListResponse.xml; sourceTree = "<group>"; };
+		80A75A3B19B90446008D3EC8 /* GetUnsettledTransactionListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUnsettledTransactionListRequest.m; sourceTree = "<group>"; };
+		80A75A3C19B90446008D3EC8 /* GetUnsettledTransactionListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUnsettledTransactionListResponse.m; sourceTree = "<group>"; };
+		80A75A3D19B90446008D3EC8 /* GetUnsettledTransactionListResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GetUnsettledTransactionListResponse.xml; sourceTree = "<group>"; };
+		80A75A3E19B90446008D3EC8 /* LineItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineItemType.m; sourceTree = "<group>"; };
+		80A75A3F19B90446008D3EC8 /* LogoutRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutRequest.m; sourceTree = "<group>"; };
+		80A75A4019B90446008D3EC8 /* LogoutResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutResponse.m; sourceTree = "<group>"; };
+		80A75A4119B90446008D3EC8 /* LogoutResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LogoutResponse.xml; sourceTree = "<group>"; };
+		80A75A4219B90446008D3EC8 /* MerchantAccountType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantAccountType.m; sourceTree = "<group>"; };
+		80A75A4319B90446008D3EC8 /* MerchantAuthenticationType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantAuthenticationType.m; sourceTree = "<group>"; };
+		80A75A4419B90446008D3EC8 /* MerchantContactType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantContactType.m; sourceTree = "<group>"; };
+		80A75A4519B90446008D3EC8 /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messages.m; sourceTree = "<group>"; };
+		80A75A4619B90446008D3EC8 /* MobileDeviceLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileDeviceLoginRequest.m; sourceTree = "<group>"; };
+		80A75A4719B90446008D3EC8 /* MobileDeviceLoginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileDeviceLoginResponse.m; sourceTree = "<group>"; };
+		80A75A4819B90446008D3EC8 /* MobileDeviceLoginResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MobileDeviceLoginResponse.xml; sourceTree = "<group>"; };
+		80A75A4919B90446008D3EC8 /* MobileDeviceRegistrationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileDeviceRegistrationRequest.m; sourceTree = "<group>"; };
+		80A75A4A19B90446008D3EC8 /* MobileDeviceRegistrationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileDeviceRegistrationResponse.m; sourceTree = "<group>"; };
+		80A75A4B19B90446008D3EC8 /* MobileDeviceRegistrationResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MobileDeviceRegistrationResponse.xml; sourceTree = "<group>"; };
+		80A75A4C19B90446008D3EC8 /* MobileDeviceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileDeviceType.m; sourceTree = "<group>"; };
+		80A75A4D19B90446008D3EC8 /* NameAndAddressType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndAddressType.m; sourceTree = "<group>"; };
+		80A75A4E19B90446008D3EC8 /* OrderExType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderExType.m; sourceTree = "<group>"; };
+		80A75A4F19B90446008D3EC8 /* OrderType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderType.m; sourceTree = "<group>"; };
+		80A75A5019B90446008D3EC8 /* PaymentMaskedType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentMaskedType.m; sourceTree = "<group>"; };
+		80A75A5119B90446008D3EC8 /* PaymentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentType.m; sourceTree = "<group>"; };
+		80A75A5219B90446008D3EC8 /* PermissionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PermissionType.m; sourceTree = "<group>"; };
+		80A75A5319B90446008D3EC8 /* SendCustomerTransactionReceiptRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendCustomerTransactionReceiptRequest.m; sourceTree = "<group>"; };
+		80A75A5419B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendCustomerTransactionReceiptResponse.m; sourceTree = "<group>"; };
+		80A75A5519B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SendCustomerTransactionReceiptResponse.xml; sourceTree = "<group>"; };
+		80A75A5619B90446008D3EC8 /* SettingType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingType.m; sourceTree = "<group>"; };
+		80A75A5719B90446008D3EC8 /* SplitTenderPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitTenderPayment.m; sourceTree = "<group>"; };
+		80A75A5919B90446008D3EC8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		80A75A5A19B90446008D3EC8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		80A75A5B19B90446008D3EC8 /* SwiperDataType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiperDataType.m; sourceTree = "<group>"; };
+		80A75A5C19B90446008D3EC8 /* TestAccountCaptchaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountCaptchaRequest.m; sourceTree = "<group>"; };
+		80A75A5D19B90446008D3EC8 /* TestAccountCaptchaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaResponse.h; sourceTree = "<group>"; };
+		80A75A5E19B90446008D3EC8 /* TestAccountCaptchaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountCaptchaResponse.m; sourceTree = "<group>"; };
+		80A75A5F19B90446008D3EC8 /* TestAccountCaptchaResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountCaptchaResponse.xml; sourceTree = "<group>"; };
+		80A75A6019B90446008D3EC8 /* TestAccountRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationRequest.h; sourceTree = "<group>"; };
+		80A75A6119B90446008D3EC8 /* TestAccountRegistrationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountRegistrationRequest.m; sourceTree = "<group>"; };
+		80A75A6219B90446008D3EC8 /* TestAccountRegistrationResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountRegistrationResponse.xml; sourceTree = "<group>"; };
+		80A75A6319B90446008D3EC8 /* TransactionDetailsType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionDetailsType.m; sourceTree = "<group>"; };
+		80A75A6419B90446008D3EC8 /* TransactionRequestType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionRequestType.m; sourceTree = "<group>"; };
+		80A75A6519B90446008D3EC8 /* TransactionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionResponse.m; sourceTree = "<group>"; };
+		80A75A6619B90446008D3EC8 /* TransactionSummaryType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionSummaryType.m; sourceTree = "<group>"; };
+		80A75A6719B90446008D3EC8 /* TransRetailInfoType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransRetailInfoType.m; sourceTree = "<group>"; };
+		80A75A6819B90446008D3EC8 /* UserField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserField.m; sourceTree = "<group>"; };
+		80A75A6919B90446008D3EC8 /* Anet SDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Anet SDK.xcodeproj"; sourceTree = "<group>"; };
+		80A75A6D19B90446008D3EC8 /* Anet SDKTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Anet SDKTests-Info.plist"; sourceTree = "<group>"; };
+		80A75A6E19B90446008D3EC8 /* Anet_SDKTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anet_SDKTests.h; sourceTree = "<group>"; };
+		80A75A6F19B90446008D3EC8 /* Anet_SDKTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Anet_SDKTests.m; sourceTree = "<group>"; };
+		80A75A7119B90446008D3EC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		80A75A7219B90446008D3EC8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		80A75A7419B90446008D3EC8 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		80A75A7519B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SDK License Agreement (10.20.10).pdf"; sourceTree = "<group>"; };
+		80A75A7719B90446008D3EC8 /* NSArray+PerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PerformSelector.h"; sourceTree = "<group>"; };
+		80A75A7819B90446008D3EC8 /* NSArray+PerformSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PerformSelector.m"; sourceTree = "<group>"; };
+		80A75A7919B90446008D3EC8 /* NSString+dataFromFilename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dataFromFilename.h"; sourceTree = "<group>"; };
+		80A75A7A19B90446008D3EC8 /* NSString+dataFromFilename.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dataFromFilename.m"; sourceTree = "<group>"; };
+		80A75A7B19B90446008D3EC8 /* NSString+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hex.h"; sourceTree = "<group>"; };
+		80A75A7C19B90446008D3EC8 /* NSString+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hex.m"; sourceTree = "<group>"; };
+		80A75A7D19B90446008D3EC8 /* NSString+stringForRFC3339DateTimeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringForRFC3339DateTimeString.h"; sourceTree = "<group>"; };
+		80A75A7E19B90446008D3EC8 /* NSString+stringForRFC3339DateTimeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringForRFC3339DateTimeString.m"; sourceTree = "<group>"; };
+		80A75A7F19B90446008D3EC8 /* NSString+stringValueOfXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringValueOfXMLElement.h"; sourceTree = "<group>"; };
+		80A75A8019B90446008D3EC8 /* NSString+stringValueOfXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringValueOfXMLElement.m"; sourceTree = "<group>"; };
+		80A75A8119B90446008D3EC8 /* NSString+stringWithEscapedXMLValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringWithEscapedXMLValue.h"; sourceTree = "<group>"; };
+		80A75A8219B90446008D3EC8 /* NSString+stringWithEscapedXMLValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringWithEscapedXMLValue.m"; sourceTree = "<group>"; };
+		80A75A8319B90446008D3EC8 /* NSString+stringWithXMLTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringWithXMLTag.h"; sourceTree = "<group>"; };
+		80A75A8419B90446008D3EC8 /* NSString+stringWithXMLTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+stringWithXMLTag.m"; sourceTree = "<group>"; };
+		80A75A8519B90446008D3EC8 /* UIToolbar+BackgroundImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+BackgroundImage.h"; sourceTree = "<group>"; };
+		80A75A8619B90446008D3EC8 /* UIToolbar+BackgroundImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+BackgroundImage.m"; sourceTree = "<group>"; };
+		80A75A8819B90446008D3EC8 /* ANetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiRequest.h; sourceTree = "<group>"; };
+		80A75A8919B90446008D3EC8 /* ANetApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiResponse.h; sourceTree = "<group>"; };
+		80A75A8A19B90446008D3EC8 /* AuthNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNet.h; sourceTree = "<group>"; };
+		80A75A8B19B90446008D3EC8 /* AuthNetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetMessage.h; sourceTree = "<group>"; };
+		80A75A8C19B90446008D3EC8 /* AuthNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetRequest.h; sourceTree = "<group>"; };
+		80A75A8D19B90446008D3EC8 /* AuthNetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetResponse.h; sourceTree = "<group>"; };
+		80A75A8E19B90446008D3EC8 /* AuthNetUnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetUnitTests.h; sourceTree = "<group>"; };
+		80A75A8F19B90446008D3EC8 /* BankAccountMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountMaskedType.h; sourceTree = "<group>"; };
+		80A75A9019B90446008D3EC8 /* BankAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountType.h; sourceTree = "<group>"; };
+		80A75A9119B90446008D3EC8 /* BatchDetailsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchDetailsType.h; sourceTree = "<group>"; };
+		80A75A9219B90446008D3EC8 /* BatchStatisticType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchStatisticType.h; sourceTree = "<group>"; };
+		80A75A9319B90446008D3EC8 /* CCAuthenticationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAuthenticationType.h; sourceTree = "<group>"; };
+		80A75A9419B90446008D3EC8 /* CreateTransactionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTransactionRequest.h; sourceTree = "<group>"; };
+		80A75A9519B90446008D3EC8 /* CreateTransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTransactionResponse.h; sourceTree = "<group>"; };
+		80A75A9619B90446008D3EC8 /* CreditCardMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardMaskedType.h; sourceTree = "<group>"; };
+		80A75A9719B90446008D3EC8 /* CreditCardTrackType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardTrackType.h; sourceTree = "<group>"; };
+		80A75A9819B90446008D3EC8 /* CreditCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardType.h; sourceTree = "<group>"; };
+		80A75A9919B90446008D3EC8 /* CustomerAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAddressType.h; sourceTree = "<group>"; };
+		80A75A9A19B90446008D3EC8 /* CustomerDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDataType.h; sourceTree = "<group>"; };
+		80A75A9B19B90446008D3EC8 /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Error.h; sourceTree = "<group>"; };
+		80A75A9C19B90446008D3EC8 /* ExtendedAmountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedAmountType.h; sourceTree = "<group>"; };
+		80A75A9D19B90446008D3EC8 /* FDSFilterType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSFilterType.h; sourceTree = "<group>"; };
+		80A75A9E19B90446008D3EC8 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		80A75A9F19B90446008D3EC8 /* GetBatchStatisticsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatchStatisticsRequest.h; sourceTree = "<group>"; };
+		80A75AA019B90446008D3EC8 /* GetBatchStatisticsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatchStatisticsResponse.h; sourceTree = "<group>"; };
+		80A75AA119B90446008D3EC8 /* GetSettledBatchListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSettledBatchListRequest.h; sourceTree = "<group>"; };
+		80A75AA219B90446008D3EC8 /* GetSettledBatchListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSettledBatchListResponse.h; sourceTree = "<group>"; };
+		80A75AA319B90446008D3EC8 /* GetTransactionDetailsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionDetailsRequest.h; sourceTree = "<group>"; };
+		80A75AA419B90446008D3EC8 /* GetTransactionDetailsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionDetailsResponse.h; sourceTree = "<group>"; };
+		80A75AA519B90446008D3EC8 /* GetTransactionListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionListRequest.h; sourceTree = "<group>"; };
+		80A75AA619B90446008D3EC8 /* GetTransactionListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionListResponse.h; sourceTree = "<group>"; };
+		80A75AA719B90446008D3EC8 /* GetUnsettledTransactionListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnsettledTransactionListRequest.h; sourceTree = "<group>"; };
+		80A75AA819B90446008D3EC8 /* GetUnsettledTransactionListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnsettledTransactionListResponse.h; sourceTree = "<group>"; };
+		80A75AA919B90446008D3EC8 /* LineItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineItemType.h; sourceTree = "<group>"; };
+		80A75AAA19B90446008D3EC8 /* LogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutRequest.h; sourceTree = "<group>"; };
+		80A75AAB19B90446008D3EC8 /* LogoutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutResponse.h; sourceTree = "<group>"; };
+		80A75AAC19B90446008D3EC8 /* MerchantAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantAccountType.h; sourceTree = "<group>"; };
+		80A75AAD19B90446008D3EC8 /* MerchantAuthenticationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantAuthenticationType.h; sourceTree = "<group>"; };
+		80A75AAE19B90446008D3EC8 /* MerchantContactType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantContactType.h; sourceTree = "<group>"; };
+		80A75AAF19B90446008D3EC8 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
+		80A75AB019B90446008D3EC8 /* MobileDeviceLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceLoginRequest.h; sourceTree = "<group>"; };
+		80A75AB119B90446008D3EC8 /* MobileDeviceLoginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceLoginResponse.h; sourceTree = "<group>"; };
+		80A75AB219B90446008D3EC8 /* MobileDeviceRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceRegistrationRequest.h; sourceTree = "<group>"; };
+		80A75AB319B90446008D3EC8 /* MobileDeviceRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceRegistrationResponse.h; sourceTree = "<group>"; };
+		80A75AB419B90446008D3EC8 /* MobileDeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceType.h; sourceTree = "<group>"; };
+		80A75AB519B90446008D3EC8 /* NameAndAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndAddressType.h; sourceTree = "<group>"; };
+		80A75AB619B90446008D3EC8 /* OrderExType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderExType.h; sourceTree = "<group>"; };
+		80A75AB719B90446008D3EC8 /* OrderType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderType.h; sourceTree = "<group>"; };
+		80A75AB819B90446008D3EC8 /* PaymentMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentMaskedType.h; sourceTree = "<group>"; };
+		80A75AB919B90446008D3EC8 /* PaymentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentType.h; sourceTree = "<group>"; };
+		80A75ABA19B90446008D3EC8 /* PermissionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionType.h; sourceTree = "<group>"; };
+		80A75ABB19B90446008D3EC8 /* SendCustomerTransactionReceiptRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCustomerTransactionReceiptRequest.h; sourceTree = "<group>"; };
+		80A75ABC19B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCustomerTransactionReceiptResponse.h; sourceTree = "<group>"; };
+		80A75ABD19B90446008D3EC8 /* SettingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingType.h; sourceTree = "<group>"; };
+		80A75ABE19B90446008D3EC8 /* SplitTenderPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitTenderPayment.h; sourceTree = "<group>"; };
+		80A75ABF19B90446008D3EC8 /* SwiperDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiperDataType.h; sourceTree = "<group>"; };
+		80A75AC019B90446008D3EC8 /* TestAccountCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaRequest.h; sourceTree = "<group>"; };
+		80A75AC119B90446008D3EC8 /* TestAccountCaptchaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaResponse.h; sourceTree = "<group>"; };
+		80A75AC219B90446008D3EC8 /* TestAccountCaptchaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountCaptchaResponse.m; sourceTree = "<group>"; };
+		80A75AC319B90446008D3EC8 /* TestAccountRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationRequest.h; sourceTree = "<group>"; };
+		80A75AC419B90446008D3EC8 /* TestAccountRegistrationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountRegistrationRequest.m; sourceTree = "<group>"; };
+		80A75AC519B90446008D3EC8 /* TestAccountRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationResponse.h; sourceTree = "<group>"; };
+		80A75AC619B90446008D3EC8 /* TestAccountRegistrationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountRegistrationResponse.m; sourceTree = "<group>"; };
+		80A75AC719B90446008D3EC8 /* TransactionDetailsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDetailsType.h; sourceTree = "<group>"; };
+		80A75AC819B90446008D3EC8 /* TransactionRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionRequestType.h; sourceTree = "<group>"; };
+		80A75AC919B90446008D3EC8 /* TransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionResponse.h; sourceTree = "<group>"; };
+		80A75ACA19B90446008D3EC8 /* TransactionSummaryType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionSummaryType.h; sourceTree = "<group>"; };
+		80A75ACB19B90446008D3EC8 /* TransRetailInfoType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransRetailInfoType.h; sourceTree = "<group>"; };
+		80A75ACC19B90446008D3EC8 /* UserField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserField.h; sourceTree = "<group>"; };
+		80FA44DB19BC233E00C40897 /* authorize_net.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = authorize_net.png; path = AuthnetLab/authorize_net.png; sourceTree = "<group>"; };
+		80FA44DC19BC233E00C40897 /* btn_G.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_G.png; path = AuthnetLab/btn_G.png; sourceTree = "<group>"; };
+		80FA44DD19BC233E00C40897 /* header_bar_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_bar_landscape.png; path = AuthnetLab/header_bar_landscape.png; sourceTree = "<group>"; };
+		80FA44DE19BC233E00C40897 /* header_bar_landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header_bar_landscape@2x.png"; path = "AuthnetLab/header_bar_landscape@2x.png"; sourceTree = "<group>"; };
+		80FA44DF19BC233E00C40897 /* header_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header_bar.png; path = AuthnetLab/header_bar.png; sourceTree = "<group>"; };
+		80FA44E019BC233E00C40897 /* header_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header_bar@2x.png"; path = "AuthnetLab/header_bar@2x.png"; sourceTree = "<group>"; };
+		80FA44E119BC233E00C40897 /* ic_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_delete.png; path = AuthnetLab/ic_delete.png; sourceTree = "<group>"; };
+		80FA44E219BC233E00C40897 /* ic_dev_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_dev_info.png; path = AuthnetLab/ic_dev_info.png; sourceTree = "<group>"; };
+		80FA44E319BC233E00C40897 /* ic_empty_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_empty_box.png; path = AuthnetLab/ic_empty_box.png; sourceTree = "<group>"; };
+		80FA44E419BC233E00C40897 /* input_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = input_2.png; path = AuthnetLab/input_2.png; sourceTree = "<group>"; };
+		80FA44E519BC233E00C40897 /* input_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "input_2@2x.png"; path = "AuthnetLab/input_2@2x.png"; sourceTree = "<group>"; };
+		80FA44E619BC233E00C40897 /* input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = input.png; path = AuthnetLab/input.png; sourceTree = "<group>"; };
+		80FA44E719BC233E00C40897 /* input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "input@2x.png"; path = "AuthnetLab/input@2x.png"; sourceTree = "<group>"; };
+		80FA44E819BC233E00C40897 /* mma_gray-bkgnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mma_gray-bkgnd.png"; path = "AuthnetLab/mma_gray-bkgnd.png"; sourceTree = "<group>"; };
+		84C39FBA20534B9DB46489EA /* Pods-AuthnetLab.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthnetLab.xcconfig"; path = "Pods/Pods-AuthnetLab.xcconfig"; sourceTree = "<group>"; };
+		9CD34D73197EF01300F9E48B /* IDTECH_UniMag.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = IDTECH_UniMag.a; path = ../../Downloads/Final14July/Libraries/IDTech/IDTECH_UniMag.a; sourceTree = "<group>"; };
+		9CFDD5DA197838F90051D1C4 /* CreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardViewController.h; sourceTree = "<group>"; };
+		9CFDD5DB197838F90051D1C4 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
+		FF3591421949C2D600432E35 /* AuthnetLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthnetLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3591451949C2D600432E35 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FF3591471949C2D600432E35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FF3591491949C2D600432E35 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FF35914D1949C2D600432E35 /* AuthnetLab-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AuthnetLab-Info.plist"; sourceTree = "<group>"; };
+		FF35914F1949C2D600432E35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FF3591511949C2D600432E35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FF3591531949C2D600432E35 /* AuthnetLab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AuthnetLab-Prefix.pch"; sourceTree = "<group>"; };
+		FF3591541949C2D600432E35 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FF3591551949C2D600432E35 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FF3591581949C2D600432E35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		FF35915B1949C2D600432E35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		FF35915D1949C2D600432E35 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FF35915E1949C2D600432E35 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FF3591601949C2D600432E35 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FF3591661949C2D600432E35 /* AuthnetLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthnetLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3591671949C2D600432E35 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FF35916F1949C2D600432E35 /* AuthnetLabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AuthnetLabTests-Info.plist"; sourceTree = "<group>"; };
+		FF3591711949C2D600432E35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FF3591731949C2D600432E35 /* AuthnetLabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthnetLabTests.m; sourceTree = "<group>"; };
+		FF3592A81949C4D600432E35 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FF3592AB1949C64500432E35 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FF815B9308094116B3413C45 /* libPods-AuthnetLabTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AuthnetLabTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF35913F1949C2D600432E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3593DC1949CC6A00432E35 /* SenTestingKit.framework in Frameworks */,
+				FF3592A91949C4D600432E35 /* SystemConfiguration.framework in Frameworks */,
+				FF3591481949C2D600432E35 /* CoreGraphics.framework in Frameworks */,
+				FF35914A1949C2D600432E35 /* UIKit.framework in Frameworks */,
+				FF3591461949C2D600432E35 /* Foundation.framework in Frameworks */,
+				2D00D6358AD246A68CFA20A0 /* libPods-AuthnetLab.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3591631949C2D600432E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3591681949C2D600432E35 /* XCTest.framework in Frameworks */,
+				FF35916A1949C2D600432E35 /* UIKit.framework in Frameworks */,
+				FF3591691949C2D600432E35 /* Foundation.framework in Frameworks */,
+				B11A382D9E324C0A9C738296 /* libPods-AuthnetLabTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80A75A1419B90446008D3EC8 /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				80A75A1519B90446008D3EC8 /* Anet SDK */,
+				80A75A6919B90446008D3EC8 /* Anet SDK.xcodeproj */,
+				80A75A6C19B90446008D3EC8 /* Anet SDKTests */,
+				80A75A7319B90446008D3EC8 /* Documentation */,
+				80A75A7619B90446008D3EC8 /* Extension */,
+				80A75A8719B90446008D3EC8 /* Headers */,
+			);
+			name = sdk;
+			path = ../sdk;
+			sourceTree = "<group>";
+		};
+		80A75A1519B90446008D3EC8 /* Anet SDK */ = {
+			isa = PBXGroup;
+			children = (
+				80A75A1619B90446008D3EC8 /* Anet SDK-Prefix.pch */,
+				80A75A1719B90446008D3EC8 /* ANetApiRequest.m */,
+				80A75A1819B90446008D3EC8 /* ANetApiResponse.m */,
+				80A75A1919B90446008D3EC8 /* AuthNet.m */,
+				80A75A1A19B90446008D3EC8 /* AuthNetMessage.m */,
+				80A75A1B19B90446008D3EC8 /* AuthNetRequest.m */,
+				80A75A1C19B90446008D3EC8 /* AuthNetResponse.m */,
+				80A75A1D19B90446008D3EC8 /* AuthNetUnitTests.m */,
+				80A75A1E19B90446008D3EC8 /* BankAccountMaskedType.m */,
+				80A75A1F19B90446008D3EC8 /* BankAccountType.m */,
+				80A75A2019B90446008D3EC8 /* BatchDetailsType.m */,
+				80A75A2119B90446008D3EC8 /* BatchStatisticType.m */,
+				80A75A2219B90446008D3EC8 /* CCAuthenticationType.m */,
+				80A75A2319B90446008D3EC8 /* CreateTransactionRequest.m */,
+				80A75A2419B90446008D3EC8 /* CreateTransactionResponse.m */,
+				80A75A2519B90446008D3EC8 /* CreateTransactionResponse.xml */,
+				80A75A2619B90446008D3EC8 /* CreditCardMaskedType.m */,
+				80A75A2719B90446008D3EC8 /* CreditCardTrackType.m */,
+				80A75A2819B90446008D3EC8 /* CreditCardType.m */,
+				80A75A2919B90446008D3EC8 /* CustomerAddressType.m */,
+				80A75A2A19B90446008D3EC8 /* CustomerDataType.m */,
+				80A75A2B19B90446008D3EC8 /* Error.m */,
+				80A75A2C19B90446008D3EC8 /* ExtendedAmountType.m */,
+				80A75A2D19B90446008D3EC8 /* FDSFilterType.m */,
+				80A75A2E19B90446008D3EC8 /* GDataXMLNode.m */,
+				80A75A2F19B90446008D3EC8 /* GetBatchStatisticsRequest.m */,
+				80A75A3019B90446008D3EC8 /* GetBatchStatisticsResponse.m */,
+				80A75A3119B90446008D3EC8 /* GetBatchStatisticsResponse.xml */,
+				80A75A3219B90446008D3EC8 /* GetSettledBatchListRequest.m */,
+				80A75A3319B90446008D3EC8 /* GetSettledBatchListResponse.m */,
+				80A75A3419B90446008D3EC8 /* GetSettledBatchListResponse.xml */,
+				80A75A3519B90446008D3EC8 /* GetTransactionDetailsRequest.m */,
+				80A75A3619B90446008D3EC8 /* GetTransactionDetailsResponse.m */,
+				80A75A3719B90446008D3EC8 /* GetTransactionDetailsResponse.xml */,
+				80A75A3819B90446008D3EC8 /* GetTransactionListRequest.m */,
+				80A75A3919B90446008D3EC8 /* GetTransactionListResponse.m */,
+				80A75A3A19B90446008D3EC8 /* GetTransactionListResponse.xml */,
+				80A75A3B19B90446008D3EC8 /* GetUnsettledTransactionListRequest.m */,
+				80A75A3C19B90446008D3EC8 /* GetUnsettledTransactionListResponse.m */,
+				80A75A3D19B90446008D3EC8 /* GetUnsettledTransactionListResponse.xml */,
+				80A75A3E19B90446008D3EC8 /* LineItemType.m */,
+				80A75A3F19B90446008D3EC8 /* LogoutRequest.m */,
+				80A75A4019B90446008D3EC8 /* LogoutResponse.m */,
+				80A75A4119B90446008D3EC8 /* LogoutResponse.xml */,
+				80A75A4219B90446008D3EC8 /* MerchantAccountType.m */,
+				80A75A4319B90446008D3EC8 /* MerchantAuthenticationType.m */,
+				80A75A4419B90446008D3EC8 /* MerchantContactType.m */,
+				80A75A4519B90446008D3EC8 /* Messages.m */,
+				80A75A4619B90446008D3EC8 /* MobileDeviceLoginRequest.m */,
+				80A75A4719B90446008D3EC8 /* MobileDeviceLoginResponse.m */,
+				80A75A4819B90446008D3EC8 /* MobileDeviceLoginResponse.xml */,
+				80A75A4919B90446008D3EC8 /* MobileDeviceRegistrationRequest.m */,
+				80A75A4A19B90446008D3EC8 /* MobileDeviceRegistrationResponse.m */,
+				80A75A4B19B90446008D3EC8 /* MobileDeviceRegistrationResponse.xml */,
+				80A75A4C19B90446008D3EC8 /* MobileDeviceType.m */,
+				80A75A4D19B90446008D3EC8 /* NameAndAddressType.m */,
+				80A75A4E19B90446008D3EC8 /* OrderExType.m */,
+				80A75A4F19B90446008D3EC8 /* OrderType.m */,
+				80A75A5019B90446008D3EC8 /* PaymentMaskedType.m */,
+				80A75A5119B90446008D3EC8 /* PaymentType.m */,
+				80A75A5219B90446008D3EC8 /* PermissionType.m */,
+				80A75A5319B90446008D3EC8 /* SendCustomerTransactionReceiptRequest.m */,
+				80A75A5419B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.m */,
+				80A75A5519B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.xml */,
+				80A75A5619B90446008D3EC8 /* SettingType.m */,
+				80A75A5719B90446008D3EC8 /* SplitTenderPayment.m */,
+				80A75A5819B90446008D3EC8 /* Support Classes */,
+				80A75A5B19B90446008D3EC8 /* SwiperDataType.m */,
+				80A75A5C19B90446008D3EC8 /* TestAccountCaptchaRequest.m */,
+				80A75A5D19B90446008D3EC8 /* TestAccountCaptchaResponse.h */,
+				80A75A5E19B90446008D3EC8 /* TestAccountCaptchaResponse.m */,
+				80A75A5F19B90446008D3EC8 /* TestAccountCaptchaResponse.xml */,
+				80A75A6019B90446008D3EC8 /* TestAccountRegistrationRequest.h */,
+				80A75A6119B90446008D3EC8 /* TestAccountRegistrationRequest.m */,
+				80A75A6219B90446008D3EC8 /* TestAccountRegistrationResponse.xml */,
+				80A75A6319B90446008D3EC8 /* TransactionDetailsType.m */,
+				80A75A6419B90446008D3EC8 /* TransactionRequestType.m */,
+				80A75A6519B90446008D3EC8 /* TransactionResponse.m */,
+				80A75A6619B90446008D3EC8 /* TransactionSummaryType.m */,
+				80A75A6719B90446008D3EC8 /* TransRetailInfoType.m */,
+				80A75A6819B90446008D3EC8 /* UserField.m */,
+			);
+			path = "Anet SDK";
+			sourceTree = "<group>";
+		};
+		80A75A5819B90446008D3EC8 /* Support Classes */ = {
+			isa = PBXGroup;
+			children = (
+				80A75A5919B90446008D3EC8 /* Reachability.h */,
+				80A75A5A19B90446008D3EC8 /* Reachability.m */,
+			);
+			path = "Support Classes";
+			sourceTree = "<group>";
+		};
+		80A75A6A19B90446008D3EC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80A75B2E19B90446008D3EC8 /* libAnet SDK.a */,
+				80A75B3019B90446008D3EC8 /* Anet SDKTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80A75A6C19B90446008D3EC8 /* Anet SDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				80A75A6D19B90446008D3EC8 /* Anet SDKTests-Info.plist */,
+				80A75A6E19B90446008D3EC8 /* Anet_SDKTests.h */,
+				80A75A6F19B90446008D3EC8 /* Anet_SDKTests.m */,
+				80A75A7019B90446008D3EC8 /* InfoPlist.strings */,
+			);
+			path = "Anet SDKTests";
+			sourceTree = "<group>";
+		};
+		80A75A7319B90446008D3EC8 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				80A75A7419B90446008D3EC8 /* README */,
+				80A75A7519B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		80A75A7619B90446008D3EC8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				80A75A7719B90446008D3EC8 /* NSArray+PerformSelector.h */,
+				80A75A7819B90446008D3EC8 /* NSArray+PerformSelector.m */,
+				80A75A7919B90446008D3EC8 /* NSString+dataFromFilename.h */,
+				80A75A7A19B90446008D3EC8 /* NSString+dataFromFilename.m */,
+				80A75A7B19B90446008D3EC8 /* NSString+Hex.h */,
+				80A75A7C19B90446008D3EC8 /* NSString+Hex.m */,
+				80A75A7D19B90446008D3EC8 /* NSString+stringForRFC3339DateTimeString.h */,
+				80A75A7E19B90446008D3EC8 /* NSString+stringForRFC3339DateTimeString.m */,
+				80A75A7F19B90446008D3EC8 /* NSString+stringValueOfXMLElement.h */,
+				80A75A8019B90446008D3EC8 /* NSString+stringValueOfXMLElement.m */,
+				80A75A8119B90446008D3EC8 /* NSString+stringWithEscapedXMLValue.h */,
+				80A75A8219B90446008D3EC8 /* NSString+stringWithEscapedXMLValue.m */,
+				80A75A8319B90446008D3EC8 /* NSString+stringWithXMLTag.h */,
+				80A75A8419B90446008D3EC8 /* NSString+stringWithXMLTag.m */,
+				80A75A8519B90446008D3EC8 /* UIToolbar+BackgroundImage.h */,
+				80A75A8619B90446008D3EC8 /* UIToolbar+BackgroundImage.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		80A75A8719B90446008D3EC8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				80A75A8819B90446008D3EC8 /* ANetApiRequest.h */,
+				80A75A8919B90446008D3EC8 /* ANetApiResponse.h */,
+				80A75A8A19B90446008D3EC8 /* AuthNet.h */,
+				80A75A8B19B90446008D3EC8 /* AuthNetMessage.h */,
+				80A75A8C19B90446008D3EC8 /* AuthNetRequest.h */,
+				80A75A8D19B90446008D3EC8 /* AuthNetResponse.h */,
+				80A75A8E19B90446008D3EC8 /* AuthNetUnitTests.h */,
+				80A75A8F19B90446008D3EC8 /* BankAccountMaskedType.h */,
+				80A75A9019B90446008D3EC8 /* BankAccountType.h */,
+				80A75A9119B90446008D3EC8 /* BatchDetailsType.h */,
+				80A75A9219B90446008D3EC8 /* BatchStatisticType.h */,
+				80A75A9319B90446008D3EC8 /* CCAuthenticationType.h */,
+				80A75A9419B90446008D3EC8 /* CreateTransactionRequest.h */,
+				80A75A9519B90446008D3EC8 /* CreateTransactionResponse.h */,
+				80A75A9619B90446008D3EC8 /* CreditCardMaskedType.h */,
+				80A75A9719B90446008D3EC8 /* CreditCardTrackType.h */,
+				80A75A9819B90446008D3EC8 /* CreditCardType.h */,
+				80A75A9919B90446008D3EC8 /* CustomerAddressType.h */,
+				80A75A9A19B90446008D3EC8 /* CustomerDataType.h */,
+				80A75A9B19B90446008D3EC8 /* Error.h */,
+				80A75A9C19B90446008D3EC8 /* ExtendedAmountType.h */,
+				80A75A9D19B90446008D3EC8 /* FDSFilterType.h */,
+				80A75A9E19B90446008D3EC8 /* GDataXMLNode.h */,
+				80A75A9F19B90446008D3EC8 /* GetBatchStatisticsRequest.h */,
+				80A75AA019B90446008D3EC8 /* GetBatchStatisticsResponse.h */,
+				80A75AA119B90446008D3EC8 /* GetSettledBatchListRequest.h */,
+				80A75AA219B90446008D3EC8 /* GetSettledBatchListResponse.h */,
+				80A75AA319B90446008D3EC8 /* GetTransactionDetailsRequest.h */,
+				80A75AA419B90446008D3EC8 /* GetTransactionDetailsResponse.h */,
+				80A75AA519B90446008D3EC8 /* GetTransactionListRequest.h */,
+				80A75AA619B90446008D3EC8 /* GetTransactionListResponse.h */,
+				80A75AA719B90446008D3EC8 /* GetUnsettledTransactionListRequest.h */,
+				80A75AA819B90446008D3EC8 /* GetUnsettledTransactionListResponse.h */,
+				80A75AA919B90446008D3EC8 /* LineItemType.h */,
+				80A75AAA19B90446008D3EC8 /* LogoutRequest.h */,
+				80A75AAB19B90446008D3EC8 /* LogoutResponse.h */,
+				80A75AAC19B90446008D3EC8 /* MerchantAccountType.h */,
+				80A75AAD19B90446008D3EC8 /* MerchantAuthenticationType.h */,
+				80A75AAE19B90446008D3EC8 /* MerchantContactType.h */,
+				80A75AAF19B90446008D3EC8 /* Messages.h */,
+				80A75AB019B90446008D3EC8 /* MobileDeviceLoginRequest.h */,
+				80A75AB119B90446008D3EC8 /* MobileDeviceLoginResponse.h */,
+				80A75AB219B90446008D3EC8 /* MobileDeviceRegistrationRequest.h */,
+				80A75AB319B90446008D3EC8 /* MobileDeviceRegistrationResponse.h */,
+				80A75AB419B90446008D3EC8 /* MobileDeviceType.h */,
+				80A75AB519B90446008D3EC8 /* NameAndAddressType.h */,
+				80A75AB619B90446008D3EC8 /* OrderExType.h */,
+				80A75AB719B90446008D3EC8 /* OrderType.h */,
+				80A75AB819B90446008D3EC8 /* PaymentMaskedType.h */,
+				80A75AB919B90446008D3EC8 /* PaymentType.h */,
+				80A75ABA19B90446008D3EC8 /* PermissionType.h */,
+				80A75ABB19B90446008D3EC8 /* SendCustomerTransactionReceiptRequest.h */,
+				80A75ABC19B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.h */,
+				80A75ABD19B90446008D3EC8 /* SettingType.h */,
+				80A75ABE19B90446008D3EC8 /* SplitTenderPayment.h */,
+				80A75ABF19B90446008D3EC8 /* SwiperDataType.h */,
+				80A75AC019B90446008D3EC8 /* TestAccountCaptchaRequest.h */,
+				80A75AC119B90446008D3EC8 /* TestAccountCaptchaResponse.h */,
+				80A75AC219B90446008D3EC8 /* TestAccountCaptchaResponse.m */,
+				80A75AC319B90446008D3EC8 /* TestAccountRegistrationRequest.h */,
+				80A75AC419B90446008D3EC8 /* TestAccountRegistrationRequest.m */,
+				80A75AC519B90446008D3EC8 /* TestAccountRegistrationResponse.h */,
+				80A75AC619B90446008D3EC8 /* TestAccountRegistrationResponse.m */,
+				80A75AC719B90446008D3EC8 /* TransactionDetailsType.h */,
+				80A75AC819B90446008D3EC8 /* TransactionRequestType.h */,
+				80A75AC919B90446008D3EC8 /* TransactionResponse.h */,
+				80A75ACA19B90446008D3EC8 /* TransactionSummaryType.h */,
+				80A75ACB19B90446008D3EC8 /* TransRetailInfoType.h */,
+				80A75ACC19B90446008D3EC8 /* UserField.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		9C045FDE1988208800368719 /* Image_resources */ = {
+			isa = PBXGroup;
+			children = (
+				80FA44DB19BC233E00C40897 /* authorize_net.png */,
+				80FA44DC19BC233E00C40897 /* btn_G.png */,
+				80FA44DD19BC233E00C40897 /* header_bar_landscape.png */,
+				80FA44DE19BC233E00C40897 /* header_bar_landscape@2x.png */,
+				80FA44DF19BC233E00C40897 /* header_bar.png */,
+				80FA44E019BC233E00C40897 /* header_bar@2x.png */,
+				80FA44E119BC233E00C40897 /* ic_delete.png */,
+				80FA44E219BC233E00C40897 /* ic_dev_info.png */,
+				80FA44E319BC233E00C40897 /* ic_empty_box.png */,
+				80FA44E419BC233E00C40897 /* input_2.png */,
+				80FA44E519BC233E00C40897 /* input_2@2x.png */,
+				80FA44E619BC233E00C40897 /* input.png */,
+				80FA44E719BC233E00C40897 /* input@2x.png */,
+				80FA44E819BC233E00C40897 /* mma_gray-bkgnd.png */,
+			);
+			name = Image_resources;
+			sourceTree = "<group>";
+		};
+		9CFDD5E219783B260051D1C4 /* DecimalKeypadView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DecimalKeypadView;
+			sourceTree = "<group>";
+		};
+		FF3591391949C2D500432E35 = {
+			isa = PBXGroup;
+			children = (
+				80A75A1419B90446008D3EC8 /* sdk */,
+				9C045FDE1988208800368719 /* Image_resources */,
+				9CFDD5E219783B260051D1C4 /* DecimalKeypadView */,
+				FF35914B1949C2D600432E35 /* AuthnetLab */,
+				FF35916D1949C2D600432E35 /* AuthnetLabTests */,
+				FF3591441949C2D600432E35 /* Frameworks */,
+				FF3591431949C2D600432E35 /* Products */,
+				84C39FBA20534B9DB46489EA /* Pods-AuthnetLab.xcconfig */,
+				273E69BC2F7F4628AE030F75 /* Pods-AuthnetLabTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		FF3591431949C2D600432E35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF3591421949C2D600432E35 /* AuthnetLab.app */,
+				FF3591661949C2D600432E35 /* AuthnetLabTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF3591441949C2D600432E35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CD34D73197EF01300F9E48B /* IDTECH_UniMag.a */,
+				FF3592AB1949C64500432E35 /* SenTestingKit.framework */,
+				FF3592A81949C4D600432E35 /* SystemConfiguration.framework */,
+				FF3591451949C2D600432E35 /* Foundation.framework */,
+				FF3591471949C2D600432E35 /* CoreGraphics.framework */,
+				FF3591491949C2D600432E35 /* UIKit.framework */,
+				FF3591671949C2D600432E35 /* XCTest.framework */,
+				125495B01FE441B0B0095E4C /* libPods-AuthnetLab.a */,
+				FF815B9308094116B3413C45 /* libPods-AuthnetLabTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF35914B1949C2D600432E35 /* AuthnetLab */ = {
+			isa = PBXGroup;
+			children = (
+				8090A55C19B9336400268BFD /* DecimalKeypadView.h */,
+				8090A55D19B9336400268BFD /* DecimalKeypadView.m */,
+				8090A55E19B9336400268BFD /* DecimalKeypadView.xib */,
+				8090A55919B92CF900268BFD /* LZNavigationBar.h */,
+				8090A55A19B92CF900268BFD /* LZNavigationBar.m */,
+				FF3591541949C2D600432E35 /* AppDelegate.h */,
+				FF3591551949C2D600432E35 /* AppDelegate.m */,
+				FF3591571949C2D600432E35 /* Main_iPhone.storyboard */,
+				FF35915A1949C2D600432E35 /* Main_iPad.storyboard */,
+				FF35915D1949C2D600432E35 /* ViewController.h */,
+				FF35915E1949C2D600432E35 /* ViewController.m */,
+				9CFDD5DA197838F90051D1C4 /* CreditCardViewController.h */,
+				9CFDD5DB197838F90051D1C4 /* CreditCardViewController.m */,
+				FF3591601949C2D600432E35 /* Images.xcassets */,
+				FF35914C1949C2D600432E35 /* Supporting Files */,
+			);
+			path = AuthnetLab;
+			sourceTree = "<group>";
+		};
+		FF35914C1949C2D600432E35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF35914D1949C2D600432E35 /* AuthnetLab-Info.plist */,
+				FF35914E1949C2D600432E35 /* InfoPlist.strings */,
+				FF3591511949C2D600432E35 /* main.m */,
+				FF3591531949C2D600432E35 /* AuthnetLab-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF35916D1949C2D600432E35 /* AuthnetLabTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF3591731949C2D600432E35 /* AuthnetLabTests.m */,
+				FF35916E1949C2D600432E35 /* Supporting Files */,
+			);
+			path = AuthnetLabTests;
+			sourceTree = "<group>";
+		};
+		FF35916E1949C2D600432E35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF35916F1949C2D600432E35 /* AuthnetLabTests-Info.plist */,
+				FF3591701949C2D600432E35 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF3591411949C2D600432E35 /* AuthnetLab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF3591771949C2D600432E35 /* Build configuration list for PBXNativeTarget "AuthnetLab" */;
+			buildPhases = (
+				EF717BD562C04C55AE8A8F00 /* Check Pods Manifest.lock */,
+				FF35913E1949C2D600432E35 /* Sources */,
+				FF35913F1949C2D600432E35 /* Frameworks */,
+				FF3591401949C2D600432E35 /* Resources */,
+				AC81B36BEE984E678AC71484 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthnetLab;
+			productName = AuthnetLab;
+			productReference = FF3591421949C2D600432E35 /* AuthnetLab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF3591651949C2D600432E35 /* AuthnetLabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF35917A1949C2D600432E35 /* Build configuration list for PBXNativeTarget "AuthnetLabTests" */;
+			buildPhases = (
+				9397E6CDF5A64463963121F9 /* Check Pods Manifest.lock */,
+				FF3591621949C2D600432E35 /* Sources */,
+				FF3591631949C2D600432E35 /* Frameworks */,
+				FF3591641949C2D600432E35 /* Resources */,
+				A0812F701DC84A60849EB70A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF35916C1949C2D600432E35 /* PBXTargetDependency */,
+			);
+			name = AuthnetLabTests;
+			productName = AuthnetLabTests;
+			productReference = FF3591661949C2D600432E35 /* AuthnetLabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF35913A1949C2D500432E35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Paragyte;
+				TargetAttributes = {
+					FF3591651949C2D600432E35 = {
+						TestTargetID = FF3591411949C2D600432E35;
+					};
+				};
+			};
+			buildConfigurationList = FF35913D1949C2D500432E35 /* Build configuration list for PBXProject "AuthnetLab" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				es,
+			);
+			mainGroup = FF3591391949C2D500432E35;
+			productRefGroup = FF3591431949C2D600432E35 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 80A75A6A19B90446008D3EC8 /* Products */;
+					ProjectRef = 80A75A6919B90446008D3EC8 /* Anet SDK.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				FF3591411949C2D600432E35 /* AuthnetLab */,
+				FF3591651949C2D600432E35 /* AuthnetLabTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		80A75B2E19B90446008D3EC8 /* libAnet SDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libAnet SDK.a";
+			remoteRef = 80A75B2D19B90446008D3EC8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		80A75B3019B90446008D3EC8 /* Anet SDKTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Anet SDKTests.octest";
+			remoteRef = 80A75B2F19B90446008D3EC8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF3591401949C2D600432E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80A75B1F19B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf in Resources */,
+				80FA44F419BC233E00C40897 /* input.png in Resources */,
+				80FA44F119BC233E00C40897 /* ic_empty_box.png in Resources */,
+				80A75AE719B90446008D3EC8 /* GetBatchStatisticsResponse.xml in Resources */,
+				80A75AEA19B90446008D3EC8 /* GetSettledBatchListResponse.xml in Resources */,
+				80A75AF719B90446008D3EC8 /* LogoutResponse.xml in Resources */,
+				80A75B1E19B90446008D3EC8 /* README in Resources */,
+				80FA44E919BC233E00C40897 /* authorize_net.png in Resources */,
+				80A75B1B19B90446008D3EC8 /* Anet SDKTests-Info.plist in Resources */,
+				80A75B0119B90446008D3EC8 /* MobileDeviceRegistrationResponse.xml in Resources */,
+				FF3591611949C2D600432E35 /* Images.xcassets in Resources */,
+				80A75AF319B90446008D3EC8 /* GetUnsettledTransactionListResponse.xml in Resources */,
+				80A75AFE19B90446008D3EC8 /* MobileDeviceLoginResponse.xml in Resources */,
+				FF3591501949C2D600432E35 /* InfoPlist.strings in Resources */,
+				80FA44EF19BC233E00C40897 /* ic_delete.png in Resources */,
+				80A75AF019B90446008D3EC8 /* GetTransactionListResponse.xml in Resources */,
+				80FA44EC19BC233E00C40897 /* header_bar_landscape@2x.png in Resources */,
+				80FA44F219BC233E00C40897 /* input_2.png in Resources */,
+				80A75B0B19B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.xml in Resources */,
+				80FA44F619BC233E00C40897 /* mma_gray-bkgnd.png in Resources */,
+				80A75AED19B90446008D3EC8 /* GetTransactionDetailsResponse.xml in Resources */,
+				80A75B1219B90446008D3EC8 /* TestAccountCaptchaResponse.xml in Resources */,
+				80A75ADB19B90446008D3EC8 /* CreateTransactionResponse.xml in Resources */,
+				80A75B1419B90446008D3EC8 /* TestAccountRegistrationResponse.xml in Resources */,
+				80FA44EB19BC233E00C40897 /* header_bar_landscape.png in Resources */,
+				80A75B1D19B90446008D3EC8 /* InfoPlist.strings in Resources */,
+				80FA44F519BC233E00C40897 /* input@2x.png in Resources */,
+				8090A56019B9336400268BFD /* DecimalKeypadView.xib in Resources */,
+				80FA44EE19BC233E00C40897 /* header_bar@2x.png in Resources */,
+				80FA44F319BC233E00C40897 /* input_2@2x.png in Resources */,
+				80FA44F019BC233E00C40897 /* ic_dev_info.png in Resources */,
+				80FA44ED19BC233E00C40897 /* header_bar.png in Resources */,
+				80FA44EA19BC233E00C40897 /* btn_G.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3591641949C2D600432E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3591721949C2D600432E35 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9397E6CDF5A64463963121F9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0812F701DC84A60849EB70A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AuthnetLabTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC81B36BEE984E678AC71484 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-AuthnetLab-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF717BD562C04C55AE8A8F00 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF35913E1949C2D600432E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80A75B1019B90446008D3EC8 /* TestAccountCaptchaRequest.m in Sources */,
+				80A75ADE19B90446008D3EC8 /* CreditCardType.m in Sources */,
+				80A75ACD19B90446008D3EC8 /* ANetApiRequest.m in Sources */,
+				9CFDD5DC197838F90051D1C4 /* CreditCardViewController.m in Sources */,
+				80A75AF919B90446008D3EC8 /* MerchantAuthenticationType.m in Sources */,
+				80A75ADD19B90446008D3EC8 /* CreditCardTrackType.m in Sources */,
+				80A75ACF19B90446008D3EC8 /* AuthNet.m in Sources */,
+				FF35915F1949C2D600432E35 /* ViewController.m in Sources */,
+				80A75B0819B90446008D3EC8 /* PermissionType.m in Sources */,
+				80A75AD419B90446008D3EC8 /* BankAccountMaskedType.m in Sources */,
+				80A75ADC19B90446008D3EC8 /* CreditCardMaskedType.m in Sources */,
+				80A75B0619B90446008D3EC8 /* PaymentMaskedType.m in Sources */,
+				80A75B0919B90446008D3EC8 /* SendCustomerTransactionReceiptRequest.m in Sources */,
+				80A75B2219B90446008D3EC8 /* NSString+Hex.m in Sources */,
+				80A75AE419B90446008D3EC8 /* GDataXMLNode.m in Sources */,
+				80A75B0F19B90446008D3EC8 /* SwiperDataType.m in Sources */,
+				FF3591561949C2D600432E35 /* AppDelegate.m in Sources */,
+				80A75B1919B90446008D3EC8 /* TransRetailInfoType.m in Sources */,
+				80A75B1A19B90446008D3EC8 /* UserField.m in Sources */,
+				80A75ADF19B90446008D3EC8 /* CustomerAddressType.m in Sources */,
+				80A75AF119B90446008D3EC8 /* GetUnsettledTransactionListRequest.m in Sources */,
+				80A75AD619B90446008D3EC8 /* BatchDetailsType.m in Sources */,
+				80A75B1619B90446008D3EC8 /* TransactionRequestType.m in Sources */,
+				80A75AE119B90446008D3EC8 /* Error.m in Sources */,
+				80A75AD519B90446008D3EC8 /* BankAccountType.m in Sources */,
+				80A75B1319B90446008D3EC8 /* TestAccountRegistrationRequest.m in Sources */,
+				80A75B0C19B90446008D3EC8 /* SettingType.m in Sources */,
+				80A75B2119B90446008D3EC8 /* NSString+dataFromFilename.m in Sources */,
+				80A75B0019B90446008D3EC8 /* MobileDeviceRegistrationResponse.m in Sources */,
+				80A75B0219B90446008D3EC8 /* MobileDeviceType.m in Sources */,
+				80A75B1819B90446008D3EC8 /* TransactionSummaryType.m in Sources */,
+				80A75AD119B90446008D3EC8 /* AuthNetRequest.m in Sources */,
+				80A75B2719B90446008D3EC8 /* UIToolbar+BackgroundImage.m in Sources */,
+				80A75AE319B90446008D3EC8 /* FDSFilterType.m in Sources */,
+				80A75AEE19B90446008D3EC8 /* GetTransactionListRequest.m in Sources */,
+				80A75AE619B90446008D3EC8 /* GetBatchStatisticsResponse.m in Sources */,
+				80A75B2419B90446008D3EC8 /* NSString+stringValueOfXMLElement.m in Sources */,
+				80A75AE219B90446008D3EC8 /* ExtendedAmountType.m in Sources */,
+				8090A55B19B92CF900268BFD /* LZNavigationBar.m in Sources */,
+				80A75AF219B90446008D3EC8 /* GetUnsettledTransactionListResponse.m in Sources */,
+				80A75AFC19B90446008D3EC8 /* MobileDeviceLoginRequest.m in Sources */,
+				80A75AE819B90446008D3EC8 /* GetSettledBatchListRequest.m in Sources */,
+				80A75AFF19B90446008D3EC8 /* MobileDeviceRegistrationRequest.m in Sources */,
+				80A75AFA19B90446008D3EC8 /* MerchantContactType.m in Sources */,
+				80A75ACE19B90446008D3EC8 /* ANetApiResponse.m in Sources */,
+				80A75AD219B90446008D3EC8 /* AuthNetResponse.m in Sources */,
+				80A75B0319B90446008D3EC8 /* NameAndAddressType.m in Sources */,
+				80A75AE919B90446008D3EC8 /* GetSettledBatchListResponse.m in Sources */,
+				80A75AF419B90446008D3EC8 /* LineItemType.m in Sources */,
+				80A75AE519B90446008D3EC8 /* GetBatchStatisticsRequest.m in Sources */,
+				80A75AE019B90446008D3EC8 /* CustomerDataType.m in Sources */,
+				80A75AF819B90446008D3EC8 /* MerchantAccountType.m in Sources */,
+				80A75AEC19B90446008D3EC8 /* GetTransactionDetailsResponse.m in Sources */,
+				80A75B0E19B90446008D3EC8 /* Reachability.m in Sources */,
+				80A75AF619B90446008D3EC8 /* LogoutResponse.m in Sources */,
+				80A75B0719B90446008D3EC8 /* PaymentType.m in Sources */,
+				80A75B1119B90446008D3EC8 /* TestAccountCaptchaResponse.m in Sources */,
+				80A75AF519B90446008D3EC8 /* LogoutRequest.m in Sources */,
+				80A75B2619B90446008D3EC8 /* NSString+stringWithXMLTag.m in Sources */,
+				8090A55F19B9336400268BFD /* DecimalKeypadView.m in Sources */,
+				80A75AD719B90446008D3EC8 /* BatchStatisticType.m in Sources */,
+				80A75AEF19B90446008D3EC8 /* GetTransactionListResponse.m in Sources */,
+				80A75B0519B90446008D3EC8 /* OrderType.m in Sources */,
+				80A75B1C19B90446008D3EC8 /* Anet_SDKTests.m in Sources */,
+				80A75AFD19B90446008D3EC8 /* MobileDeviceLoginResponse.m in Sources */,
+				80A75B2019B90446008D3EC8 /* NSArray+PerformSelector.m in Sources */,
+				80A75AD319B90446008D3EC8 /* AuthNetUnitTests.m in Sources */,
+				80A75B1519B90446008D3EC8 /* TransactionDetailsType.m in Sources */,
+				80A75B1719B90446008D3EC8 /* TransactionResponse.m in Sources */,
+				80A75B0D19B90446008D3EC8 /* SplitTenderPayment.m in Sources */,
+				80A75AD019B90446008D3EC8 /* AuthNetMessage.m in Sources */,
+				80A75B2519B90446008D3EC8 /* NSString+stringWithEscapedXMLValue.m in Sources */,
+				80A75B2319B90446008D3EC8 /* NSString+stringForRFC3339DateTimeString.m in Sources */,
+				80A75AD819B90446008D3EC8 /* CCAuthenticationType.m in Sources */,
+				80A75AD919B90446008D3EC8 /* CreateTransactionRequest.m in Sources */,
+				80A75AEB19B90446008D3EC8 /* GetTransactionDetailsRequest.m in Sources */,
+				80A75B0A19B90446008D3EC8 /* SendCustomerTransactionReceiptResponse.m in Sources */,
+				FF3591521949C2D600432E35 /* main.m in Sources */,
+				80A75AFB19B90446008D3EC8 /* Messages.m in Sources */,
+				80A75ADA19B90446008D3EC8 /* CreateTransactionResponse.m in Sources */,
+				80A75B0419B90446008D3EC8 /* OrderExType.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3591621949C2D600432E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3591741949C2D600432E35 /* AuthnetLabTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF35916C1949C2D600432E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF3591411949C2D600432E35 /* AuthnetLab */;
+			targetProxy = FF35916B1949C2D600432E35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		80A75A7019B90446008D3EC8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80A75A7119B90446008D3EC8 /* en */,
+				80A75A7219B90446008D3EC8 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FF35914E1949C2D600432E35 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF35914F1949C2D600432E35 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FF3591571949C2D600432E35 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF3591581949C2D600432E35 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		FF35915A1949C2D600432E35 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF35915B1949C2D600432E35 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		FF3591701949C2D600432E35 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF3591711949C2D600432E35 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF3591751949C2D600432E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF3591761949C2D600432E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos7.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF3591781949C2D600432E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C39FBA20534B9DB46489EA /* Pods-AuthnetLab.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SDKROOT)/Developer/Library/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AuthnetLab/AuthnetLab-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "AuthnetLab/AuthnetLab-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm 64 armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FF3591791949C2D600432E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C39FBA20534B9DB46489EA /* Pods-AuthnetLab.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SDKROOT)/Developer/Library/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AuthnetLab/AuthnetLab-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "AuthnetLab/AuthnetLab-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm 64 armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FF35917B1949C2D600432E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273E69BC2F7F4628AE030F75 /* Pods-AuthnetLabTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AuthnetLab.app/AuthnetLab";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AuthnetLab/AuthnetLab-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AuthnetLabTests/AuthnetLabTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FF35917C1949C2D600432E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273E69BC2F7F4628AE030F75 /* Pods-AuthnetLabTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AuthnetLab.app/AuthnetLab";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AuthnetLab/AuthnetLab-Prefix.pch";
+				INFOPLIST_FILE = "AuthnetLabTests/AuthnetLabTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF35913D1949C2D500432E35 /* Build configuration list for PBXProject "AuthnetLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF3591751949C2D600432E35 /* Debug */,
+				FF3591761949C2D600432E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF3591771949C2D600432E35 /* Build configuration list for PBXNativeTarget "AuthnetLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF3591781949C2D600432E35 /* Debug */,
+				FF3591791949C2D600432E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF35917A1949C2D600432E35 /* Build configuration list for PBXNativeTarget "AuthnetLabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF35917B1949C2D600432E35 /* Debug */,
+				FF35917C1949C2D600432E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF35913A1949C2D500432E35 /* Project object */;
+}

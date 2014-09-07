@@ -1,0 +1,14 @@
+PODS:
+  - sdk-ios (1.8.2)
+
+DEPENDENCIES:
+  - sdk-ios (from `../`)
+
+EXTERNAL SOURCES:
+  sdk-ios:
+    :path: ../
+
+SPEC CHECKSUMS:
+  sdk-ios: 4c5477db6c482969aa3ed48111cb2dc641e82791
+
+COCOAPODS: 0.33.1

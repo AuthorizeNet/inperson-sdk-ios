@@ -1,0 +1,1 @@
+../../../../sdk/Extension/NSString+Hex.h
