@@ -1,0 +1,7 @@
+target 'AuthnetLab', :exclusive => true do
+  pod "sdk-ios", :path => "../"
+end
+
+target 'AuthnetLabTests', :exclusive => true do
+  pod "sdk-ios", :path => "../"
+end
