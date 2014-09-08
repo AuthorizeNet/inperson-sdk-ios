@@ -6,9 +6,9 @@
 // project.
 
 
-// sdk-ios
-#define COCOAPODS_POD_AVAILABLE_sdk_ios
-#define COCOAPODS_VERSION_MAJOR_sdk_ios 1
-#define COCOAPODS_VERSION_MINOR_sdk_ios 8
-#define COCOAPODS_VERSION_PATCH_sdk_ios 2
+// authorizenet-sdk
+#define COCOAPODS_POD_AVAILABLE_authorizenet_sdk
+#define COCOAPODS_VERSION_MAJOR_authorizenet_sdk 1
+#define COCOAPODS_VERSION_MINOR_authorizenet_sdk 8
+#define COCOAPODS_VERSION_PATCH_authorizenet_sdk 3
 
