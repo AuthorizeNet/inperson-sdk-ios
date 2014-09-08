@@ -22,8 +22,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files = '**/*.{h,m}'
-  s.resources = '**/*.{xib,storyboard}'
+  s.source_files = 'sdk/**/*.{h,m}'
+  #s.resources = 'sdk/**/*.{xib,storyboard}'
   s.exclude_files = "**/AuthNetUnitTests.m"
 
 
