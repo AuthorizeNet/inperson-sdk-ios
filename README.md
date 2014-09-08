@@ -39,5 +39,4 @@ Installation is very simple with Cocoapods but you can also install manually.
 
 
 
-## Building an MPOS Application
 
