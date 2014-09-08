@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D00D6358AD246A68CFA20A0 /* libPods-AuthnetLab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 125495B01FE441B0B0095E4C /* libPods-AuthnetLab.a */; };
+		805AB78C19BE622E00DAB2BA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3591571949C2D600432E35 /* Main_iPhone.storyboard */; };
+		805AB78D19BE622E00DAB2BA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF35915A1949C2D600432E35 /* Main_iPad.storyboard */; };
 		8090A55B19B92CF900268BFD /* LZNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55A19B92CF900268BFD /* LZNavigationBar.m */; };
 		8090A55F19B9336400268BFD /* DecimalKeypadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55D19B9336400268BFD /* DecimalKeypadView.m */; };
 		8090A56019B9336400268BFD /* DecimalKeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8090A55E19B9336400268BFD /* DecimalKeypadView.xib */; };
@@ -875,6 +877,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805AB78C19BE622E00DAB2BA /* Main_iPhone.storyboard in Resources */,
+				805AB78D19BE622E00DAB2BA /* Main_iPad.storyboard in Resources */,
 				80A75B1F19B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf in Resources */,
 				80FA44F419BC233E00C40897 /* input.png in Resources */,
 				80FA44F119BC233E00C40897 /* ic_empty_box.png in Resources */,
