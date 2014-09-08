@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint authorizenet.podspec' to ensure this is a
+# Be sure to run `pod lib lint authorizenet-sdk.podspec' to ensure this is a
 # valid spec and remove all comments before submitting the spec.
 #
 # Any lines starting with a # are optional, but encouraged
@@ -8,8 +8,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "authorizenet"
-  s.version          = "1.8.2"
+  s.name             = "authorizenet-sdk"
+  s.version          = "1.8.3"
   s.summary          = "iOS SDK for Authorize.Net Payments"
   s.description      = "The iOS SDK provides a fast and easy way for iPhone/iPad application developers to quickly integrate mobile payment without having to write the network communication, XML generation/parsing, and encoding of the data to the Authorize.net gateway."
   s.homepage         = "https://github.com/authorizenet/sdk-ios"
