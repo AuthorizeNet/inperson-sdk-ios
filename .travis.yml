@@ -4,4 +4,4 @@
 language: objective-c
 # before_install: cd Example && pod install && cd -
 script:
-- xctool test -workspace Example/AuthnetLab.xcworkspace -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- xctool test -workspace Example/AuthnetLab.xcworkspace -scheme AuthnetLab -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
