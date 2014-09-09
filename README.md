@@ -38,5 +38,8 @@ Installation is very simple with Cocoapods but you can also install manually.
 
 
 
+## Building an MPoS Application
+
+You can use our SDK to build a full featured Mobile Point-of-Sale application and we have a full [MPOS README](MPOS_README.md) to help you get started developing.
 
 
