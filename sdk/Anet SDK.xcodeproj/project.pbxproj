@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EEBACF31882949D00667143 /* TestAccountRegistrationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEBACF21882949D00667143 /* TestAccountRegistrationRequest.m */; };
-		4EEBACF41882949D00667143 /* TestAccountRegistrationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEBACF21882949D00667143 /* TestAccountRegistrationRequest.m */; };
-		4EEBACFA1882958200667143 /* TestAccountRegistrationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEBACF91882958200667143 /* TestAccountRegistrationResponse.m */; };
-		4EEBACFB1882958200667143 /* TestAccountRegistrationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEBACF91882958200667143 /* TestAccountRegistrationResponse.m */; };
 		7848F52D1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */; };
 		8B60EBDB186F3756001A2639 /* TestAccountCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60EBDA186F3756001A2639 /* TestAccountCaptchaRequest.m */; };
 		8D7C958017D1657C00D2B1A6 /* NSString+dataFromFilename.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C957717D1657C00D2B1A6 /* NSString+dataFromFilename.m */; };
@@ -86,7 +82,6 @@
 		8DEBA8A217D129B700B7A8B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DEBA8A017D129B700B7A8B9 /* InfoPlist.strings */; };
 		8DEBA8A517D129B700B7A8B9 /* Anet_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEBA8A417D129B700B7A8B9 /* Anet_SDKTests.m */; };
 		9C9D193818810BD4000E8D3B /* TestAccountCaptchaResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9C9D193718810BD4000E8D3B /* TestAccountCaptchaResponse.xml */; };
-		FF9EF53D187FCD41005BA8A4 /* TestAccountCaptchaResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9EF53C187FCD41005BA8A4 /* TestAccountCaptchaResponse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,9 +109,7 @@
 
 /* Begin PBXFileReference section */
 		4EEBACF11882949D00667143 /* TestAccountRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationRequest.h; sourceTree = "<group>"; };
-		4EEBACF21882949D00667143 /* TestAccountRegistrationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestAccountRegistrationRequest.m; path = ../Headers/TestAccountRegistrationRequest.m; sourceTree = "<group>"; };
 		4EEBACF81882958200667143 /* TestAccountRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationResponse.h; sourceTree = "<group>"; };
-		4EEBACF91882958200667143 /* TestAccountRegistrationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestAccountRegistrationResponse.m; path = ../Headers/TestAccountRegistrationResponse.m; sourceTree = "<group>"; };
 		7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountRegistrationResponse.xml; sourceTree = "<group>"; };
 		8B60EBDA186F3756001A2639 /* TestAccountCaptchaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountCaptchaRequest.m; sourceTree = "<group>"; };
 		8D7C957617D1657C00D2B1A6 /* NSString+dataFromFilename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dataFromFilename.h"; sourceTree = "<group>"; };
@@ -279,7 +272,6 @@
 		9C9D193718810BD4000E8D3B /* TestAccountCaptchaResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountCaptchaResponse.xml; sourceTree = "<group>"; };
 		9CD933E5187F0A9900EE1CC0 /* TestAccountCaptchaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestAccountCaptchaResponse.h; path = "../Anet SDK/TestAccountCaptchaResponse.h"; sourceTree = "<group>"; };
 		FF35F18B187FD4D0005A4A66 /* TestAccountCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaRequest.h; sourceTree = "<group>"; };
-		FF9EF53C187FCD41005BA8A4 /* TestAccountCaptchaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestAccountCaptchaResponse.m; path = ../Headers/TestAccountCaptchaResponse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,8 +315,6 @@
 		8DC073BB17D159F200D4E93D /* Anet SDK */ = {
 			isa = PBXGroup;
 			children = (
-				4EEBACF91882958200667143 /* TestAccountRegistrationResponse.m */,
-				4EEBACF21882949D00667143 /* TestAccountRegistrationRequest.m */,
 				7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */,
 				8DC073BC17D159F200D4E93D /* Anet SDK-Prefix.pch */,
 				8DC073BD17D159F200D4E93D /* ANetApiRequest.m */,
@@ -400,7 +390,6 @@
 				8DC0740B17D159F200D4E93D /* TransRetailInfoType.m */,
 				8DC0740C17D159F200D4E93D /* UserField.m */,
 				8B60EBDA186F3756001A2639 /* TestAccountCaptchaRequest.m */,
-				FF9EF53C187FCD41005BA8A4 /* TestAccountCaptchaResponse.m */,
 				9C9D193718810BD4000E8D3B /* TestAccountCaptchaResponse.xml */,
 			);
 			path = "Anet SDK";
@@ -649,7 +638,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC0740D17D159F200D4E93D /* ANetApiRequest.m in Sources */,
-				4EEBACFA1882958200667143 /* TestAccountRegistrationResponse.m in Sources */,
 				8DC0740E17D159F200D4E93D /* ANetApiResponse.m in Sources */,
 				8DC0740F17D159F200D4E93D /* AuthNet.m in Sources */,
 				8DC0741017D159F200D4E93D /* AuthNetMessage.m in Sources */,
@@ -683,11 +671,9 @@
 				8DC0742C17D159F200D4E93D /* GetUnsettledTransactionListRequest.m in Sources */,
 				8DC0742D17D159F200D4E93D /* GetUnsettledTransactionListResponse.m in Sources */,
 				8DC0742E17D159F200D4E93D /* LineItemType.m in Sources */,
-				4EEBACF31882949D00667143 /* TestAccountRegistrationRequest.m in Sources */,
 				8DC0742F17D159F200D4E93D /* LogoutRequest.m in Sources */,
 				8DC0743017D159F200D4E93D /* LogoutResponse.m in Sources */,
 				8DC0743117D159F200D4E93D /* MerchantAccountType.m in Sources */,
-				FF9EF53D187FCD41005BA8A4 /* TestAccountCaptchaResponse.m in Sources */,
 				8DC0743217D159F200D4E93D /* MerchantAuthenticationType.m in Sources */,
 				8DC0743317D159F200D4E93D /* MerchantContactType.m in Sources */,
 				8DC0743417D159F200D4E93D /* Messages.m in Sources */,
@@ -727,8 +713,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DEBA8A517D129B700B7A8B9 /* Anet_SDKTests.m in Sources */,
-				4EEBACF41882949D00667143 /* TestAccountRegistrationRequest.m in Sources */,
-				4EEBACFB1882958200667143 /* TestAccountRegistrationResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
