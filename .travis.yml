@@ -1,2 +1,7 @@
+
+# reference: http://www.objc.io/issue-6/travis-ci.html
+
 language: objective-c
-xcode_project: 'sdk/Anet SDK.xcodeproj'
+# before_install: cd Example && pod install && cd -
+script:
+- xctool test -workspace Example/AuthnetLab.xcworkspace -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
