@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DAB8E680-C095-4A67-BC41-086173874D69</string>
+	<string>C212AA48-F465-4EDF-86C1-A84C1C20DA09</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Anet SDK</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2181F7E4DB7E63CFFD58A86E91D934C3664B30E8</key>
-		<string>https://github.com/brianmc/sdk-ios.git</string>
+		<key>458E7AD3-F775-4A94-B7B5-E0C10F5A4534</key>
+		<string>ssh://blender.local/MMA_2.0</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>sdk/Anet SDK.xcodeproj/project.xcworkspace</string>
+	<string>Anet SDK/Anet SDK.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2181F7E4DB7E63CFFD58A86E91D934C3664B30E8</key>
+		<key>458E7AD3-F775-4A94-B7B5-E0C10F5A4534</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/brianmc/sdk-ios.git</string>
+	<string>ssh://blender.local/MMA_2.0</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>111</integer>
+	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2181F7E4DB7E63CFFD58A86E91D934C3664B30E8</string>
+	<string>458E7AD3-F775-4A94-B7B5-E0C10F5A4534</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2181F7E4DB7E63CFFD58A86E91D934C3664B30E8</string>
+			<string>458E7AD3-F775-4A94-B7B5-E0C10F5A4534</string>
 			<key>IDESourceControlWCCName</key>
-			<string>sdk-ios</string>
+			<string>01</string>
 		</dict>
 	</array>
 </dict>
