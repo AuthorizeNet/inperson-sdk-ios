@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FingerPrintObjectType.h"
+
 
 
 @interface MerchantAuthenticationType : NSObject {
@@ -23,6 +25,8 @@
 @property (nonatomic, strong) NSString *sessionToken;
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSString *mobileDeviceId;
+@property (nonatomic, strong) FingerPrintObjectType *fingerPrint;
+
 
 /**
  * Creates an autoreleased  object

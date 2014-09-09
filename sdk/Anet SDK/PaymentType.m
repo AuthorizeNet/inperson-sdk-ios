@@ -69,18 +69,26 @@
         self.bankAccount = nil;
         self.trackData = nil;
     }
+    else if (self.opData){
+        self.creditCard = nil;
+        self.bankAccount = nil;
+        self.trackData = nil;
+        self.swiperData = nil;
+    }
     
     NSString *s = [NSString stringWithFormat:@""
                    @"<payment>"
-                        @"%@"       //creditCard
-                        @"%@"       //bankAccount
-                        @"%@"       //trackData
-                        @"%@"       //swiperData
+                   @"%@"       //creditCard
+                   @"%@"       //bankAccount
+                   @"%@"       //trackData
+                   @"%@"       //swiperData
+                   @"%@"       //opaqueData
                    @"</payment>",
                    (self.creditCard ? [self.creditCard stringOfXMLRequest] : @""),
                    (self.bankAccount ? [self.bankAccount stringOfXMLRequest] : @""),
                    (self.trackData ? [self.trackData stringOfXMLRequest] : @""),
-                   (self.swiperData ? [self.swiperData stringOfXMLRequest] : @"")];
+                   (self.swiperData ? [self.swiperData stringOfXMLRequest] : @""),
+                   (self.opData ? [self.opData stringOfXMLRequest] : @"")];
     return s;
 }
 @end

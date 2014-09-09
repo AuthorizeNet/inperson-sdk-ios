@@ -9,6 +9,7 @@
 #import "MerchantAuthenticationType.h"
 #import "NSString+stringWithXMLTag.h"
 
+
 @implementation MerchantAuthenticationType
 
 @synthesize name;
@@ -16,7 +17,7 @@
 @synthesize sessionToken;
 @synthesize password;
 @synthesize mobileDeviceId;
-
+@synthesize fingerPrint;
 
 + (MerchantAuthenticationType *) merchantAuthentication {
 	MerchantAuthenticationType *m = [[MerchantAuthenticationType alloc] init];
@@ -43,25 +44,29 @@
 						"MerchantAuthentication.sessionToken = %@\n"
 						"MerchantAuthentication.password = %@\n"
 						"MerchantAuthentication.mobileDeviceId = %@\n",
+                        "MerchantAuthentication.fingerPrintType = %@\n", //SHANKAR 26th June
 						self.name,
 						self.transactionKey,
 						self.sessionToken,
 						self.password,
-						self.mobileDeviceId];
+						self.mobileDeviceId,
+                        self.fingerPrint];
 	return output;
 }
 
 - (NSString *) stringOfXMLRequest {
-	
-	NSString *s = [NSString stringWithFormat:@""
+    
+    NSString *s = [NSString stringWithFormat:@""
 				   @"<merchantAuthentication>"
-						@"%@"		//name (optional)
-						@"%@"		//transactionKey or
-						@"%@"		//sessionToken or
-						@"%@"		//password
-						@"%@"		//mobileDeviceId (optional)
+                   @"%@"		//name (optional)
+                   @"%@"		//fingerPrint type Object (optional) //SHANKAR 26th June
+                   @"%@"		//transactionKey or
+                   @"%@"		//sessionToken or
+                   @"%@"		//password
+                   @"%@"		//mobileDeviceId (optional)
 				   @"</merchantAuthentication>",
 				   (self.name ? [NSString stringWithXMLTag:@"name" andValue:self.name] : @""),
+                   (self.fingerPrint ? [self.fingerPrint stringOfXMLRequest] : @""),
 				   (self.transactionKey ? [NSString stringWithXMLTag:@"transactionKey" andValue:self.transactionKey] : @""),
 				   (self.sessionToken ? [NSString stringWithXMLTag:@"sessionToken" andValue:self.sessionToken] : @""),
 				   (self.password ? [NSString stringWithXMLTag:@"password" andValue:self.password] : @""),

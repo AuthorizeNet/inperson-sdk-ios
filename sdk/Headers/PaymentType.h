@@ -11,18 +11,22 @@
 #import "BankAccountType.h"
 #import "CreditCardTrackType.h"
 #import "SwiperDataType.h"
+#import "OpaqueDataType.h"
 
 @interface PaymentType : NSObject {
     CreditCardType *creditCard;
     BankAccountType *bankAccount;
     CreditCardTrackType *trackData;
     SwiperDataType *swiperData;
+    OpaqueDataType *opdata;
+    
 }
 
 @property (nonatomic, strong) CreditCardType *creditCard;
 @property (nonatomic, strong) BankAccountType *bankAccount;
 @property (nonatomic, strong) CreditCardTrackType *trackData;
 @property (nonatomic, strong) SwiperDataType *swiperData;
+@property (nonatomic, strong) OpaqueDataType *opData;
 
 /**
  * Creates an autoreleased  object
