@@ -1,5 +1,5 @@
 PODS:
-  - authorizenet-sdk (1.8.4)
+  - authorizenet-sdk (1.8.5)
 
 DEPENDENCIES:
   - authorizenet-sdk (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  authorizenet-sdk: c67dae88c323ac351890a25e0421c5beed1fc146
+  authorizenet-sdk: acf1b283a0204c4b1d17f04d2d0db1660f656ee5
 
 COCOAPODS: 0.33.1
