@@ -1,6 +1,6 @@
 #Authorize.Net iOS SDK
 
-[![Build Status](https://travis-ci.org/authorizenet/sdk-ios.svg?branch=master)](https://travis-ci.org/authorizenet/sdk-ios)
+[![Build Status](https://travis-ci.org/AuthorizeNet/sdk-ios.svg?branch=master)](https://travis-ci.org/AuthorizeNet/sdk-ios)
 
 The iOS SDK provides a fast and easy way for iPhone/iPad application developers to quickly integrate mobile payment without having to write the network communication, XML generation/parsing, and encoding of the data to the Authorize.net gateway.
 
