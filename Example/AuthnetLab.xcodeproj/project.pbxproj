@@ -14,6 +14,8 @@
 		80783D8D19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 80783D8C19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m */; };
 		80783D9D19BFC6EB00F7DDBF /* FingerPrintObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80783D9C19BFC6EB00F7DDBF /* FingerPrintObjectType.m */; };
 		80783D9F19BFC6F900F7DDBF /* OpaqueDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80783D9E19BFC6F900F7DDBF /* OpaqueDataType.m */; };
+		80783DA419BFCF7200F7DDBF /* ApplePayBTN_32pt__black_logo_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80783DA219BFCF7200F7DDBF /* ApplePayBTN_32pt__black_logo_@2x.png */; };
+		80783DAB19BFD2B200F7DDBF /* ApplePayBTN_32pt__whiteLine_textLogo_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80783DAA19BFD2B200F7DDBF /* ApplePayBTN_32pt__whiteLine_textLogo_@2x.png */; };
 		8090A55B19B92CF900268BFD /* LZNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55A19B92CF900268BFD /* LZNavigationBar.m */; };
 		8090A55F19B9336400268BFD /* DecimalKeypadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55D19B9336400268BFD /* DecimalKeypadView.m */; };
 		8090A56019B9336400268BFD /* DecimalKeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8090A55E19B9336400268BFD /* DecimalKeypadView.xib */; };
@@ -173,6 +175,8 @@
 		80783D8C19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HMAC_MD5.m"; sourceTree = "<group>"; };
 		80783D9C19BFC6EB00F7DDBF /* FingerPrintObjectType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerPrintObjectType.m; sourceTree = "<group>"; };
 		80783D9E19BFC6F900F7DDBF /* OpaqueDataType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpaqueDataType.m; sourceTree = "<group>"; };
+		80783DA219BFCF7200F7DDBF /* ApplePayBTN_32pt__black_logo_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ApplePayBTN_32pt__black_logo_@2x.png"; path = "AuthnetLab/ApplePayBTN_32pt__black_logo_@2x.png"; sourceTree = "<group>"; };
+		80783DAA19BFD2B200F7DDBF /* ApplePayBTN_32pt__whiteLine_textLogo_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ApplePayBTN_32pt__whiteLine_textLogo_@2x.png"; path = "AuthnetLab/ApplePayBTN_32pt__whiteLine_textLogo_@2x.png"; sourceTree = "<group>"; };
 		8090A55919B92CF900268BFD /* LZNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNavigationBar.h; sourceTree = "<group>"; };
 		8090A55A19B92CF900268BFD /* LZNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNavigationBar.m; sourceTree = "<group>"; };
 		8090A55C19B9336400268BFD /* DecimalKeypadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecimalKeypadView.h; sourceTree = "<group>"; };
@@ -670,6 +674,8 @@
 		9C045FDE1988208800368719 /* Image_resources */ = {
 			isa = PBXGroup;
 			children = (
+				80783DAA19BFD2B200F7DDBF /* ApplePayBTN_32pt__whiteLine_textLogo_@2x.png */,
+				80783DA219BFCF7200F7DDBF /* ApplePayBTN_32pt__black_logo_@2x.png */,
 				803BA75619BFB7800012442E /* Cart.png */,
 				80FA44DB19BC233E00C40897 /* authorize_net.png */,
 				80FA44DC19BC233E00C40897 /* btn_G.png */,
@@ -926,6 +932,8 @@
 				80FA44F319BC233E00C40897 /* input_2@2x.png in Resources */,
 				80FA44F019BC233E00C40897 /* ic_dev_info.png in Resources */,
 				80FA44ED19BC233E00C40897 /* header_bar.png in Resources */,
+				80783DA419BFCF7200F7DDBF /* ApplePayBTN_32pt__black_logo_@2x.png in Resources */,
+				80783DAB19BFD2B200F7DDBF /* ApplePayBTN_32pt__whiteLine_textLogo_@2x.png in Resources */,
 				80FA44EA19BC233E00C40897 /* btn_G.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
