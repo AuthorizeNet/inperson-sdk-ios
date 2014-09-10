@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D00D6358AD246A68CFA20A0 /* libPods-AuthnetLab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 125495B01FE441B0B0095E4C /* libPods-AuthnetLab.a */; };
 		803BA75719BFB7800012442E /* Cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 803BA75619BFB7800012442E /* Cart.png */; };
 		805AB78C19BE622E00DAB2BA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3591571949C2D600432E35 /* Main_iPhone.storyboard */; };
 		805AB78D19BE622E00DAB2BA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF35915A1949C2D600432E35 /* Main_iPad.storyboard */; };
@@ -410,7 +409,6 @@
 				FF3591481949C2D600432E35 /* CoreGraphics.framework in Frameworks */,
 				FF35914A1949C2D600432E35 /* UIKit.framework in Frameworks */,
 				FF3591461949C2D600432E35 /* Foundation.framework in Frameworks */,
-				2D00D6358AD246A68CFA20A0 /* libPods-AuthnetLab.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
