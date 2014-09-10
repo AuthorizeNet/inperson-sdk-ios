@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2D00D6358AD246A68CFA20A0 /* libPods-AuthnetLab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 125495B01FE441B0B0095E4C /* libPods-AuthnetLab.a */; };
+		803BA75719BFB7800012442E /* Cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 803BA75619BFB7800012442E /* Cart.png */; };
 		805AB78C19BE622E00DAB2BA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF3591571949C2D600432E35 /* Main_iPhone.storyboard */; };
 		805AB78D19BE622E00DAB2BA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF35915A1949C2D600432E35 /* Main_iPad.storyboard */; };
+		80783D8D19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 80783D8C19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m */; };
+		80783D9D19BFC6EB00F7DDBF /* FingerPrintObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80783D9C19BFC6EB00F7DDBF /* FingerPrintObjectType.m */; };
+		80783D9F19BFC6F900F7DDBF /* OpaqueDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80783D9E19BFC6F900F7DDBF /* OpaqueDataType.m */; };
 		8090A55B19B92CF900268BFD /* LZNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55A19B92CF900268BFD /* LZNavigationBar.m */; };
 		8090A55F19B9336400268BFD /* DecimalKeypadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8090A55D19B9336400268BFD /* DecimalKeypadView.m */; };
 		8090A56019B9336400268BFD /* DecimalKeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8090A55E19B9336400268BFD /* DecimalKeypadView.xib */; };
@@ -164,6 +168,11 @@
 /* Begin PBXFileReference section */
 		125495B01FE441B0B0095E4C /* libPods-AuthnetLab.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AuthnetLab.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		273E69BC2F7F4628AE030F75 /* Pods-AuthnetLabTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthnetLabTests.xcconfig"; path = "Pods/Pods-AuthnetLabTests.xcconfig"; sourceTree = "<group>"; };
+		803BA75619BFB7800012442E /* Cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cart.png; path = AuthnetLab/Cart.png; sourceTree = "<group>"; };
+		80783D8B19BFBA6D00F7DDBF /* NSString+HMAC_MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HMAC_MD5.h"; sourceTree = "<group>"; };
+		80783D8C19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HMAC_MD5.m"; sourceTree = "<group>"; };
+		80783D9C19BFC6EB00F7DDBF /* FingerPrintObjectType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerPrintObjectType.m; sourceTree = "<group>"; };
+		80783D9E19BFC6F900F7DDBF /* OpaqueDataType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpaqueDataType.m; sourceTree = "<group>"; };
 		8090A55919B92CF900268BFD /* LZNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZNavigationBar.h; sourceTree = "<group>"; };
 		8090A55A19B92CF900268BFD /* LZNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZNavigationBar.m; sourceTree = "<group>"; };
 		8090A55C19B9336400268BFD /* DecimalKeypadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecimalKeypadView.h; sourceTree = "<group>"; };
@@ -432,6 +441,8 @@
 		80A75A1519B90446008D3EC8 /* Anet SDK */ = {
 			isa = PBXGroup;
 			children = (
+				80783D9E19BFC6F900F7DDBF /* OpaqueDataType.m */,
+				80783D9C19BFC6EB00F7DDBF /* FingerPrintObjectType.m */,
 				80A75A1619B90446008D3EC8 /* Anet SDK-Prefix.pch */,
 				80A75A1719B90446008D3EC8 /* ANetApiRequest.m */,
 				80A75A1819B90446008D3EC8 /* ANetApiResponse.m */,
@@ -558,6 +569,8 @@
 		80A75A7619B90446008D3EC8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				80783D8B19BFBA6D00F7DDBF /* NSString+HMAC_MD5.h */,
+				80783D8C19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m */,
 				80A75A7719B90446008D3EC8 /* NSArray+PerformSelector.h */,
 				80A75A7819B90446008D3EC8 /* NSArray+PerformSelector.m */,
 				80A75A7919B90446008D3EC8 /* NSString+dataFromFilename.h */,
@@ -657,6 +670,7 @@
 		9C045FDE1988208800368719 /* Image_resources */ = {
 			isa = PBXGroup;
 			children = (
+				803BA75619BFB7800012442E /* Cart.png */,
 				80FA44DB19BC233E00C40897 /* authorize_net.png */,
 				80FA44DC19BC233E00C40897 /* btn_G.png */,
 				80FA44DD19BC233E00C40897 /* header_bar_landscape.png */,
@@ -886,6 +900,7 @@
 				80A75AEA19B90446008D3EC8 /* GetSettledBatchListResponse.xml in Resources */,
 				80A75AF719B90446008D3EC8 /* LogoutResponse.xml in Resources */,
 				80A75B1E19B90446008D3EC8 /* README in Resources */,
+				803BA75719BFB7800012442E /* Cart.png in Resources */,
 				80FA44E919BC233E00C40897 /* authorize_net.png in Resources */,
 				80A75B1B19B90446008D3EC8 /* Anet SDKTests-Info.plist in Resources */,
 				80A75B0119B90446008D3EC8 /* MobileDeviceRegistrationResponse.xml in Resources */,
@@ -1012,6 +1027,7 @@
 				FF3591561949C2D600432E35 /* AppDelegate.m in Sources */,
 				80A75B1919B90446008D3EC8 /* TransRetailInfoType.m in Sources */,
 				80A75B1A19B90446008D3EC8 /* UserField.m in Sources */,
+				80783D9D19BFC6EB00F7DDBF /* FingerPrintObjectType.m in Sources */,
 				80A75ADF19B90446008D3EC8 /* CustomerAddressType.m in Sources */,
 				80A75AF119B90446008D3EC8 /* GetUnsettledTransactionListRequest.m in Sources */,
 				80A75AD619B90446008D3EC8 /* BatchDetailsType.m in Sources */,
@@ -1022,6 +1038,7 @@
 				80A75B0C19B90446008D3EC8 /* SettingType.m in Sources */,
 				80A75B2119B90446008D3EC8 /* NSString+dataFromFilename.m in Sources */,
 				80A75B0019B90446008D3EC8 /* MobileDeviceRegistrationResponse.m in Sources */,
+				80783D8D19BFBA6D00F7DDBF /* NSString+HMAC_MD5.m in Sources */,
 				80A75B0219B90446008D3EC8 /* MobileDeviceType.m in Sources */,
 				80A75B1819B90446008D3EC8 /* TransactionSummaryType.m in Sources */,
 				80A75AD119B90446008D3EC8 /* AuthNetRequest.m in Sources */,
@@ -1037,6 +1054,7 @@
 				80A75AE819B90446008D3EC8 /* GetSettledBatchListRequest.m in Sources */,
 				80A75AFF19B90446008D3EC8 /* MobileDeviceRegistrationRequest.m in Sources */,
 				80A75AFA19B90446008D3EC8 /* MerchantContactType.m in Sources */,
+				80783D9F19BFC6F900F7DDBF /* OpaqueDataType.m in Sources */,
 				80A75ACE19B90446008D3EC8 /* ANetApiResponse.m in Sources */,
 				80A75AD219B90446008D3EC8 /* AuthNetResponse.m in Sources */,
 				80A75B0319B90446008D3EC8 /* NameAndAddressType.m in Sources */,
@@ -1217,6 +1235,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84C39FBA20534B9DB46489EA /* Pods-AuthnetLab.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -1230,9 +1249,9 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos8.0;
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm 64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1241,6 +1260,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84C39FBA20534B9DB46489EA /* Pods-AuthnetLab.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -1254,9 +1274,9 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos8.0;
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "arm 64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

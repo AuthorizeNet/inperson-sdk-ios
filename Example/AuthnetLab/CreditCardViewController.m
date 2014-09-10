@@ -7,6 +7,7 @@
 //
 
 #import "CreditCardViewController.h"
+#import "NSString+HMAC_MD5.h"
 
 #define FLOAT_COLOR_VALUE(n) (n)/255.0
 
@@ -71,7 +72,7 @@
 
     
     [self initializeViews];
-    
+    [AuthNet authNetWithEnvironment:ENV_TEST];
     // register for keyboard notifications
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(keyboardWillShow:)
@@ -558,6 +559,11 @@
     [infoAlertView show];
 }
 
+- (IBAction)payNowPressed:(id)sender
+{
+  [self createTransaction:arc4random() % 100];
+}
+
 
 - (IBAction)onClickLogoutPressed:(id)sender {
     [self LogoutAction];
@@ -744,6 +750,118 @@
 
 -(void) _applicationWillEnterForeground
 {
+}
+
+/*
+ Example Fingerprint Input Field Order
+ "authnettest^789^67897654^10.50^"
+ 
+ ----------WARNING!----------------
+ Finger print generation requires the transaction key. This should
+ be done at the server. It is shown here only for Demo purposes.
+ http://www.authorize.net/support/DirectPost_guide.pdf p22-23
+ */
+- (NSString*)login:(NSString*)apiLoginId total:(float)amount sequence:(int)number time:(long long)nowAsLong
+{
+    NSString *fp = [NSString stringWithFormat:@""
+                    @"%@"
+                    @"^%d"
+                    @"^%lld"
+                    @"^%.2f"
+                    @"^",
+                    apiLoginId, number, nowAsLong, amount];
+    return fp;
+    
+}
+
+
+- (void) createTransaction:(float)transactionAmount
+{
+    float amt = transactionAmount;
+    srandom(time(NULL));
+    // int amount = arc4random() % 100;
+    int seq = arc4random() % 100;
+    
+    NSDate *now = [NSDate date];
+    long long nowAsLong = [now timeIntervalSince1970];
+    
+    
+    //-------WARNING!----------------
+    // Transaction key should never be stored on the device or embedded in code.
+    // The usage of the transaction key below is only shown below for demo purposes.
+    NSString *transactionKey           = @"4Ktq966gC55GAX7S";
+    NSString *apilogind           = @"5KP3u95bQpv";
+
+    
+    NSString *fp = [self login:apilogind total:amt sequence:seq  time:nowAsLong];
+    
+    //-------WARNING!----------------
+    // Transaction key should never be stored on the device or embedded in the code.
+    // This part of the code that generates the finger print is present here only to make the sample app work.
+    // Finger print generation should be done on the server.
+    NSString *hexHmac = [NSString HMAC_MD5_WithTransactionKey:transactionKey fromValue:fp];
+    
+    NSLog(@"HMAC_MD5 in hex is %@", hexHmac);
+    
+    //[self createANetSOAPRequest:apilogind fp:hexHmac sequence:seq time:nowAsLong total:amount];
+    [self createTransaction:apilogind fp:hexHmac sequence:seq time:nowAsLong total:amt];
+    
+}
+
+
+- (void) createTransaction:(NSString*)apiLoginId fp:(NSString*)secret sequence:(int)number time:(long long)nowAsLong total:(float)amount {
+    AuthNet *an = [AuthNet getInstance];
+    [an setDelegate:self];
+
+    
+    // create the transaction.
+    CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
+    TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
+    
+    request.transactionRequest = requestType;
+    request.transactionType = AUTH_ONLY;
+    
+    // set the fingerprint. Note: Finger print generation requires transaction key.
+    // finger print generation must happen on the server.
+    FingerPrintObjectType *fpData = [FingerPrintObjectType fingerPrintObjectType];
+    fpData.hashValue = secret;
+    fpData.sequenceNumber= number;
+    fpData.timeStamp = nowAsLong;
+    
+    request.anetApiRequest.merchantAuthentication.fingerPrint = fpData;
+    request.anetApiRequest.merchantAuthentication.name = apiLoginId;
+    
+    // set the opaque data
+    OpaqueDataType *opData = [OpaqueDataType opaqueDataType];
+    // sample value is set here. actual value is obtained from the LG SDK.
+    opData.dataValue=[self getData2];
+    opData.dataDescriptor=@"COMMON.APPLE.INAPP.PAYMENT";
+    
+    PaymentType *paymentType = [PaymentType paymentType];
+    paymentType.creditCard= nil;
+    paymentType.bankAccount= nil;
+    paymentType.trackData= nil;
+    paymentType.swiperData= nil;
+    paymentType.opData = opData;
+    
+    NSString *strAmount = [NSString stringWithFormat:@"%.2f", amount];
+    requestType.amount = strAmount;
+    requestType.payment = paymentType;
+    requestType.retail.marketType=@"0";
+    requestType.retail.deviceType =@"7";
+    
+    OrderType *order = [OrderType order];
+    order.invoiceNumber = [NSString stringWithFormat:@"%d", arc4random() % 100];
+    
+    // submit the transaction.
+    [an purchaseWithRequest:request];
+}
+
+
+// note: this is a sample blob.
+-(NSString* )getData2
+{
+    return @"eyJkYXRhIjoiUWRIZ1NMR2pOM1l5K2Y0NGVyaG15S3hJWkoxWERpVDhFdm5ya0tua3dZalhrTmdsYzVIQmNWTFBpOGdcL3pDRmN6UUxJU1lBaWNsbVwvbW9Rc3ZBV2NnQ3NlY3llVXVhb2UxZHRQRkNLR2p1a3ROOXlhZDB1a3VYNVJXcWRDbkJZa09WZ3FKRWU2U29yR2dXMlNoRmFzK21ZZWl4NFwvOVwvTGdjUkdpNHNIOHdHemZLdGJUMnFcL3ZqVzgwbldXU29LcUI0XC95NUFZalVxZmJvNmhQSW5UVUk4V2VwSTAxMG1MS294K2lLUFRucHJSaGx2Z0ZydWgzM1wvb3ZZRmFkZkVMb0wzUGVTWFRcL2dlaFwveHhTa1RDYlJKMys2WXRCU1pYMGF2UlU2eUczdWZpRUZIMXJyRkI3NXBpZVdKTnN5VzU3SlwvSENUbERvNWxXR2lWQUp4YUZocWswaGNTY2RXcDJYYkpLc0FDd3BBd2FPYitGQkJFMTZiREg5ZGlmSVRxUlVtK0llOGo1UFZ6czJBN09sWVdwdEhyMnFpR1Fjd1h1SVdPT3JBNFY1MDZlTmdEalllNThDUGVUSTdwIiwidmVyc2lvbiI6IkVDX3YxIiwiaGVhZGVyIjp7ImFwcGxpY2F0aW9uRGF0YSI6Ijk0ZWUwNTkzMzVlNTg3ZTUwMWNjNGJmOTA2MTNlMDgxNGYwMGE3YjA4YmM3YzY0OGZkODY1YTJhZjZhMjJjYzIiLCJ0cmFuc2FjdGlvbklkIjoiYzFjYWY1YWU3MmYwMDM5YTgyYmFkOTJiODI4MzYzNzM0Zjg1YmYyZjljYWRmMTkzZDFiYWQ5ZGRjYjYwYTc5NSIsImVwaGVtZXJhbFB1YmxpY0tleSI6Ik1JSUJTekNDQVFNR0J5cUdTTTQ5QWdFd2dmY0NBUUV3TEFZSEtvWkl6ajBCQVFJaEFQXC9cL1wvXC84QUFBQUJBQUFBQUFBQUFBQUFBQUFBXC9cL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9NRnNFSVBcL1wvXC9cLzhBQUFBQkFBQUFBQUFBQUFBQUFBQUFcL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC84QkNCYXhqWFlxanFUNTdQcnZWVjJtSWE4WlIwR3NNeFRzUFk3emp3K0o5SmdTd01WQU1TZE5naUc1d1NUYW1aNDRST2RKcmVCbjM2UUJFRUVheGZSOHVFc1FrZjR2T2JsWTZSQThuY0RmWUV0NnpPZzlLRTVSZGlZd3BaUDQwTGlcL2hwXC9tNDduNjBwOEQ1NFdLODR6VjJzeFhzN0x0a0JvTjc5UjlRSWhBUFwvXC9cL1wvOEFBQUFBXC9cL1wvXC9cL1wvXC9cL1wvXC8rODV2cXRweGVlaFBPNXlzTDhZeVZSQWdFQkEwSUFCTUhCdVlwU0w5S0hzU2pUM0pFQkExYVRJQWFNMDMxc2gzYzZseGRnOGNsemY2YXAzaHFVUUdRZWRkTEtLeDZURHY0UlpYcXlXQzNqTlhxVHlsb3ZlSlk9IiwicHVibGljS2V5SGFzaCI6IlwvYmI5Q05DMzZ1QmhlSEZQYm1vaEI3T28xT3NYMkora0pxdjQ4ek9WVmlRPSJ9LCJzaWduYXR1cmUiOiJNSUlEUWdZSktvWklodmNOQVFjQ29JSURNekNDQXk4Q0FRRXhDekFKQmdVckRnTUNHZ1VBTUFzR0NTcUdTSWIzRFFFSEFhQ0NBaXN3Z2dJbk1JSUJsS0FEQWdFQ0FoQmNsK1BmMytVNHBrMTNuVkQ5bndRUU1Ba0dCU3NPQXdJZEJRQXdKekVsTUNNR0ExVUVBeDRjQUdNQWFBQnRBR0VBYVFCQUFIWUFhUUJ6QUdFQUxnQmpBRzhBYlRBZUZ3MHhOREF4TURFd05qQXdNREJhRncweU5EQXhNREV3TmpBd01EQmFNQ2N4SlRBakJnTlZCQU1lSEFCakFHZ0FiUUJoQUdrQVFBQjJBR2tBY3dCaEFDNEFZd0J2QUcwd2daOHdEUVlKS29aSWh2Y05BUUVCQlFBRGdZMEFNSUdKQW9HQkFOQzgra2d0Z212V0YxT3pqZ0ROcmpURUJSdW9cLzVNS3ZsTTE0NnBBZjdHeDQxYmxFOXc0ZklYSkFEN0ZmTzdRS2pJWFlOdDM5ckx5eTd4RHdiXC81SWtaTTYwVFoyaUkxcGo1NVVjOGZkNGZ6T3BrM2Z0WmFRR1hOTFlwdEcxZDlWN0lTODJPdXA5TU1vMUJQVnJYVFBITmNzTTk5RVBVblBxZGJlR2M4N20wckFnTUJBQUdqWERCYU1GZ0dBMVVkQVFSUk1FK0FFSFpXUHJXdEpkN1laNDMxaENnN1lGU2hLVEFuTVNVd0l3WURWUVFESGh3QVl3Qm9BRzBBWVFCcEFFQUFkZ0JwQUhNQVlRQXVBR01BYndCdGdoQmNsK1BmMytVNHBrMTNuVkQ5bndRUU1Ba0dCU3NPQXdJZEJRQURnWUVBYlVLWUNrdUlLUzlRUTJtRmNNWVJFSW0ybCtYZzhcL0pYditHQlZRSmtPS29zY1k0aU5ERkFcL2JRbG9nZjlMTFU4NFRId05SbnN2VjNQcnY3UlRZODFncTBkdEM4elljQWFBa0NISUkzeXFNbko0QU91NkVPVzlrSmsyMzJnU0U3V2xDdEhiZkxTS2Z1U2dRWDhLWFFZdVpMazJScjYzTjhBcFhzWHdCTDNjSjB4Z2VBd2dkMENBUUV3T3pBbk1TVXdJd1lEVlFRREhod0FZd0JvQUcwQVlRQnBBRUFBZGdCcEFITUFZUUF1QUdNQWJ3QnRBaEJjbCtQZjMrVTRwazEzblZEOW53UVFNQWtHQlNzT0F3SWFCUUF3RFFZSktvWklodmNOQVFFQkJRQUVnWUFmSGNXWkcrZDlrSGZnb2NyaEpBalhoSUdqOHlBU1ZtdGNDWUoyMXRuek5acFhmUEk0MFwvb3BcL0FJYkpOQys4YnVzTUN5ekhzeFhKbjA3bFgrM0NiVnMzQ204OU5hZzRWXC9WYjNCcGltck9iWXNTZkQ5clhwMFFBM1VxXC93TkFxa1FyeCtmS2ZjdXAwN0drT2ljYTFJYzNpY3h0cTN6RWRLYnhPWnBvaVhZVUV3PT0ifQ==";
 }
 
 

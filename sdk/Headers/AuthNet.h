@@ -77,6 +77,8 @@
 #import "TestAccountCaptchaResponse.h"
 #import "TestAccountRegistrationRequest.h"
 #import "TestAccountRegistrationResponse.h"
+#import "FingerPrintObjectType.h"
+#import "OpaqueDataType.h"
 
 #define RUN_UNTIL_TIME 0.1
 // Duplicate Window is the number a second that
