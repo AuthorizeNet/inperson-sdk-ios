@@ -39,6 +39,7 @@
 - (IBAction) swipePressed;
 - (IBAction) continuePressed;
 - (IBAction)onClickBarItemInfo:(id)sender;
+- (IBAction)payNowPressed:(id)sender;
 
 // Called during view load to initialize the view
 //- (void)initializeViews:(DecimalKeypadView *)keypad;

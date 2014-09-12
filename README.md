@@ -37,6 +37,12 @@ Installation is very simple with Cocoapods but you can also install manually.
 4. In the file dialog, make sure "Copy items into destination group's folder (if needed)" is checked and click Add button.
 
 
+## Apple Pay
+
+Check out [http://developer.authorize.net/api/applepay](http://developer.authorize.net/api/applepay) for all the developer resources you need to get going.
+
+Our sample app will also walk you through an Apple Pay transaction on Authorize.Net.
+
 
 ## Building an MPoS Application
 

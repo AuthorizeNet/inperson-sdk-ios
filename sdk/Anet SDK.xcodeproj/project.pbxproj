@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7848F52D1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */; };
-		8029978F19BC28AC0011DC96 /* TestAccountCaptchaResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8029978E19BC28AC0011DC96 /* TestAccountCaptchaResponse.m */; };
-		8029979119BC28BC0011DC96 /* TestAccountRegistrationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8029979019BC28BC0011DC96 /* TestAccountRegistrationRequest.m */; };
+		806AAB1E19BFB49F00323034 /* NSString+HMAC_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1D19BFB49F00323034 /* NSString+HMAC_MD5.m */; };
+		806AAB2019BFB52C00323034 /* OpaqueDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1F19BFB52C00323034 /* OpaqueDataType.m */; };
+		806AAB2219BFB55300323034 /* FingerPrintObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB2119BFB55300323034 /* FingerPrintObjectType.m */; };
 		8B60EBDB186F3756001A2639 /* TestAccountCaptchaRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60EBDA186F3756001A2639 /* TestAccountCaptchaRequest.m */; };
 		8D7C958017D1657C00D2B1A6 /* NSString+dataFromFilename.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C957717D1657C00D2B1A6 /* NSString+dataFromFilename.m */; };
 		8D7C958117D1657C00D2B1A6 /* NSString+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C957917D1657C00D2B1A6 /* NSString+Hex.m */; };
@@ -113,9 +114,12 @@
 		4EEBACF11882949D00667143 /* TestAccountRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationRequest.h; sourceTree = "<group>"; };
 		4EEBACF81882958200667143 /* TestAccountRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationResponse.h; sourceTree = "<group>"; };
 		7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountRegistrationResponse.xml; sourceTree = "<group>"; };
-		8029978E19BC28AC0011DC96 /* TestAccountCaptchaResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountCaptchaResponse.m; sourceTree = "<group>"; };
-		8029979019BC28BC0011DC96 /* TestAccountRegistrationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountRegistrationRequest.m; sourceTree = "<group>"; };
-		8029979219BC28EE0011DC96 /* TestAccountCaptchaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaResponse.h; sourceTree = "<group>"; };
+		806AAB1C19BFB49F00323034 /* NSString+HMAC_MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HMAC_MD5.h"; sourceTree = "<group>"; };
+		806AAB1D19BFB49F00323034 /* NSString+HMAC_MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HMAC_MD5.m"; sourceTree = "<group>"; };
+		806AAB1F19BFB52C00323034 /* OpaqueDataType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpaqueDataType.m; sourceTree = "<group>"; };
+		806AAB2119BFB55300323034 /* FingerPrintObjectType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FingerPrintObjectType.m; sourceTree = "<group>"; };
+		806AAB2319BFB57200323034 /* FingerPrintObjectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerPrintObjectType.h; sourceTree = "<group>"; };
+		806AAB2419BFB57200323034 /* OpaqueDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpaqueDataType.h; sourceTree = "<group>"; };
 		8B60EBDA186F3756001A2639 /* TestAccountCaptchaRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAccountCaptchaRequest.m; sourceTree = "<group>"; };
 		8D7C957617D1657C00D2B1A6 /* NSString+dataFromFilename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dataFromFilename.h"; sourceTree = "<group>"; };
 		8D7C957717D1657C00D2B1A6 /* NSString+dataFromFilename.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+dataFromFilename.m"; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 		8D7C957517D1657C00D2B1A6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				806AAB1C19BFB49F00323034 /* NSString+HMAC_MD5.h */,
+				806AAB1D19BFB49F00323034 /* NSString+HMAC_MD5.m */,
 				8D7C957617D1657C00D2B1A6 /* NSString+dataFromFilename.h */,
 				8D7C957717D1657C00D2B1A6 /* NSString+dataFromFilename.m */,
 				8D7C957817D1657C00D2B1A6 /* NSString+Hex.h */,
@@ -320,8 +326,8 @@
 		8DC073BB17D159F200D4E93D /* Anet SDK */ = {
 			isa = PBXGroup;
 			children = (
-				8029979019BC28BC0011DC96 /* TestAccountRegistrationRequest.m */,
-				8029978E19BC28AC0011DC96 /* TestAccountCaptchaResponse.m */,
+				806AAB2119BFB55300323034 /* FingerPrintObjectType.m */,
+				806AAB1F19BFB52C00323034 /* OpaqueDataType.m */,
 				7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */,
 				8DC073BC17D159F200D4E93D /* Anet SDK-Prefix.pch */,
 				8DC073BD17D159F200D4E93D /* ANetApiRequest.m */,
@@ -414,9 +420,10 @@
 		8DC0745117D15A0800D4E93D /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				806AAB2319BFB57200323034 /* FingerPrintObjectType.h */,
+				806AAB2419BFB57200323034 /* OpaqueDataType.h */,
 				4EEBACF81882958200667143 /* TestAccountRegistrationResponse.h */,
 				4EEBACF11882949D00667143 /* TestAccountRegistrationRequest.h */,
-				8029979219BC28EE0011DC96 /* TestAccountCaptchaResponse.h */,
 				FF35F18B187FD4D0005A4A66 /* TestAccountCaptchaRequest.h */,
 				8DC0745217D15A0800D4E93D /* ANetApiRequest.h */,
 				8DC0745317D15A0800D4E93D /* ANetApiResponse.h */,
@@ -581,7 +588,7 @@
 			name = "Anet SDKTests";
 			productName = "Anet SDKTests";
 			productReference = 8DEBA89417D129B700B7A8B9 /* Anet SDKTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -653,6 +660,7 @@
 				8DC0741217D159F200D4E93D /* AuthNetResponse.m in Sources */,
 				8DC0741417D159F200D4E93D /* BankAccountMaskedType.m in Sources */,
 				8DC0741517D159F200D4E93D /* BankAccountType.m in Sources */,
+				806AAB1E19BFB49F00323034 /* NSString+HMAC_MD5.m in Sources */,
 				8DC0741617D159F200D4E93D /* BatchDetailsType.m in Sources */,
 				8DC0741717D159F200D4E93D /* BatchStatisticType.m in Sources */,
 				8DC0741817D159F200D4E93D /* CCAuthenticationType.m in Sources */,
@@ -679,10 +687,8 @@
 				8DC0742C17D159F200D4E93D /* GetUnsettledTransactionListRequest.m in Sources */,
 				8DC0742D17D159F200D4E93D /* GetUnsettledTransactionListResponse.m in Sources */,
 				8DC0742E17D159F200D4E93D /* LineItemType.m in Sources */,
-				8029979119BC28BC0011DC96 /* TestAccountRegistrationRequest.m in Sources */,
 				8DC0742F17D159F200D4E93D /* LogoutRequest.m in Sources */,
 				8DC0743017D159F200D4E93D /* LogoutResponse.m in Sources */,
-				8029978F19BC28AC0011DC96 /* TestAccountCaptchaResponse.m in Sources */,
 				8DC0743117D159F200D4E93D /* MerchantAccountType.m in Sources */,
 				8DC0743217D159F200D4E93D /* MerchantAuthenticationType.m in Sources */,
 				8DC0743317D159F200D4E93D /* MerchantContactType.m in Sources */,
@@ -701,11 +707,13 @@
 				8DC0744517D159F200D4E93D /* SendCustomerTransactionReceiptRequest.m in Sources */,
 				8DC0744617D159F200D4E93D /* SendCustomerTransactionReceiptResponse.m in Sources */,
 				8DC0744717D159F200D4E93D /* SettingType.m in Sources */,
+				806AAB2219BFB55300323034 /* FingerPrintObjectType.m in Sources */,
 				8DC0744817D159F200D4E93D /* SplitTenderPayment.m in Sources */,
 				8DC0744917D159F200D4E93D /* Reachability.m in Sources */,
 				8DC0744A17D159F200D4E93D /* SwiperDataType.m in Sources */,
 				8DC0744B17D159F200D4E93D /* TransactionDetailsType.m in Sources */,
 				8DC0744C17D159F200D4E93D /* TransactionRequestType.m in Sources */,
+				806AAB2019BFB52C00323034 /* OpaqueDataType.m in Sources */,
 				8DC0744D17D159F200D4E93D /* TransactionResponse.m in Sources */,
 				8DC0744E17D159F200D4E93D /* TransactionSummaryType.m in Sources */,
 				8DC0744F17D159F200D4E93D /* TransRetailInfoType.m in Sources */,
@@ -809,6 +817,7 @@
 		8DEBA8A917D129B700B7A8B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/Anet_SDK.dst;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -818,6 +827,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos8.0;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -826,6 +836,7 @@
 		8DEBA8AA17D129B700B7A8B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/Anet_SDK.dst;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -835,6 +846,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos8.0;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
