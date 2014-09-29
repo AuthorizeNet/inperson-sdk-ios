@@ -27,11 +27,11 @@
 #define kCardExpirationErrorAlert 1002
 
 #define INFORMATION_MESSAGE @"The application utilizes the Authorize.Net SDK avaliable on GitHub under the username AurhorizeNet. Authorize.Net is a wholly owned subsidiary of Visa."
-#define PAYMENT_SUCCESSFUL @"Your transaction of $20 has successfully been processed."
+#define PAYMENT_SUCCESSFUL @"Your transaction of $0.01 has successfully been processed."
 
 
 
-@interface CreditCardViewController (private)
+@interface CreditCardViewController(private)<DecimalKeypadViewDelegate,AuthNetDelegate,UITextFieldDelegate,UIAlertViewDelegate,PKPaymentAuthorizationViewControllerDelegate>
 - (void) formatValue:(UITextField *)textField;
 - (BOOL) isMaxLength:(UITextField *)textField;
 - (void) validateCreditCardValue;
@@ -69,26 +69,26 @@
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"header_bar_landscape.png"] forBarMetrics:UIBarMetricsLandscapePhone];
         
     }
-
+    
     
     [self initializeViews];
     [AuthNet authNetWithEnvironment:ENV_TEST];
     // register for keyboard notifications
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(keyboardWillShow:)
-												 name:UIKeyboardWillShowNotification
-											   object:self.view.window];
-	// register for keyboard notifications
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(keyboardWillHide:)
-												 name:UIKeyboardWillHideNotification
-											   object:self.view.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
     //Subscribe to this so that we can invalidate Swiper related tasks before the app goes to background state.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_applicationWillGetBackGrounded) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     // Do any additional setup after loading the view.
-  }
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [self clearInputFields];
@@ -113,22 +113,22 @@
 - (void)dealloc {
     
     
-	// unregister for keyboard notifications while not visible.
+    // unregister for keyboard notifications while not visible.
     [[NSNotificationCenter defaultCenter] removeObserver:self
-													name:UIKeyboardWillShowNotification
-												  object:nil];
-	// unregister for keyboard notifications while not visible.
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    // unregister for keyboard notifications while not visible.
     [[NSNotificationCenter defaultCenter] removeObserver:self
-													name:UIKeyboardWillHideNotification
-												  object:nil];
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
     
     // These were registered in viewDidLoad, so remove them here
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
-	
-	creditCardTextField = nil;
-	expirationTextField = nil;
-	cvv2TextField = nil;
+    
+    creditCardTextField = nil;
+    expirationTextField = nil;
+    cvv2TextField = nil;
     zipTextField = nil;
     _keypad = nil;
 }
@@ -150,8 +150,8 @@
         buf=@"";
     self.expirationBuf = [NSString stringWithString:buf];
     
-	//TODO:  REMOVE AFTER TESTING
-	[self validateCreditCardValue];
+    //TODO:  REMOVE AFTER TESTING
+    [self validateCreditCardValue];
 }
 
 -(void) LogoutAction{
@@ -163,7 +163,7 @@
     [an setDelegate:self];
     [an LogoutRequest:logoutRequest];
     
-     [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)clearInputFields
@@ -189,9 +189,9 @@
 }
 
 - (void) formatValue:(UITextField *)textField {
-	NSMutableString *value = [NSMutableString string];
-	
-	if (textField == self.creditCardTextField ) {
+    NSMutableString *value = [NSMutableString string];
+    
+    if (textField == self.creditCardTextField ) {
         NSInteger length = [self.creditCardBuf length];
         
         for (int i = 0; i < length; i++) {
@@ -222,8 +222,8 @@
             }
         }
         textField.text = value;
-	}
-	if (textField == self.expirationTextField) {
+    }
+    if (textField == self.expirationTextField) {
         for (int i = 0; i < [self.expirationBuf length]; i++) {
             [value appendString:[self.expirationBuf substringWithRange:NSMakeRange(i,1)]];
             
@@ -234,38 +234,38 @@
             }
         }
         textField.text = value;
-	}
+    }
 }
 
 
 
 - (void) validateCreditCardValue {
-	NSString *ccNum = self.creditCardBuf;
-	
-	// Use the Authorize.Net SDK to validate credit card number
-	if (![CreditCardType isValidCreditCardNumber:ccNum]) {
-		self.creditCardTextField.textColor = [UIColor redColor];
-	} else {
-		self.creditCardTextField.textColor = [UIColor colorWithRed:FLOAT_COLOR_VALUE(98) green:FLOAT_COLOR_VALUE(169) blue:FLOAT_COLOR_VALUE(40) alpha:1];
-	}
+    NSString *ccNum = self.creditCardBuf;
+    
+    // Use the Authorize.Net SDK to validate credit card number
+    if (![CreditCardType isValidCreditCardNumber:ccNum]) {
+        self.creditCardTextField.textColor = [UIColor redColor];
+    } else {
+        self.creditCardTextField.textColor = [UIColor colorWithRed:FLOAT_COLOR_VALUE(98) green:FLOAT_COLOR_VALUE(169) blue:FLOAT_COLOR_VALUE(40) alpha:1];
+    }
 }
 
 
 - (BOOL) isMaxLength:(UITextField *)textField {
     
-	if (textField == self.creditCardTextField && [textField.text length] >= kCreditCardLengthPlusSpaces) {
-		return YES;
-	}
-	else if (textField == self.expirationTextField && [textField.text length] >= kExpirationLengthPlusSlash) {
-		return YES;
-	}
-	else if (textField == self.cvv2TextField && [textField.text length] >= kCVV2Length) {
-		return YES;
-	}
-	else if (textField == self.zipTextField && [textField.text length] >= kZipLength) {
-		return YES;
-	}
-	return NO;
+    if (textField == self.creditCardTextField && [textField.text length] >= kCreditCardLengthPlusSpaces) {
+        return YES;
+    }
+    else if (textField == self.expirationTextField && [textField.text length] >= kExpirationLengthPlusSlash) {
+        return YES;
+    }
+    else if (textField == self.cvv2TextField && [textField.text length] >= kCVV2Length) {
+        return YES;
+    }
+    else if (textField == self.zipTextField && [textField.text length] >= kZipLength) {
+        return YES;
+    }
+    return NO;
 }
 
 
@@ -280,7 +280,7 @@
     if ([string isEqualToString:@"Cancel Transaction"]) {
         return;
     }
-   // [self.view textField:[self.view currentField] shouldChangeCharactersInRange:NSMakeRange(0, 0) replacementString:string];
+    // [self.view textField:[self.view currentField] shouldChangeCharactersInRange:NSMakeRange(0, 0) replacementString:string];
 }
 
 #pragma mark -
@@ -288,11 +288,11 @@
 
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
     self.currentField = textField;
-	return YES;
+    return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-	return YES;
+    return YES;
 }
 
 
@@ -395,21 +395,21 @@
     [_activityIndicator startAnimating];
     
     
-	AuthNet *an = [AuthNet getInstance];
+    AuthNet *an = [AuthNet getInstance];
     
     [an setDelegate:self];
     
     CreditCardType *c = [CreditCardType creditCardType];
-	c.cardNumber = self.creditCardBuf;
-	c.expirationDate = [self.expirationTextField.text stringByReplacingOccurrencesOfString:kSlash withString:@""];
-	if ([self.cvv2TextField.text length]) {
-		c.cardCode = [NSString stringWithString:self.cvv2TextField.text];
-	}
+    c.cardNumber = self.creditCardBuf;
+    c.expirationDate = [self.expirationTextField.text stringByReplacingOccurrencesOfString:kSlash withString:@""];
+    if ([self.cvv2TextField.text length]) {
+        c.cardCode = [NSString stringWithString:self.cvv2TextField.text];
+    }
     CustomerAddressType *b = [CustomerAddressType customerAddressType];
     
     if ([self.zipTextField.text length]) {
-		b.zip = [NSString stringWithString:self.zipTextField.text];
-	}
+        b.zip = [NSString stringWithString:self.zipTextField.text];
+    }
     
     PaymentType *paymentType = [PaymentType paymentType];
     paymentType.creditCard = c;
@@ -442,7 +442,7 @@
     request.anetApiRequest.merchantAuthentication.sessionToken = _sessionToken;
     
     [an purchaseWithRequest:request];
-		
+    
 }
 
 
@@ -472,7 +472,7 @@
     
     NSLog(@"Payment Canceled ********************** ");
     
-     [_activityIndicator stopAnimating];
+    [_activityIndicator stopAnimating];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -480,7 +480,7 @@
     
     NSLog(@"Payment Canceled ********************** ");
     
-     [_activityIndicator stopAnimating];
+    [_activityIndicator stopAnimating];
     
     Messages *ma = response.anetApiResponse.messages;
     AuthNetMessage *m = [ma.messageArray objectAtIndex:0];
@@ -505,7 +505,7 @@
         [alert show];
         return;
     }
-
+    
     
 }
 
@@ -529,14 +529,14 @@
                                                    delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",@"") otherButtonTitles:nil];
     alert.delegate = self;
     [alert show];
-
+    
 }
 
 
 -(void)logoutSucceeded:(LogoutResponse *)response{
     
     NSLog(@"Logout Success ********************** ");
-   
+    
 }
 
 
@@ -559,9 +559,14 @@
     [infoAlertView show];
 }
 
-- (IBAction)payNowPressed:(id)sender
+- (IBAction)buyWithApplePayButtonPressed:(id)sender
 {
-  [self createTransaction:arc4random() % 100];
+    // ApplePay with Passkit
+    [self presentPaymentController];
+    
+    
+    // ApplePay without Passkit using fake FingerPrint and Blob
+    //[self createTransactionWithOutPassKit];
 }
 
 
@@ -699,7 +704,7 @@
     
     AuthNet *an = [AuthNet getInstance];
     [an setDelegate:self];
-
+    
     SwiperDataType *st = [SwiperDataType swiperDataType];
     st.encryptedValue = @"02f700801f4725008383252a343736312a2a2a2a2a2a2a2a303031305e56495341204143515549524552205445535420434152442030355e313531322a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a2a3f2a3b343736312a2a2a2a2a2a2a2a303031303d313531322a2a2a2a2a2a2a2a2a2a2a2a2a3f2aef80a083368880ae9515cdef8bb2ac7991d781a76f02939576605a6709762b6972b2be3a5b744f7dacffe1b276c18ba266040e749f717e2e80fdbe60164200fb056bcee846947adc9a7dd10c0a81be0c90b2674a61bbb6d3f3167170c97ed30ead1215ea1636fb8fd1e2e7e594c44aa95431323438303237373162994901000003e00181394903";
     st.deviceDescription = @"4649443d4944544543482e556e694d61672e416e64726f69642e53646b7631";
@@ -752,109 +757,110 @@
 {
 }
 
-/*
- Example Fingerprint Input Field Order
- "authnettest^789^67897654^10.50^"
- 
- ----------WARNING!----------------
- Finger print generation requires the transaction key. This should
- be done at the server. It is shown here only for Demo purposes.
- http://www.authorize.net/support/DirectPost_guide.pdf p22-23
- */
-- (NSString*)login:(NSString*)apiLoginId total:(float)amount sequence:(int)number time:(long long)nowAsLong
+-(CreateTransactionRequest *)createTransactionReqObjectWithApiLoginID:(NSString *) apiLoginID
+                                                  fingerPrintHashData:(NSString *) fpHashData
+                                                       sequenceNumber:(NSInteger) sequenceNumber
+                                                      transactionType:(AUTHNET_ACTION) transactionType
+                                                      opaqueDataValue:(NSString*) opaqueDataValue
+                                                       dataDescriptor:(NSString *) dataDescriptor
+                                                        invoiceNumber:(NSString *) invoiceNumber
+                                                          totalAmount:(NSDecimalNumber*) totalAmount
+                                                          fpTimeStamp:(NSTimeInterval) fpTimeStamp
 {
-    NSString *fp = [NSString stringWithFormat:@""
-                    @"%@"
-                    @"^%d"
-                    @"^%lld"
-                    @"^%.2f"
-                    @"^",
-                    apiLoginId, number, nowAsLong, amount];
-    return fp;
-    
-}
-
-
-- (void) createTransaction:(float)transactionAmount
-{
-    float amt = transactionAmount;
-    srandom(time(NULL));
-    // int amount = arc4random() % 100;
-    int seq = arc4random() % 100;
-    
-    NSDate *now = [NSDate date];
-    long long nowAsLong = [now timeIntervalSince1970];
-    
-    
-    //-------WARNING!----------------
-    // Transaction key should never be stored on the device or embedded in code.
-    // The usage of the transaction key below is only shown below for demo purposes.
-    NSString *transactionKey           = @"4Ktq966gC55GAX7S";
-    NSString *apilogind           = @"5KP3u95bQpv";
-
-    
-    NSString *fp = [self login:apilogind total:amt sequence:seq  time:nowAsLong];
-    
-    //-------WARNING!----------------
-    // Transaction key should never be stored on the device or embedded in the code.
-    // This part of the code that generates the finger print is present here only to make the sample app work.
-    // Finger print generation should be done on the server.
-    NSString *hexHmac = [NSString HMAC_MD5_WithTransactionKey:transactionKey fromValue:fp];
-    
-    NSLog(@"HMAC_MD5 in hex is %@", hexHmac);
-    
-    //[self createANetSOAPRequest:apilogind fp:hexHmac sequence:seq time:nowAsLong total:amount];
-    [self createTransaction:apilogind fp:hexHmac sequence:seq time:nowAsLong total:amt];
-    
-}
-
-
-- (void) createTransaction:(NSString*)apiLoginId fp:(NSString*)secret sequence:(int)number time:(long long)nowAsLong total:(float)amount {
-    AuthNet *an = [AuthNet getInstance];
-    [an setDelegate:self];
-
-    
     // create the transaction.
-    CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
-    TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
+    CreateTransactionRequest *transactionRequestObj = [CreateTransactionRequest createTransactionRequest];
+    TransactionRequestType *transactionRequestType = [TransactionRequestType transactionRequest];
     
-    request.transactionRequest = requestType;
-    request.transactionType = AUTH_ONLY;
+    transactionRequestObj.transactionRequest = transactionRequestType;
+    transactionRequestObj.transactionType = transactionType;
     
-    // set the fingerprint. Note: Finger print generation requires transaction key.
-    // finger print generation must happen on the server.
-    FingerPrintObjectType *fpData = [FingerPrintObjectType fingerPrintObjectType];
-    fpData.hashValue = secret;
-    fpData.sequenceNumber= number;
-    fpData.timeStamp = nowAsLong;
+    // Set the fingerprint.
+    // Note: Finger print generation requires transaction key.
+    // Finger print generation must happen on the server.
     
-    request.anetApiRequest.merchantAuthentication.fingerPrint = fpData;
-    request.anetApiRequest.merchantAuthentication.name = apiLoginId;
+    FingerPrintObjectType *fpObject = [FingerPrintObjectType fingerPrintObjectType];
+    fpObject.hashValue = fpHashData;
+    fpObject.sequenceNumber= sequenceNumber;
+    fpObject.timeStamp = fpTimeStamp;
     
-    // set the opaque data
-    OpaqueDataType *opData = [OpaqueDataType opaqueDataType];
-    // sample value is set here. actual value is obtained from the LG SDK.
-    opData.dataValue=[self getData2];
-    opData.dataDescriptor=@"COMMON.APPLE.INAPP.PAYMENT";
+    transactionRequestObj.anetApiRequest.merchantAuthentication.fingerPrint = fpObject;
+    transactionRequestObj.anetApiRequest.merchantAuthentication.name = apiLoginID;
+    
+    // Set the Opaque data
+    OpaqueDataType *opaqueData = [OpaqueDataType opaqueDataType];
+    opaqueData.dataValue= opaqueDataValue;
+    opaqueData.dataDescriptor = dataDescriptor;
     
     PaymentType *paymentType = [PaymentType paymentType];
     paymentType.creditCard= nil;
     paymentType.bankAccount= nil;
     paymentType.trackData= nil;
     paymentType.swiperData= nil;
-    paymentType.opData = opData;
+    paymentType.opData = opaqueData;
     
-    NSString *strAmount = [NSString stringWithFormat:@"%.2f", amount];
-    requestType.amount = strAmount;
-    requestType.payment = paymentType;
-    requestType.retail.marketType=@"0";
-    requestType.retail.deviceType =@"7";
     
-    OrderType *order = [OrderType order];
-    order.invoiceNumber = [NSString stringWithFormat:@"%d", arc4random() % 100];
+    transactionRequestType.amount = [NSString stringWithFormat:@"%@",totalAmount];
+    transactionRequestType.payment = paymentType;
+    transactionRequestType.retail.marketType = @"0";
+    transactionRequestType.retail.deviceType = @"7";
     
-    // submit the transaction.
-    [an purchaseWithRequest:request];
+    OrderType *orderType = [OrderType order];
+    orderType.invoiceNumber = invoiceNumber;
+    NSLog(@"Invoice Number Before Sending the Request %@", orderType.invoiceNumber);
+    
+    return transactionRequestObj;
+}
+
+-(void) createTransactionWithOutPassKit
+{
+    
+    //-------WARNING!----------------
+    // Transaction key should never be stored on the device or embedded in the code.
+    // This part of the code that generates the finger print is present here only to make the sample app work.
+    // Finger print generation should be done on the server.
+    
+    NSString *apiLogID                       = @"5KP3u95bQpv";
+    NSString *transactionSecretKey           = @"4Ktq966gC55GAX7S";
+    
+    NSInteger sequenceNumber = arc4random() % 100;
+    NSLog(@"Invoice Number [Random]: %ld", (long)sequenceNumber);
+    
+    
+    NSNumber *aNumber = [NSNumber numberWithDouble:0.01];
+    NSDecimalNumber *totalAmount = [NSDecimalNumber decimalNumberWithDecimal:[aNumber decimalValue]];
+    NSLog(@"Total Amount: %@", totalAmount);
+    
+    
+    NSTimeInterval fingerprintTimestamp = [[NSDate date] timeIntervalSince1970];
+    
+    NSString *nFP = [self prepareFPHashValueWithApiLoginID:apiLogID
+                                      transactionSecretKey:transactionSecretKey
+                                            sequenceNumber:sequenceNumber
+                                               totalAmount:totalAmount
+                                                 timeStamp:fingerprintTimestamp];
+    
+    NSLog(@"Finger Print After New Method %@", nFP);
+    
+    CreateTransactionRequest *transactionRequestObj = [self createTransactionReqObjectWithApiLoginID:apiLogID
+                                                                                 fingerPrintHashData:nFP
+                                                                                      sequenceNumber:sequenceNumber
+                                                                                     transactionType:AUTH_ONLY
+                                                                                     opaqueDataValue:[self getData2]
+                                                                                      dataDescriptor:@"COMMON.APPLE.INAPP.PAYMENT"
+                                                                                       invoiceNumber:[NSString stringWithFormat:@"%d", arc4random() % 100]
+                                                                                         totalAmount:totalAmount
+                                                                                         fpTimeStamp:fingerprintTimestamp];
+    if (transactionRequestObj!= nil)
+    {
+        AuthNet *authNetSDK = [AuthNet getInstance];
+        [authNetSDK setDelegate:self];
+        
+        // Submit the transaction.
+        [authNetSDK purchaseWithRequest:transactionRequestObj];
+    }
+    
+    
+    
 }
 
 
@@ -864,5 +870,170 @@
     return @"eyJkYXRhIjoiQkRQTldTdE1tR2V3UVVXR2c0bzdFXC9qKzFjcTFUNzhxeVU4NGI2N2l0amNZSTh3UFlBT2hzaGpoWlBycWRVcjRYd1BNYmo0emNHTWR5KysxSDJWa1BPWStCT01GMjV1YjE5Y1g0bkN2a1hVVU9UakRsbEIxVGdTcjhKSFp4Z3A5ckNnc1NVZ2JCZ0tmNjBYS3V0WGY2YWpcL284WkliS25yS1E4U2gwb3VMQUtsb1VNbit2UHU0K0E3V0tycXJhdXo5SnZPUXA2dmhJcStIS2pVY1VOQ0lUUHlGaG1PRXRxK0grdzB2UmExQ0U2V2hGQk5uQ0hxenpXS2NrQlwvMG5xTFpSVFliRjBwK3Z5QmlWYVdIZWdoRVJmSHhSdGJ6cGVjelJQUHVGc2ZwSFZzNDhvUExDXC9rXC8xTU5kNDdrelwvcEhEY1JcL0R5NmFVTStsTmZvaWx5XC9RSk4rdFMzbTBIZk90SVNBUHFPbVhlbXZyNnhKQ2pDWmxDdXcwQzltWHpcL29iSHBvZnVJRVM4cjljcUdHc1VBUERwdzdnNjQybTRQendLRitIQnVZVW5lV0RCTlNEMnU2amJBRzMiLCJ2ZXJzaW9uIjoiRUNfdjEiLCJoZWFkZXIiOnsiYXBwbGljYXRpb25EYXRhIjoiOTRlZTA1OTMzNWU1ODdlNTAxY2M0YmY5MDYxM2UwODE0ZjAwYTdiMDhiYzdjNjQ4ZmQ4NjVhMmFmNmEyMmNjMiIsInRyYW5zYWN0aW9uSWQiOiJjMWNhZjVhZTcyZjAwMzlhODJiYWQ5MmI4MjgzNjM3MzRmODViZjJmOWNhZGYxOTNkMWJhZDlkZGNiNjBhNzk1IiwiZXBoZW1lcmFsUHVibGljS2V5IjoiTUlJQlN6Q0NBUU1HQnlxR1NNNDlBZ0V3Z2ZjQ0FRRXdMQVlIS29aSXpqMEJBUUloQVBcL1wvXC9cLzhBQUFBQkFBQUFBQUFBQUFBQUFBQUFcL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL01Gc0VJUFwvXC9cL1wvOEFBQUFCQUFBQUFBQUFBQUFBQUFBQVwvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cLzhCQ0JheGpYWXFqcVQ1N1BydlZWMm1JYThaUjBHc014VHNQWTd6ancrSjlKZ1N3TVZBTVNkTmdpRzV3U1RhbVo0NFJPZEpyZUJuMzZRQkVFRWF4ZlI4dUVzUWtmNHZPYmxZNlJBOG5jRGZZRXQ2ek9nOUtFNVJkaVl3cFpQNDBMaVwvaHBcL200N242MHA4RDU0V0s4NHpWMnN4WHM3THRrQm9ONzlSOVFJaEFQXC9cL1wvXC84QUFBQUFcL1wvXC9cL1wvXC9cL1wvXC9cLys4NXZxdHB4ZWVoUE81eXNMOFl5VlJBZ0VCQTBJQUJHbStnc2wwUFpGVFwva0RkVVNreHd5Zm84SnB3VFFRekJtOWxKSm5tVGw0REdVdkFENEdzZUdqXC9wc2hCWjBLM1RldXFEdFwvdERMYkUrOFwvbTB5Q21veHc9IiwicHVibGljS2V5SGFzaCI6IlwvYmI5Q05DMzZ1QmhlSEZQYm1vaEI3T28xT3NYMkora0pxdjQ4ek9WVmlRPSJ9LCJzaWduYXR1cmUiOiJNSUlEUWdZSktvWklodmNOQVFjQ29JSURNekNDQXk4Q0FRRXhDekFKQmdVckRnTUNHZ1VBTUFzR0NTcUdTSWIzRFFFSEFhQ0NBaXN3Z2dJbk1JSUJsS0FEQWdFQ0FoQmNsK1BmMytVNHBrMTNuVkQ5bndRUU1Ba0dCU3NPQXdJZEJRQXdKekVsTUNNR0ExVUVBeDRjQUdNQWFBQnRBR0VBYVFCQUFIWUFhUUJ6QUdFQUxnQmpBRzhBYlRBZUZ3MHhOREF4TURFd05qQXdNREJhRncweU5EQXhNREV3TmpBd01EQmFNQ2N4SlRBakJnTlZCQU1lSEFCakFHZ0FiUUJoQUdrQVFBQjJBR2tBY3dCaEFDNEFZd0J2QUcwd2daOHdEUVlKS29aSWh2Y05BUUVCQlFBRGdZMEFNSUdKQW9HQkFOQzgra2d0Z212V0YxT3pqZ0ROcmpURUJSdW9cLzVNS3ZsTTE0NnBBZjdHeDQxYmxFOXc0ZklYSkFEN0ZmTzdRS2pJWFlOdDM5ckx5eTd4RHdiXC81SWtaTTYwVFoyaUkxcGo1NVVjOGZkNGZ6T3BrM2Z0WmFRR1hOTFlwdEcxZDlWN0lTODJPdXA5TU1vMUJQVnJYVFBITmNzTTk5RVBVblBxZGJlR2M4N20wckFnTUJBQUdqWERCYU1GZ0dBMVVkQVFSUk1FK0FFSFpXUHJXdEpkN1laNDMxaENnN1lGU2hLVEFuTVNVd0l3WURWUVFESGh3QVl3Qm9BRzBBWVFCcEFFQUFkZ0JwQUhNQVlRQXVBR01BYndCdGdoQmNsK1BmMytVNHBrMTNuVkQ5bndRUU1Ba0dCU3NPQXdJZEJRQURnWUVBYlVLWUNrdUlLUzlRUTJtRmNNWVJFSW0ybCtYZzhcL0pYditHQlZRSmtPS29zY1k0aU5ERkFcL2JRbG9nZjlMTFU4NFRId05SbnN2VjNQcnY3UlRZODFncTBkdEM4elljQWFBa0NISUkzeXFNbko0QU91NkVPVzlrSmsyMzJnU0U3V2xDdEhiZkxTS2Z1U2dRWDhLWFFZdVpMazJScjYzTjhBcFhzWHdCTDNjSjB4Z2VBd2dkMENBUUV3T3pBbk1TVXdJd1lEVlFRREhod0FZd0JvQUcwQVlRQnBBRUFBZGdCcEFITUFZUUF1QUdNQWJ3QnRBaEJjbCtQZjMrVTRwazEzblZEOW53UVFNQWtHQlNzT0F3SWFCUUF3RFFZSktvWklodmNOQVFFQkJRQUVnWUJhSzNFbE9zdGJIOFdvb3NlREFCZitKZ1wvMTI5SmNJYXdtN2M2VnhuN1phc05iQXEzdEF0OFB0eSt1UUNnc3NYcVprTEE3a3oyR3pNb2xOdHY5d1ltdTlVandhcjFQSFlTK0JcL29Hbm96NTkxd2phZ1hXUnowbk1vNXkzTzFLelgwZDhDUkhBVmE4OFNyVjFhNUpJaVJldjNvU3RJcXd2NXh1WmxkYWc2VHI4dz09In0=";
 }
 
+// ApplyPay demo section
 
+- (void) performTransactionWithEncryptedPaymentData: (NSString*) encryptedPaymentData withPaymentAmount: (NSString*) paymnetAmount
+{
+    
+    NSDecimalNumber* amount = [NSDecimalNumber decimalNumberWithString:paymnetAmount];
+    NSDecimalNumber* invoiceNumber = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d", arc4random() % 10000]];
+    NSTimeInterval fingerprintTimestamp = [[NSDate date] timeIntervalSince1970];
+    
+    //-------WARNING!----------------
+    // Transaction key should never be stored on the device or embedded in the code.
+    // This part of the code that generates the finger print is present here only to make the sample app work.
+    // Finger print generation should be done on the server.
+    
+    NSString *fingerprintHashValue = [self prepareFPHashValueWithApiLoginID:@"34YTZ9mv39W"
+                                                       transactionSecretKey:@"4C2ggME74k33T5rw"
+                                                             sequenceNumber:invoiceNumber.longValue
+                                                                totalAmount:amount
+                                                                  timeStamp:fingerprintTimestamp];
+    
+    CreateTransactionRequest * transactionRequestObj = [self createTransactionReqObjectWithApiLoginID:@"34YTZ9mv39W"
+                                                                                  fingerPrintHashData:fingerprintHashValue
+                                                                                       sequenceNumber:invoiceNumber.intValue
+                                                                                      transactionType:CAPTURE_ONLY
+                                                                                      opaqueDataValue:encryptedPaymentData
+                                                                                       dataDescriptor:@"FID=COMMON.APPLE.INAPP.PAYMENT"
+                                                                                        invoiceNumber:invoiceNumber.stringValue
+                                                                                          totalAmount:amount
+                                                                                          fpTimeStamp:fingerprintTimestamp];
+    if (transactionRequestObj != nil)
+    {
+        
+        AuthNet *authNet = [AuthNet getInstance];
+        [authNet setDelegate:self];
+        
+        authNet.environment = ENV_LIVE;
+        [authNet purchaseWithRequest:transactionRequestObj];
+    }
+    
+    
+}
+
+/*
+ Example Fingerprint Input Field Order
+ "authnettest^789^67897654^10.50^"
+ 
+ ----------WARNING!----------------
+ Finger print generation requires the transaction key. This should
+ be done at the server. It is shown here only for Demo purposes.
+ http://www.authorize.net/support/DirectPost_guide.pdf p22-23
+ */
+
+-(NSString*) prepareFPHashValueWithApiLoginID:(NSString*) apiLoginID
+                         transactionSecretKey:(NSString*) transactionSecretKey
+                               sequenceNumber:(NSInteger) sequenceNumber
+                                  totalAmount:(NSDecimalNumber*) totalAmount
+                                    timeStamp:(NSTimeInterval) timeStamp
+{
+    NSString *fpHashValue = nil;
+    
+    fpHashValue =[NSString stringWithFormat:@"%@^%ld^%lld^%@^", apiLoginID, (long)sequenceNumber, (long long)timeStamp, totalAmount];
+    
+    
+    NSLog(@"Finger Print Before HMAC_MD5: %@", fpHashValue);
+    
+    return [NSString HMAC_MD5_WithTransactionKey:transactionSecretKey fromValue:fpHashValue];
+}
+
+
++ (NSString*)base64forData:(NSData*)theData {
+    
+    const uint8_t* input = (const uint8_t*)[theData bytes];
+    NSInteger length = [theData length];
+    
+    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    
+    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+    uint8_t* output = (uint8_t*)data.mutableBytes;
+    
+    NSInteger i;
+    for (i=0; i < length; i += 3) {
+        NSInteger value = 0;
+        NSInteger j;
+        for (j = i; j < (i + 3); j++) {
+            value <<= 8;
+            
+            if (j < length) {
+                value |= (0xFF & input[j]);
+            }
+        }
+        
+        NSInteger theIndex = (i / 3) * 4;
+        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
+    }
+    
+    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] ;
+}
+
+
+// PassKit Delegate handlers
+
+#pragma mark - Authorization delegate methods
+
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion {
+    if (payment) {
+        // Go off and auth the card
+        NSString *amount = @"0.01"; // Get the payment amount
+        NSNumberFormatter *nf = [[NSNumberFormatter alloc] init] ;
+        //get payment amount from payment token?
+        ////////////////////////////////////////////////////////////////////////////
+        //////Get opaque data from token
+        NSData* test = payment.token.paymentData;
+        NSString *base64string = [CreditCardViewController  base64forData:payment.token.paymentData];
+        
+        [self performTransactionWithEncryptedPaymentData:base64string withPaymentAmount:amount];
+        
+        completion(PKPaymentAuthorizationStatusSuccess);
+    } else {
+        completion(PKPaymentAuthorizationStatusFailure);
+    }
+}
+
+- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
+-(void )presentPaymentController
+{
+    PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
+    request.currencyCode = @"USD";
+    request.countryCode = @"US";
+    
+    // put correct merchanrt Identifier here - this merchant identifier needs to be the same
+    // with the value set in com.apple.developer.in-app-payments array
+    
+    request.merchantIdentifier = @"merchant.net.authorize.prod_merch1"; // set your merchant_id here
+    request.applicationData = [@"" dataUsingEncoding:NSUTF8StringEncoding];
+    request.merchantCapabilities = PKMerchantCapability3DS;
+    request.supportedNetworks = @[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex];
+    // request.supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkMasterCard, PKPaymentNetworkVisa];
+    
+    
+    ///Set amount here
+    NSString *amountText =  @"0.01"; // Get the payment amount
+    NSDecimalNumber *amountValue = [NSDecimalNumber decimalNumberWithString:amountText];
+    
+    PKPaymentSummaryItem *item = [[PKPaymentSummaryItem alloc] init];
+    item.amount = amountValue;
+    //item.amount = [[NSDecimalNumber alloc] initWithInt:20];
+    item.label = @"Test Payment Total";
+    
+    request.paymentSummaryItems = @[item];
+    
+    // need to setup correct entitlement to make the view to show
+    PKPaymentAuthorizationViewController *vc = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+    
+    vc.delegate = self;
+    
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
 @end

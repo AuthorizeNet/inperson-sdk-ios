@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PassKit/PKPaymentRequest.h>
+#import <PassKit/PKPaymentToken.h>
+#import <PassKit/PKPayment.h>
+#import <PassKit/PKPaymentAuthorizationViewController.h>
+
 #import "DecimalKeypadView.h"
 #import "CreditCardType.h"
 #import "AuthNet.h"
 
-@interface CreditCardViewController : UIViewController<DecimalKeypadViewDelegate,AuthNetDelegate,UITextFieldDelegate,UIAlertViewDelegate>
+
+@interface CreditCardViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet DecimalKeypadView *keypad;
 @property (nonatomic, assign) UIActivityIndicatorView *activityIndicator;
@@ -39,7 +45,8 @@
 - (IBAction) swipePressed;
 - (IBAction) continuePressed;
 - (IBAction)onClickBarItemInfo:(id)sender;
-- (IBAction)payNowPressed:(id)sender;
+- (IBAction)buyWithApplePayButtonPressed:(id)sender;
+
 
 // Called during view load to initialize the view
 //- (void)initializeViews:(DecimalKeypadView *)keypad;
