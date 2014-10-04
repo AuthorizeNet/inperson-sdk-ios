@@ -7,10 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <PassKit/PKPaymentRequest.h>
-#import <PassKit/PKPaymentToken.h>
-#import <PassKit/PKPayment.h>
-#import <PassKit/PKPaymentAuthorizationViewController.h>
 
 #import "DecimalKeypadView.h"
 #import "CreditCardType.h"
