@@ -16,6 +16,7 @@
 @synthesize bankAccount;
 @synthesize trackData;
 @synthesize swiperData;
+@synthesize opData;
 
 + (PaymentType *) paymentType {
     PaymentType *p = [[PaymentType alloc] init];
@@ -29,6 +30,7 @@
         self.bankAccount = [BankAccountType bankAccountType];
         self.trackData = [CreditCardTrackType creditCardTrackType];
         self.swiperData = [SwiperDataType swiperDataType];
+        self.opData = [OpaqueDataType opDataType];
     }
     return self;
 }
@@ -38,11 +40,13 @@
                         @"self.creditCard = %@"
                         @"self.bankAccount = %@"
                         @"self.trackData = %@"
-                        @"self.swiperData = %@",
+                        @"self.swiperData = %@"
+                        @"self.opData = %@",
                         self.creditCard,
                         self.bankAccount,
                         self.trackData,
-                        self.swiperData];
+                        self.swiperData,
+                        self.opData];
     return output;
 }
 
@@ -53,21 +57,25 @@
         self.bankAccount = nil;
         self.trackData = nil;
         self.swiperData = nil;
+        self.opData = nil;
     } 
     else if (bankAccount.accountNumber) {
         self.creditCard = nil;
         self.trackData = nil;
         self.swiperData = nil;
+        self.opData = nil;
     }
     else if (trackData.track1) {
         self.creditCard = nil;
         self.trackData = nil;
         self.swiperData = nil;
+        self.opData = nil;
     }
     else if (swiperData.deviceDescription) {
         self.creditCard = nil;
         self.bankAccount = nil;
         self.trackData = nil;
+        self.opData = nil;
     }
     else if (self.opData){
         self.creditCard = nil;
