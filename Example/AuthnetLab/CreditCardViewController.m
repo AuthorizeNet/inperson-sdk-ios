@@ -26,7 +26,7 @@
 #define kCardNumberErrorAlert 1001
 #define kCardExpirationErrorAlert 1002
 
-#define INFORMATION_MESSAGE @"The application utilizes the Authorize.Net SDK avaliable on GitHub under the username AurhorizeNet. Authorize.Net is a wholly owned subsidiary of Visa."
+#define INFORMATION_MESSAGE @"The application utilizes the Authorize.Net SDK avaliable on GitHub under the username AuthorizeNet. Authorize.Net is a wholly owned subsidiary of Visa."
 #define PAYMENT_SUCCESSFUL @"Your transaction of $0.01 has successfully been processed."
 
 
