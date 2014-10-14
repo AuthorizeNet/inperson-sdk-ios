@@ -61,7 +61,7 @@
     }
     else if (trackData.track1) {
         self.creditCard = nil;
-        self.trackData = nil;
+        self.bankAccount = nil;
         self.swiperData = nil;
     }
     else if (swiperData.deviceDescription) {
