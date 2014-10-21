@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.in-app-payments</key>
 	<array>
-		<string>merchant.authorize.net.test.dev15</string>
+		<string>merchant.anet.sampleapp.senthil</string>
 	</array>
 </dict>
 </plist>
