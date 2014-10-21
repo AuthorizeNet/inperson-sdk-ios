@@ -1202,7 +1202,6 @@ typedef enum AddressType {
     request.countryCode = @"US";
     
     request.merchantIdentifier = @"merchant.authorize.net.test.dev15";  // replace with YOUR_APPLE_MERCHANT_ID
-    
     request.applicationData = [@"" dataUsingEncoding:NSUTF8StringEncoding];
     request.merchantCapabilities = PKMerchantCapability3DS;
     request.supportedNetworks = @[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex];
