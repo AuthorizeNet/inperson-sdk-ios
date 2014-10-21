@@ -633,11 +633,11 @@ typedef enum AddressType {
 - (IBAction)buyWithApplePayButtonPressed:(id)sender
 {
     // ApplePay with Passkit
-    //[self presentPaymentController];
+    [self presentPaymentController];
     
     
     // ApplePay demo without Passkit using fake FingerPrint and Blob
-    [self createTransactionWithOutPassKit];
+    //[self createTransactionWithOutPassKit];
 }
 
 
