@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PassKit/PKPaymentRequest.h>
+#import <PassKit/PKPaymentToken.h>
+#import <PassKit/PKPayment.h>
+#import <PassKit/PKPaymentAuthorizationViewController.h>
 
 #import "DecimalKeypadView.h"
 #import "CreditCardType.h"
 #import "AuthNet.h"
+#import "Address.h"
 
 
 @interface CreditCardViewController : UIViewController
@@ -32,6 +37,11 @@
 
 @property (nonatomic, strong) UITextField *currentField;
 
+@property (nonatomic, assign) Address *billingAddress;
+@property (nonatomic, assign) Address *shippingAddress;
+
+
+
 // Designated initalizer
 // -- this view is only meant to be put in nibs.
 // (Although it would be easy to modify it to be instantiated in code.)
@@ -42,7 +52,6 @@
 - (IBAction) continuePressed;
 - (IBAction)onClickBarItemInfo:(id)sender;
 - (IBAction)buyWithApplePayButtonPressed:(id)sender;
-
 
 // Called during view load to initialize the view
 //- (void)initializeViews:(DecimalKeypadView *)keypad;

@@ -2,12 +2,14 @@
 //  CreditCardViewController.m
 //  AuthnetLab
 //
-//  Created by Shankar Gosain on 07/23/14.
+//  Modified by Senthil Kumar Periyasamy on 10/20/14.
 //  Copyright (c) 2014. All rights reserved.
 //
 
 #import "CreditCardViewController.h"
 #import "NSString+HMAC_MD5.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBook/ABRecord.h>
 
 #define FLOAT_COLOR_VALUE(n) (n)/255.0
 
@@ -27,14 +29,18 @@
 #define kCardExpirationErrorAlert 1002
 
 #define INFORMATION_MESSAGE @"The application utilizes the Authorize.Net SDK avaliable on GitHub under the username AurhorizeNet. Authorize.Net is a wholly owned subsidiary of Visa."
-#define PAYMENT_SUCCESSFUL @"Your transaction of $0.01 has successfully been processed."
+#define PAYMENT_SUCCESSFUL @"Your transaction of $0.01 has been processed successfully."
 
+typedef enum AddressType {
+    BILLIING,
+    SHIPPING
+} ADDRESSTYPE;
 
-
-@interface CreditCardViewController(private)<DecimalKeypadViewDelegate,AuthNetDelegate,UITextFieldDelegate,UIAlertViewDelegate>
+@interface CreditCardViewController(private)<DecimalKeypadViewDelegate,AuthNetDelegate,UITextFieldDelegate,UIAlertViewDelegate,PKPaymentAuthorizationViewControllerDelegate>
 - (void) formatValue:(UITextField *)textField;
 - (BOOL) isMaxLength:(UITextField *)textField;
 - (void) validateCreditCardValue;
+
 @end
 
 @implementation CreditCardViewController
@@ -49,6 +55,9 @@
 @synthesize currentField;
 @synthesize creditCardBuf;
 @synthesize expirationBuf;
+
+@synthesize billingAddress,shippingAddress;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -464,8 +473,25 @@
     
     NSLog(@"Payment Success ********************** ");
     
-    UIAlertView *PaumentSuccess = [[UIAlertView alloc] initWithTitle:@"Successfull Transaction" message:PAYMENT_SUCCESSFUL delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"LOGOUT",nil];
+    NSString *title = @"Successfull Transaction";
+    NSString *alertMsg = nil;
+    UIAlertView *PaumentSuccess = nil;
+    
+    TransactionResponse *transResponse = response.transactionResponse;
+    
+    alertMsg = [response responseReasonText];
+    NSLog(@"%@",response.responseReasonText);
+    
+    if ([transResponse.responseCode isEqualToString:@"4"])
+    {
+        PaumentSuccess = [[UIAlertView alloc] initWithTitle:title message:alertMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"LOGOUT",nil];
+    }
+    else
+    {
+        PaumentSuccess = [[UIAlertView alloc] initWithTitle:title message:PAYMENT_SUCCESSFUL delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"LOGOUT",nil];
+    }
     [PaumentSuccess show];
+    
 }
 
 - (void)paymentCanceled {
@@ -478,35 +504,77 @@
 
 -(void) requestFailed:(AuthNetResponse *)response {
     
-    NSLog(@"Payment Canceled ********************** ");
+    NSLog(@"Request Failed ********************** ");
+    
+    NSString *title = nil;
+    NSString *alertErrorMsg = nil;
+    UIAlertView *alert = nil;
     
     [_activityIndicator stopAnimating];
     
+    if ( [response errorType] == SERVER_ERROR)
+    {
+        title = NSLocalizedString(@"Server Error", @"");
+        alertErrorMsg = [response responseReasonText];
+    }
+    else if([response errorType] == TRANSACTION_ERROR)
+    {
+        title = NSLocalizedString(@"Transaction Error", @"");
+        alertErrorMsg = [response responseReasonText];
+    }
+    else if([response errorType] == CONNECTION_ERROR)
+    {
+        title = NSLocalizedString(@"Connection Error", @"");
+        alertErrorMsg = [response responseReasonText];
+    }
+    
     Messages *ma = response.anetApiResponse.messages;
+    
     AuthNetMessage *m = [ma.messageArray objectAtIndex:0];
     
-    // Since submitting same transaction with same data, showing user the alert msg.
-    if ([m.code isEqualToString:@"E00027"]) {
+    NSLog(@"Response Msg Array Count: %lu", (unsigned long)[ma.messageArray count]);
+    
+    NSLog(@"Response Msg Code %@ ", m.code);
+    
+    NSString *errorCode = [NSString stringWithFormat:@"%@",m.code];
+    NSString *errorText = [NSString stringWithFormat:@"%@",m.text];
+    
+    NSString *errorMsg = [NSString stringWithFormat:@"%@ : %@", errorCode, errorText];
+    
+    if (alertErrorMsg == nil) {
+        alertErrorMsg = errorText;
+    }
+    
+    NSLog(@"Error Code and Msg %@", errorMsg);
+    
+    
+    if ( ([m.code isEqualToString:@"E00027"]) || ([m.code isEqualToString:@"E00007"]) || ([m.code isEqualToString:@"E00096"]))
+    {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:NSLocalizedString(@"A duplicate transaction has been submitted. Login back into the app to see the successful transaction.", @"")
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles:nil];
-        [alert show];
-        return;
+        alert = [[UIAlertView alloc] initWithTitle:title
+                                           message:alertErrorMsg
+                                          delegate:self
+                                 cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                 otherButtonTitles:nil];
     }
-    else if ([m.code isEqualToString:@"E00007"]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:NSLocalizedString(@"Your session has timed out. Please log in again.", @"")
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                                              otherButtonTitles:nil];
-        [alert show];
-        return;
+    else if ([m.code isEqualToString:@"E00008"]) // Finger Print Value is not valid.
+    {
+        alert = [[UIAlertView alloc] initWithTitle:@"Authentication Error"
+                                           message:errorText
+                                          delegate:self
+                                 cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                 otherButtonTitles:nil];
     }
-    
-    
+    else
+    {
+        alert = [[UIAlertView alloc] initWithTitle:title
+                                           message:alertErrorMsg
+                                          delegate:self
+                                 cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                 otherButtonTitles:nil];
+    }
+    [alert show];
+    return;
 }
 
 - (void) connectionFailed:(AuthNetResponse *)response {
@@ -516,10 +584,13 @@
     NSString *title = nil;
     NSString *message = nil;
     
-    if ([response errorType] == NO_CONNECTION_ERROR) {
+    if ([response errorType] == NO_CONNECTION_ERROR)
+    {
         title = NSLocalizedString(@"No Signal", @"");
         message = NSLocalizedString(@"Unable to complete your request. No Internet connection.", @"");
-    } else {
+    }
+    else
+    {
         title = NSLocalizedString(@"Connection Error", @"");
         message = NSLocalizedString(@"A connection error occurred.  Please try again.", @"");
     }
@@ -561,9 +632,12 @@
 
 - (IBAction)buyWithApplePayButtonPressed:(id)sender
 {
-  
-    // ApplePay without Passkit using fake FingerPrint and Blob
-    [self createTransactionWithOutPassKit];
+    // ApplePay with Passkit
+    [self presentPaymentController];
+    
+    
+    // ApplePay demo without Passkit using fake FingerPrint and Blob
+    //[self createTransactionWithOutPassKit];
 }
 
 
@@ -795,10 +869,31 @@
     paymentType.swiperData= nil;
     paymentType.opData = opaqueData;
     
+    transactionRequestObj.transactionRequest.billTo.firstName = self.billingAddress.firstName;
+    transactionRequestObj.transactionRequest.billTo.lastName = self.billingAddress.lastName;
+    transactionRequestObj.transactionRequest.billTo.address = self.billingAddress.street1;
+    transactionRequestObj.transactionRequest.billTo.city = self.billingAddress.city;
+    transactionRequestObj.transactionRequest.billTo.zip = self.billingAddress.zip;
+    transactionRequestObj.transactionRequest.billTo.state = self.billingAddress.state;
+    transactionRequestObj.transactionRequest.billTo.country = self.billingAddress.country;
+    transactionRequestObj.transactionRequest.billTo.phoneNumber = self.billingAddress.phone;
+    
+    
+    transactionRequestObj.transactionRequest.shipTo.firstName = self.shippingAddress.firstName;
+    transactionRequestObj.transactionRequest.shipTo.lastName = self.shippingAddress.lastName;
+    transactionRequestObj.transactionRequest.shipTo.address = self.shippingAddress.street1;
+    transactionRequestObj.transactionRequest.shipTo.city = self.shippingAddress.city;
+    transactionRequestObj.transactionRequest.shipTo.zip = self.shippingAddress.zip;
+    transactionRequestObj.transactionRequest.shipTo.state = self.shippingAddress.state;
+    transactionRequestObj.transactionRequest.shipTo.country = self.shippingAddress.country;
+    
+    transactionRequestObj.transactionRequest.customer.email = self.shippingAddress.email;
+    
+    
     
     transactionRequestType.amount = [NSString stringWithFormat:@"%@",totalAmount];
     transactionRequestType.payment = paymentType;
-    transactionRequestType.retail.marketType = @"0";
+    transactionRequestType.retail.marketType = @"0"; //0
     transactionRequestType.retail.deviceType = @"7";
     
     OrderType *orderType = [OrderType order];
@@ -808,6 +903,7 @@
     return transactionRequestObj;
 }
 
+// ApplePay demo without Passkit using fake FingerPrint and Blob
 -(void) createTransactionWithOutPassKit
 {
     
@@ -818,6 +914,7 @@
     
     NSString *apiLogID                       = @"5KP3u95bQpv";
     NSString *transactionSecretKey           = @"4Ktq966gC55GAX7S";
+    NSString *dataDescriptor                 = @"COMMON.APPLE.INAPP.PAYMENT";
     
     NSInteger sequenceNumber = arc4random() % 100;
     NSLog(@"Invoice Number [Random]: %ld", (long)sequenceNumber);
@@ -827,6 +924,7 @@
     NSDecimalNumber *totalAmount = [NSDecimalNumber decimalNumberWithDecimal:[aNumber decimalValue]];
     NSLog(@"Total Amount: %@", totalAmount);
     
+    //NSDecimalNumber* invoiceNumber = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d", arc4random() % 10000]];
     
     NSTimeInterval fingerprintTimestamp = [[NSDate date] timeIntervalSince1970];
     
@@ -843,7 +941,7 @@
                                                                                       sequenceNumber:sequenceNumber
                                                                                      transactionType:AUTH_ONLY
                                                                                      opaqueDataValue:[self getData2]
-                                                                                      dataDescriptor:@"COMMON.APPLE.INAPP.PAYMENT"
+                                                                                      dataDescriptor:dataDescriptor
                                                                                        invoiceNumber:[NSString stringWithFormat:@"%d", arc4random() % 100]
                                                                                          totalAmount:totalAmount
                                                                                          fpTimeStamp:fingerprintTimestamp];
@@ -854,6 +952,8 @@
         
         // Submit the transaction.
         [authNetSDK purchaseWithRequest:transactionRequestObj];
+        
+        
     }
     
     
@@ -862,9 +962,67 @@
 
 
 // note: this is a sample blob.
+
+
 -(NSString* )getData2
 {
     return @"eyJkYXRhIjoiQkRQTldTdE1tR2V3UVVXR2c0bzdFXC9qKzFjcTFUNzhxeVU4NGI2N2l0amNZSTh3UFlBT2hzaGpoWlBycWRVcjRYd1BNYmo0emNHTWR5KysxSDJWa1BPWStCT01GMjV1YjE5Y1g0bkN2a1hVVU9UakRsbEIxVGdTcjhKSFp4Z3A5ckNnc1NVZ2JCZ0tmNjBYS3V0WGY2YWpcL284WkliS25yS1E4U2gwb3VMQUtsb1VNbit2UHU0K0E3V0tycXJhdXo5SnZPUXA2dmhJcStIS2pVY1VOQ0lUUHlGaG1PRXRxK0grdzB2UmExQ0U2V2hGQk5uQ0hxenpXS2NrQlwvMG5xTFpSVFliRjBwK3Z5QmlWYVdIZWdoRVJmSHhSdGJ6cGVjelJQUHVGc2ZwSFZzNDhvUExDXC9rXC8xTU5kNDdrelwvcEhEY1JcL0R5NmFVTStsTmZvaWx5XC9RSk4rdFMzbTBIZk90SVNBUHFPbVhlbXZyNnhKQ2pDWmxDdXcwQzltWHpcL29iSHBvZnVJRVM4cjljcUdHc1VBUERwdzdnNjQybTRQendLRitIQnVZVW5lV0RCTlNEMnU2amJBRzMiLCJ2ZXJzaW9uIjoiRUNfdjEiLCJoZWFkZXIiOnsiYXBwbGljYXRpb25EYXRhIjoiOTRlZTA1OTMzNWU1ODdlNTAxY2M0YmY5MDYxM2UwODE0ZjAwYTdiMDhiYzdjNjQ4ZmQ4NjVhMmFmNmEyMmNjMiIsInRyYW5zYWN0aW9uSWQiOiJjMWNhZjVhZTcyZjAwMzlhODJiYWQ5MmI4MjgzNjM3MzRmODViZjJmOWNhZGYxOTNkMWJhZDlkZGNiNjBhNzk1IiwiZXBoZW1lcmFsUHVibGljS2V5IjoiTUlJQlN6Q0NBUU1HQnlxR1NNNDlBZ0V3Z2ZjQ0FRRXdMQVlIS29aSXpqMEJBUUloQVBcL1wvXC9cLzhBQUFBQkFBQUFBQUFBQUFBQUFBQUFcL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL01Gc0VJUFwvXC9cL1wvOEFBQUFCQUFBQUFBQUFBQUFBQUFBQVwvXC9cL1wvXC9cL1wvXC9cL1wvXC9cL1wvXC9cLzhCQ0JheGpYWXFqcVQ1N1BydlZWMm1JYThaUjBHc014VHNQWTd6ancrSjlKZ1N3TVZBTVNkTmdpRzV3U1RhbVo0NFJPZEpyZUJuMzZRQkVFRWF4ZlI4dUVzUWtmNHZPYmxZNlJBOG5jRGZZRXQ2ek9nOUtFNVJkaVl3cFpQNDBMaVwvaHBcL200N242MHA4RDU0V0s4NHpWMnN4WHM3THRrQm9ONzlSOVFJaEFQXC9cL1wvXC84QUFBQUFcL1wvXC9cL1wvXC9cL1wvXC9cLys4NXZxdHB4ZWVoUE81eXNMOFl5VlJBZ0VCQTBJQUJHbStnc2wwUFpGVFwva0RkVVNreHd5Zm84SnB3VFFRekJtOWxKSm5tVGw0REdVdkFENEdzZUdqXC9wc2hCWjBLM1RldXFEdFwvdERMYkUrOFwvbTB5Q21veHc9IiwicHVibGljS2V5SGFzaCI6IlwvYmI5Q05DMzZ1QmhlSEZQYm1vaEI3T28xT3NYMkora0pxdjQ4ek9WVmlRPSJ9LCJzaWduYXR1cmUiOiJNSUlEUWdZSktvWklodmNOQVFjQ29JSURNekNDQXk4Q0FRRXhDekFKQmdVckRnTUNHZ1VBTUFzR0NTcUdTSWIzRFFFSEFhQ0NBaXN3Z2dJbk1JSUJsS0FEQWdFQ0FoQmNsK1BmMytVNHBrMTNuVkQ5bndRUU1Ba0dCU3NPQXdJZEJRQXdKekVsTUNNR0ExVUVBeDRjQUdNQWFBQnRBR0VBYVFCQUFIWUFhUUJ6QUdFQUxnQmpBRzhBYlRBZUZ3MHhOREF4TURFd05qQXdNREJhRncweU5EQXhNREV3TmpBd01EQmFNQ2N4SlRBakJnTlZCQU1lSEFCakFHZ0FiUUJoQUdrQVFBQjJBR2tBY3dCaEFDNEFZd0J2QUcwd2daOHdEUVlKS29aSWh2Y05BUUVCQlFBRGdZMEFNSUdKQW9HQkFOQzgra2d0Z212V0YxT3pqZ0ROcmpURUJSdW9cLzVNS3ZsTTE0NnBBZjdHeDQxYmxFOXc0ZklYSkFEN0ZmTzdRS2pJWFlOdDM5ckx5eTd4RHdiXC81SWtaTTYwVFoyaUkxcGo1NVVjOGZkNGZ6T3BrM2Z0WmFRR1hOTFlwdEcxZDlWN0lTODJPdXA5TU1vMUJQVnJYVFBITmNzTTk5RVBVblBxZGJlR2M4N20wckFnTUJBQUdqWERCYU1GZ0dBMVVkQVFSUk1FK0FFSFpXUHJXdEpkN1laNDMxaENnN1lGU2hLVEFuTVNVd0l3WURWUVFESGh3QVl3Qm9BRzBBWVFCcEFFQUFkZ0JwQUhNQVlRQXVBR01BYndCdGdoQmNsK1BmMytVNHBrMTNuVkQ5bndRUU1Ba0dCU3NPQXdJZEJRQURnWUVBYlVLWUNrdUlLUzlRUTJtRmNNWVJFSW0ybCtYZzhcL0pYditHQlZRSmtPS29zY1k0aU5ERkFcL2JRbG9nZjlMTFU4NFRId05SbnN2VjNQcnY3UlRZODFncTBkdEM4elljQWFBa0NISUkzeXFNbko0QU91NkVPVzlrSmsyMzJnU0U3V2xDdEhiZkxTS2Z1U2dRWDhLWFFZdVpMazJScjYzTjhBcFhzWHdCTDNjSjB4Z2VBd2dkMENBUUV3T3pBbk1TVXdJd1lEVlFRREhod0FZd0JvQUcwQVlRQnBBRUFBZGdCcEFITUFZUUF1QUdNQWJ3QnRBaEJjbCtQZjMrVTRwazEzblZEOW53UVFNQWtHQlNzT0F3SWFCUUF3RFFZSktvWklodmNOQVFFQkJRQUVnWUJhSzNFbE9zdGJIOFdvb3NlREFCZitKZ1wvMTI5SmNJYXdtN2M2VnhuN1phc05iQXEzdEF0OFB0eSt1UUNnc3NYcVprTEE3a3oyR3pNb2xOdHY5d1ltdTlVandhcjFQSFlTK0JcL29Hbm96NTkxd2phZ1hXUnowbk1vNXkzTzFLelgwZDhDUkhBVmE4OFNyVjFhNUpJaVJldjNvU3RJcXd2NXh1WmxkYWc2VHI4dz09In0=";
+}
+
+// ApplyPay demo section
+
+- (void) performTransactionWithEncryptedPaymentData: (NSString*) encryptedPaymentData withPaymentAmount: (NSString*) paymnetAmount
+{
+    
+    NSDecimalNumber* amount = [NSDecimalNumber decimalNumberWithString:paymnetAmount];
+    NSDecimalNumber* invoiceNumber = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d", arc4random() % 10000]];
+    NSTimeInterval fingerprintTimestamp = [[NSDate date] timeIntervalSince1970];
+    
+    //-------WARNING!----------------
+    // Transaction key should never be stored on the device or embedded in the code.
+    // Replace with Your Api log in ID and Transacation Secret Key.
+    
+    NSString *apiLogInID                     = @"5KP3u95bQpv";      // replace with YOUR_APILOGIN_ID
+    NSString *transactionSecretKey           = @"4Ktq966gC55GAX7S"; // replace with YOUR_TRANSACTION_SECRET_KEY
+    
+    
+    NSString *dataDescriptor                 = @"FID=COMMON.APPLE.INAPP.PAYMENT";
+    
+    //-------WARNING!----------------
+    // Transaction key should never be stored on the device or embedded in the code.
+    // This part of the code that generates the finger print is present here only to make the sample app work.
+    // Finger print generation should be done on the server.
+    
+    NSString *fingerprintHashValue = [self prepareFPHashValueWithApiLoginID:apiLogInID
+                                                       transactionSecretKey:transactionSecretKey
+                                                             sequenceNumber:invoiceNumber.longValue
+                                                                totalAmount:amount
+                                                                  timeStamp:fingerprintTimestamp];
+    
+    CreateTransactionRequest * transactionRequestObj = [self createTransactionReqObjectWithApiLoginID:apiLogInID
+                                                                                  fingerPrintHashData:fingerprintHashValue
+                                                                                       sequenceNumber:invoiceNumber.intValue
+                                                                                      transactionType:AUTH_ONLY
+                                                                                      opaqueDataValue:encryptedPaymentData
+                                                                                       dataDescriptor:dataDescriptor
+                                                                                        invoiceNumber:invoiceNumber.stringValue
+                                                                                          totalAmount:amount
+                                                                                          fpTimeStamp:fingerprintTimestamp];
+    if (transactionRequestObj != nil)
+    {
+        
+        AuthNet *authNet = [AuthNet getInstance];
+        [authNet setDelegate:self];
+        
+        authNet.environment = ENV_TEST;
+        // Submit the transaction for AUTH_CAPTURE.
+        [authNet purchaseWithRequest:transactionRequestObj];
+        
+        // Submit the transaction for AUTH_ONLY.
+        //[authNet authorizeWithRequest:transactionRequestObj];
+    }
+    
+    
 }
 
 /*
@@ -892,5 +1050,213 @@
     
     return [NSString HMAC_MD5_WithTransactionKey:transactionSecretKey fromValue:fpHashValue];
 }
+
+
++ (NSString*)base64forData:(NSData*)theData {
+    
+    const uint8_t* input = (const uint8_t*)[theData bytes];
+    NSInteger length = [theData length];
+    
+    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    
+    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+    uint8_t* output = (uint8_t*)data.mutableBytes;
+    
+    NSInteger i;
+    for (i=0; i < length; i += 3) {
+        NSInteger value = 0;
+        NSInteger j;
+        for (j = i; j < (i + 3); j++) {
+            value <<= 8;
+            
+            if (j < length) {
+                value |= (0xFF & input[j]);
+            }
+        }
+        
+        NSInteger theIndex = (i / 3) * 4;
+        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
+    }
+    
+    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] ;
+}
+
+-(void) updateAddressObject: (Address *)addressObj fromPKPaymentABRecord:(ABRecordRef *) PKPaymentABRecord
+{
+    if (PKPaymentABRecord != nil && addressObj != nil)
+    {
+        
+        addressObj.firstName = (__bridge NSString*)ABRecordCopyValue(PKPaymentABRecord,kABPersonFirstNameProperty);
+        addressObj.lastName = (__bridge NSString*)ABRecordCopyValue(PKPaymentABRecord, kABPersonLastNameProperty);
+        
+        ABMultiValueRef emails = (__bridge NSString*)ABRecordCopyValue(PKPaymentABRecord, kABPersonEmailProperty);
+        
+        if(ABMultiValueGetCount(emails) > 0 )
+        {
+            for(CFIndex i = 0; i< ABMultiValueGetCount(emails); i++ )
+            {
+                CFStringRef label = ABMultiValueCopyLabelAtIndex(emails, i);
+                CFStringRef value = ABMultiValueCopyValueAtIndex(emails, i);
+                addressObj.email = (__bridge NSString*)value;
+                if (label) CFRelease(label);
+                if (value) CFRelease(value);
+            }
+        }
+        
+        
+        ABMultiValueRef phoneNumbers = (__bridge NSString*)ABRecordCopyValue(PKPaymentABRecord, kABPersonPhoneProperty);
+        
+        if(ABMultiValueGetCount(phoneNumbers) > 0 )
+        {
+            for(CFIndex i = 0; i< ABMultiValueGetCount(phoneNumbers); i++ )
+            {
+                CFStringRef label = ABMultiValueCopyLabelAtIndex(phoneNumbers, i);
+                CFStringRef value = ABMultiValueCopyValueAtIndex(phoneNumbers, i);
+                addressObj.phone = (__bridge NSString*)value;
+                if (label) CFRelease(label);
+                if (value) CFRelease(value);
+            }
+        }
+        
+        ABMultiValueRef streetAddress = ABRecordCopyValue(PKPaymentABRecord, kABPersonAddressProperty);
+        if (ABMultiValueGetCount(streetAddress) > 0)
+        {
+            NSDictionary *theDict = (__bridge NSDictionary*)ABMultiValueCopyValueAtIndex(streetAddress, 0);
+            
+            addressObj.street1 = [theDict objectForKey:(NSString *)kABPersonAddressStreetKey];
+            addressObj.city = [theDict objectForKey:(NSString *)kABPersonAddressCityKey];
+            addressObj.state = [theDict objectForKey:(NSString *)kABPersonAddressStateKey];
+            addressObj.zip = [theDict objectForKey:(NSString *)kABPersonAddressZIPKey];
+            addressObj.country = [theDict objectForKey:(NSString *)kABPersonAddressCountryKey];
+        }
+        CFRelease(streetAddress);
+    }
+    else
+    {
+        NSLog(@"Invalid Params");
+    }
+}
+
+// PassKit Delegate handlers
+
+#pragma mark - Authorization delegate methods
+
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment completion:(void (^)(PKPaymentAuthorizationStatus))completion {
+    if (payment)
+    {
+        // Go off and auth the card
+        NSString *amount = @"0.01"; // Get the payment amount
+        self.billingAddress = [[Address alloc] init ];
+        self.shippingAddress = [[Address alloc] init ];
+        
+        if (payment.billingAddress != nil && self.billingAddress != nil)
+        {
+            [self updateAddressObject:self.billingAddress fromPKPaymentABRecord:(ABRecordRef*)payment.billingAddress];
+            
+        }
+        
+        if (payment.shippingAddress != nil && self.shippingAddress != nil)
+        {
+            [self updateAddressObject:self.shippingAddress fromPKPaymentABRecord:(ABRecordRef*)payment.shippingAddress];
+            
+        }
+        
+        // Since the Phone and Email is enabled only if we enable the Shipping, Just to use for the billing we do this.
+        
+        if (self.billingAddress.phone == nil)
+        {
+            self.billingAddress.phone = self.shippingAddress.phone;
+        }
+        
+        if (self.billingAddress.email == nil)
+        {
+            self.billingAddress.email = self.shippingAddress.email;
+        }
+        
+        NSString *base64string = [CreditCardViewController  base64forData:payment.token.paymentData];
+        
+        [self performTransactionWithEncryptedPaymentData:base64string withPaymentAmount:amount];
+        
+        completion(PKPaymentAuthorizationStatusSuccess);
+    }
+    else
+    {
+        completion(PKPaymentAuthorizationStatusFailure);
+    }
+}
+
+- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+// ApplePay with Passkit
+-(void )presentPaymentController
+{
+    PKPaymentRequest *request = [[PKPaymentRequest alloc] init];
+    
+    request.currencyCode = @"USD";
+    request.countryCode = @"US";
+    
+    request.merchantIdentifier = @"merchant.authorize.net.test.dev15";  // replace with YOUR_APPLE_MERCHANT_ID
+    
+    request.applicationData = [@"" dataUsingEncoding:NSUTF8StringEncoding];
+    request.merchantCapabilities = PKMerchantCapability3DS;
+    request.supportedNetworks = @[PKPaymentNetworkMasterCard, PKPaymentNetworkVisa, PKPaymentNetworkAmex];
+    request.requiredBillingAddressFields = PKAddressFieldPostalAddress|PKAddressFieldPhone|PKAddressFieldEmail;
+    request.requiredShippingAddressFields = PKAddressFieldPostalAddress|PKAddressFieldPhone|PKAddressFieldEmail;
+    
+    ///Set amount here
+    NSString *amountText =  @"0.01"; // Get the payment amount
+    NSDecimalNumber *amountValue = [NSDecimalNumber decimalNumberWithString:amountText];
+    
+    PKPaymentSummaryItem *item = [[PKPaymentSummaryItem alloc] init];
+    item.amount = amountValue;
+    //item.amount = [[NSDecimalNumber alloc] initWithInt:20];
+    item.label = @"Test Payment Total";
+    
+    request.paymentSummaryItems = @[item];
+    
+    PKPaymentAuthorizationViewController *vc = nil;
+    
+    // need to setup correct entitlement to make the view to show
+    @try
+    {
+        vc = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+    }
+    
+    @catch (NSException *e)
+    {
+        NSLog(@"Exception %@", e);
+    }
+    
+    if (vc != nil)
+    {
+        vc.delegate = self;
+        [self presentViewController:vc animated:YES completion:CompletionBlock];
+    }
+    else
+    {
+        //The device cannot make payments. Please make sure Passbook has valid Credit Card added.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"PassKit Payment Error"
+                                                        message:NSLocalizedString(@"The device cannot make payment at this time. Please check Passbook has Valid Credit Card and Payment Request has Valid Currency & Apple MerchantID.", @"")
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        
+    }
+    
+}
+
+void (^CompletionBlock)(void) = ^
+{
+    NSLog(@"This is Completion block");
+    
+};
 
 @end
