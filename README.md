@@ -9,8 +9,9 @@ The iOS SDK provides a fast and easy way for iPhone/iPad application developers 
 
 If you use [CocoaPods](http://cocoapods.org/) you can try our sample app with just a single command:
 
-    pod try 'authorizenet-sdk'
-
+````
+   $ pod try 'authorizenet-sdk'
+````
  
 ## Installation
 Installation is very simple with Cocoapods but you can also install manually.
