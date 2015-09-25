@@ -8,7 +8,7 @@
 
 #import "TransactionRequestType.h"
 #import "NSString+stringWithXMLTag.h"
-
+#import "ANetSolution.h"
 
 @implementation TransactionRequestType
 
@@ -136,6 +136,7 @@
                         @"%@"       //transactionType
                         @"%@"       //amount,
                         @"%@"       //payment,
+                        @"<solution><id>%@</id></solution>"       //solutionID,
                         @"%@"       //authCode,
                         @"%@"       //refTransId,
                         @"%@"       //splitTenderId,
@@ -157,6 +158,7 @@
                    [NSString stringWithXMLTag:@"transactionType" andValue:self.transactionType],
                    [NSString stringWithXMLTag:@"amount" andValue:self.amount],
                    (self.payment ? [self.payment stringOfXMLRequest] : @""),
+                   [ANetSolution sharedInstance].anetSolutionID,
                    [NSString stringWithXMLTag:@"authCode" andValue:self.authCode],
                    [NSString stringWithXMLTag:@"refTransId" andValue:self.refTransId],
                    [NSString stringWithXMLTag:@"splitTenderId" andValue:self.splitTenderId],
