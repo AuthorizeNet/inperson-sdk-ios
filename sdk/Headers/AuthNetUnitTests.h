@@ -12,7 +12,7 @@
 
 #define USE_APPLICATION_UNIT_TEST 1
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import <UIKit/UIKit.h>
 
 /**
@@ -21,7 +21,7 @@
  */
 @class CreateTransactionRequest;
 
-@interface AuthNetUnitTests : SenTestCase {
+@interface AuthNetUnitTests : XCTestCase {
 }
 
 #if USE_APPLICATION_UNIT_TEST
