@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2181F7E4DB7E63CFFD58A86E91D934C3664B30E8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2181F7E4DB7E63CFFD58A86E91D934C3664B30E8" : 0,
+    "458E7AD3-F775-4A94-B7B5-E0C10F5A4534" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C212AA48-F465-4EDF-86C1-A84C1C20DA09",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2181F7E4DB7E63CFFD58A86E91D934C3664B30E8" : "sdk-ios",
+    "458E7AD3-F775-4A94-B7B5-E0C10F5A4534" : "01"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Anet SDK",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "sdk\/Anet SDK.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/brianmc\/sdk-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2181F7E4DB7E63CFFD58A86E91D934C3664B30E8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/blender.local\/MMA_2.0",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "458E7AD3-F775-4A94-B7B5-E0C10F5A4534"
+    }
+  ]
+}
