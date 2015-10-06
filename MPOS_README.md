@@ -22,36 +22,42 @@ The Authorize.Net SDK provides support for four main feature areas of an MPoS so
 
 *Each device to be used for MPoS transactions must be registered (see SDK support below) and approved by the merchant (in the MINT) before that device can be used for transaction processing.*
 
-	/**
- 	* Perform mobileDeviceRegistrationRequest on the AIM API.
- 	* @param r The request to send.
- 	*/
-	- (void) mobileDeviceRegistrationRequest:(MobileDeviceRegistrationRequest *) r;
-	
+```objective-c
+/**
+* Perform mobileDeviceRegistrationRequest on the AIM API.
+* @param r The request to send.
+*/
+- (void) mobileDeviceRegistrationRequest:(MobileDeviceRegistrationRequest *) r;
+```
+
 Perform an mobileDeviceRegistrationRequest request.  Application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the UIViewController with the setDelegate call.
 
 ### Merchant User Login
 
 *If the device is registered and approved then it can create a session for the user by "loggin on" to the Anet API:*
 
-	/**
- 	* Perform mobileDeviceLoginRequest on the AIM API.
- 	* @param r The request to send.
- 	*/
-	- (void) mobileDeviceLoginRequest:(MobileDeviceLoginRequest *)r;
-	
+```objective-c
+/**
+* Perform mobileDeviceLoginRequest on the AIM API.
+* @param r The request to send.
+*/
+- (void) mobileDeviceLoginRequest:(MobileDeviceLoginRequest *)r;
+```
+
 Perform an mobileDeviceLoginRequest request.  Application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the UIViewController with the setDelegate call.
 
 ### Merchant User Logout
 *
 To ensure maximum security the user should "logout" from their session and subsequently the application should use this method to terminate the mobile API session.*
 
-	/**
- 	* Perform logoutRequest on the AIM API.
- 	* @param r The request to send.
- 	*/
-	- (void) LogoutRequest:(LogoutRequest *)r;
-	
+```objective-c
+/**
+* Perform logoutRequest on the AIM API.
+* @param r The request to send.
+*/
+- (void) LogoutRequest:(LogoutRequest *)r;
+```
+
 Perform an LogoutRequest request.  Application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the UIViewController with the setDelegate call.
 
 
@@ -67,146 +73,176 @@ The SDK includes APIs for each of the supported API methods:
 1. CAPTURE_ONLY
 1. Unlinked CREDIT
 
-
+```objective-c
 /**
  * Perform AUTH transaction with request.
  * @param r The request to send.
  */
 - (void) authorizeWithRequest:(AuthNetAIMRequest *)r;
+```
+
 Perform a AUTH request. Application will receive delegate call back 
 for successful, failed, and canceled transaction flows by setting 
 the UIViewController with the setDelegate call.
 
+```objective-c
 /**
  * Perform AUTH_CAPTURE transaction with request.
  * @param r The request to send.
  */
 - (void) purchaseWithRequest:(AuthNetAIMRequest *)r;
+```
+
 Perform a AUTH_CAPTURE request.  Application will receive delegate call 
 back for successful, failed, and canceled transaction flows by setting 
 the UIViewController with the setDelegate call.
 
+```objective-c
 /**
  * Perform PRIOR_AUTH_CAPTURE transaction with request.
  * @param r The request to send.
  */
 - (void) captureWithRequest:(AuthNetAIMRequest *)r;
+```
+
 Perform a PRIOR_AUTH_CAPTURE request.  Application can still receive delegate call 
 back for successful, failed, and canceled transaction flows by setting 
 the UIViewController with the setDelegate call.
 
+```objective-c
 /**
  * Perform CAPTURE_ONLY transaction with request.
  * NOTE: Request must include in the request the authCode (x_auth_code).
  * @param r The request to send.
  */
 - (void) captureWithRequest:(AuthNetAIMRequest *)r;
+```
+
 Perform a PRIOR_AUTH_CAPTURE request.  Application can still receive delegate 
 call back for successful, failed, and canceled transaction flows by setting the 
 UIViewController with the setDelegate call.
 
+```objective-c
 /**
  * Perform VOID transaction with request.
  * @param r The request to send.
  */
 - (void) voidWithRequest:(AuthNetAIMRequest *)r;
+```
+
 Perform a VOID request.  Application can still receive delegate call 
 back for successful, failed, and canceled transaction flows by 
 setting the UIViewController with the setDelegate call.
 
+```objective-c
 /**
  * Perform CREDIT transaction with request.
  * @param r The request to send.
  */
 - (void) creditWithRequest:(AuthNetAIMRequest *)r;
+```
+
 Perform a CREDIT request.  Application can still receive delegate call back for successful, 
 failed, and canceled transaction flows by setting the UIViewController with 
 the setDelegate call.
 
+```objective-c
 /**
  * Perform unlinked CREDIT transaction with request.
  * NOTE: Unlinked Credit request must not have an transaction id (x_trans_id) value.
  * @param r The request to send.
  */
 - (void) unlinkedCreditWithRequest:(AuthNetAIMRequest *)r;
+```
+
 Perform an unlinked CREDIT request without using the UIButton call 
 back mechanism.  Application can still receive delegate call back for 
 successful, failed, and canceled transaction flows by setting the UIViewController 
 with the setDelegate call.
 
 
-
 ## Customer Email Receipt
 
 
-
-	/**
- 	* Perform sendCustomerTransactionReceiptRequest on the AIM API.
- 	* @param r The request to send.
- 	*/
-	- (void) sendCustomerTransactionReceiptRequest:(SendCustomerTransactionReceiptRequest *) r;
-- 
+```objective-c
+/**
+* Perform sendCustomerTransactionReceiptRequest on the AIM API.
+* @param r The request to send.
+*/
+- (void) sendCustomerTransactionReceiptRequest:(SendCustomerTransactionReceiptRequest *) r;
+```
 
 Perform an sendCustomerTransactionReceiptRequest request.  Application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the UIViewController with the setDelegate call.
 
 
 ## Reporting
 
+```objective-c
 /**
  * Perform getSettledBatchListRequest on the Reporting API.
  * @param r The reporting request to send.
  */
 - (void) getBatchStatisticsRequest:(GetBatchStatisticsRequest *) r;
+```
+
 Perform an getBatchStatisticsRequest request.  Application can still 
 receive delegate call back for successful, failed, and canceled 
 transaction flows by setting the UIViewController 
 with the setDelegate call.
 
+```objective-c
 /**
  * Perform getSettledBatchListRequest on the Reporting API.
  * @param r The reporting request to send.
  */
 - (void) getSettledBatchListRequest:(GetSettledBatchListRequest *) r;
+```
+
 Perform an getSettledBatchListRequest request.  Application can still 
 receive delegate call back for successful, failed, and canceled 
 transaction flows by setting the UIViewController 
 with the setDelegate call.
 
+```objective-c
 /**
  * Perform getTransactionDetailsRequest on the Reporting API.
  * @param r The reporting request to send.
  */
 - (void) getTransactionDetailsRequest:(GetTransactionDetailsRequest *) r;
+```
+
 Perform an getTransactionDetailsRequest request.  Application can still 
 receive delegate call back for successful, failed, and canceled 
 transaction flows by setting the UIViewController 
 with the setDelegate call.
 
+```objective-c
 /**
  * Perform getTransactionDetailsRequest on the Reporting API.
  * @param r The reporting request to send.
  */
 - (void) getTransactionListRequest:(GetTransactionListRequest *) r;
+```
+
 Perform an getTransactionListRequest request.  Application can still 
 receive delegate call back for successful, failed, and canceled 
 transaction flows by setting the UIViewController 
 with the setDelegate call.
 
+```objective-c
 /**
  * Perform getUnsettledTransactionListRequest on the Reporting API.
  * @param r The reporting request to send.
  */
 - (void) getUnsettledTransactionListRequest:(GetUnsettledTransactionListRequest *) r;
+```
+
 Perform an getUnsettledTransactionListRequest request.  Application can still 
 receive delegate call back for successful, failed, and canceled 
 transaction flows by setting the UIViewController 
 with the setDelegate call.
 
-
-
 #Putting it all together - the sample app
-
-
 
 In order to help test for reachability on your device, you'll need to 
 include the "SystemConfiguration.framework." From the Project Settings, 
@@ -219,7 +255,9 @@ to the "Frameworks" folder.
 Test environment or the Live environment) either at the ApplicationDelegate or in the initial
 UIViewController.  Make sure to #import "AuthNet.h".
 
+```objective-c
 [AuthNet authNetWithEnvironment:ENV_TEST];
+```
 
 3) Copy the code snippet below into your source file in XCode. Create a variable named "sessionToken" 
 to store the session token and add your test credentials where <USERNAME> and <PASSWORD> are currently 
@@ -227,6 +265,7 @@ present. Then call the loginToGateway method from the appropriate class.
 
 The example below is a minimal example of how to create and submit a transaction using the SDK:
 
+```objective-c
 - (void) loginToGateway {
     MobileDeviceLoginRequest *mobileDeviceLoginRequest =
         [MobileDeviceLoginRequest mobileDeviceLoginRequest];
@@ -302,6 +341,7 @@ The example below is a minimal example of how to create and submit a transaction
     sessionToken = [response.sessionToken retain];
     [self createTransaction];
 };
+```
 
 4) The first time you execute this sample code from a new device (either real 
 or virtual), you will notice that the loginToGateway call fails and states 
@@ -322,30 +362,39 @@ Execute the above sample code again and the transaction should succeed.
 **Detail of the Authorize.Net iOS SDK**
 =============================================
 
+```objective-c
 /**
  * Initialization of the AuthNet Singleton with the development server type.
  * @param e The environment either live or test server.
  */
 +(AuthNet *)authNetWithEnvironment:(AUTHNET_ENVIRONMENT)e;
+```
+
 A class method that initializes and returns a singleton instance of AuthNet module.
 
+```objective-c
 /**
  * Get reference to singleton.
  */
 +(AuthNet *)getInstance;
+```
+
 Returns the AuthNet singleton instance from the authNetWithEnvironment: call.
 
+```objective-c
 /**
  * Set Delegate to controller.  Call is not necessary when using standardized getButton method.
  * @param vc The View Controller that should be the delegate for AuthNetDelegate methods.
  */
 + (void) setDelegate:(UIViewController<AuthNetDelegate> const *)vc;
+```
+
 Applications that have different UIViewControllers that 
 want to implement the delegate methods for successful, failed, 
 and cancelled transaction flows should set the UIViewController 
 of the view as delegate of the AuthNet singleton on loading the view.
 
-
+```objective-c
 ////////////////////////
 //Reporting API Calls
 ///////////////////////
@@ -368,18 +417,23 @@ of the view as delegate of the AuthNet singleton on loading the view.
  * non processing of payment.
  */
 -(void) paymentSucceeded:(AuthNetAIMResponse *)response;
+```
+
 AuthNet calls the paymentSucceeded: with an AuthNetAIMResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request. 
 
+```objective-c
 /**
  * Delegate method is called user cancels a transaction from the standardized 
  * checkout flow by clicking on the cancel button in the payment UI.
  */
 -(void) paymentCancelled;
+```
+
 AuthNet calls the paymentCancelled when the user cancels the mobile payment checkout flow.  
 
-
+```objective-c
 /**
  * Delegate method is called when a non AuthNetAIMResponse is returned from the server.  
  * The errorType data member of response should indicate either SERVER_ERROR or
@@ -387,8 +441,11 @@ AuthNet calls the paymentCancelled when the user cancels the mobile payment chec
  * SERVER_ERROR are due to connection errors with the Authorize.Net server.
  */
 -(void) paymentFailed:(AuthNetAIMResponse *)response;
+```
+
 AuthNet calls the paymenFailed: with an AuthNetAIMResponse object.
 
+```objective-c
 ////////////////////////
 // Reporting Delegate Methods
 ////////////////////////
@@ -398,46 +455,61 @@ AuthNet calls the paymenFailed: with an AuthNetAIMResponse object.
  * including GetBatchStatisticsResponse error responses.
  */
 - (void) getBatchStatisticsSucceeded:(GetBatchStatisticsResponse *)response;
+```
+
 AuthNet calls the getBatchStatisticsSucceeded: with an GetBatchStatisticsResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 /**
  * Optional delegate: method is called when a GetSettledBatchListResponse response is returned from the server,
  * including GetSettledBatchListResponse error responses.
  */
 - (void) getSettledBatchListSucceeded:(GetSettledBatchListResponse *)response;
+```
+
 AuthNet calls the getSettledBatchListSucceeded: with an GetSettledBatchListResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 /**
  * Optional delegate: method is called when a GetTransactionDetailsResponse response is returned from the server,
  * including GetTransactionDetailsResponse error responses.
  */
 - (void) getTransactionDetailsSucceeded:(GetTransactionDetailsResponse *)response;
+```
+
 AuthNet calls the getTransactionDetailsSucceeded: with an GetTransactionDetailsResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 /**
  * Optional delegate: method is called when a GetTransactionListResponse response is returned from the server,
  * including GetTransactionListResponse error responses.
  */
 - (void) getTransactionListSucceeded:(GetTransactionListResponse *)response;
+```
+
 AuthNet calls the getTransactionListSucceeded: with an GetTransactionListResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 /**
  * Optional delegate: method is called when a GetUnsettledTransactionListResponse response is returned from the server,
  * including GetUnsettledTransactionListResponse error responses.
  */
 - (void) getUnsettledTransactionListSucceeded:(GetUnsettledTransactionListResponse *)response;
+```
+
 AuthNet calls the getUnsettledTransactionListSucceeded: with an GetUnsettledTransactionListResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 ////////////////////////
 // Email Receipt Delegate Method
 ////////////////////////
@@ -447,10 +519,13 @@ for the application request.
  * including MobileDeviceLoginResponse error responses.
  */
 - (void) sendCustomerTransactionReceiptSucceeded:(SendCustomerTransactionReceiptResponse *)response;
+```
+
 AuthNet calls the sendCustomerTransactionReceiptSucceeded: with an SendCustomerTransactionReceiptResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 ////////////////////////
 // Mobile Delegate Methods
 ////////////////////////
@@ -460,24 +535,32 @@ for the application request.
  * including MobileDeviceLoginResponse error responses.
  */
 - (void) mobileDeviceLoginSucceeded:(MobileDeviceLoginResponse *)response;
+```
+
 AuthNet calls the mobileDeviceLoginSucceeded: with an MobileDeviceLoginResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 /**
  * Optional delegate: method is called when a MobileDeviceLoginResponse response is returned from the server,
  * including MobileDeviceLoginResponse error responses.
  */
 - (void) mobileDeviceRegistrationSucceeded:(MobileDeviceRegistrationResponse *)response;
+```
+
 AuthNet calls the mobileDeviceRegistrationSucceeded: with an MobileDeviceRegistrationResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
 
+```objective-c
 /**
  * Optional delegate: method is called when a LogoutResponse response is returned from the server,
  * including LogoutResponse error responses.
  */
 - (void) logoutSucceeded:(LogoutResponse *)response;
+```
+
 AuthNet calls the logoutSucceeded: with an LogoutResponse object 
 containing the parsed response fields returned from the Authorize.Net 
 for the application request.
