@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41C549AF1BB5C4D2008D3ECB /* ANetSolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C549AE1BB5C4D2008D3ECB /* ANetSolution.m */; settings = {ASSET_TAGS = (); }; };
 		7848F52D1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */; };
 		806AAB1E19BFB49F00323034 /* NSString+HMAC_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1D19BFB49F00323034 /* NSString+HMAC_MD5.m */; };
 		806AAB2019BFB52C00323034 /* OpaqueDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1F19BFB52C00323034 /* OpaqueDataType.m */; };
@@ -80,7 +81,6 @@
 		8DC0744F17D159F200D4E93D /* TransRetailInfoType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0740B17D159F200D4E93D /* TransRetailInfoType.m */; };
 		8DC0745017D159F200D4E93D /* UserField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0740C17D159F200D4E93D /* UserField.m */; };
 		8DEBA88717D129B700B7A8B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEBA88617D129B700B7A8B9 /* Foundation.framework */; };
-		8DEBA89617D129B700B7A8B9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEBA89517D129B700B7A8B9 /* SenTestingKit.framework */; };
 		8DEBA89917D129B700B7A8B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEBA88617D129B700B7A8B9 /* Foundation.framework */; };
 		8DEBA8A217D129B700B7A8B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DEBA8A017D129B700B7A8B9 /* InfoPlist.strings */; };
 		8DEBA8A517D129B700B7A8B9 /* Anet_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEBA8A417D129B700B7A8B9 /* Anet_SDKTests.m */; };
@@ -111,6 +111,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		41C549AD1BB5C4A4008D3ECB /* ANetSolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetSolution.h; sourceTree = "<group>"; };
+		41C549AE1BB5C4D2008D3ECB /* ANetSolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANetSolution.m; sourceTree = "<group>"; };
 		4EEBACF11882949D00667143 /* TestAccountRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationRequest.h; sourceTree = "<group>"; };
 		4EEBACF81882958200667143 /* TestAccountRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationResponse.h; sourceTree = "<group>"; };
 		7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountRegistrationResponse.xml; sourceTree = "<group>"; };
@@ -272,8 +274,7 @@
 		8DC0749717D15A1200D4E93D /* SDK License Agreement (10.20.10).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SDK License Agreement (10.20.10).pdf"; sourceTree = "<group>"; };
 		8DEBA88317D129B700B7A8B9 /* libAnet SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libAnet SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEBA88617D129B700B7A8B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8DEBA89417D129B700B7A8B9 /* Anet SDKTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Anet SDKTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DEBA89517D129B700B7A8B9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		8DEBA89417D129B700B7A8B9 /* Anet SDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Anet SDKTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEBA89F17D129B700B7A8B9 /* Anet SDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Anet SDKTests-Info.plist"; sourceTree = "<group>"; };
 		8DEBA8A117D129B700B7A8B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DEBA8A317D129B700B7A8B9 /* Anet_SDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Anet_SDKTests.h; sourceTree = "<group>"; };
@@ -296,7 +297,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DEBA89617D129B700B7A8B9 /* SenTestingKit.framework in Frameworks */,
 				8DEBA89917D129B700B7A8B9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +326,7 @@
 		8DC073BB17D159F200D4E93D /* Anet SDK */ = {
 			isa = PBXGroup;
 			children = (
+				41C549AE1BB5C4D2008D3ECB /* ANetSolution.m */,
 				806AAB2119BFB55300323034 /* FingerPrintObjectType.m */,
 				806AAB1F19BFB52C00323034 /* OpaqueDataType.m */,
 				7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */,
@@ -420,6 +421,7 @@
 		8DC0745117D15A0800D4E93D /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				41C549AD1BB5C4A4008D3ECB /* ANetSolution.h */,
 				806AAB2319BFB57200323034 /* FingerPrintObjectType.h */,
 				806AAB2419BFB57200323034 /* OpaqueDataType.h */,
 				4EEBACF81882958200667143 /* TestAccountRegistrationResponse.h */,
@@ -518,7 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				8DEBA88317D129B700B7A8B9 /* libAnet SDK.a */,
-				8DEBA89417D129B700B7A8B9 /* Anet SDKTests.octest */,
+				8DEBA89417D129B700B7A8B9 /* Anet SDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -527,7 +529,6 @@
 			isa = PBXGroup;
 			children = (
 				8DEBA88617D129B700B7A8B9 /* Foundation.framework */,
-				8DEBA89517D129B700B7A8B9 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -587,8 +588,8 @@
 			);
 			name = "Anet SDKTests";
 			productName = "Anet SDKTests";
-			productReference = 8DEBA89417D129B700B7A8B9 /* Anet SDKTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = 8DEBA89417D129B700B7A8B9 /* Anet SDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -596,6 +597,7 @@
 		8DEBA87B17D129B700B7A8B9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0700;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = MMA;
 			};
@@ -698,6 +700,7 @@
 				8DC0743717D159F200D4E93D /* MobileDeviceRegistrationRequest.m in Sources */,
 				8DC0743817D159F200D4E93D /* MobileDeviceRegistrationResponse.m in Sources */,
 				8DC0743917D159F200D4E93D /* MobileDeviceType.m in Sources */,
+				41C549AF1BB5C4D2008D3ECB /* ANetSolution.m in Sources */,
 				8DC0743A17D159F200D4E93D /* NameAndAddressType.m in Sources */,
 				8DC0744017D159F200D4E93D /* OrderExType.m in Sources */,
 				8DC0744117D159F200D4E93D /* OrderType.m in Sources */,
@@ -827,7 +830,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos8.0;
+				SDKROOT = iphoneos9.0;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -846,7 +849,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos8.0;
+				SDKROOT = iphoneos9.0;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -858,12 +861,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
 				INFOPLIST_FILE = "Anet SDKTests/Anet SDKTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -873,12 +876,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
 				INFOPLIST_FILE = "Anet SDKTests/Anet SDKTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

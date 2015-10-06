@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in Anet SDKTests");
+//    STFail(@"Unit tests are not implemented yet in Anet SDKTests");
 }
 
 @end
