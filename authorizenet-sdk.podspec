@@ -26,9 +26,10 @@ Pod::Spec.new do |s|
   #s.resources = 'sdk/**/*.{xib,storyboard}'
   s.exclude_files = "**/AuthNetUnitTests.m"
 
-
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'XCTest'
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2'}
+  s.library = 'xml2'
+  #s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2'}
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2', "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => "YES" }
   # s.dependency 'AFNetworking', '~> 2.3'
 end
