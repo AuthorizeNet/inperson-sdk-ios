@@ -14,7 +14,7 @@ If you use [CocoaPods](http://cocoapods.org/) you can try our sample app with ju
 ````
  
 ## Installation
-Installation is very simple with Cocoapods but you can also install manually.
+Installation is very simple with CocoaPods but you can also install manually.
 
 #### Including our CocoaPod
 
