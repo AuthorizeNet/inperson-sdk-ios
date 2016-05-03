@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41C549AF1BB5C4D2008D3ECB /* ANetSolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C549AE1BB5C4D2008D3ECB /* ANetSolution.m */; settings = {ASSET_TAGS = (); }; };
+		41C549AF1BB5C4D2008D3ECB /* ANetSolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C549AE1BB5C4D2008D3ECB /* ANetSolution.m */; };
 		7848F52D1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */; };
 		806AAB1E19BFB49F00323034 /* NSString+HMAC_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1D19BFB49F00323034 /* NSString+HMAC_MD5.m */; };
 		806AAB2019BFB52C00323034 /* OpaqueDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1F19BFB52C00323034 /* OpaqueDataType.m */; };
@@ -822,7 +822,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/Anet_SDK.dst;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
@@ -841,7 +848,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				DSTROOT = /tmp/Anet_SDK.dst;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
@@ -862,6 +876,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
@@ -877,6 +892,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
