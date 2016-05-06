@@ -10,7 +10,7 @@
 #import "AuthNet.h"
 
 
-#define INFORMATION_MESSAGE @"The application utilizes the Authorize.Net SDK avaliable on GitHub under the username AurhorizedNet. Authorize.Net is a wholly owned subsidiary of Visa."
+#define INFORMATION_MESSAGE @"The application utilizes the Authorize.Net SDK avaliable on GitHub under the username AuthorizedNet. Authorize.Net is a wholly owned subsidiary of Visa."
 
 #define ERROR_MESSAGE @"Login error Please check your login details or your device is not registered."
 
