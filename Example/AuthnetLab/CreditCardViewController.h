@@ -10,6 +10,7 @@
 #import <PassKit/PKPaymentRequest.h>
 #import <PassKit/PKPaymentToken.h>
 #import <PassKit/PKPayment.h>
+#import <PassKit/PKConstants.h>
 #import <PassKit/PKPaymentAuthorizationViewController.h>
 
 #import "DecimalKeypadView.h"

@@ -25,7 +25,6 @@
 		80A75AD019B90446008D3EC8 /* AuthNetMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1A19B90446008D3EC8 /* AuthNetMessage.m */; };
 		80A75AD119B90446008D3EC8 /* AuthNetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1B19B90446008D3EC8 /* AuthNetRequest.m */; };
 		80A75AD219B90446008D3EC8 /* AuthNetResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1C19B90446008D3EC8 /* AuthNetResponse.m */; };
-		80A75AD319B90446008D3EC8 /* AuthNetUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1D19B90446008D3EC8 /* AuthNetUnitTests.m */; };
 		80A75AD419B90446008D3EC8 /* BankAccountMaskedType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1E19B90446008D3EC8 /* BankAccountMaskedType.m */; };
 		80A75AD519B90446008D3EC8 /* BankAccountType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A1F19B90446008D3EC8 /* BankAccountType.m */; };
 		80A75AD619B90446008D3EC8 /* BatchDetailsType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A2019B90446008D3EC8 /* BatchDetailsType.m */; };
@@ -98,7 +97,6 @@
 		80A75B1919B90446008D3EC8 /* TransRetailInfoType.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6719B90446008D3EC8 /* TransRetailInfoType.m */; };
 		80A75B1A19B90446008D3EC8 /* UserField.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6819B90446008D3EC8 /* UserField.m */; };
 		80A75B1B19B90446008D3EC8 /* Anet SDKTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A6D19B90446008D3EC8 /* Anet SDKTests-Info.plist */; };
-		80A75B1C19B90446008D3EC8 /* Anet_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6F19B90446008D3EC8 /* Anet_SDKTests.m */; };
 		80A75B1D19B90446008D3EC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A7019B90446008D3EC8 /* InfoPlist.strings */; };
 		80A75B1E19B90446008D3EC8 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A7419B90446008D3EC8 /* README */; };
 		80A75B1F19B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 80A75A7519B90446008D3EC8 /* SDK License Agreement (10.20.10).pdf */; };
@@ -124,6 +122,8 @@
 		80FA44F419BC233E00C40897 /* input.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E619BC233E00C40897 /* input.png */; };
 		80FA44F519BC233E00C40897 /* input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E719BC233E00C40897 /* input@2x.png */; };
 		80FA44F619BC233E00C40897 /* mma_gray-bkgnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 80FA44E819BC233E00C40897 /* mma_gray-bkgnd.png */; };
+		8D8F55611CDC59B900FC4D70 /* Anet_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A75A6F19B90446008D3EC8 /* Anet_SDKTests.m */; };
+		8DE13F9A1CDA02B50016D572 /* ANetSolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE13F991CDA02B50016D572 /* ANetSolution.m */; };
 		9CFDD5DC197838F90051D1C4 /* CreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDD5DB197838F90051D1C4 /* CreditCardViewController.m */; };
 		B11A382D9E324C0A9C738296 /* libPods-AuthnetLabTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF815B9308094116B3413C45 /* libPods-AuthnetLabTests.a */; };
 		FF3591461949C2D600432E35 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3591451949C2D600432E35 /* Foundation.framework */; };
@@ -140,7 +140,6 @@
 		FF3591721949C2D600432E35 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF3591701949C2D600432E35 /* InfoPlist.strings */; };
 		FF3591741949C2D600432E35 /* AuthnetLabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3591731949C2D600432E35 /* AuthnetLabTests.m */; };
 		FF3592A91949C4D600432E35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3592A81949C4D600432E35 /* SystemConfiguration.framework */; };
-		FF3593DC1949CC6A00432E35 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3592AB1949C64500432E35 /* SenTestingKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,7 +191,6 @@
 		80A75A1A19B90446008D3EC8 /* AuthNetMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetMessage.m; sourceTree = "<group>"; };
 		80A75A1B19B90446008D3EC8 /* AuthNetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetRequest.m; sourceTree = "<group>"; };
 		80A75A1C19B90446008D3EC8 /* AuthNetResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetResponse.m; sourceTree = "<group>"; };
-		80A75A1D19B90446008D3EC8 /* AuthNetUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthNetUnitTests.m; sourceTree = "<group>"; };
 		80A75A1E19B90446008D3EC8 /* BankAccountMaskedType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountMaskedType.m; sourceTree = "<group>"; };
 		80A75A1F19B90446008D3EC8 /* BankAccountType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankAccountType.m; sourceTree = "<group>"; };
 		80A75A2019B90446008D3EC8 /* BatchDetailsType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchDetailsType.m; sourceTree = "<group>"; };
@@ -375,6 +373,8 @@
 		80FA44E719BC233E00C40897 /* input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "input@2x.png"; path = "AuthnetLab/input@2x.png"; sourceTree = "<group>"; };
 		80FA44E819BC233E00C40897 /* mma_gray-bkgnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mma_gray-bkgnd.png"; path = "AuthnetLab/mma_gray-bkgnd.png"; sourceTree = "<group>"; };
 		84C39FBA20534B9DB46489EA /* Pods-AuthnetLab.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthnetLab.xcconfig"; path = "Pods/Pods-AuthnetLab.xcconfig"; sourceTree = "<group>"; };
+		8DE13F991CDA02B50016D572 /* ANetSolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANetSolution.m; sourceTree = "<group>"; };
+		8DE13F9B1CDA03E40016D572 /* ANetSolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetSolution.h; sourceTree = "<group>"; };
 		9CD34D73197EF01300F9E48B /* IDTECH_UniMag.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = IDTECH_UniMag.a; path = ../../Downloads/Final14July/Libraries/IDTech/IDTECH_UniMag.a; sourceTree = "<group>"; };
 		9CFDD5DA197838F90051D1C4 /* CreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardViewController.h; sourceTree = "<group>"; };
 		9CFDD5DB197838F90051D1C4 /* CreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardViewController.m; sourceTree = "<group>"; };
@@ -408,7 +408,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF3593DC1949CC6A00432E35 /* SenTestingKit.framework in Frameworks */,
 				FF3592A91949C4D600432E35 /* SystemConfiguration.framework in Frameworks */,
 				FF3591481949C2D600432E35 /* CoreGraphics.framework in Frameworks */,
 				FF35914A1949C2D600432E35 /* UIKit.framework in Frameworks */,
@@ -447,6 +446,7 @@
 		80A75A1519B90446008D3EC8 /* Anet SDK */ = {
 			isa = PBXGroup;
 			children = (
+				8DE13F991CDA02B50016D572 /* ANetSolution.m */,
 				80783D9E19BFC6F900F7DDBF /* OpaqueDataType.m */,
 				80783D9C19BFC6EB00F7DDBF /* FingerPrintObjectType.m */,
 				80A75A1619B90446008D3EC8 /* Anet SDK-Prefix.pch */,
@@ -456,7 +456,6 @@
 				80A75A1A19B90446008D3EC8 /* AuthNetMessage.m */,
 				80A75A1B19B90446008D3EC8 /* AuthNetRequest.m */,
 				80A75A1C19B90446008D3EC8 /* AuthNetResponse.m */,
-				80A75A1D19B90446008D3EC8 /* AuthNetUnitTests.m */,
 				80A75A1E19B90446008D3EC8 /* BankAccountMaskedType.m */,
 				80A75A1F19B90446008D3EC8 /* BankAccountType.m */,
 				80A75A2019B90446008D3EC8 /* BatchDetailsType.m */,
@@ -600,6 +599,7 @@
 		80A75A8719B90446008D3EC8 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				8DE13F9B1CDA03E40016D572 /* ANetSolution.h */,
 				80A75A8819B90446008D3EC8 /* ANetApiRequest.h */,
 				80A75A8919B90446008D3EC8 /* ANetApiResponse.h */,
 				80A75A8A19B90446008D3EC8 /* AuthNet.h */,
@@ -846,6 +846,7 @@
 		FF35913A1949C2D500432E35 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0710;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Paragyte;
 				TargetAttributes = {
@@ -899,7 +900,7 @@
 		80A75B3019B90446008D3EC8 /* Anet SDKTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Anet SDKTests.octest";
+			path = "Anet SDKTests.xctest";
 			remoteRef = 80A75B2F19B90446008D3EC8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1089,6 +1090,7 @@
 				80A75B0E19B90446008D3EC8 /* Reachability.m in Sources */,
 				80A75AF619B90446008D3EC8 /* LogoutResponse.m in Sources */,
 				80A75B0719B90446008D3EC8 /* PaymentType.m in Sources */,
+				8DE13F9A1CDA02B50016D572 /* ANetSolution.m in Sources */,
 				80A75B1119B90446008D3EC8 /* TestAccountCaptchaResponse.m in Sources */,
 				80A75AF519B90446008D3EC8 /* LogoutRequest.m in Sources */,
 				80A75B2619B90446008D3EC8 /* NSString+stringWithXMLTag.m in Sources */,
@@ -1096,10 +1098,8 @@
 				80A75AD719B90446008D3EC8 /* BatchStatisticType.m in Sources */,
 				80A75AEF19B90446008D3EC8 /* GetTransactionListResponse.m in Sources */,
 				80A75B0519B90446008D3EC8 /* OrderType.m in Sources */,
-				80A75B1C19B90446008D3EC8 /* Anet_SDKTests.m in Sources */,
 				80A75AFD19B90446008D3EC8 /* MobileDeviceLoginResponse.m in Sources */,
 				80A75B2019B90446008D3EC8 /* NSArray+PerformSelector.m in Sources */,
-				80A75AD319B90446008D3EC8 /* AuthNetUnitTests.m in Sources */,
 				80A75B1519B90446008D3EC8 /* TransactionDetailsType.m in Sources */,
 				80A75B1719B90446008D3EC8 /* TransactionResponse.m in Sources */,
 				80A75B0D19B90446008D3EC8 /* SplitTenderPayment.m in Sources */,
@@ -1121,6 +1121,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8F55611CDC59B900FC4D70 /* Anet_SDKTests.m in Sources */,
 				FF3591741949C2D600432E35 /* AuthnetLabTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
