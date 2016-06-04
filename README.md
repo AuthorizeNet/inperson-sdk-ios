@@ -33,7 +33,7 @@ Installation is very simple with Cocoapods but you can also install manually.
 #### Including the SDK manually
 
 1. Download the zip file of the SDK from `https://github.com/AuthorizeNet/sdk-ios/archive/master.zip` and unzip to your preferred location.
-2. In XCode, select your project in Project Navigator and select File->Add Files to "" from the main menu bar.
+2. In Xcode, select your project in Project Navigator and select File->Add Files to "" from the main menu bar.
 3. In the file dialog, select the sdk folder from the unzipped directory in Step 1.
 4. In the file dialog, make sure "Copy items into destination group's folder (if needed)" is checked and click Add button.
 
