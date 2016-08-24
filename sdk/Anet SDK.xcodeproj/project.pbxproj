@@ -83,7 +83,6 @@
 		8DEBA88717D129B700B7A8B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEBA88617D129B700B7A8B9 /* Foundation.framework */; };
 		8DEBA89917D129B700B7A8B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEBA88617D129B700B7A8B9 /* Foundation.framework */; };
 		8DEBA8A217D129B700B7A8B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DEBA8A017D129B700B7A8B9 /* InfoPlist.strings */; };
-		8DEBA8A517D129B700B7A8B9 /* Anet_SDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEBA8A417D129B700B7A8B9 /* Anet_SDKTests.m */; };
 		9C9D193818810BD4000E8D3B /* TestAccountCaptchaResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9C9D193718810BD4000E8D3B /* TestAccountCaptchaResponse.xml */; };
 /* End PBXBuildFile section */
 
@@ -277,8 +276,6 @@
 		8DEBA89417D129B700B7A8B9 /* Anet SDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Anet SDKTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEBA89F17D129B700B7A8B9 /* Anet SDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Anet SDKTests-Info.plist"; sourceTree = "<group>"; };
 		8DEBA8A117D129B700B7A8B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8DEBA8A317D129B700B7A8B9 /* Anet_SDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Anet_SDKTests.h; sourceTree = "<group>"; };
-		8DEBA8A417D129B700B7A8B9 /* Anet_SDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Anet_SDKTests.m; sourceTree = "<group>"; };
 		9C9D193718810BD4000E8D3B /* TestAccountCaptchaResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountCaptchaResponse.xml; sourceTree = "<group>"; };
 		9CD933E5187F0A9900EE1CC0 /* TestAccountCaptchaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestAccountCaptchaResponse.h; path = "../Anet SDK/TestAccountCaptchaResponse.h"; sourceTree = "<group>"; };
 		FF35F18B187FD4D0005A4A66 /* TestAccountCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaRequest.h; sourceTree = "<group>"; };
@@ -536,8 +533,6 @@
 		8DEBA89D17D129B700B7A8B9 /* Anet SDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				8DEBA8A317D129B700B7A8B9 /* Anet_SDKTests.h */,
-				8DEBA8A417D129B700B7A8B9 /* Anet_SDKTests.m */,
 				8DEBA89E17D129B700B7A8B9 /* Supporting Files */,
 			);
 			path = "Anet SDKTests";
@@ -733,7 +728,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DEBA8A517D129B700B7A8B9 /* Anet_SDKTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
