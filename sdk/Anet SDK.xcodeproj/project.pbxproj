@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		41C549AF1BB5C4D2008D3ECB /* ANetSolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 41C549AE1BB5C4D2008D3ECB /* ANetSolution.m */; };
-		7848F52D1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7848F52C1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml */; };
 		806AAB1E19BFB49F00323034 /* NSString+HMAC_MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1D19BFB49F00323034 /* NSString+HMAC_MD5.m */; };
 		806AAB2019BFB52C00323034 /* OpaqueDataType.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB1F19BFB52C00323034 /* OpaqueDataType.m */; };
 		806AAB2219BFB55300323034 /* FingerPrintObjectType.m in Sources */ = {isa = PBXBuildFile; fileRef = 806AAB2119BFB55300323034 /* FingerPrintObjectType.m */; };
@@ -81,20 +80,7 @@
 		8DC0744F17D159F200D4E93D /* TransRetailInfoType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0740B17D159F200D4E93D /* TransRetailInfoType.m */; };
 		8DC0745017D159F200D4E93D /* UserField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC0740C17D159F200D4E93D /* UserField.m */; };
 		8DEBA88717D129B700B7A8B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEBA88617D129B700B7A8B9 /* Foundation.framework */; };
-		8DEBA89917D129B700B7A8B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DEBA88617D129B700B7A8B9 /* Foundation.framework */; };
-		8DEBA8A217D129B700B7A8B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DEBA8A017D129B700B7A8B9 /* InfoPlist.strings */; };
-		9C9D193818810BD4000E8D3B /* TestAccountCaptchaResponse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9C9D193718810BD4000E8D3B /* TestAccountCaptchaResponse.xml */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8DEBA89A17D129B700B7A8B9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8DEBA87B17D129B700B7A8B9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DEBA88217D129B700B7A8B9;
-			remoteInfo = "Anet SDK";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8DEBA88117D129B700B7A8B9 /* Copy Files */ = {
@@ -272,7 +258,6 @@
 		8DC0749717D15A1200D4E93D /* SDK License Agreement (10.20.10).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SDK License Agreement (10.20.10).pdf"; sourceTree = "<group>"; };
 		8DEBA88317D129B700B7A8B9 /* libAnet SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libAnet SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEBA88617D129B700B7A8B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8DEBA89417D129B700B7A8B9 /* Anet SDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Anet SDKTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEBA89F17D129B700B7A8B9 /* Anet SDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Anet SDKTests-Info.plist"; sourceTree = "<group>"; };
 		8DEBA8A117D129B700B7A8B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9C9D193718810BD4000E8D3B /* TestAccountCaptchaResponse.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestAccountCaptchaResponse.xml; sourceTree = "<group>"; };
@@ -286,14 +271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DEBA88717D129B700B7A8B9 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DEBA89017D129B700B7A8B9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DEBA89917D129B700B7A8B9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,7 +492,6 @@
 			isa = PBXGroup;
 			children = (
 				8DEBA88317D129B700B7A8B9 /* libAnet SDK.a */,
-				8DEBA89417D129B700B7A8B9 /* Anet SDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -565,25 +541,6 @@
 			productReference = 8DEBA88317D129B700B7A8B9 /* libAnet SDK.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		8DEBA89317D129B700B7A8B9 /* Anet SDKTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8DEBA8AB17D129B700B7A8B9 /* Build configuration list for PBXNativeTarget "Anet SDKTests" */;
-			buildPhases = (
-				8DEBA88F17D129B700B7A8B9 /* Sources */,
-				8DEBA89017D129B700B7A8B9 /* Frameworks */,
-				8DEBA89117D129B700B7A8B9 /* Resources */,
-				8DEBA89217D129B700B7A8B9 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8DEBA89B17D129B700B7A8B9 /* PBXTargetDependency */,
-			);
-			name = "Anet SDKTests";
-			productName = "Anet SDKTests";
-			productReference = 8DEBA89417D129B700B7A8B9 /* Anet SDKTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -608,39 +565,9 @@
 			projectRoot = "";
 			targets = (
 				8DEBA88217D129B700B7A8B9 /* Anet SDK */,
-				8DEBA89317D129B700B7A8B9 /* Anet SDKTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		8DEBA89117D129B700B7A8B9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DEBA8A217D129B700B7A8B9 /* InfoPlist.strings in Resources */,
-				7848F52D1882BC1B00DA75CC /* TestAccountRegistrationResponse.xml in Resources */,
-				9C9D193818810BD4000E8D3B /* TestAccountCaptchaResponse.xml in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8DEBA89217D129B700B7A8B9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DEBA87F17D129B700B7A8B9 /* Sources */ = {
@@ -722,22 +649,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DEBA88F17D129B700B7A8B9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8DEBA89B17D129B700B7A8B9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DEBA88217D129B700B7A8B9 /* Anet SDK */;
-			targetProxy = 8DEBA89A17D129B700B7A8B9 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8DEBA8A017D129B700B7A8B9 /* InfoPlist.strings */ = {
@@ -861,38 +773,6 @@
 			};
 			name = Release;
 		};
-		8DEBA8AC17D129B700B7A8B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
-				INFOPLIST_FILE = "Anet SDKTests/Anet SDKTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		8DEBA8AD17D129B700B7A8B9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Anet SDK/Anet SDK-Prefix.pch";
-				INFOPLIST_FILE = "Anet SDKTests/Anet SDKTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -910,15 +790,6 @@
 			buildConfigurations = (
 				8DEBA8A917D129B700B7A8B9 /* Debug */,
 				8DEBA8AA17D129B700B7A8B9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8DEBA8AB17D129B700B7A8B9 /* Build configuration list for PBXNativeTarget "Anet SDKTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8DEBA8AC17D129B700B7A8B9 /* Debug */,
-				8DEBA8AD17D129B700B7A8B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
