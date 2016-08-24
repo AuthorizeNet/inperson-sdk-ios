@@ -213,7 +213,6 @@
 		8DC0745517D15A0800D4E93D /* AuthNetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetMessage.h; sourceTree = "<group>"; };
 		8DC0745617D15A0800D4E93D /* AuthNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetRequest.h; sourceTree = "<group>"; };
 		8DC0745717D15A0800D4E93D /* AuthNetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetResponse.h; sourceTree = "<group>"; };
-		8DC0745817D15A0800D4E93D /* AuthNetUnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetUnitTests.h; sourceTree = "<group>"; };
 		8DC0745917D15A0800D4E93D /* BankAccountMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountMaskedType.h; sourceTree = "<group>"; };
 		8DC0745A17D15A0800D4E93D /* BankAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountType.h; sourceTree = "<group>"; };
 		8DC0745B17D15A0800D4E93D /* BatchDetailsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchDetailsType.h; sourceTree = "<group>"; };
@@ -430,7 +429,6 @@
 				8DC0745517D15A0800D4E93D /* AuthNetMessage.h */,
 				8DC0745617D15A0800D4E93D /* AuthNetRequest.h */,
 				8DC0745717D15A0800D4E93D /* AuthNetResponse.h */,
-				8DC0745817D15A0800D4E93D /* AuthNetUnitTests.h */,
 				8DC0745917D15A0800D4E93D /* BankAccountMaskedType.h */,
 				8DC0745A17D15A0800D4E93D /* BankAccountType.h */,
 				8DC0745B17D15A0800D4E93D /* BatchDetailsType.h */,
