@@ -1,1 +1,0 @@
-../../../../sdk/Headers/SwiperDataType.h
