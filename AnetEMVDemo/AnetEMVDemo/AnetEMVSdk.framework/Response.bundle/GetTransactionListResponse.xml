@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<getTransactionListResponse xmlns="AnetApi/xml/v1/schema/ AnetApiSchema.xsd">
+    <messages> 
+        <resultCode>Ok</resultCode> 
+        <message>
+            <code>I00001</code>
+            <text>Successful.</text> 
+        </message>
+    </messages> 
+    <transactions>
+        <transaction> 
+            <transId>12345</transId> 
+            <submitTimeUTC>2009-05-30T09:00:00</submitTimeUTC> 
+            <submitTimeLocal>2009-05-30T04:00:00</submitTimeLocal> 
+            <transactionStatus>settledSuccessfully</transactionStatus> 
+            <invoice>INV00001</invoice> 
+            <firstName>John</firstName> 
+            <lastName>Doe</lastName> 
+            <amount>2.00</amount> 
+            <accountType>Visa</accountType> 
+            <accountNumber>XXXX1111</accountNumber>
+        </transaction> 
+        <transaction>
+            <transId>12345</transId> 
+            <submitTimeUTC>2009-05-30T09:00:00</submitTimeUTC> 
+            <submitTimeLocal>2009-05-30T04:00:00</submitTimeLocal> 
+            <transactionStatus>settledSuccessfully</transactionStatus> 
+            <invoice>INV00001</invoice> 
+            <firstName>John</firstName> 
+            <lastName>Doe</lastName> 
+            <amount>2.00</amount> 
+            <accountType>Visa</accountType> 
+            <accountNumber>XXXX1111</accountNumber>
+        </transaction> 
+    </transactions>
+</getTransactionListResponse>
