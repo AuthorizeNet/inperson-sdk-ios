@@ -17,28 +17,32 @@
 + (AnetEMVUISettings *)sharedUISettings;
 
 /*!
- backgroundColor
+ backgroundColor: Container view back ground color on all screens.
  */
-@property (nonatomic, assign) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *backgroundColor;
+/*!
+ backgroundImage: Container view background image
+ */
+@property (nonatomic, strong) UIImage *backgroundImage;
 /*!
  textFontColor
  */
-@property (nonatomic, assign) UIColor *textFontColor;
+@property (nonatomic, strong) UIColor *textFontColor;
 /*!
  buttonColor
  */
-@property (nonatomic, assign) UIColor *buttonColor;
+@property (nonatomic, strong) UIColor *buttonColor;
 /*!
  buttonTextColor
  */
-@property (nonatomic, assign) UIColor *buttonTextColor;
+@property (nonatomic, strong) UIColor *buttonTextColor;
 /*!
- logoImage
+ logoImage: Top/Title bar background image
  */
 @property (nonatomic, strong) UIImage *logoImage;
 /*!
- bannerBackgroundColor
+ bannerBackgroundColor: Top/Title bar background color
  */
-@property (nonatomic, assign) UIColor *bannerBackgroundColor;
+@property (nonatomic, strong) UIColor *bannerBackgroundColor;
 
 @end
