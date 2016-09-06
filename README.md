@@ -4,15 +4,6 @@
 
 The iOS SDK provides a fast and easy way for iPhone/iPad application developers to quickly integrate mobile payment without having to write the network communication, XML generation/parsing, and encoding of the data to the Authorize.Net gateway.
 
-
-## Try It
-
-If you use [CocoaPods](http://cocoapods.org/) you can try our sample app with just a single command:
-
-````
-   $ pod try 'authorizenet-sdk'
-````
- 
 ## Installation
 Installation is very simple with Cocoapods but you can also install manually.
 
@@ -29,15 +20,15 @@ Installation is very simple with Cocoapods but you can also install manually.
 1. NOTE: You may need to add libxml2.dylib to "Link Binary with Libraries" build phase.
 
 
-
 #### Including the SDK manually
 
 1. Download the zip file of the SDK from `https://github.com/AuthorizeNet/inperson-sdk-ios/archive/master.zip` and unzip to your preferred location.
 2. In XCode, Navigate to Project Navigator and tap on '+' button under Embedded Binaries section under General tab(Project Navigator -> General -> Embedded Binaries).
 3. In the Framework dialog, tap on Add other, file dialog will be presented.
-4. In the file dialog, Navigation to directory where you downloaded the repository in step #1 and select AnetEMVSdk.framework, make sure you select "Copy items into destination group's folder (if needed)" is checked and click Add button.
+4. In the File dialog, Navigation to directory where you downloaded the repository in step #1 and select AnetEMVSdk.framework, make sure you select "Copy items into destination group's folder (if needed)" is checked and click Add button.
 
-
+#### Copy Bundle Resources
+1. Include AnetEMVStoryboard.storyboard and eject.mp3 file from AnetEMVSdk.framework directory in the application. If you include them correctly, you should be able to see under Target > Build phases > Copy Bundle Resources.
 
 # Building an MPoS Application
 
