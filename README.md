@@ -7,7 +7,7 @@ The iOS SDK provides a fast and easy way for iPhone/iPad application developers 
 ## Installation
 Installation is very simple with Cocoapods but you can also install manually.
 
-#### Including our CocoaPod
+#### Including SDK through CocoaPod
 
 1. Add our pod to your project Podfile:
 
