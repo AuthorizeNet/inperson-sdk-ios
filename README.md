@@ -33,9 +33,9 @@ Installation is very simple with Cocoapods but you can also install manually.
 #### Including the SDK manually
 
 1. Download the zip file of the SDK from `https://github.com/AuthorizeNet/inperson-sdk-ios/archive/master.zip` and unzip to your preferred location.
-2. In XCode, select your project in Project Navigator and select File->Add Files to "" from the main menu bar.
-3. In the file dialog, select the sdk folder from the unzipped directory in Step 1.
-4. In the file dialog, make sure "Copy items into destination group's folder (if needed)" is checked and click Add button.
+2. In XCode, Navigate to Project Navigator and tap on '+' button under Embedded Binaries section under General tab(Project Navigator -> General -> Embedded Binaries).
+3. In the Framework dialog, tap on Add other, file dialog will be presented.
+4. In the file dialog, Navigation to directory where you downloaded the repository in step #1 and select AnetEMVSdk.framework, make sure you select "Copy items into destination group's folder (if needed)" is checked and click Add button.
 
 
 
