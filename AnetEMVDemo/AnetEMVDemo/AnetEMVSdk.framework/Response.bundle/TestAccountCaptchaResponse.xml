@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Header>
+        <h:RequestID xmlns:h="http://visa.com/mobileApi">cad84c5e-e663-48e1-be35-3ade12d5be70</h:RequestID>
+        <h:ResponseID xmlns:h="http://visa.com/mobileApi">14aff497-5811-4e33-98a6-886d7f7def5b</h:ResponseID>
+        <h:Version xmlns:h="http://visa.com/mobileApi">1.2</h:Version>
+        <ActivityId CorrelationId="5a2f1f58-1868-4a40-8811-aa0d15060d30" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">bdddd189-75f7-4e14-aec9-fcc33a8cf935</ActivityId>
+    </s:Header>
+    <s:Body>
+        <CaptchaResponse xmlns="http://visa.com/mobileApi">
+            <Response xmlns:a="http://mobileApi.schema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+                <a:Messages>
+                    <a:Status>OK</a:Status>
+                    <a:Details>
+                        <a:Code>I00001</a:Code>
+                        <a:Text>Success!</a:Text>
+                    </a:Details>
+                </a:Messages>
+                <a:Captcha>
+                    <a:Source>service</a:Source>
+                    <a:Type>imagehash</a:Type>
+                    <a:Imagehash>
+                        <a:View></a:View>
+                        <a:Image></a:Image>
+                    </a:Imagehash>
+                </a:Captcha>
+            </Response>
+        </CaptchaResponse>
+    </s:Body>
+</s:Envelope>

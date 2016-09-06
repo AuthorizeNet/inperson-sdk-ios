@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logoutResponse xmlns="AnetApi/xml/v1/schema/ AnetApiSchema.xsd">
+	<refId>My refId</refId>
+	<messages>
+		<resultCode>Ok</resultCode>
+		<message>
+			<code>I00001</code>
+			<text>The record was processed successfully</text>
+		</message>
+		<message> 
+			<code>I00003</code>
+			<text>The record has already been deleted</text>
+		</message>
+	</messages>
+</logoutResponse>

@@ -1,0 +1,138 @@
+<getTransactionDetailsResponse xmlns:xsi="http://www.w3.org/2001/ XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="AnetApi/xml/v1/schema/AnetApiSchema.xsd">
+
+<messages> 
+<resultCode>Ok</resultCode> 
+<message>
+<code>I00001</code>
+<text>Successful.</text> 
+</message>
+</messages> 
+
+<transaction>
+<transId>12345</transId> 
+<refTransId>12345</refTransId> 
+<splitTenderId>12345</splitTenderId> 
+<submitTimeUTC>2010-08-30T17:49:20.757Z</submitTimeUTC> 
+<submitTimeLocal>2010-08-30T13:49:20.757</submitTimeLocal> 
+<transactionType>authOnlyTransaction</transactionType> 
+<transactionStatus>settledSuccessfully</transactionStatus> 
+<responseCode>1</responseCode> 
+<responseReasonCode>1</responseReasonCode> 
+<responseReasonDescription> Approval</responseReasonDescription> 
+<authCode>000000</authCode>
+<AVSResponse>X</AVSResponse> 
+<cardCodeResponse>M</cardCodeResponse> 
+<CAVVResponse>2</CAVVResponse>
+
+<FDSFilterAction>authAndHold</FDSFilterAction> 
+
+<FDSFilters>
+<FDSFilter> 
+<name>Hourly Velocity Filter</name> 
+<action>authAndHold</action>
+</FDSFilter> 
+<FDSFilter>
+<name>Amount Filter</name>
+<action>report</action> 
+</FDSFilter>
+</FDSFilters> 
+
+<batch>
+<batchId>12345</batchId> 
+<settlementTimeUTC>2010-08-30T17:49:20.757Z</settlementTimeUTC> 
+<settlementTimeLocal>2010-08-30T13:49:20.757</settlementTimeLocal> 
+<settlementState>settledSuccessfully</settlementState>
+</batch> 
+
+<order>
+<invoiceNumber>INV00001</invoiceNumber> 
+<description>some description</description>
+<purchaseOrderNumber>PO000001</purchaseOrderNumber> 
+</order> 
+
+<requestedAmount>5.00</requestedAmount> 
+<authAmount>2.00</authAmount> 
+<settleAmount>2.00</settleAmount>
+
+<tax> 
+<amount>1.00</amount> 
+<name>WA state sales tax</name> 
+<description>Washington state sales tax</description>
+</tax> 
+
+<shipping>
+<amount>2.00</amount> 
+<name>ground based shipping</name> 
+<description>Ground based 5 to 10 day shipping</description>
+</shipping> 
+
+<duty>
+<amount>1.00</amount> 
+</duty>
+
+<lineItems> 
+<lineItem>
+<itemId>ITEM00001</itemId> 
+<name>name of item sold</name>
+<description>Description of item sold</description> 
+<quantity>1</quantity> 
+<unitPrice>1.95</unitPrice> 
+<taxable>true</taxable>
+</lineItem> 
+
+<lineItem>
+<itemId>ITEM00002</itemId> 
+<name>name of item sold</name> 
+<description>Description of item sold</description> 
+<quantity>2</quantity> 
+<unitPrice>2.95</unitPrice> 
+<taxable>true</taxable>
+</lineItem> 
+</lineItems>
+ 
+<prepaidBalanceRemaining>30.00</prepaidBalanceRemaining> 
+<taxExempt>false</taxExempt> 
+
+<payment>
+<creditCard>
+<cardNumber>XXXX1111</cardNumber> 
+<expirationDate>XXXX</expirationDate>
+<accountType>Visa</accountType> 
+</creditCard> 
+</payment>
+
+<customer>
+<type>individual</type> 
+<id>ABC00001</id> 
+<email>mark@example.com</email>
+</customer> 
+
+<billTo>
+<firstName>John</firstName> 
+<lastName>Doe</lastName> 
+<company></company> 
+<address>123 Main St.</address> 
+<city>Bellevue</city> 
+<state>WA</state> 
+<zip>98004</zip> 
+<country>USA</country> 
+<phoneNumber>000-000-0000</phoneNumber> 
+<faxNumber></faxNumber>
+</billTo> 
+
+<shipTo>
+<firstName>John</firstName> 
+<lastName>Doe</lastName> 
+<company></company> 
+<address>123 Main St.</address> 
+<city>Bellevue</city> 
+<state>WA</state> 
+<zip>98004</zip> 
+<country>USA</country>
+</shipTo> 
+
+<recurringBilling>false</recurringBilling>
+<customerIP>0.0.0.0</customerIP> 
+</transaction>
+</getTransactionDetailsResponse>
+
