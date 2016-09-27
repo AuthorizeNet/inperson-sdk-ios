@@ -11,6 +11,7 @@
 		41062F241D4937BC003D5AA6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41062F231D4937BC003D5AA6 /* logo.png */; };
 		4109BD6C1D50819900B2A5B1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4109BD6B1D50819900B2A5B1 /* Settings.bundle */; };
 		411EEC781D7A0DEA006B766A /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 411EEC771D7A0DEA006B766A /* bg.jpg */; };
+		414298FE1D9AA6F900100FD6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414298FD1D9AA6F900100FD6 /* CoreBluetooth.framework */; };
 		4155AFDD1D8B4F3F00ED634D /* AnetEMVDemoUISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 41062F201D49356F003D5AA6 /* AnetEMVDemoUISettings.h */; };
 		4155AFDE1D8B4F3F00ED634D /* AnetEMVDemo-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 419458871BE027E900B9C8EA /* AnetEMVDemo-Bridging-Header.h */; };
 		4155B25F1D8B651700ED634D /* ANetApiRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2061D8B651700ED634D /* ANetApiRequest.h */; };
@@ -146,6 +147,7 @@
 		41062F231D4937BC003D5AA6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		4109BD6B1D50819900B2A5B1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = AnetEMVDemo/Settings.bundle; sourceTree = "<group>"; };
 		411EEC771D7A0DEA006B766A /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		414298FD1D9AA6F900100FD6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		4155B2061D8B651700ED634D /* ANetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiRequest.h; sourceTree = "<group>"; };
 		4155B2071D8B651700ED634D /* ANetApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiResponse.h; sourceTree = "<group>"; };
 		4155B2081D8B651700ED634D /* AnetEMVError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVError.h; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414298FE1D9AA6F900100FD6 /* CoreBluetooth.framework in Frameworks */,
 				4155B3641D8B75C800ED634D /* MediaPlayer.framework in Frameworks */,
 				4155B2C21D8B6BD900ED634D /* libstdc++.6.0.9.tbd in Frameworks */,
 				4155B2B71D8B651700ED634D /* libAnetEMVLibrary.a in Frameworks */,
@@ -396,6 +399,7 @@
 		4155B2B81D8B6B1900ED634D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				414298FD1D9AA6F900100FD6 /* CoreBluetooth.framework */,
 				4155B2C11D8B6BD900ED634D /* libstdc++.6.0.9.tbd */,
 				4155B2BF1D8B6BD000ED634D /* AudioToolbox.framework */,
 				4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */,
