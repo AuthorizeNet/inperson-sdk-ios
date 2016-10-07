@@ -1,7 +1,0 @@
-target 'AuthnetLab', :exclusive => true do
-  pod "authorizenet-sdk", :path => "../"
-end
-
-target 'AuthnetLabTests', :exclusive => true do
-  pod "authorizenet-sdk", :path => "../"
-end

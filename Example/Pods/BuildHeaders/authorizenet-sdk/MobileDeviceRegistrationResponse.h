@@ -1,1 +1,0 @@
-../../../../sdk/Headers/MobileDeviceRegistrationResponse.h

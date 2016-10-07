@@ -1,42 +1,130 @@
-#Authorize.Net In-Person SDK for iOS
+# Authorize.Net In-Person iOS SDK Integration Guide
 
-[![Build Status](https://travis-ci.org/AuthorizeNet/sdk-ios.svg?branch=master)](https://travis-ci.org/AuthorizeNet/sdk-ios)
+The Authorize.Net In-Person SDK provides a Semi-Integrated Solution for EMV payment processing. For all transactions except EMV transactions, the SDK works like a standard Authorize.Net iOS SDK. For more information, see the source code and documentation:
 
-The iOS SDK provides a fast and easy way for iPhone/iPad application developers to quickly integrate mobile payment without having to write the network communication, XML generation/parsing, and encoding of the data to the Authorize.Net gateway.
+[https://github.com/authorizenet/sdk-ios](https://github.com/authorizenet/sdk-ios)
 
+The merchantís app invokes this SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. The merchantís application never touches any EMV data at any point.
+  
+## Operational Workflow
 
-## Try It
+1.	From POS application, select Pay By Card.
 
-If you use [CocoaPods](http://cocoapods.org/) you can try our sample app with just a single command:
+2.	Attached the card reader to the device if it is not already attached.
 
-````
-   $ pod try 'authorizenet-sdk'
-````
+3.	Insert a card with an EMV chip and do not remove the card until the transaction is complete. Alternatively, swipe a non-EMV card.
+
+4.	If only a single compatible payment app resides on the chip, the payment app is selected automatically. If prompted, select the payment app. For example, Visa credit or MasterCard debit.
+
+5.	Confirm the amount.
+
+6.	If at any time the user cancels the transaction, the transaction is cancelled. 
+
+## Using the SDK to Create and Submit an EMV Transaction
+
+1.	Include the In-Person iOS SDK framework in the merchantís application. 	Use Xcode to include the _AnetEMVSdk.framework_ file under Embedded Binaries. The merchant application must log in and initialize a valid Merchant object with the `PasswordAuthentication` field.
+
+2.	Include additional frameworks and settings.
+
+    a)	Include the _libxml2.2.tbd_ file in the app. 
+
+    b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
+
+    c)	Enter the following settings:
+        `Iphoneos/usr/include/libxml2`
+
+3.	Copy Bundle Resources.
+
+    a)	Include the `AnetEMVStoryBoard.storyboard` and `eject.mp3` fields from the _AnetEMVSdk.framework_ file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
+
+4.	If the application is developed in the Swift language, the application needs to have a bridging header file because the _AnetEMVSdk.framework_ file is based on Objective C.
  
-## Installation
-Installation is very simple with Cocoapods but you can also install manually.
+5.	Initialize the _AnetEMVSdk.framework_ file.
 
-#### Including our CocoaPod
+    a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-1. Add our pod to your project Podfile:
+    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
-        pod 'authorizenet-sdk'
+    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions If you are using swift to build your application then please don't static method provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
-1. Then run `pod install` or `pod update`
+    d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
-2. If you are running `pod install` for the first time you'll be reminded to always use the .xcworkspace file for your project rather that the xccodeproj
+    e)	After creating all the required objects, call the following method AnetEMVManager and submit the transaction. 
 
-1. NOTE: You may need to add libxml2.dylib to "Link Binary with Libraries" build phase.
+`[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
 
+**Note:** Only Goods, Services, and Payment are supported for the `TransactionType` field.
 
+### Success
 
-#### Including the SDK manually
+On success, the completion block should provide the `AnetEMVTransactionResponse` object with required information about the transaction response and isTransactionSuccessful will be true. Refer to _AnetEMVTransactionResponse.h_ for more details. `emvResponse` has `tlvdata` and all the tags as part of the response. 
 
-1. Download the zip file of the SDK from `https://github.com/AuthorizeNet/inperson-sdk-ios/archive/master.zip` and unzip to your preferred location.
-2. In XCode, select your project in Project Navigator and select File->Add Files to "" from the main menu bar.
-3. In the file dialog, select the sdk folder from the unzipped directory in Step 1.
-4. In the file dialog, make sure "Copy items into destination group's folder (if needed)" is checked and click Add button.
+### Errors
 
+In case of a transaction error, the _AnetEMVTransactionResponse_ object should have the error details. 
+
+In case of other errors, the _AnetEMVError_ object should be able to provide the details. 
+
+Refer to _AnetEMVError.h_ for more details. Also refer to _AnetEMVManager.h_ for _ANETEmvErrorCode_ enum for more details on the errors. 
+
+## Configuring the UI
+
+You can configure the UI of the In-Person SDK to better match the UI of the merchant application.  The merchant application must initialize these values before using the SDK.  If no values are set or null is set for any of the parameters, the SDK defaults to its original theme.
+  
+The merchant application can configure the following UI parameters:
+
+* Background Color
+
+* Text Font Color
+
+* Button Font Color
+
+* Button Background Color
+
+* Banner Image
+
+* Banner Background Color
+
+* Background Image
+
+### Code Samples
+
+The `AnetEMVUISettings` field exposes the properties to set:
+
+**Background Color**  
+`AnetEMVUISettings.sharedUISettings ().backgroundColor = [UIColor blueColor];`
+
+**Text Font Color**  
+`AnetEMVUISettings.sharedUISettings ().textFontColor = [UIColor blackColor];`
+
+**Button Font Color**  
+`AnetEMVUISettings.sharedUISettings ().buttonTextColor = [UIColor blueColor];`
+
+**Button Background Color**  
+`AnetEMVUISettings.sharedUISettings ().buttonColor = [UIColor blueColor];`
+
+**Banner Image**  
+`AnetEMVUISettings.sharedUISettings ().logoImage = [UIImage imageNamed:@îANetLogo.pngî];`
+
+**Banner Background Color**  
+`AnetEMVUISettings.sharedUISettings ().bannerBackgroundColor = [UIColor yellowColor];`
+
+**Background Image**  
+`AnetEMVUISettings.sharedUISettings ().backgroundImage = [UIImage imageNamed:@îANetBgImage.pngî];`
+
+## Error  Codes
+You can view these error messages at our [Reason Response Code](http://developer.authorize.net/api/reference/responseCodes.html) by entering the Response Reason Code into the tool. There will be additional information and suggestions there.
+
+Field Order	| Response Code | Response Reason Code | Text
+--- | --- | --- | ---
+3 | 2 | 355	| An error occurred while parsing the EMV data.
+3 | 2 | 356	| EMV-based transactions are not currently supported for this processor and card type.
+3 | 2 | 357	| Opaque Descriptor is required.
+3 | 2 | 358	| EMV data is not supported with this transaction type.
+3 | 2 | 359	| EMV data is not supported with this market type.
+3 | 2 | 360	| An error occurred while decrypting the EMV data.
+3 | 2 | 361	| The EMV version is invalid.
+3 | 2 | 362	| x_emv_version is required.
 
 
 # Building an MPoS Application
@@ -45,28 +133,13 @@ Installation is very simple with Cocoapods but you can also install manually.
 
 The Authorize.Net SDK provides support for four main feature areas of an MPoS solution:
 
-1. Mobile Device Registration & Login
+1. Mobile Device Login
 2. Transaction Processing
 3. Customer Email Receipt
 4. Transaction Reporting
 
 
-## Mobile Device Registration & Login
-
-
-###Register Device
-
-*Each device to be used for MPoS transactions must be registered (see SDK support below) and approved by the merchant (in the MINT) before that device can be used for transaction processing.*
-
-```objective-c
-/**
-* Perform mobileDeviceRegistrationRequest on the AIM API.
-* @param r The request to send.
-*/
-- (void) mobileDeviceRegistrationRequest:(MobileDeviceRegistrationRequest *) r;
-```
-
-Perform an mobileDeviceRegistrationRequest request.  Application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the UIViewController with the setDelegate call.
+## Mobile Device Login and Logout
 
 ### Merchant User Login
 
