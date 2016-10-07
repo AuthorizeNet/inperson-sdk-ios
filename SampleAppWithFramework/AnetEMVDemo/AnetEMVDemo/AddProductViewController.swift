@@ -211,7 +211,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         aRequest.amount = "\(transactionAmount)"
         
         let order = OrderType()
-        order.invoiceNumber = randoMax10DigitString()
+        order.invoiceNumber = "abc:'123456756"
         order.orderDescription = "Order from Sample Application"
         aRequest.order = order
         
