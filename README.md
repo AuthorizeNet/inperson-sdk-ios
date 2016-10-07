@@ -47,7 +47,7 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
     a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-    b)	`initWithCurrencyCode: terminalID`
+    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
     c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. Also, `AnetEMVSdk` requires the app to provide `presentingViewController` and a completion block to get the response from the SDK about the submitted transaction. 
 
@@ -61,7 +61,7 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
 ### Success
 
-On success, the completion block should provide the `AnetEMVTransactionResponse` object with required information about the transaction response. Refer to _AnetEMVTransactionResponse.h_ for more details. `emvResponse` has `tlvdata` and all the tags as part of the response. 
+On success, the completion block should provide the `AnetEMVTransactionResponse` object with required information about the transaction response and isTransactionSuccessful will be true. Refer to _AnetEMVTransactionResponse.h_ for more details. `emvResponse` has `tlvdata` and all the tags as part of the response. 
 
 ### Errors
 
@@ -89,6 +89,8 @@ The merchant application can configure the following UI parameters:
 
 * Banner Background Color
 
+* Background Image
+
 ### Code Samples
 
 The `AnetEMVUISettings` field exposes the properties to set:
@@ -110,6 +112,9 @@ The `AnetEMVUISettings` field exposes the properties to set:
 
 **Banner Background Color**  
 `AnetEMVUISettings.sharedUISettings ().bannerBackgroundColor = [UIColor yellowColor];`
+
+**Background Image**  
+`AnetEMVUISettings.sharedUISettings ().backgroundImage = [UIImage imageNamed:@îANetBgImage.pngî];`
 
 ## Error  Codes
 You can view these error messages at our [Reason Response Code](http://developer.authorize.net/api/reference/responseCodes.html) by entering the Response Reason Code into the tool. There will be additional information and suggestions there.
