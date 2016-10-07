@@ -45,7 +45,7 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
     b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
-    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. Also, `AnetEMVSdk` requires the app to provide `presentingViewController` and a completion block to get the response from the SDK about the submitted transaction. 
+    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
     d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
