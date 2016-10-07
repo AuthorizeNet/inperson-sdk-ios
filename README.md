@@ -37,10 +37,6 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
     a)	Include the `AnetEMVStoryBoard.storyboard` and `eject.mp3` fields from the _AnetEMVSdk.framework_ file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
 
-    b)	The `Response.bundle` field is required to show a simulated response for approved and declined transactions. 
-
-    c)	Include _cert.cer_ and _cert_test.cer_. These files are there in _framework_ folder.
-
 4.	If the application is developed in the Swift language, the application needs to have a bridging header file because the _AnetEMVSdk.framework_ file is based on Objective C.
  
 5.	Initialize the _AnetEMVSdk.framework_ file.
