@@ -35,7 +35,7 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
 3.	Copy Bundle Resources.
 
-    a)	Include the `Response.bundle` and `AnetEMVStoryBoard.storyboard` fields from the _AnetEMVSdk.framework_ file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
+    a)	Include the `AnetEMVStoryBoard.storyboard` and `eject.mp3` fields from the _AnetEMVSdk.framework_ file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
 
     b)	The `Response.bundle` field is required to show a simulated response for approved and declined transactions. 
 
