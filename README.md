@@ -49,7 +49,7 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
     d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
-    e)	After creating all the required objects, call the following and submit the transaction. 
+    e)	After creating all the required objects, call the following method AnetEMVManager and submit the transaction. 
 
 `[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
 
