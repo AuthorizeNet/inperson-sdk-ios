@@ -30,8 +30,8 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
     b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
 
-    c)	Enter the following settings:
-        `Iphoneos/usr/include/libxml2`
+    c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
+    
     d)  This is required only if you are including SDK as static Library. Please link the following modules in your project
         AudioToolbox.framework
         CoreAudio.framework
