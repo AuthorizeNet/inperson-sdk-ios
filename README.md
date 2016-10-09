@@ -37,6 +37,7 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
         CoreAudio.framework
         MediaPlayer.framework
         AVFoundation.framework
+        CoreBluetooth.framework
 
 3.	Copy Bundle Resources.
 
