@@ -32,6 +32,11 @@ The merchantís app invokes this SDK to complete an EMV transaction. The SDK han
 
     c)	Enter the following settings:
         `Iphoneos/usr/include/libxml2`
+    d)  This is required only if you are including SDK as static Library. Please link the following modules in your project
+        AudioToolbox.framework
+        CoreAudio.framework
+        MediaPlayer.framework
+        AVFoundation.framework
 
 3.	Copy Bundle Resources.
 
@@ -187,7 +192,7 @@ The SDK includes APIs for each of the supported API methods:
  * Perform AUTH transaction with request.
  * @param r The request to send.
  */
-- (void) authorizeWithRequest:(AuthNetAIMRequest *)r;
+- (void) authorizeWithRequest:(CreateTransactionRequest *)r;
 ```
 
 Perform a AUTH request. Application will receive delegate call back 
@@ -199,7 +204,7 @@ the UIViewController with the setDelegate call.
  * Perform AUTH_CAPTURE transaction with request.
  * @param r The request to send.
  */
-- (void) purchaseWithRequest:(AuthNetAIMRequest *)r;
+- (void) purchaseWithRequest:(CreateTransactionRequest *)r;
 ```
 
 Perform a AUTH_CAPTURE request.  Application will receive delegate call 
@@ -211,7 +216,7 @@ the UIViewController with the setDelegate call.
  * Perform PRIOR_AUTH_CAPTURE transaction with request.
  * @param r The request to send.
  */
-- (void) captureWithRequest:(AuthNetAIMRequest *)r;
+- (void) captureWithRequest:(CreateTransactionRequest *)r;
 ```
 
 Perform a PRIOR_AUTH_CAPTURE request.  Application can still receive delegate call 
@@ -224,7 +229,7 @@ the UIViewController with the setDelegate call.
  * NOTE: Request must include in the request the authCode (x_auth_code).
  * @param r The request to send.
  */
-- (void) captureWithRequest:(AuthNetAIMRequest *)r;
+- (void) captureWithRequest:(CreateTransactionRequest *)r;
 ```
 
 Perform a PRIOR_AUTH_CAPTURE request.  Application can still receive delegate 
@@ -236,7 +241,7 @@ UIViewController with the setDelegate call.
  * Perform VOID transaction with request.
  * @param r The request to send.
  */
-- (void) voidWithRequest:(AuthNetAIMRequest *)r;
+- (void) voidWithRequest:(CreateTransactionRequest *)r;
 ```
 
 Perform a VOID request.  Application can still receive delegate call 
@@ -248,7 +253,7 @@ setting the UIViewController with the setDelegate call.
  * Perform CREDIT transaction with request.
  * @param r The request to send.
  */
-- (void) creditWithRequest:(AuthNetAIMRequest *)r;
+- (void) creditWithRequest:(CreateTransactionRequest *)r;
 ```
 
 Perform a CREDIT request.  Application can still receive delegate call back for successful, 
@@ -261,7 +266,7 @@ the setDelegate call.
  * NOTE: Unlinked Credit request must not have an transaction id (x_trans_id) value.
  * @param r The request to send.
  */
-- (void) unlinkedCreditWithRequest:(AuthNetAIMRequest *)r;
+- (void) unlinkedCreditWithRequest:(CreateTransactionRequest *)r;
 ```
 
 Perform an unlinked CREDIT request without using the UIButton call 
