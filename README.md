@@ -310,25 +310,23 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
 
 2) Login to the gateway
 
-    - (void) loginToGateway {
-        MobileDeviceLoginRequest *mobileDeviceLoginRequest = [MobileDeviceLoginRequest mobileDeviceLoginRequest];
-        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = <USERNAME>;
-        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = <PASSWORD>;
-        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>
+    MobileDeviceLoginRequest *mobileDeviceLoginRequest = [MobileDeviceLoginRequest mobileDeviceLoginRequest];
+    mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = <USERNAME>;
+    mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = <PASSWORD>;
+    mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>
 
-        AuthNet *an = [AuthNet getInstance];
-        [an setDelegate:self];
-        [an mobileDeviceLoginRequest: mobileDeviceLoginRequest];
-    }
+    AuthNet *an = [AuthNet getInstance];
+    [an setDelegate:self];
+    [an mobileDeviceLoginRequest: mobileDeviceLoginRequest];
     
     Callback for the successful login
-
     - (void) mobileDeviceLoginSucceeded:(MobileDeviceLoginResponse *)response {
         sessionToken = [response.sessionToken retain];
     };
 
 
 3) Create Non-EMV purchase transaction 
+    
     CreditCardType *creditCardType = [CreditCardType creditCardType];
     creditCardType.cardNumber = @"4111111111111111";
     creditCardType.cardCode = @"100";
@@ -398,6 +396,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
     }
 
 5) Refund the transaction
+    
     CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
     AuthNet *an = [AuthNet getInstance];
     [an setDelegate:self];
@@ -444,6 +443,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
     }
 
 8) GetTransactionListRequest
+    
     GetTransactionListRequest *r = [GetTransactionListRequest getTransactionListRequest];
     r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
     r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
@@ -460,6 +460,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
     }
 
 9) GetUnsettledTransactionListRequest     
+    
     GetUnsettledTransactionListRequest *r = [GetUnsettledTransactionListRequest getUnsettledTransactionListRequest];
     r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
     r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
@@ -514,6 +515,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
     }
 
 11) Logout request 
+    
     LogoutRequest *r = [LogoutRequest logoutRequest];
     r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
     r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
