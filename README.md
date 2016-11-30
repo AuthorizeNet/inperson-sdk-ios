@@ -513,7 +513,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
     - (void) sendCustomerTransactionReceiptSucceeded:(SendCustomerTransactionReceiptResponse *)response {
     }
 
-11. Logout request 
+11) Logout request 
     LogoutRequest *r = [LogoutRequest logoutRequest];
     r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
     r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
