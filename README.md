@@ -177,7 +177,7 @@ The SDK includes APIs for each of the supported API methods in AuthNet class:
 * Perform AUTH transaction with request.
 * @param r The request to send.
 */
-- (void) authorizeWithRequest:(AuthNetAIMRequest *)r;
+- (void) authorizeWithRequest:(CreateTransactionRequest *)r;
 
 Perform a AUTH request. Application will receive delegate call back 
 for successful, failed, and canceled transaction flows by setting 
@@ -187,7 +187,7 @@ the UIViewController with the setDelegate call of AuthNet class.
 * Perform AUTH_CAPTURE transaction with request.
 * @param r The request to send.
 */
-- (void) purchaseWithRequest:(AuthNetAIMRequest *)r;
+- (void) purchaseWithRequest:(CreateTransactionRequest *)r;
 
 Perform a AUTH_CAPTURE request.  Application will receive delegate call 
 back for successful, failed, and canceled transaction flows by setting 
@@ -197,7 +197,7 @@ the UIViewController with the setDelegate call of AuthNet class.
 * Perform PRIOR_AUTH_CAPTURE transaction with request.
 * @param r The request to send.
 */
-- (void) captureWithRequest:(AuthNetAIMRequest *)r;
+- (void) captureWithRequest:(CreateTransactionRequest *)r;
 
 Perform a PRIOR_AUTH_CAPTURE request.  Application can still receive delegate call 
 back for successful, failed, and canceled transaction flows by setting 
@@ -208,7 +208,7 @@ the UIViewController with the setDelegate call of AuthNet class.
 * NOTE: Request must include in the request the authCode (x_auth_code).
 * @param r The request to send.
 */
-- (void) captureWithRequest:(AuthNetAIMRequest *)r;
+- (void) captureWithRequest:(CreateTransactionRequest *)r;
 
 Perform a PRIOR_AUTH_CAPTURE request.  Application can still receive delegate 
 call back for successful, failed, and canceled transaction flows by setting the 
@@ -218,7 +218,7 @@ UIViewController with the setDelegate call of AuthNet class.
 * Perform VOID transaction with request.
 * @param r The request to send.
 */
-- (void) voidWithRequest:(AuthNetAIMRequest *)r;
+- (void) voidWithRequest:(CreateTransactionRequest *)r;
 
 Perform a VOID request.  Application can still receive delegate call 
 back for successful, failed, and canceled transaction flows by 
@@ -228,7 +228,7 @@ setting the UIViewController with the setDelegate call of AuthNet class.
 * Perform CREDIT transaction with request.
 * @param r The request to send.
 */
-- (void) creditWithRequest:(AuthNetAIMRequest *)r;
+- (void) creditWithRequest:(CreateTransactionRequest *)r;
 
 Perform a CREDIT request.  Application can still receive delegate call back for successful, 
 failed, and canceled transaction flows by setting the UIViewController with 
@@ -239,7 +239,7 @@ the setDelegate call of AuthNet class.
 * NOTE: Unlinked Credit request must not have an transaction id (x_trans_id) value.
 * @param r The request to send.
 */
-- (void) unlinkedCreditWithRequest:(AuthNetAIMRequest *)r;
+- (void) unlinkedCreditWithRequest:(CreateTransactionRequest *)r;
 
 Perform an unlinked CREDIT request without using the UIButton call 
 back mechanism.  Application can still receive delegate call back for 
