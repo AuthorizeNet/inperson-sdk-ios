@@ -326,6 +326,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
 
 
 3) Create Non-EMV transaction 
+
     a) Purchase transaction
         CreditCardType *creditCardType = [CreditCardType creditCardType];
         creditCardType.cardNumber = @"4111111111111111";
