@@ -328,6 +328,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
 3) Create Non-EMV transaction 
 
     a) Purchase transaction
+
         CreditCardType *creditCardType = [CreditCardType creditCardType];
         creditCardType.cardNumber = @"4111111111111111";
         creditCardType.cardCode = @"100";
@@ -369,6 +370,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
         [an purchaseWithRequest:request];
 
     b) Auth only transaction
+
         CreditCardType *creditCardType = [CreditCardType creditCardType];
         creditCardType.cardNumber = @"4111111111111111";
         creditCardType.cardCode = @"100";
@@ -410,6 +412,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
         [an authorizeWithRequest:request];
 
     c) Capture the transaction
+
         CreditCardType *creditCardType = [CreditCardType creditCardType];
         creditCardType.cardNumber = @"4111111111111111";
         creditCardType.cardCode = @"100";
@@ -452,6 +455,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
         [an captureOnlyWithRequest:request];
 
     d) Auth and Capture the transaction
+
         CreditCardType *creditCardType = [CreditCardType creditCardType];
         creditCardType.cardNumber = @"4111111111111111";
         creditCardType.cardCode = @"100";
