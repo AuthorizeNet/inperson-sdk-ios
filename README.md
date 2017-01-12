@@ -537,11 +537,7 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
         AuthNet *an = [AuthNet getInstance];
         [an setDelegate:self];
 
-        self.testExpectation = [self expectationWithDescription:@"Long wait"];
         [an authorizeWithRequest:request];
-        [self waitForExpectationsWithTimeout:50000 handler:^ (NSError *anError) {
-
-        }];
 
         requestType = [TransactionRequestType transactionRequest];
         requestType.refTransId = self.transactionResponse.transactionResponse.transId;
