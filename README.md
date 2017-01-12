@@ -325,53 +325,238 @@ Perform an getUnsettledTransactionListRequest request. Application can still rec
     };
 
 
-3) Create Non-EMV purchase transaction 
-    
-    CreditCardType *creditCardType = [CreditCardType creditCardType];
-    creditCardType.cardNumber = @"4111111111111111";
-    creditCardType.cardCode = @"100";
-    creditCardType.expirationDate = @"1212";
+3) Create Non-EMV transaction 
+    a) Purchase transaction
+        CreditCardType *creditCardType = [CreditCardType creditCardType];
+        creditCardType.cardNumber = @"4111111111111111";
+        creditCardType.cardCode = @"100";
+        creditCardType.expirationDate = @"1222";
 
-    PaymentType *paymentType = [PaymentType paymentType];
-    paymentType.creditCard = creditCardType;
+        PaymentType *paymentType = [PaymentType paymentType];
+        paymentType.creditCard = creditCardType;
 
-    ExtendedAmountType *extendedAmountTypeTax = [ExtendedAmountType extendedAmountType];
-    extendedAmountTypeTax.amount = @"0";
-    extendedAmountTypeTax.name = @"Tax";
+        ExtendedAmountType *extendedAmountTypeTax = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeTax.amount = @"0";
+        extendedAmountTypeTax.name = @"Tax";
 
-    ExtendedAmountType *extendedAmountTypeShipping = [ExtendedAmountType extendedAmountType];
-    extendedAmountTypeShipping.amount = @"0";
-    extendedAmountTypeShipping.name = @"Shipping";
+        ExtendedAmountType *extendedAmountTypeShipping = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeShipping.amount = @"0";
+        extendedAmountTypeShipping.name = @"Shipping";
 
-    LineItemType *lineItem = [LineItemType lineItem];
-    lineItem.itemName = @"Soda";
-    lineItem.itemDescription = @"Soda";
-    lineItem.itemQuantity = @"1";
-    lineItem.itemPrice = @"1.00";
-    lineItem.itemID = @"1";
+        LineItemType *lineItem = [LineItemType lineItem];
+        lineItem.itemName = @"AuthCaptureProduct";
+        lineItem.itemDescription = @"AuthCaptureProductDescription";
+        lineItem.itemQuantity = @"1";
+        lineItem.itemPrice = [NSString stringWithFormat:@"%d", [self randomDigit]];
+        lineItem.itemID = @"1";
 
-    TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
-    requestType.lineItems = [NSArray arrayWithObject:lineItem];
-    requestType.amount = @"1.00";
-    requestType.payment = paymentType;
-    requestType.tax = extendedAmountTypeTax;
-    requestType.shipping = extendedAmountTypeShipping;
+        TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
+        requestType.lineItems = [NSMutableArray arrayWithObject:lineItem];
+        requestType.amount = lineItem.itemPrice;
+        requestType.payment = paymentType;
+        requestType.tax = extendedAmountTypeTax;
+        requestType.shipping = extendedAmountTypeShipping;
 
-    CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
-    request.transactionRequest = requestType;
-    request.transactionType = AUTH_ONLY;
-    request.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
-    request.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
+        CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
+        request.transactionRequest = requestType;
+        request.transactionType = AUTH_CAPTURE;
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+        request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
-    AuthNet *an = [AuthNet getInstance];
-    [an setDelegate:self];
-    [an purchaseWithRequest:request];
+        AuthNet *an = [AuthNet getInstance];
+        [an setDelegate:self];
+        [an purchaseWithRequest:request];
 
-    Callback for the purchase request 
+    b) Auth only transaction
+        CreditCardType *creditCardType = [CreditCardType creditCardType];
+        creditCardType.cardNumber = @"4111111111111111";
+        creditCardType.cardCode = @"100";
+        creditCardType.expirationDate = @"1222";
 
-    - (void) paymentSucceeded:(CreateTransactionResponse *) response {
-    // Handle payment success
-    }
+        PaymentType *paymentType = [PaymentType paymentType];
+        paymentType.creditCard = creditCardType;
+
+        ExtendedAmountType *extendedAmountTypeTax = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeTax.amount = @"0";
+        extendedAmountTypeTax.name = @"Tax";
+
+        ExtendedAmountType *extendedAmountTypeShipping = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeShipping.amount = @"0";
+        extendedAmountTypeShipping.name = @"Shipping";
+
+        LineItemType *lineItem = [LineItemType lineItem];
+        lineItem.itemName = @"AuthOnlyProduct";
+        lineItem.itemDescription = @"AuthOnlyProductDescription";
+        lineItem.itemQuantity = @"1";
+        lineItem.itemPrice = [NSString stringWithFormat:@"%d", [self randomDigit]];
+        lineItem.itemID = @"1";
+
+        TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
+        requestType.lineItems = [NSMutableArray arrayWithObject:lineItem];
+        requestType.amount = lineItem.itemPrice;
+        requestType.payment = paymentType;
+        requestType.tax = extendedAmountTypeTax;
+        requestType.shipping = extendedAmountTypeShipping;
+
+        CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
+        request.transactionRequest = requestType;
+        request.transactionType = AUTH_ONLY;
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+        request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+        AuthNet *an = [AuthNet getInstance];
+        [an setDelegate:self];
+        [an authorizeWithRequest:request];
+
+    c) Capture the transaction
+        CreditCardType *creditCardType = [CreditCardType creditCardType];
+        creditCardType.cardNumber = @"4111111111111111";
+        creditCardType.cardCode = @"100";
+        creditCardType.expirationDate = @"1222";
+
+        PaymentType *paymentType = [PaymentType paymentType];
+        paymentType.creditCard = creditCardType;
+
+        ExtendedAmountType *extendedAmountTypeTax = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeTax.amount = @"0";
+        extendedAmountTypeTax.name = @"Tax";
+
+        ExtendedAmountType *extendedAmountTypeShipping = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeShipping.amount = @"0";
+        extendedAmountTypeShipping.name = @"Shipping";
+
+        LineItemType *lineItem = [LineItemType lineItem];
+        lineItem.itemName = @"CaptureOnlyProduct";
+        lineItem.itemDescription = @"CaptureOnlyProductDescription";
+        lineItem.itemQuantity = @"1";
+        lineItem.itemPrice = [NSString stringWithFormat:@"%d", [self randomDigit]];
+        lineItem.itemID = @"1";
+
+        TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
+        requestType.lineItems = [NSMutableArray arrayWithObject:lineItem];
+        requestType.amount = lineItem.itemPrice;
+        requestType.payment = paymentType;
+        requestType.tax = extendedAmountTypeTax;
+        requestType.shipping = extendedAmountTypeShipping;
+        requestType.authCode = @"ABC123";
+
+        CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
+        request.transactionRequest = requestType;
+        request.transactionType = CAPTURE_ONLY;
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+        request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+        AuthNet *an = [AuthNet getInstance];
+        [an setDelegate:self];
+        [an captureOnlyWithRequest:request];
+
+    d) Auth and Capture the transaction
+        CreditCardType *creditCardType = [CreditCardType creditCardType];
+        creditCardType.cardNumber = @"4111111111111111";
+        creditCardType.cardCode = @"100";
+        creditCardType.expirationDate = @"1222";
+
+        PaymentType *paymentType = [PaymentType paymentType];
+        paymentType.creditCard = creditCardType;
+
+        ExtendedAmountType *extendedAmountTypeTax = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeTax.amount = @"0";
+        extendedAmountTypeTax.name = @"Tax";
+
+        ExtendedAmountType *extendedAmountTypeShipping = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeShipping.amount = @"0";
+        extendedAmountTypeShipping.name = @"Shipping";
+
+        LineItemType *lineItem = [LineItemType lineItem];
+        lineItem.itemName = @"AuthCaptureProduct";
+        lineItem.itemDescription = @"AuthCaptureProductDescription";
+        lineItem.itemQuantity = @"1";
+        lineItem.itemPrice = [NSString stringWithFormat:@"%d", [self randomDigit]];
+        lineItem.itemID = @"1";
+
+        TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
+        requestType.lineItems = [NSMutableArray arrayWithObject:lineItem];
+        requestType.amount = lineItem.itemPrice;
+        requestType.payment = paymentType;
+        requestType.tax = extendedAmountTypeTax;
+        requestType.shipping = extendedAmountTypeShipping;
+
+        CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
+        request.transactionRequest = requestType;
+        request.transactionType = AUTH_CAPTURE;
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+        request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+        AuthNet *an = [AuthNet getInstance];
+        [an setDelegate:self];
+        [an purchaseWithRequest:request];
+
+    e) Capture the transaction which is previously authorised 
+        CreditCardType *creditCardType = [CreditCardType creditCardType];
+        creditCardType.cardNumber = @"4111111111111111";
+        creditCardType.cardCode = @"100";
+        creditCardType.expirationDate = @"1222";
+
+        PaymentType *paymentType = [PaymentType paymentType];
+        paymentType.creditCard = creditCardType;
+
+        ExtendedAmountType *extendedAmountTypeTax = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeTax.amount = @"0";
+        extendedAmountTypeTax.name = @"Tax";
+
+        ExtendedAmountType *extendedAmountTypeShipping = [ExtendedAmountType extendedAmountType];
+        extendedAmountTypeShipping.amount = @"0";
+        extendedAmountTypeShipping.name = @"Shipping";
+
+        LineItemType *lineItem = [LineItemType lineItem];
+        lineItem.itemName = @"PriorAuthCaptureProduct";
+        lineItem.itemDescription = @"PriorAuthCaptureProductDescription";
+        lineItem.itemQuantity = @"1";
+        lineItem.itemPrice = [NSString stringWithFormat:@"%d", [self randomDigit]];
+        lineItem.itemID = @"1";
+
+        TransactionRequestType *requestType = [TransactionRequestType transactionRequest];
+        requestType.lineItems = [NSMutableArray arrayWithObject:lineItem];
+        requestType.amount = lineItem.itemPrice;
+        requestType.payment = paymentType;
+        requestType.tax = extendedAmountTypeTax;
+        requestType.shipping = extendedAmountTypeShipping;
+
+        CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
+        request.transactionRequest = requestType;
+        request.transactionType = AUTH_ONLY;
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+        request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+        AuthNet *an = [AuthNet getInstance];
+        [an setDelegate:self];
+
+        self.testExpectation = [self expectationWithDescription:@"Long wait"];
+        [an authorizeWithRequest:request];
+        [self waitForExpectationsWithTimeout:50000 handler:^ (NSError *anError) {
+
+        }];
+
+        requestType = [TransactionRequestType transactionRequest];
+        requestType.refTransId = self.transactionResponse.transactionResponse.transId;
+        requestType.payment = nil;
+        requestType.amount = lineItem.itemPrice;
+
+        request = [CreateTransactionRequest createTransactionRequest];
+        request.transactionRequest = requestType;
+        request.transactionType = PRIOR_AUTH_CAPTURE;
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+        request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+        an = [AuthNet getInstance];
+        [an setDelegate:self];
+        [an captureWithRequest:request];
+
+        Callback for the non-emv transaction request request 
+
+        - (void) paymentSucceeded:(CreateTransactionResponse *) response {
+        // Handle payment success
+        }
 
 4) Void the transaction
 
