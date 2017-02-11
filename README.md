@@ -31,7 +31,7 @@ The merchant's app invokes this SDK to complete an EMV transaction. The SDK hand
 
 ### Initializing the SDK
 
-    There are two environments: TEST for testingyour integration and LIVE for processing real transactions. 
+    There are two environments: TEST for testing your integration and LIVE for processing real transactions. 
     Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the ApplicationDelegate or in the initial UIViewController. 
     You must also #import AuthNet.h.
 
@@ -103,7 +103,7 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     e)	After creating all the required objects, call the following method AnetEMVManager and submit the transaction. 
 
-`[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
+        `[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
 
 **Note:** Only Goods, Services, and Payment are supported for the `TransactionType` field.
 
