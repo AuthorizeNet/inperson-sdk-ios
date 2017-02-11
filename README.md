@@ -91,15 +91,15 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
 1.	Initialize the _AnetEMVSdk.framework_ file.
 
-a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
+    a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
-c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
+    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
-d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
+    d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
-e)	After creating all the required objects, call the following method AnetEMVManager and submit the transaction. 
+    e)	After creating all the required objects, call the following method AnetEMVManager and submit the transaction. 
 
 `[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
 
