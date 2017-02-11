@@ -10,30 +10,30 @@ The merchant's app invokes this SDK to complete an EMV transaction. The SDK hand
 
 2.	Include additional frameworks and settings.
 
-a)	Include the *libxml2.2.tbd* file in the app. 
+    a)	Include the *libxml2.2.tbd* file in the app. 
 
-b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
+    b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
 
-c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
+    c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
 
-d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
-* AudioToolbox.framework
-* CoreAudio.framework
-* MediaPlayer.framework
-* AVFoundation.framework
-* CoreBluetooth.framework
+    d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
+        * AudioToolbox.framework
+        * CoreAudio.framework
+        * MediaPlayer.framework
+        * AVFoundation.framework
+        * CoreBluetooth.framework
 
 3.	Copy Bundle Resources.
 
-a)	Include the `AnetEMVStoryBoard.storyboard` and `eject.mp3` fields from the *AnetEMVSdk.framework* file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
+    a)	Include the `AnetEMVStoryBoard.storyboard` and `eject.mp3` fields from the *AnetEMVSdk.framework* file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
 
 4.	If the application is developed in the Swift language, it must have a bridging header file because the *AnetEMVSdk.framework* file is based on Objective C.
 
 ### Initializing the SDK
 
-There are two environments: TEST for testingyour integration and LIVE for processing real transactions. Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the `ApplicationDelegate` or in the initial `UIViewController`. You must also `#import` *AuthNet.h*.
+    There are two environments: TEST for testingyour integration and LIVE for processing real transactions. Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the `ApplicationDelegate` or in the initial `UIViewController`. You must also `#import` *AuthNet.h*.
 
-[AuthNet authNetWithEnvironment:ENV_TEST];
+    [AuthNet authNetWithEnvironment:ENV_TEST];
 
 #Overview
 
