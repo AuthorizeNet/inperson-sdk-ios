@@ -31,7 +31,9 @@ The merchant's app invokes this SDK to complete an EMV transaction. The SDK hand
 
 ### Initializing the SDK
 
-    There are two environments: TEST for testingyour integration and LIVE for processing real transactions. Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the `ApplicationDelegate` or in the initial `UIViewController`. You must also `#import` *AuthNet.h*.
+    There are two environments: TEST for testingyour integration and LIVE for processing real transactions. 
+    Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the ApplicationDelegate or in the initial UIViewController. 
+    You must also #import AuthNet.h.
 
     [AuthNet authNetWithEnvironment:ENV_TEST];
 
