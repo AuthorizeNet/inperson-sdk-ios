@@ -31,7 +31,7 @@ The merchant's app invokes this SDK to complete an EMV transaction. The SDK hand
 
 ### Initializing the SDK
 
-There are two environments: TEST for testing your integration with the Authorize.Net Sandbox enviornmant, and LIVE for processing real transactions. 
+There are two environments: TEST for testing your integration with the Authorize.Net Sandbox environment, and LIVE for processing real transactions. 
 Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the ApplicationDelegate or in the initial UIViewController. 
 You must also #import AuthNet.h.
 
@@ -71,7 +71,7 @@ This request logs in the mobile device.  The application can still receive a del
 - (void) LogoutRequest:(LogoutRequest *)r;
 ```
 
-Perform a `LogoutRequest` request. The application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the UIViewController with the setDelegate call call of AuthNet class.
+Perform a `LogoutRequest` request. The application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the UIViewController with the setDelegate call of AuthNet class.
 
 ## EMV Transaction Processing
 
@@ -156,13 +156,13 @@ The `AnetEMVUISettings` field exposes the properties to set:
 `AnetEMVUISettings.sharedUISettings ().buttonColor = [UIColor blueColor];`
 
 **Banner Image**  
-`AnetEMVUISettings.sharedUISettings ().logoImage = [UIImage imageNamed:@ÓANetLogo.pngÓ];`
+`AnetEMVUISettings.sharedUISettings ().logoImage = [UIImage imageNamed:@"ANetLogo.png"];`
 
 **Banner Background Color**  
 `AnetEMVUISettings.sharedUISettings ().bannerBackgroundColor = [UIColor yellowColor];`
 
 **Background Image**  
-`AnetEMVUISettings.sharedUISettings ().backgroundImage = [UIImage imageNamed:@ÓANetBgImage.pngÓ];`
+`AnetEMVUISettings.sharedUISettings ().backgroundImage = [UIImage imageNamed:@"ANetBgImage.png"];`
 
 ## Non-EMV Transaction Processing
 
@@ -239,12 +239,12 @@ Perform a void request.  The application will receive delegate call back for suc
 - (void) creditWithRequest:(CreateTransactionRequest *)r;
 ```
 
-Perform a credit  request.  The application will receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
+Perform a credit request.  The application will receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
 
 ```objective-c
 /**
 * Perform unlinked CREDIT transaction with request.
-* NOTE: Unlinked Credit request must not have an transaction id (x_trans_id) value.
+* NOTE: Unlinked Credit request must not have a transaction id (x_trans_id) value.
 * @param r The request to send.
 */
 - (void) unlinkedCreditWithRequest:(CreateTransactionRequest *)r;
@@ -481,7 +481,7 @@ AuthNet *an = [AuthNet getInstance];
 [an captureOnlyWithRequest:request];
 ```
 
-* Capture the transaction which is previously authorised 
+* Capture the transaction which is previously authorized 
 
 ```smalltalk
 CreditCardType *creditCardType = [CreditCardType creditCardType];
@@ -540,7 +540,7 @@ an = [AuthNet getInstance];
 [an setDelegate:self];
 [an captureWithRequest:request];
 
-Callback for the non-emv transaction request request 
+Callback for the non-emv transaction request 
 
 - (void) paymentSucceeded:(CreateTransactionResponse *) response {
 // Handle payment success
