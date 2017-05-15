@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface AnetEMVDemoUISettings : NSObject
+@interface AnetEMVDemoUISettings : NSObject <MFMailComposeViewControllerDelegate>
 /*!
  backgroundColor
  */
@@ -38,6 +39,7 @@
  backgroundImage
  */
 @property (nonatomic, strong) UIImage *backgroundImage;
+
 - (UIColor *)getBannerBackgroundColor;
 - (void) registerDefaultsFromSettingsBundle;
 - (void) readFromSettingsBundle;
@@ -45,4 +47,5 @@
  Returns singleton UISettingsBundle object
  */
 + (AnetEMVDemoUISettings *) sharedInstance;
++ (MFMailComposeViewController *)mailTo:(NSString *)iEmail withSubject:(NSString *)iSubject withBody:(NSString *) iBody fromController:(UIViewController *)iController;
 @end

@@ -39,18 +39,18 @@
     }
     
     NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent: @"Root.plist"]];
-    NSArray *preferences = [settings objectForKey: @"PreferenceSpecifiers"];
+    NSArray *preferences = [settings valueForKey: @"PreferenceSpecifiers"];
     NSMutableDictionary *defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
     
     for (NSDictionary *prefSpecification in preferences) {
-        NSString *key = [prefSpecification objectForKey:@"Key"];
+        NSString *key = [prefSpecification valueForKey:@"Key"];
         
         if (key) {
             // check if value readable in userDefaults
-            id currentObject = [defs objectForKey: key];
+            id currentObject = [defs valueForKey: key];
             if (currentObject == nil) {
                 // not readable: set value from Settings.bundle
-                id objectToSet = [prefSpecification objectForKey: @"DefaultValue"];
+                id objectToSet = [prefSpecification valueForKey: @"DefaultValue"];
                 [defaultsToRegister setValue: objectToSet forKey: key];
                 NSLog(@"Setting object %@ for key %@", objectToSet, key);
             } else {
@@ -72,39 +72,39 @@
     NSString *udButtonColor = [[NSUserDefaults standardUserDefaults] valueForKey:@"button_background_color_preference"];
     NSString *udButtonTextColor = [[NSUserDefaults standardUserDefaults] valueForKey:@"button_font_color_preference"];
     NSString *udBackgroundImage = [[NSUserDefaults standardUserDefaults] valueForKey:@"background_image_preference"];
-
+    
     SEL selector = NULL;
     
-    if (![udBackgroundColor isEqualToString:@"none"]) {
+    if (![udBackgroundColor isEqualToString:@"none"] && udBackgroundColor != NULL) {
         SEL selector = NSSelectorFromString(udBackgroundColor);
         self.backgroundColor = [UIColor performSelector:selector withObject:nil];
     }
     
-    if (![udBannerColor isEqualToString:@"none"]) {
+    if (![udBannerColor isEqualToString:@"none"] && udBannerColor != NULL) {
         selector = NSSelectorFromString(udBannerColor);
         self.bannerBackgroundColor = [UIColor performSelector:selector withObject:nil];
     }
     
-    if (![udBannerImage isEqualToString:@"none"]) {
+    if (![udBannerImage isEqualToString:@"none"] && udBannerImage != NULL) {
         self.logoImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", udBannerImage]];
     }
     
-    if (![udFontColor isEqualToString:@"none"]) {
+    if (![udFontColor isEqualToString:@"none"] && udFontColor != NULL) {
         selector = NSSelectorFromString(udFontColor);
         self.textFontColor = [UIColor performSelector:selector withObject:nil];
     }
     
-    if (![udButtonColor isEqualToString:@"none"]) {
+    if (![udButtonColor isEqualToString:@"none"] && udButtonColor != NULL) {
         selector = NSSelectorFromString(udButtonColor);
         self.buttonColor = [UIColor performSelector:selector withObject:nil];
     }
-
-    if (![udButtonTextColor isEqualToString:@"none"]) {
+    
+    if (![udButtonTextColor isEqualToString:@"none"] && udButtonTextColor != NULL) {
         selector = NSSelectorFromString(udButtonTextColor);
         self.buttonTextColor = [UIColor performSelector:selector withObject:nil];
     }
     
-    if (![udBackgroundImage isEqualToString:@"none"]) {
+    if (![udBackgroundImage isEqualToString:@"none"] && udBackgroundImage != NULL) {
         self.backgroundImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", udBackgroundImage]];
     }
 }
@@ -112,6 +112,29 @@
 -(UIColor *)getBannerBackgroundColor
 {
     return self.bannerBackgroundColor;
+}
+
++ (MFMailComposeViewController *)mailTo:(NSString *)iEmail withSubject:(NSString *)iSubject withBody:(NSString *) iBody fromController:(UIViewController *)iController {
+    //put email info here:
+    NSString *subject = @"EMV SDK LOGS";
+    NSString *body = @"EMV TRANSACTION LOGS";
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = iController;
+    [mc setSubject:subject];
+    [mc setMessageBody:body isHTML:NO];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"EMV_SDK_Logs.txt"];
+    
+    NSData *fileData = [NSData dataWithContentsOfFile:path];
+    [mc addAttachmentData:fileData mimeType:@"text/plain" fileName:@"EMV_SDK_Logs.txt"];
+    return mc;
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(nullable NSError *)error {
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

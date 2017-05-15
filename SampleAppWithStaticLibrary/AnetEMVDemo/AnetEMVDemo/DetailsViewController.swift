@@ -9,36 +9,57 @@
 import UIKit
 
 class DetailsViewController: UIViewController, AuthNetDelegate {
-
+    
+    @IBOutlet weak var settleButton: UIButton!
     @IBOutlet weak var action: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     var sessionToken: String!
     var transId: String!
     var response: GetTransactionDetailsResponse!
+    var settling = false
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.indicator.startAnimating()
-
+        
         let request:GetTransactionDetailsRequest = GetTransactionDetailsRequest()
         request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "78787878787878787878787799"
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
         request.transId = self.transId
         AuthNet.getInstance().delegate = self
         AuthNet.getInstance().getTransactionDetailsRequest(request)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
+    @IBAction func settleTransaction(_ sender: Any) {
+        self.settling = true
+        let transactionRequest = TransactionRequestType()
+        transactionRequest.refTransId = self.response.transactionDetails.transId
+        transactionRequest.payment = nil
+        transactionRequest.employeeId = ((UserDefaults.standard.value(forKey: "employeeId")!) as! NSString) as String
+        transactionRequest.tableNumber = ((UserDefaults.standard.value(forKey: "tableNumber")!) as! NSString) as String
+        transactionRequest.tipAmount = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
+        
+        let request = CreateTransactionRequest()
+        request.transactionRequest = transactionRequest
+        request.transactionType = PRIOR_AUTH_CAPTURE
+        request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+        AuthNet.getInstance().capture(with: request)
+    }
+    
     @IBAction func refund() -> () {
         self.indicator.startAnimating()
         let request:CreateTransactionRequest = CreateTransactionRequest()
         request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "78787878787878787878787799"
+        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
         request.transactionRequest.refTransId = self.response.transactionDetails.transId
         request.transactionRequest.amount = self.response.transactionDetails.settleAmount
         
@@ -49,7 +70,7 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         } else {
             request.transactionRequest.payment = nil
         }
-
+        
         AuthNet.getInstance().delegate = self
         AuthNet.getInstance().void(with: request)
     }
@@ -59,10 +80,20 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         self.textView.text = response.description
         self.response = response
         
-        if self.response.transactionDetails.transactionStatus == "voided" {
-            self.action.titleLabel?.text = "REFUND"
-        } else {
+        
+        if self.response.transactionDetails.transactionStatus == "authorizedPendingCapture" || self.response.transactionDetails.transactionStatus == "capturedPendingSettlement"{
             self.action.titleLabel?.text = "VOID"
+        } else if self.response.transactionDetails.transactionStatus == "settledSuccesfully" {
+            self.action.titleLabel?.text = "REFUND"
+        } else if self.response.transactionDetails.transactionStatus == "voided" {
+            self.action.isHidden = true
+            self.settleButton.isHidden = true
+        }
+        
+        if self.response.transactionDetails.transactionType == "authOnlyTransaction" && self.response.transactionDetails.transactionStatus == "authorizedPendingCapture" {
+            self.settleButton.isHidden = false
+        } else {
+            self.settleButton.isHidden = true
         }
     }
     
@@ -71,10 +102,16 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
             self.navigationController?.popViewController(animated: true)
         }))
         
+        
         var message:String = "Transaction Voided."
         
         if self.action.titleLabel?.text == "REFUND" {
             message = "Transaction Refunded."
+        }
+        
+        if self.settling {
+            message = "Succesfully captured."
+            self.action.titleLabel?.text = "VOID"
         }
         
         let alert:UIAlertController = UIAlertController(title: message, message: "", preferredStyle: .alert)
@@ -106,5 +143,5 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
             
         })
     }
-
+    
 }

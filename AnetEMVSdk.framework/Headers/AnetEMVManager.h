@@ -45,7 +45,22 @@ typedef NS_ENUM (NSInteger, ANETEmvErrorCode) {
     ANETEmvErrorTypeAudioFailToStart_OtherAudioIsPlaying,
     ANETEmvErrorTypeRequestTimedout,
     ANETEmvErrorTypeSessionTimedout,
-    AnetEmvErrorDeviceNotResponding
+    AnetEmvErrorDeviceNotResponding,
+    ANETEmvErrorCouldNotRetrieveCardData
+};
+
+typedef NS_ENUM (NSInteger, AnetEMVCardInteractionProgress) {
+    AnetEMVWaitingForCard,
+    AnetEMVRetryInsertOrSwipe,
+    AnetEMVSwipeOrTryAnotherCard,
+    AnetEMVSwipe,
+    AnetEMVProcessingCard,
+    AnetEMVDoneWithCard,
+};
+
+typedef NS_ENUM (NSInteger, AnetEMVTerminalMode) {
+    AnetEMVModeSwipe,
+    AnetEMVModeInsertOrSwipe
 };
 
 /**
@@ -57,8 +72,18 @@ typedef void (^RequestCompletionBlock) (AnetEMVTransactionResponse * _Nullable r
 
 /**
  The completion handler, if provided, will be invoked if cancel action is taken during the process
-*/
+ */
 typedef void (^CancelActionBlock) ();
+
+/**
+ The completion handler, Will be executed once CARD intercation is successful with SDK
+ */
+typedef void (^CardIntercationProgressBlock) (AnetEMVCardInteractionProgress progressState);
+
+/**
+ The completion handler, Will be executed once CARD intercation is successful with SDK
+ */
+typedef void (^CardIntercationCompletionBlock) (BOOL isSuccess, AnetEMVError *_Nullable error);
 
 /**
  The completion handler, it will be invoked with device info
@@ -86,6 +111,12 @@ typedef void (^ReaderDeviceInfoBlock)(NSDictionary * _Nonnull deviceInfo);
  * @returns A flag, status of logging
  */
 - (BOOL)loggingEnabled;
+
+/**
+ * Method for setting the terminal mode.
+ * @param iTerminalMode Terminal mode can be swipe or insertOrSwipe, if value is AnetEMVModeSwipe, SDK will only accept MSR/swipe transaction
+ */
+- (void)setTerminalMode:(AnetEMVTerminalMode)iTerminalMode;
 
 /**
  * Method for getting AnyWhereReaderInfo
@@ -119,7 +150,7 @@ typedef void (^ReaderDeviceInfoBlock)(NSDictionary * _Nonnull deviceInfo);
 - (AnetEMVTransactionRequest * _Nonnull)transactionRequest;
 
 /**
- * Start an EMV transaction wuth EMV request, presenting view controller and completion block.
+ * Start an EMV transaction with EMV request, presenting view controller and completion block.
  * @param iTransactionRequest A request object of AnetEMVTransactionRequest
  * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
  * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
@@ -129,5 +160,74 @@ typedef void (^ReaderDeviceInfoBlock)(NSDictionary * _Nonnull deviceInfo);
                presentingViewController:(UIViewController * _Nonnull)iPresentingController
                     completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
                         andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Start a Quick Chip transaction in background with presenting view controller, this will interact with the card to accept the insert/swipe, Card interaction message like insert or remove the card should be shown by merchant app.
+ * @param iViewController A presenting controller object. EMV controller will be presented on top of it
+ * @param iEmvTransactionType Transaction Type
+ * @param iCardInteractionProgressBlock A Card Intercation progress block. Block wil be executed on successful retreival of card data by SDK
+ * @param iCardIntercationCompletionBlock A Card Intercation completion block. Block wil be executed on successful retreival of card data by SDK
+ */
+- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController
+                                                     transactionType:(EMVTransactionType)iEmvTransactionType
+                                    withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock
+                                        andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock;
+
+/**
+ * Discard the previously processed card data. If merchant application called readQuickChipCardDataWithPredeterminedAmountOnViewController and now it doesn't want to process that card then this method should be called to discard that card.
+ */
+- (BOOL)discardQuickChipCardDataWithPredeterminedAmount;
+
+/**
+ * Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iPaperReceiptCase if this is true then the Merchant needs to get the paper receipt signed by the customer and settle the transaction later on. 
+                            AnetEMVManager will leave the trasaction in Auth_Only state.
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+                         forPaperReceiptCase:(BOOL)iPaperReceiptCase
+              presentingViewController:(UIViewController * _Nonnull)iPresentingController
+                       completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
+                  andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iTipAmount A tip amount which will be added to the total amount and captured
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+                                   tipAmount:(NSString * _Nonnull)iTipAmount
+                    presentingViewController:(UIViewController * _Nonnull)iPresentingController
+                             completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
+                        andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iTipOptions Tip options which will be presented on Signature screen to allow user to tip
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+                                   tipOptions:(NSArray * _Nonnull)iTipOptions
+                    presentingViewController:(UIViewController * _Nonnull)iPresentingController
+                             completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
+                        andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Start OTA Update
+ * @param iPresentingController A presenting controller object. OTA controller will be presented on top of it
+ * @param isTestReader if this is true then SDK will treat the reader as test reader and will try to update form demo site else it will connect the prod version of tms site
+                       please make sure that the reader is registered at tms website
+ */
+- (void)startOTAUpdateFromPresentingViewController:(UIViewController * _Nonnull) iPresentingController isTestReader:(BOOL)isTestReader;
+
 @end
 

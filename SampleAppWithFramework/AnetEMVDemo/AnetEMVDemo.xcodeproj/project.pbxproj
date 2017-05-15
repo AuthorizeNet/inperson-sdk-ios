@@ -12,11 +12,11 @@
 		4108BD141D9AECDE0009125F /* image1_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4108BD121D9AECDE0009125F /* image1_bg.png */; };
 		4108BD151D9AECDE0009125F /* image2_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4108BD131D9AECDE0009125F /* image2_bg.png */; };
 		4109BD6C1D50819900B2A5B1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4109BD6B1D50819900B2A5B1 /* Settings.bundle */; };
-		4109C1271C73F9F400451454 /* AnetEMVSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4109C1261C73F9F400451454 /* AnetEMVSdk.framework */; };
-		4109C1281C73F9F400451454 /* AnetEMVSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4109C1261C73F9F400451454 /* AnetEMVSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4109C12A1C73FA0000451454 /* AnetEMVStoryboard.storyboardc in Resources */ = {isa = PBXBuildFile; fileRef = 4109C1291C73FA0000451454 /* AnetEMVStoryboard.storyboardc */; };
+		411172D51E281C5900CC41AE /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 411172D41E281C5900CC41AE /* beer.png */; };
 		411EEC781D7A0DEA006B766A /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 411EEC771D7A0DEA006B766A /* bg.jpg */; };
-		413E1EC11D9B906500A6EEC3 /* eject.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 413E1EC01D9B906500A6EEC3 /* eject.mp3 */; };
+		416EC6461E0B334F003A30D9 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4194588B1BE0292F00B9C8EA /* libxml2.2.tbd */; };
+		416EC6481E0B525E003A30D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419458621BE0200800B9C8EA /* Main.storyboard */; };
+		417F54FD1DF3788B008AF8F7 /* AnetEMVSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417F54FC1DF3788B008AF8F7 /* AnetEMVSdk.framework */; };
 		4194585F1BE0200800B9C8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194585E1BE0200800B9C8EA /* AppDelegate.swift */; };
 		419458611BE0200800B9C8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419458601BE0200800B9C8EA /* ViewController.swift */; };
 		419458641BE0200800B9C8EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419458621BE0200800B9C8EA /* Main.storyboard */; };
@@ -26,6 +26,11 @@
 		419458771BE0200800B9C8EA /* AnetEMVDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419458761BE0200800B9C8EA /* AnetEMVDemoTests.swift */; };
 		419458821BE0250300B9C8EA /* Fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 419458811BE0250300B9C8EA /* Fingerprint.png */; };
 		4194588C1BE0292F00B9C8EA /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4194588B1BE0292F00B9C8EA /* libxml2.2.tbd */; };
+		41A3DACD1ECA58E60039FC66 /* AnetEMVSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A3DACC1ECA58E60039FC66 /* AnetEMVSdk.framework */; };
+		41A3DACE1ECA58E60039FC66 /* AnetEMVSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41A3DACC1ECA58E60039FC66 /* AnetEMVSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41A3DAD21ECA58F90039FC66 /* AnetEMVStoryboard.storyboardc in Resources */ = {isa = PBXBuildFile; fileRef = 41A3DACF1ECA58F90039FC66 /* AnetEMVStoryboard.storyboardc */; };
+		41A3DAD31ECA58F90039FC66 /* eject.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 41A3DAD01ECA58F90039FC66 /* eject.mp3 */; };
+		41A3DAD41ECA58F90039FC66 /* OTAUpdate.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A3DAD11ECA58F90039FC66 /* OTAUpdate.png */; };
 		41B722761C85187300A02C3A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B722751C85187300A02C3A /* DetailsViewController.swift */; };
 		41E6E0951BE16EFA00CFC79D /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4109C1281C73F9F400451454 /* AnetEMVSdk.framework in Embed Frameworks */,
+				41A3DACE1ECA58E60039FC66 /* AnetEMVSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,10 +66,10 @@
 		4108BD121D9AECDE0009125F /* image1_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1_bg.png; sourceTree = "<group>"; };
 		4108BD131D9AECDE0009125F /* image2_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2_bg.png; sourceTree = "<group>"; };
 		4109BD6B1D50819900B2A5B1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = AnetEMVDemo/Settings.bundle; sourceTree = "<group>"; };
-		4109C1261C73F9F400451454 /* AnetEMVSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnetEMVSdk.framework; path = AnetEMVDemo/AnetEMVSdk.framework; sourceTree = "<group>"; };
-		4109C1291C73FA0000451454 /* AnetEMVStoryboard.storyboardc */ = {isa = PBXFileReference; lastKnownFileType = wrapper.storyboardc; name = AnetEMVStoryboard.storyboardc; path = AnetEMVDemo/AnetEMVSdk.framework/AnetEMVStoryboard.storyboardc; sourceTree = "<group>"; };
+		411172D41E281C5900CC41AE /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 		411EEC771D7A0DEA006B766A /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
-		413E1EC01D9B906500A6EEC3 /* eject.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = eject.mp3; path = AnetEMVDemo/AnetEMVSdk.framework/eject.mp3; sourceTree = "<group>"; };
+		417F54FA1DF37824008AF8F7 /* AnetEMVSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnetEMVSdk.framework; path = "../../AnetEMVSdk/build/Release-iphoneos/AnetEMVSdk.framework"; sourceTree = "<group>"; };
+		417F54FC1DF3788B008AF8F7 /* AnetEMVSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnetEMVSdk.framework; path = "../../DerivedData/QuickChip/Build/Products/Release-iphoneos/AnetEMVSdk.framework"; sourceTree = "<group>"; };
 		4194585B1BE0200800B9C8EA /* AnetEMVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnetEMVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4194585E1BE0200800B9C8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		419458601BE0200800B9C8EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +84,10 @@
 		419458811BE0250300B9C8EA /* Fingerprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fingerprint.png; sourceTree = "<group>"; };
 		419458871BE027E900B9C8EA /* AnetEMVDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnetEMVDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		4194588B1BE0292F00B9C8EA /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		41A3DACC1ECA58E60039FC66 /* AnetEMVSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnetEMVSdk.framework; path = AnetEMVDemo/AnetEMVSdk.framework; sourceTree = "<group>"; };
+		41A3DACF1ECA58F90039FC66 /* AnetEMVStoryboard.storyboardc */ = {isa = PBXFileReference; lastKnownFileType = wrapper.storyboardc; name = AnetEMVStoryboard.storyboardc; path = AnetEMVDemo/AnetEMVSdk.framework/AnetEMVStoryboard.storyboardc; sourceTree = "<group>"; };
+		41A3DAD01ECA58F90039FC66 /* eject.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = eject.mp3; path = AnetEMVDemo/AnetEMVSdk.framework/eject.mp3; sourceTree = "<group>"; };
+		41A3DAD11ECA58F90039FC66 /* OTAUpdate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OTAUpdate.png; path = AnetEMVDemo/AnetEMVSdk.framework/OTAUpdate.png; sourceTree = "<group>"; };
 		41B722751C85187300A02C3A /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		41E1210F1D87629D0047B9DB /* AnetEMVDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnetEMVDemo.entitlements; sourceTree = "<group>"; };
 		41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
@@ -89,8 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4109C1271C73F9F400451454 /* AnetEMVSdk.framework in Frameworks */,
+				417F54FD1DF3788B008AF8F7 /* AnetEMVSdk.framework in Frameworks */,
 				4194588C1BE0292F00B9C8EA /* libxml2.2.tbd in Frameworks */,
+				41A3DACD1ECA58E60039FC66 /* AnetEMVSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,28 +108,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416EC6461E0B334F003A30D9 /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		417F54F91DF37824008AF8F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				417F54FC1DF3788B008AF8F7 /* AnetEMVSdk.framework */,
+				417F54FA1DF37824008AF8F7 /* AnetEMVSdk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		419458521BE0200800B9C8EA = {
 			isa = PBXGroup;
 			children = (
-				413E1EC01D9B906500A6EEC3 /* eject.mp3 */,
+				41A3DACF1ECA58F90039FC66 /* AnetEMVStoryboard.storyboardc */,
+				41A3DAD01ECA58F90039FC66 /* eject.mp3 */,
+				41A3DAD11ECA58F90039FC66 /* OTAUpdate.png */,
+				41A3DACC1ECA58E60039FC66 /* AnetEMVSdk.framework */,
+				411172D41E281C5900CC41AE /* beer.png */,
 				411EEC771D7A0DEA006B766A /* bg.jpg */,
 				41062F231D4937BC003D5AA6 /* logo.png */,
 				4108BD121D9AECDE0009125F /* image1_bg.png */,
 				4108BD131D9AECDE0009125F /* image2_bg.png */,
 				4109BD6B1D50819900B2A5B1 /* Settings.bundle */,
-				4109C1291C73FA0000451454 /* AnetEMVStoryboard.storyboardc */,
-				4109C1261C73F9F400451454 /* AnetEMVSdk.framework */,
 				4194588B1BE0292F00B9C8EA /* libxml2.2.tbd */,
 				4194585D1BE0200800B9C8EA /* AnetEMVDemo */,
 				419458751BE0200800B9C8EA /* AnetEMVDemoTests */,
 				4194585C1BE0200800B9C8EA /* Products */,
 				419458871BE027E900B9C8EA /* AnetEMVDemo-Bridging-Header.h */,
+				417F54F91DF37824008AF8F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,7 +232,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Pankaj Taneja";
 				TargetAttributes = {
 					4194585A1BE0200800B9C8EA = {
@@ -219,6 +242,9 @@
 						SystemCapabilities = {
 							com.apple.OMC = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};
@@ -253,10 +279,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				413E1EC11D9B906500A6EEC3 /* eject.mp3 in Resources */,
+				41A3DAD21ECA58F90039FC66 /* AnetEMVStoryboard.storyboardc in Resources */,
+				41A3DAD31ECA58F90039FC66 /* eject.mp3 in Resources */,
+				41A3DAD41ECA58F90039FC66 /* OTAUpdate.png in Resources */,
+				411172D51E281C5900CC41AE /* beer.png in Resources */,
 				4109BD6C1D50819900B2A5B1 /* Settings.bundle in Resources */,
 				411EEC781D7A0DEA006B766A /* bg.jpg in Resources */,
-				4109C12A1C73FA0000451454 /* AnetEMVStoryboard.storyboardc in Resources */,
 				4194586C1BE0200800B9C8EA /* LaunchScreen.storyboard in Resources */,
 				419458691BE0200800B9C8EA /* Assets.xcassets in Resources */,
 				41062F241D4937BC003D5AA6 /* logo.png in Resources */,
@@ -271,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416EC6481E0B525E003A30D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,8 +400,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -416,8 +447,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -436,6 +469,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -446,9 +480,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AnetEMVDemo/AnetEMVDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8WQ4DJVQC2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,7 +494,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = AnetEMVDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.authorize.mobilemerchant;
@@ -477,9 +511,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AnetEMVDemo/AnetEMVDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8WQ4DJVQC2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -487,7 +521,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = AnetEMVDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.authorize.mobilemerchant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = AnetEMVDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.authorize.AnetEMVDemoTests;
@@ -514,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = AnetEMVDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.authorize.AnetEMVDemoTests;

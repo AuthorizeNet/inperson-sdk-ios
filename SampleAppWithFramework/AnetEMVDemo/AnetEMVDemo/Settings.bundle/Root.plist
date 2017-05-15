@@ -7,10 +7,72 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
+			<key>Key</key>
+			<string>env</string>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Environments</string>
+			<key>DefaultValue</key>
+			<string>PROD</string>
+			<key>Titles</key>
+			<array>
+				<string>PROD</string>
+				<string>TEST</string>
+				<string>HS</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>PROD</string>
+				<string>TEST</string>
+				<string>HS</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Key</key>
+			<string>terminalMode</string>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Terminal Mode</string>
+			<key>DefaultValue</key>
+			<string>CM</string>
+			<key>Titles</key>
+			<array>
+				<string>MSR</string>
+				<string>Chip/MSR</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>M</string>
+				<string>CM</string>
+			</array>
+		</dict>
+		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>UI Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Auto Eject</string>
+			<key>Key</key>
+			<string>auto_eject</string>
+			<key>DefaultValue</key>
+			<string>No</string>
+			<key>Titles</key>
+			<array>
+				<string>Yes</string>
+				<string>No</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>Yes</string>
+				<string>No</string>
+			</array>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -215,6 +277,158 @@
 				<string>image2_bg</string>
 				<string>none</string>
 			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Play Eject Sound</string>
+			<key>Key</key>
+			<string>sound</string>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>Titles</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Show Receipt</string>
+			<key>Key</key>
+			<string>receipt</string>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>Titles</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Paper Receipt</string>
+			<key>Key</key>
+			<string>paperReceipt</string>
+			<key>DefaultValue</key>
+			<string>NO</string>
+			<key>Titles</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Skip Signature</string>
+			<key>Key</key>
+			<string>signature</string>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>Titles</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>YES</string>
+				<string>NO</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Tip Amount</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>tipAmount</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Tip Option1</string>
+			<key>Key</key>
+			<string>tipOption1</string>
+			<key>DefaultValue</key>
+			<string>5</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Tip Option2</string>
+			<key>DefaultValue</key>
+			<string>10</string>
+			<key>Key</key>
+			<string>tipOption2</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Tip Option3</string>
+			<key>DefaultValue</key>
+			<string>15</string>
+			<key>Key</key>
+			<string>tipOption3</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>EmployeeID</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>employeeId</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Table Number</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>tableNumber</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
 		</dict>
 	</array>
 </dict>

@@ -45,6 +45,9 @@ class ViewController: UIViewController, AuthNetDelegate {
         mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = self.login.text
         mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = self.pasword.text
         
+//        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = "vitalretailowner1"
+//        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = "Authnet102"
+        
         mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
         AuthNet.getInstance().mobileDeviceLoginRequest(mobileDeviceLoginRequest)
     }

@@ -39,18 +39,18 @@
     }   
     
     NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent: @"Root.plist"]];
-    NSArray *preferences = [settings objectForKey: @"PreferenceSpecifiers"];
+    NSArray *preferences = [settings valueForKey: @"PreferenceSpecifiers"];
     NSMutableDictionary *defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
     
     for (NSDictionary *prefSpecification in preferences) {
-        NSString *key = [prefSpecification objectForKey:@"Key"];
+        NSString *key = [prefSpecification valueForKey:@"Key"];
         
         if (key) {
             // check if value readable in userDefaults
-            id currentObject = [defs objectForKey: key];
+            id currentObject = [defs valueForKey: key];
             if (currentObject == nil) {
                 // not readable: set value from Settings.bundle
-                id objectToSet = [prefSpecification objectForKey: @"DefaultValue"];
+                id objectToSet = [prefSpecification valueForKey: @"DefaultValue"];
                 [defaultsToRegister setValue: objectToSet forKey: key];
                 NSLog(@"Setting object %@ for key %@", objectToSet, key);
             } else {

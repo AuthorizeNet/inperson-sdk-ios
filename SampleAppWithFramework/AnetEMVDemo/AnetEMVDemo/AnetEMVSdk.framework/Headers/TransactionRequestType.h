@@ -22,8 +22,10 @@
     NSString *transactionType;
     NSString *amount;
     PaymentType *payment;
+    NSString *terminalID;
     NSString *authCode;
     NSString *refTransId;
+    NSString *date;
     NSString *splitTenderId;
     OrderType *order;
     NSMutableArray *lineItems;
@@ -37,17 +39,21 @@
     NameAndAddressType *shipTo;
     NSString *customerIP;
     TransRetailInfoType *retail;
+    NSString *employeeId;
     NSMutableArray *transactionSettings;
     NSMutableArray *userFields;
-    NSString *terminalID;
+    NSString *tipAmount;
+    NSString *tableNumber;
 }
 
 
 @property (nonatomic, strong) NSString *transactionType;
 @property (nonatomic, strong) NSString *amount;
 @property (nonatomic, strong) PaymentType *payment;
+@property (nonatomic, strong) NSString *terminalID;
 @property (nonatomic, strong) NSString *authCode;
 @property (nonatomic, strong) NSString *refTransId;
+@property (nonatomic, strong) NSString *transactionDate;
 @property (nonatomic, strong) NSString *splitTenderId;
 @property (nonatomic, strong) OrderType *order;
 @property (nonatomic, strong) NSMutableArray *lineItems;
@@ -61,9 +67,11 @@
 @property (nonatomic, strong) NameAndAddressType *shipTo;
 @property (nonatomic, strong) NSString *customerIP;
 @property (nonatomic, strong) TransRetailInfoType *retail;
+@property (nonatomic, strong) NSString *employeeId;
 @property (nonatomic, strong) NSMutableArray *transactionSettings;
 @property (nonatomic, strong) NSMutableArray *userFields;
-@property (nonatomic, strong) NSString *terminalID;
+@property (nonatomic, strong) NSString *tipAmount;
+@property (nonatomic, strong) NSString *tableNumber;
 
 /**
  * Creates an autoreleased  object
