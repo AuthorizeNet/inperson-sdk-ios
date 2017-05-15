@@ -22,17 +22,17 @@ b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
 c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
 
 d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
-* AudioToolbox.framework
-* CoreAudio.framework
-* MediaPlayer.framework
-* MediaToolbox.framework
-* External Accessory.framework
-* AVFoundation.framework
-* CoreBluetooth.framework
+    * AudioToolbox.framework
+    * CoreAudio.framework
+    * MediaPlayer.framework
+    * MediaToolbox.framework
+    * External Accessory.framework
+    * AVFoundation.framework
+    * CoreBluetooth.framework
 
 3.	Copy Bundle Resources.
 
-a)	Include the `AnetEMVStoryBoard.storyboard`, `OTAUpdate.png` and `eject.mp3` fields from the *AnetEMVSdk.framework* file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
+    a)	Include the `AnetEMVStoryBoard.storyboard`, `OTAUpdate.png` and `eject.mp3` fields from the *AnetEMVSdk.framework* file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
 
 4.	If the application is developed in the Swift language, it must have a bridging header file because the *AnetEMVSdk.framework* file is based on Objective C.
 
@@ -50,8 +50,8 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 
 1. [Mobile Device Authentication](#mobile-device-authentication)
 2. [EMV Transaction Processing](#emv-transaction-processing)
-1. [Traditional EMV](#traditional-emv)
-2. [Quick Chip](#quick-chip)
+    a. [Traditional EMV](#traditional-emv)
+    b. [Quick Chip](#quick-chip)
 3. [Non-EMV Transaction Processing](#non-emv-transaction-processing)
 4. [Customer Email Receipt](#customer-email-receipt)
 5. [Transaction Reporting](#transaction-reporting)
