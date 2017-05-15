@@ -155,7 +155,7 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     #### Quickchip Transaction with Paper Receipt 
 
-    This API will only authorize the transaction, merchant app needs to settle/capture the transaction later on with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction. 
+    This API will only authorize the transaction if the `iPaperReceiptCase` argument is set to true, merchant app needs to settle/capture the transaction later on with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction. If `iPaperReceiptCase` is passed in as false, then the SDK will authorize as well as capture the transaction.
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
