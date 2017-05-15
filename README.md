@@ -185,7 +185,8 @@ Refer to _AnetEMVError.h_ for more details. Also, refer to _AnetEMVManager.h_ fo
 
 The SDK's Quick Chip functionality allows merchant application to process the card data even before the final amount is ready. Processing the card does not authorize or capture the transaction; however, it retrieves the card data and stores in inflight mode inside the SDK. When merchant application is ready with the final amount, applicaton must initiate a Quick Chip transaction to capture the processed card data. When merchant application calls the process card method, the following Quick Chip transaction charges the processed card data.
 
-    `[- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController transactionType:(EMVTransactionType)iEmvTransactionType withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock]`
+    [- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController transactionType:(EMVTransactionType)iEmvTransactionType 
+    withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock]
 
 In case merchant application decides not to charge processed card, merchant application must call discard card data method. Any Quick Chip call after process card will charge the processed card, once the SDK charges the processed card card data will be deleted. 
 
