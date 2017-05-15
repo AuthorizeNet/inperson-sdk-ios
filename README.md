@@ -4,10 +4,9 @@ The Authorize.Net In-Person SDK provides a Semi-Integrated Solution for EMV paym
 
 The merchant's application invokes this SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. The merchant's application never touches any EMV data at any point.
 
-Supported Encrypted Readers:
-===================
-[Supported reader devices can be obtained from Authorize.Net POS Portal](https://partner.posportal.com/authorizenet/auth/
-                                                                         )
+### Supported Encrypted Readers:
+
+[Supported reader devices can be obtained from Authorize.Net POS Portal](https://partner.posportal.com/authorizenet/auth/)
 
 ## Including the Framework
 
@@ -154,20 +153,21 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     e)	After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
 
-##### Quickchip Transaction with Paper Receipt 
-This API will only authorize the transaction, merchant app needs to settle/capture the transaction later on with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction. 
+    #### Quickchip Transaction with Paper Receipt 
+
+    This API will only authorize the transaction, merchant app needs to settle/capture the transaction later on with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction. 
 
     ```
     [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
     ```
 
-    ##### Quickchip Transaction with Tip Amount
+    #### Quickchip Transaction with Tip Amount
 
     ```
     [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipAmount:(NSString * _Nonnull)iTipAmount presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
     ```
 
-    ##### Quickchip Transaction with Tip Options
+    #### Quickchip Transaction with Tip Options
 
     ```
     [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
