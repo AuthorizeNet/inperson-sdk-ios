@@ -121,7 +121,7 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     e)	After creating all the required objects, call the following methods of AnetEMVManager and submit the transaction. 
 
-        [startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
+        `[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
 
 ### Quick Chip
 
@@ -157,21 +157,16 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     This API will only authorize the transaction, merchant app needs to settle/capture the transaction later on with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction. 
 
-    ```
-    [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
+    `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
     ```
 
     #### Quickchip Transaction with Tip Amount
 
-    ```
-    [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipAmount:(NSString * _Nonnull)iTipAmount presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
-    ```
+    `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipAmount:(NSString * _Nonnull)iTipAmount presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
     #### Quickchip Transaction with Tip Options
 
-    ```
-    [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
-    ```
+    `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
 **Note:** Only Goods, Services, and Payment are supported for the `TransactionType` field.
 
@@ -191,15 +186,11 @@ Refer to _AnetEMVError.h_ for more details. Also, refer to _AnetEMVManager.h_ fo
 
 The SDK's Quick Chip functionality allows merchant application to process the card data even before the final amount is ready. Processing the card does not authorize or capture the transaction; however, it retrieves the card data and stores in inflight mode inside the SDK. When merchant application is ready with the final amount, applicaton must initiate a Quick Chip transaction to capture the processed card data. When merchant application calls the process card method, the following Quick Chip transaction charges the processed card data.
 
-    ```
     [- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController transactionType:(EMVTransactionType)iEmvTransactionType withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock]
-    ```
 
 In case merchant application decides not to use processed card, merchant application must call discard card data method. 
 
-    ```
     [- (BOOL)discardQuickChipCardDataWithPredeterminedAmount]
-    ```
 
 ### Configuring the UI
 
