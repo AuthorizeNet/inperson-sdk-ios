@@ -21,14 +21,14 @@ Supported Encrypted Readers:
 
     c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
 
-d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
-    * AudioToolbox.framework
-    * CoreAudio.framework
-    * MediaPlayer.framework
-    * MediaToolbox.framework
-    * External Accessory.framework
-    * AVFoundation.framework
-    * CoreBluetooth.framework
+    d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
+        * AudioToolbox.framework
+        * CoreAudio.framework
+        * MediaPlayer.framework
+        * MediaToolbox.framework
+        * External Accessory.framework
+        * AVFoundation.framework
+        * CoreBluetooth.framework
 
 3.	Copy Bundle Resources.
 
@@ -38,11 +38,13 @@ d)  This is required only if you are including SDK as static Library. Please lin
 
 ### Initializing the SDK
 
-There are two environments: TEST for testing your integration and LIVE for processing real transactions. 
+There are two environments: TEST for testing your integration with the Authorize.Net Sandbox environment and LIVE for processing real transactions. 
 
 Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the ApplicationDelegate or in the initial UIViewController. You must also #import AuthNet.h.
 
+```
 [AuthNet authNetWithEnvironment:ENV_TEST];
+```
 
 # Overview
 
@@ -52,6 +54,7 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 2. [EMV Transaction Processing](#emv-transaction-processing)
 
     i).  [Traditional EMV](#traditional-emv)
+    
     ii). [Quick Chip](#quick-chip)
 
 3. [Non-EMV Transaction Processing](#non-emv-transaction-processing)
@@ -63,7 +66,7 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 
 ## Mobile Device Authentication
 
-### Logging In the Device
+### Device Login
 
 ```
 /**
@@ -75,7 +78,7 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 
 This request logs in the mobile device.  The application can still receive a delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class. Application must populate `sessionToken` generated from login request in all the subsequent API calls to the Authorize.Net gateway.
 
-### Logging Out the Device
+### Device Logout
 
 ```
 /**
@@ -85,7 +88,7 @@ This request logs in the mobile device.  The application can still receive a del
 - (void) LogoutRequest:(LogoutRequest *)r;
 ```
 
-Perform a `LogoutRequest` request. The application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call call of `AuthNet` class.
+Perform a `LogoutRequest` request. The application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
 
 ## EMV Transaction Processing
 
@@ -113,7 +116,7 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
-    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction, and a cancellation block to execute the cancel action inside the SDK. 
+    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by the SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction, and a cancellation block to execute the cancel action inside the SDK. 
 
     d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
@@ -235,13 +238,13 @@ The `AnetEMVUISettings` field exposes the properties to set
 `AnetEMVUISettings.sharedUISettings ().buttonColor = [UIColor blueColor];`
 
 **Banner Image**  
-`AnetEMVUISettings.sharedUISettings ().logoImage = [UIImage imageNamed:@”ANetLogo.png”];`
+`AnetEMVUISettings.sharedUISettings ().logoImage = [UIImage imageNamed:@"ANetLogo.png"];`
 
 **Banner Background Color**  
 `AnetEMVUISettings.sharedUISettings ().bannerBackgroundColor = [UIColor yellowColor];`
 
 **Background Image**  
-`AnetEMVUISettings.sharedUISettings ().backgroundImage = [UIImage imageNamed:@”ANetBgImage.png”];`
+`AnetEMVUISettings.sharedUISettings ().backgroundImage = [UIImage imageNamed:@"ANetBgImage.png"];`
 
 ## Non-EMV Transaction Processing
 
@@ -318,12 +321,12 @@ Perform a void request.  The application will receive delegate call back for suc
 - (void) creditWithRequest:(CreateTransactionRequest *)r;
 ```
 
-Perform a credit  request.  The application will receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
+Perform a credit request.  The application will receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
 
 ```
 /**
 * Perform unlinked CREDIT transaction with request.
-* NOTE: Unlinked Credit request must not have an transaction id (x_trans_id) value.
+* NOTE: Unlinked Credit request must not have a transaction id (x_trans_id) value.
 * @param r The request to send.
 */
 - (void) unlinkedCreditWithRequest:(CreateTransactionRequest *)r;
@@ -687,7 +690,7 @@ an = [AuthNet getInstance];
 [an setDelegate:self];
 [an captureWithRequest:request];
 
-Callback for the non-emv transaction request request 
+Callback for the non-emv transaction request 
 
 - (void) paymentSucceeded:(CreateTransactionResponse *) response {
 // Handle payment success
