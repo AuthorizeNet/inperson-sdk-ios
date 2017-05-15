@@ -15,11 +15,11 @@ Supported Encrypted Readers:
 
 2.	Include additional frameworks and settings.
 
-a)	Include the *libxml2.2.tbd* file in the app. 
+    a)	Include the *libxml2.2.tbd* file in the app. 
 
-b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
+    b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
 
-c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
+    c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
 
 d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
     * AudioToolbox.framework
@@ -50,8 +50,10 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 
 1. [Mobile Device Authentication](#mobile-device-authentication)
 2. [EMV Transaction Processing](#emv-transaction-processing)
-    a. [Traditional EMV](#traditional-emv)
-    b. [Quick Chip](#quick-chip)
+
+    i).  [Traditional EMV](#traditional-emv)
+    ii). [Quick Chip](#quick-chip)
+
 3. [Non-EMV Transaction Processing](#non-emv-transaction-processing)
 4. [Customer Email Receipt](#customer-email-receipt)
 5. [Transaction Reporting](#transaction-reporting)
@@ -107,17 +109,17 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
 1.	Initialize the _AnetEMVSdk.framework_ file.
 
-a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
+    a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
-c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction, and a cancellation block to execute the cancel action inside the SDK. 
+    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction, and a cancellation block to execute the cancel action inside the SDK. 
 
-d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
+    d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
-e)	After creating all the required objects, call the following methods of AnetEMVManager and submit the transaction. 
+    e)	After creating all the required objects, call the following methods of AnetEMVManager and submit the transaction. 
 
-[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
+        [startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]`
 
 ### Quick Chip
 
@@ -139,34 +141,34 @@ e)	After creating all the required objects, call the following methods of AnetEM
 
 1.	Initialize the _AnetEMVSdk.framework_ file.
 
-a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
+    a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
-c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
+    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
-d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
+    d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
-e)	After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
+    e)	After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
 
 ##### Quickchip Transaction with Paper Receipt 
 This API will only authorize the transaction, merchant app needs to settle/capture the transaction later on with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction. 
 
-```
-[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
-```
+    ```
+    [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
+    ```
 
-##### Quickchip Transaction with Tip Amount
+    ##### Quickchip Transaction with Tip Amount
 
-```
-[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipAmount:(NSString * _Nonnull)iTipAmount presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
-```
+    ```
+    [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipAmount:(NSString * _Nonnull)iTipAmount presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
+    ```
 
-##### Quickchip Transaction with Tip Options
+    ##### Quickchip Transaction with Tip Options
 
-```
-[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
-```
+    ```
+    [- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]
+    ```
 
 **Note:** Only Goods, Services, and Payment are supported for the `TransactionType` field.
 
@@ -186,15 +188,15 @@ Refer to _AnetEMVError.h_ for more details. Also, refer to _AnetEMVManager.h_ fo
 
 The SDK's Quick Chip functionality allows merchant application to process the card data even before the final amount is ready. Processing the card does not authorize or capture the transaction; however, it retrieves the card data and stores in inflight mode inside the SDK. When merchant application is ready with the final amount, applicaton must initiate a Quick Chip transaction to capture the processed card data. When merchant application calls the process card method, the following Quick Chip transaction charges the processed card data.
 
-```
-[- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController transactionType:(EMVTransactionType)iEmvTransactionType withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock]
-```
+    ```
+    [- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController transactionType:(EMVTransactionType)iEmvTransactionType withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock]
+    ```
 
 In case merchant application decides not to use processed card, merchant application must call discard card data method. 
 
-```
-[- (BOOL)discardQuickChipCardDataWithPredeterminedAmount]
-```
+    ```
+    [- (BOOL)discardQuickChipCardDataWithPredeterminedAmount]
+    ```
 
 ### Configuring the UI
 
