@@ -165,7 +165,7 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     #### Quickchip Transaction with Tip Options
     
-    This API displays passed in tips percentages on SDK's signature screen. Merchant application can send three tips percentages options. Tips options must be whole number. SDK will calculate and capture the tip amount based on selected tip option.
+    This API will display the passed in tips percentages on SDK's signature screen. Merchant application can send three tips percentages options. Tips options must be whole number. SDK will calculate and capture the tip amount based on selected tip option.
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
