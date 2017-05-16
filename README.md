@@ -52,9 +52,9 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 1. [Mobile Device Authentication](#mobile-device-authentication)
 2. [EMV Transaction Processing](#emv-transaction-processing)
 
-    i).  [Traditional EMV](#traditional-emv)
+    i)  [Traditional EMV](#traditional-emv)
     
-    ii). [Quick Chip](#quick-chip)
+    ii) [Quick Chip](#quick-chip)
 
 3. [Non-EMV Transaction Processing](#non-emv-transaction-processing)
 4. [Customer Email Receipt](#customer-email-receipt)
