@@ -21,19 +21,26 @@ The merchant's application invokes this SDK to complete an EMV transaction. The 
     c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
 
     d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
+    
         * AudioToolbox.framework
+        
         * CoreAudio.framework
+        
         * MediaPlayer.framework
+        
         * MediaToolbox.framework
+        
         * External Accessory.framework
+        
         * AVFoundation.framework
+        
         * CoreBluetooth.framework
 
 3.	Copy Bundle Resources.
 
-    a)	Include the `AnetEMVStoryBoard.storyboard`, `OTAUpdate.png` and `eject.mp3` fields from the *AnetEMVSdk.framework* file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy Bundle Resources.
+    a)	Include the `AnetEMVStoryBoard.storyboard`, `OTAUpdate.png` and `eject.mp3` fields from the *AnetEMVSdk.framework*             file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy               Bundle Resources.
 
-4.	If the application is developed in the Swift language, it must have a bridging header file because the *AnetEMVSdk.framework* file is based on Objective C.
+4.	If the application is developed in the Swift language, it must have a bridging header file because the                             *AnetEMVSdk.framework* file is based on Objective C.
 
 ### Initializing the SDK
 
