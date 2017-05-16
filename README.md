@@ -22,19 +22,19 @@ The merchant's application invokes this SDK to complete an EMV transaction. The 
 
     d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
     
-        * AudioToolbox.framework
+        • AudioToolbox.framework
         
-        * CoreAudio.framework
+        • CoreAudio.framework
         
-        * MediaPlayer.framework
+        • MediaPlayer.framework
         
-        * MediaToolbox.framework
+        • MediaToolbox.framework
         
-        * External Accessory.framework
+        • External Accessory.framework
         
-        * AVFoundation.framework
+        • AVFoundation.framework
         
-        * CoreBluetooth.framework
+        • CoreBluetooth.framework
 
 3.	Copy Bundle Resources.
 
@@ -500,7 +500,7 @@ self.encryptedCardDetails = [[self.encryptedCardDetails stringByReplacingOccurre
 
 4) #### Create a Non-EMV transaction.
 
-### Purchase transaction(AUTH_CAPTURE)
+### • Purchase transaction(AUTH_CAPTURE)
 ```
 CreditCardType *creditCardType = [CreditCardType creditCardType];
 creditCardType.cardNumber = @"4111111111111111";
@@ -543,7 +543,7 @@ AuthNet *an = [AuthNet getInstance];
 [an purchaseWithRequest:request]; 
 ```
 
-### Authorization-only transaction(AUTH_ONLY)  
+### • Authorization-only transaction(AUTH_ONLY)  
 ```
 CreditCardType *creditCardType = [CreditCardType creditCardType];
 creditCardType.cardNumber = @"4111111111111111";
@@ -586,7 +586,7 @@ AuthNet *an = [AuthNet getInstance];
 [an authorizeWithRequest:request];
 ```
 
-### Capture only (CAPTURE_ONLY)
+### • Capture only (CAPTURE_ONLY)
 ```
 CreditCardType *creditCardType = [CreditCardType creditCardType];
 creditCardType.cardNumber = @"4111111111111111";
@@ -630,7 +630,7 @@ AuthNet *an = [AuthNet getInstance];
 [an captureOnlyWithRequest:request];
 ```
 
-### Capture transaction which is previously authorized
+### • Capture transaction which is previously authorized
 ```
 CreditCardType *creditCardType = [CreditCardType creditCardType];
 creditCardType.cardNumber = @"4111111111111111";
