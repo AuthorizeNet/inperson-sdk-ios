@@ -486,7 +486,7 @@ request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.
 
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
-[an purchaseWithRequest:request];
+[an purchaseWithRequest:request]; // transaction type can be changed depending upon the need of merchant application
 
 // Merchant application would receive the encryptedValue in the below inteface of IDTech reader
 - (BOOL)_interpretUnimagEncryptedSwipeData:(NSNotification*)notification {    
@@ -540,7 +540,7 @@ request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.
 
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
-[an purchaseWithRequest:request]; // transaction type can be changed depending upon the need of merchant application
+[an purchaseWithRequest:request]; 
 ```
 
 ### Authorization-only transaction(AUTH_ONLY)  
