@@ -10,7 +10,7 @@ The merchant's application invokes this SDK to complete an EMV transaction. The 
 
 ## Including the Framework
 
-1.	Include the In-Person iOS SDK framework in the merchant's application. 	Use Xcode to include the *AnetEMVSdk.framework* file under Embedded Binaries. The merchant application must log in and initialize a valid Merchant object with the `password` field.
+1.	Include the In-Person iOS SDK framework in the merchant's application. Use Xcode to include the *AnetEMVSdk.framework* file under Embedded Binaries. The merchant application must log in and initialize a valid Merchant object with the `password` field.
 
 2.	Include additional frameworks and settings.
 
