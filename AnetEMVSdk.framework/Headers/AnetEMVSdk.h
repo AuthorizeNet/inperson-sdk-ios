@@ -83,6 +83,15 @@
 #import <AnetEMVSdk/NSString+Hex.h>
 #import <AnetEMVSdk/NSString+stringForRFC3339DateTimeString.h>
 #import <AnetEMVSdk/AnetEMVUISettings.h>
+#import <AnetEMVSdk/GetMerchantDetailsRequest.h>
+#import <AnetEMVSdk/GetMerchantDetailsResponse.h>
+
+#import <AnetEMVSdk/Processor.h>
+#import <AnetEMVSdk/MarketType.h>
+#import <AnetEMVSdk/ProductCode.h>
+#import <AnetEMVSdk/PaymentMethod.h>
+#import <AnetEMVSdk/Currency.h>
+#import <AnetEMVSdk/CardType.h>
 
 //! Project version number for AnetEMVSdk.
 FOUNDATION_EXPORT double AnetEMVSdkVersionNumber;
