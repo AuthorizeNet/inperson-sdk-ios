@@ -56,6 +56,7 @@
 #import "CreateTransactionResponse.h"
 #import "GetBatchStatisticsRequest.h"
 #import "GetBatchStatisticsResponse.h"
+#import "GetMerchantDetailsRequest.h"
 #import "GetSettledBatchListRequest.h"
 #import "GetSettledBatchListResponse.h"
 #import "GetTransactionDetailsRequest.h"
@@ -70,6 +71,7 @@
 #import "MobileDeviceLoginResponse.h"
 #import "MobileDeviceRegistrationRequest.h"
 #import "MobileDeviceRegistrationResponse.h"
+#import "GetMerchantDetailsResponse.h"
 #import "SendCustomerTransactionReceiptRequest.h"
 #import "SendCustomerTransactionReceiptResponse.h"
 #import "TestAccountCaptchaRequest.h"
@@ -157,6 +159,13 @@ typedef enum AuthNetEnvironment {
  * including MobileDeviceLoginResponse error responses.
  */
 - (void) sendCustomerTransactionReceiptSucceeded:(SendCustomerTransactionReceiptResponse *)response;
+
+// GET MERCHANT DETAILS METHOD
+/**
+ * Optional delegate: method is called when a GETMERCHANTDETAILS response is returned from the server,
+ * including GetMerchantDetailsResponse error responses.
+ */
+- (void) getMerchantDetailsResponseSucceeded:(GetMerchantDetailsResponse *)response;
 
 // MOBILE DELEGATE METHODS
 /**
@@ -358,6 +367,15 @@ typedef enum AuthNetEnvironment {
  * @param r The request to send.
  */
 - (void) sendCustomerTransactionReceiptRequest:(SendCustomerTransactionReceiptRequest *) r;
+
+////////////////////////
+//GET MERCHANT DETAILS
+///////////////////////
+/**
+ * Perform getMerchantDetailsRequest on the AIM API.
+ * @param r The request to send.
+ */
+- (void) getMerchantDetailsRequest:(GetMerchantDetailsRequest *) r;
 
 ////////////////////////
 //MOBILE API CALLS
