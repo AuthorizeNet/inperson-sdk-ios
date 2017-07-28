@@ -33,6 +33,13 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationItem.hidesBackButton = true
         AuthNet.getInstance().delegate = self
         emvManager.setLoggingEnabled(true)
+        
+        let connectionMode = ((UserDefaults.standard.value(forKey: "connectionMode")!) as! NSString) as String
+        if connectionMode == "BT" {
+            emvManager.setConnectionMode(.bluetooth)
+        } else {
+            emvManager.setConnectionMode(.audio)
+        }
         print(AnetEMVManager.anetSDKVersion())
     }
 
@@ -47,6 +54,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if ((indexPath as NSIndexPath).row == 0) {
             aCell?.textLabel?.text = "Last Transaction Status"
+            aCell?.detailTextLabel?.text = nil
+            return aCell!
+        } else if ((indexPath as NSIndexPath).row == 10) {
+            aCell?.textLabel?.text = "Merchant Details"
             aCell?.detailTextLabel?.text = nil
             return aCell!
         } else {
@@ -84,12 +95,18 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 11
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ((indexPath as NSIndexPath).row == 0) {
             self.performSegue(withIdentifier: "details", sender: self)
+        } else if ((indexPath as NSIndexPath).row == 10) {
+            let request:GetMerchantDetailsRequest = GetMerchantDetailsRequest()
+            request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
+            request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+            AuthNet.getInstance().delegate = self
+            AuthNet.getInstance().getMerchantDetailsRequest(request)
         } else {
             if self.selectedProducts.contains(indexPath) {
                 self.selectedProducts .remove(indexPath)
@@ -98,6 +115,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             self.tableView.reloadData()
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -241,15 +259,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         aRequest.retail.marketType = "2"
         aRequest.retail.deviceType = "7"
         
-        
-        
         if (UserDefaults.standard.value(forKey: "employeeId") != nil) {
             aRequest.employeeId = ((UserDefaults.standard.value(forKey: "employeeId")!) as! NSString) as String
-        }
-        
-        
-        if (UserDefaults.standard.value(forKey: "tableNumber") != nil) {
-            aRequest.tableNumber = ((UserDefaults.standard.value(forKey: "tableNumber")!) as! NSString) as String
         }
         
         if (UserDefaults.standard.value(forKey: "terminalMode") != nil) {
@@ -365,10 +376,13 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func deviceInfo(_ sender: AnyObject) {
+        self.cardInteraction.text = "Getting device info..."
+
         let aBlock:ReaderDeviceInfoBlock = {
             (deviceInfo : [AnyHashable:Any]) -> Void in
             print(deviceInfo)
-            
+            self.cardInteraction.text = "No activit in progress."
+
             let actionSheetController: UIAlertController = UIAlertController(title: "", message: deviceInfo.description, preferredStyle: .alert)
             let yesAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in
             }
@@ -376,17 +390,79 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.present(actionSheetController, animated: true, completion: nil)            
         }
         
-        AnetEMVManager.sharedInstance().getAnyWhereReaderInfo(aBlock)
+        AnetEMVManager.sharedInstance().getAnyWhereReaderInfo(aBlock, presenting: self)
     }
     
     @IBAction func mail(_ sender: AnyObject) {
-        let mailController:MFMailComposeViewController = AnetEMVDemoUISettings.mail(to: "", withSubject: "", withBody: "", from: self)
-        self.present(mailController, animated: true, completion: nil)
+        let mailController:MFMailComposeViewController? = AnetEMVDemoUISettings.mail(to: "", withSubject: "", withBody: "", from: self)
+        
+        if (mailController != nil) {
+            self.present(mailController!, animated: true, completion: nil)
+        } else {
+            let dialog = UIAlertController(title: "", message: "Please setup your e-mail account", preferredStyle: UIAlertControllerStyle.alert)
+            let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+            }
+            dialog.addAction(chargeAction)
+            self.present(dialog, animated: true, completion: {
+            })
+        }
     }
     
     @IBAction func OTAUpdate(_ sender: AnyObject) {
-        AnetEMVManager.sharedInstance().startOTAUpdate(fromPresenting: self, isTestReader: self.isTestReader.isOn)
+        let actionSheetController: UIAlertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        
+        let firstAction: UIAlertAction = UIAlertAction(title: "Check for update", style: .cancel) { action -> Void in
+            self.cardInteraction.text = "Checking for OTA updates..."
+            
+            AnetEMVManager.sharedInstance().check(forOTAUpdateIsTestReader: self.isTestReader.isOn, withOTAUpdateStatus: {
+                (iFirmwareUpdate: Bool, iConfigurationUpdate : Bool, iErrorType: AnetOTAErrorCode, iErrorString : String?) -> Void in
+                print("Check for update completed.")
+                self.cardInteraction.text = "No activit in progress."
 
+                let dialog = UIAlertController(title: "Firmware and Config status", message: "Firmware:\(iFirmwareUpdate) Config:\(iConfigurationUpdate) Error:\(iErrorType.rawValue)", preferredStyle: UIAlertControllerStyle.alert)
+                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+                }
+                dialog.addAction(chargeAction)
+                self.present(dialog, animated: true, completion: {
+                })
+            })
+        }
+        actionSheetController.addAction(firstAction)
+        
+        let secondAction: UIAlertAction = UIAlertAction(title: "Update Headless", style: .default) { action -> Void in
+            
+            self.cardInteraction.text = "Updating OTA..."
+
+            AnetEMVManager.sharedInstance().startOTAUpdateIsTestReader(self.isTestReader.isOn, withProgress: {
+                (iProgress : Float, iUpdateType : OTAUpdateType) -> Void in
+                print("Updating progress.")
+                
+                if (iUpdateType == OTAUpdateType.OTAFirmwareUpdate) {
+                    self.cardInteraction.text = "Updating firmware...\(iProgress)%"
+                } else {
+                    self.cardInteraction.text = "Updating configuration...\(iProgress)%"
+                }
+            }, andOTACompletionBlock: {
+                (iUpdateSuccessful: Bool, iErrorType: AnetOTAErrorCode, iErrorString : String?) -> Void in
+                print("Update completed.")
+                self.cardInteraction.text = "No activit in progress."
+
+                let dialog = UIAlertController(title: "Update completed", message: "Status:\(iUpdateSuccessful) Error:\(iErrorType)", preferredStyle: UIAlertControllerStyle.alert)
+                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+                }
+                dialog.addAction(chargeAction)
+                self.present(dialog, animated: true, completion: {
+                })
+            })
+        }
+        actionSheetController.addAction(secondAction)
+        
+        let thirdAction: UIAlertAction = UIAlertAction(title: "Update", style: .default) { action -> Void in
+            AnetEMVManager.sharedInstance().startOTAUpdate(fromPresenting: self, isTestReader: self.isTestReader.isOn)
+        }
+        actionSheetController.addAction(thirdAction)
+        self.present(actionSheetController, animated: true, completion: nil)
+        
     }
     
     @IBAction func enteredAmount(_ sender: AnyObject)
@@ -488,5 +564,14 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             return false
         }
         return true
+    }
+    
+    
+    func getMerchantDetailsResponseSucceeded(_ response: GetMerchantDetailsResponse!) {
+        let actionSheetController: UIAlertController = UIAlertController(title: "", message: response.description, preferredStyle: .alert)
+        let yesAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in
+        }
+        actionSheetController.addAction(yesAction)
+        self.present(actionSheetController, animated: true, completion: nil)
     }
 }

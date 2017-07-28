@@ -115,22 +115,26 @@
 }
 
 + (MFMailComposeViewController *)mailTo:(NSString *)iEmail withSubject:(NSString *)iSubject withBody:(NSString *) iBody fromController:(UIViewController *)iController {
-    //put email info here:
-    NSString *subject = @"EMV SDK LOGS";
-    NSString *body = @"EMV TRANSACTION LOGS";
     
-    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = iController;
-    [mc setSubject:subject];
-    [mc setMessageBody:body isHTML:NO];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"EMV_SDK_Logs.txt"];
-    
-    NSData *fileData = [NSData dataWithContentsOfFile:path];
-    [mc addAttachmentData:fileData mimeType:@"text/plain" fileName:@"EMV_SDK_Logs.txt"];
-    return mc;
-
+    if ([MFMailComposeViewController canSendMail]) {
+        //put email info here:
+        NSString *subject = @"EMV SDK LOGS";
+        NSString *body = @"EMV TRANSACTION LOGS";
+        
+        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+        mc.mailComposeDelegate = iController;
+        [mc setSubject:subject];
+        [mc setMessageBody:body isHTML:NO];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *path = [documentsDirectory stringByAppendingPathComponent:@"EMV_SDK_Logs.txt"];
+        
+        NSData *fileData = [NSData dataWithContentsOfFile:path];
+        [mc addAttachmentData:fileData mimeType:@"text/plain" fileName:@"EMV_SDK_Logs.txt"];
+        return mc;
+    } else {
+        return nil;
+    }
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(nullable NSError *)error {
