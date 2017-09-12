@@ -59,7 +59,9 @@ typedef NS_ENUM(NSInteger, AnetOTAErrorCode) {
     AnetOTAFailed,
     AnetOTAStopped,
     AnetOTANoUpdateRequired,
-    AnetOTAInvalidControllerStateError
+    AnetOTAInvalidControllerStateError,
+    AnetOTAIncompatibleFirmwareHex,
+    AnetOTAConfigHex
 };
 
 typedef NS_ENUM (NSInteger, AnetEMVCardInteractionProgress) {
@@ -208,7 +210,7 @@ typedef void (^BTDeviceConnted)(BOOL isConnectionSuccessful);
 - (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;
 
 /**
- * Method for Auto Dismiss Confirmation, In case user doesn't take
+ * Method for Auto Dismiss Confirmation, In case user doesn't take action when transaction gets completed
  * @param iAutoDismissConfirmation 
  */
 - (void)setAutoDismissConfirmation:(BOOL)iAutoDismissConfirmation;
@@ -249,8 +251,10 @@ typedef void (^BTDeviceConnted)(BOOL isConnectionSuccessful);
  */
 + (AnetEMVManager * _Nonnull)sharedInstance;
 
-    
-    
+/**
+ * Static method for reseting AnetEMVManager sharedInstance, in case takes too long to process or doesn't respond
+ */
++ (void)resetEMVManager;
     
     
     

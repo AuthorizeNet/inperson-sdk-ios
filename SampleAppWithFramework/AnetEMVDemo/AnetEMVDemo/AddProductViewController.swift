@@ -56,15 +56,19 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             aCell?.textLabel?.text = "Last Transaction Status"
             aCell?.detailTextLabel?.text = nil
             return aCell!
-        } else if ((indexPath as NSIndexPath).row == 10) {
+        } else if ((indexPath as NSIndexPath).row == 1) {
             aCell?.textLabel?.text = "Merchant Details"
+            aCell?.detailTextLabel?.text = nil
+            return aCell!
+        } else if ((indexPath as NSIndexPath).row == 2) {
+            aCell?.textLabel?.text = "Reset SDK"
             aCell?.detailTextLabel?.text = nil
             return aCell!
         } else {
 //            aCell?.textLabel?.text = "Item \((indexPath as NSIndexPath).row)"
 
             let beers:NSMutableArray = self.beers()
-            aCell?.textLabel?.text = beers.object(at: (((indexPath as NSIndexPath).row) + 1)) as? String
+            aCell?.textLabel?.text = beers.object(at: (((indexPath as NSIndexPath).row) - 3)) as? String
             aCell?.detailTextLabel?.text = "$\((indexPath as NSIndexPath).row)"
             aCell?.imageView?.image = UIImage(named: "beer.png")
             
@@ -95,18 +99,21 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 11
+        return 12
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ((indexPath as NSIndexPath).row == 0) {
             self.performSegue(withIdentifier: "details", sender: self)
-        } else if ((indexPath as NSIndexPath).row == 10) {
+        } else if ((indexPath as NSIndexPath).row == 1) {
             let request:GetMerchantDetailsRequest = GetMerchantDetailsRequest()
             request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
             request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
             AuthNet.getInstance().delegate = self
             AuthNet.getInstance().getMerchantDetailsRequest(request)
+        } else if ((indexPath as NSIndexPath).row == 2) {
+            AnetEMVManager.resetEMVManager()
+            self.cardInteraction.text = "No activity in process."
         } else {
             if self.selectedProducts.contains(indexPath) {
                 self.selectedProducts .remove(indexPath)
