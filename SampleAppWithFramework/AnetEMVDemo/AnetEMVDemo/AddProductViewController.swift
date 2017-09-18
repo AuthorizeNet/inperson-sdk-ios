@@ -47,6 +47,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidAppear(animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     // TableView delegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

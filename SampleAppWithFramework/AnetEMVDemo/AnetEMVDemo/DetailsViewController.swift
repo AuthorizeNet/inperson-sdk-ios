@@ -44,8 +44,14 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         transactionRequest.refTransId = self.response.transactionDetails.transId
         transactionRequest.payment = nil
         transactionRequest.employeeId = ((UserDefaults.standard.value(forKey: "employeeId")!) as! NSString) as String
-        transactionRequest.tableNumber = ((UserDefaults.standard.value(forKey: "tableNumber")!) as! NSString) as String
-        transactionRequest.tipAmount = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
+        
+        let tipValue:String? = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
+        
+        if (tipValue != nil) {
+            let tip = ExtendedAmountType()
+            tip.amount = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
+            transactionRequest.tip = tip
+        }
 
         let request = CreateTransactionRequest()
         request.transactionRequest = transactionRequest
