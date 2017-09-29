@@ -13,6 +13,7 @@
 @class AnetEMVError;
 @class AnetEMVTransactionResponse;
 
+
 typedef NS_ENUM (NSInteger, ANETEmvErrorCode) {
     ANETEmvTransactionTerminated = 1,
     ANETEmvTransactionDeclined,
@@ -45,9 +46,63 @@ typedef NS_ENUM (NSInteger, ANETEmvErrorCode) {
     ANETEmvErrorTypeAudioFailToStart_OtherAudioIsPlaying,
     ANETEmvErrorTypeRequestTimedout,
     ANETEmvErrorTypeSessionTimedout,
-    AnetEmvErrorDeviceNotResponding
+    AnetEmvErrorDeviceNotResponding,
+    ANETEmvErrorCouldNotRetrieveCardData
 };
 
+typedef NS_ENUM(NSInteger, AnetOTAErrorCode) {
+    AnetOTASuccess,
+    AnetOTASetupError,
+    AnetOTABatteryLowError,
+    AnetOTADeviceCommError,
+    AnetOTAServerCommError,
+    AnetOTAFailed,
+    AnetOTAStopped,
+    AnetOTANoUpdateRequired,
+    AnetOTAInvalidControllerStateError,
+    AnetOTAIncompatibleFirmwareHex,
+    AnetOTAConfigHex
+};
+
+typedef NS_ENUM (NSInteger, AnetEMVCardInteractionProgress) {
+    AnetEMVWaitingForCard,
+    AnetEMVRetryInsertOrSwipe,
+    AnetEMVSwipeOrTryAnotherCard,
+    AnetEMVSwipe,
+    AnetEMVProcessingCard,
+    AnetEMVDoneWithCard,
+};
+
+typedef NS_ENUM (NSInteger, OTAStatus) {
+    AnetEMVWaitingForAudioDevice,
+    AnetEMVScanningForBTDevices,
+    ContactingBTDevice,
+    CheckingForUpdate,
+    UpdatingDeviceFirmwareOrConfig
+};
+
+
+typedef NS_ENUM (NSInteger, AnetEMVTerminalMode) {
+    AnetEMVModeSwipe,
+    AnetEMVModeInsertOrSwipe
+};
+
+typedef NS_ENUM (NSInteger, AnetEMVConnectionMode) {
+    AnetEMVConnectionModeAudio,
+    AnetEMVConnectionModeBluetooth
+};
+
+typedef NS_ENUM (NSInteger, OTAUpdateType) {
+    NONE,
+    OTAFirmwareUpdate,
+    OTAConfigUpdate
+};
+
+
+
+
+
+//-----------------------------EVENTS BLOCK-----------------------------//
 /**
  The completion handler, if provided, will be invoked on completion of EMV transaction
  * @param response AnetEMVTransactionResponse response object 
@@ -57,23 +112,75 @@ typedef void (^RequestCompletionBlock) (AnetEMVTransactionResponse * _Nullable r
 
 /**
  The completion handler, if provided, will be invoked if cancel action is taken during the process
-*/
+ */
 typedef void (^CancelActionBlock) ();
+
+/**
+ The completion handler, Will be executed once CARD intercation is successful with SDK
+ */
+typedef void (^CardIntercationProgressBlock) (AnetEMVCardInteractionProgress progressState);
+
+/**
+ The completion handler, Will be executed once CARD intercation is successful with SDK
+ */
+typedef void (^CardIntercationCompletionBlock) (BOOL isSuccess, AnetEMVError *_Nullable error);
 
 /**
  The completion handler, it will be invoked with device info
  */
 typedef void (^ReaderDeviceInfoBlock)(NSDictionary * _Nonnull deviceInfo);
 
+/**
+ The completion handler, it will be invoked with device info
+ */
+typedef void (^OTAUpdateStatusBlock)(OTAStatus iStatus);
+
+/**
+ The completion handler, it will be invoked with device info
+ */
+typedef void (^OTACheckUpdateRequiredBlock)(BOOL iFirmwareUpdateRequired, BOOL iConfigurationUpdateRequired, AnetOTAErrorCode iErrorCode, NSString * _Nullable iErrorString);
+
+/**
+ The completion handler, it will be invoked with device info
+ */
+typedef void (^OTACheckUpdateCompletedBlock)(BOOL iUpdateSuccessful, AnetOTAErrorCode iErrorCode, NSString * _Nullable iErrorString);
+
+/**
+ The completion handler, it will be invoked with device info
+ */
+typedef void (^OTAUpdateProgressBlock)(float iPercentage, OTAUpdateType iUpdateType);
+
+/**
+ The completion handler, it will be invoked with device info
+ */
+typedef void (^BTScanDeviceListBlock)(NSArray * _Nullable iBTDeviceList);
+
+/**
+ The completion handler, it will be invoked with device info
+ */
+typedef void (^BTDeviceConnted)(BOOL isConnectionSuccessful);
+
+
+
 
 @interface AnetEMVManager : NSObject
 
+    
+    
+    //-----------------------------PROPERTIES-----------------------------//
+@property (nonatomic, copy) BTScanDeviceListBlock _Nullable deviceListBlock;
+@property (nonatomic, copy) BTDeviceConnted _Nullable deviceConnectedBlock;
+
+    
+    //-----------------------------SDK VERSION-----------------------------//
 /**
  * Method for retrieving SDK version
  * @returns SDK version
  */
 + (NSString * _Nonnull)anetSDKVersion;
 
+    
+    //-----------------------------LOGGING-----------------------------//
 /**
  * Method for enabling/disabling logging.
  * @param iEnableLogging Flag to toggle logging, if enabled the logs will in EMV_SDK_Logs.txt under NSDocumentDirectory
@@ -87,12 +194,44 @@ typedef void (^ReaderDeviceInfoBlock)(NSDictionary * _Nonnull deviceInfo);
  */
 - (BOOL)loggingEnabled;
 
+    
+    
+    //-----------------------------CONNCETION/TERMINAL/AUTO EJECT-----------------------------//
 /**
- * Method for getting AnyWhereReaderInfo
- * @param iReaderDeviceInfoBlock A block will be executed with the device info
+ * Method for setting the terminal mode.
+ * @param iTerminalMode Terminal mode can be swipe or insertOrSwipe, if value is AnetEMVModeSwipe, SDK will only accept MSR/swipe transactions
  */
-- (void)getAnyWhereReaderInfo:(ReaderDeviceInfoBlock _Nonnull)iReaderDeviceInfoBlock;
+- (void)setTerminalMode:(AnetEMVTerminalMode)iTerminalMode;
 
+/**
+ * Method for setting the Connection mode.
+ * @param iConnectionMode Connection mode can be AUDIO/BLUETOOTH, Default is AUDIO connection
+ */
+- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;
+
+/**
+ * Method for Auto Dismiss Confirmation, In case user doesn't take action when transaction gets completed
+ * @param iAutoDismissConfirmation 
+ */
+- (void)setAutoDismissConfirmation:(BOOL)iAutoDismissConfirmation;
+    
+/**
+ * Method for refrshing/discovering the nearby bluetooth devices
+    If the application sets the connection as Bluetooth then in headless OTA update SDK will return the near by BT devices list in BTScanDeviceListBlock
+    application must display this list to the user to select the preferred BT reader
+    Application can call this method to refresh the list. BTScanDeviceListBlock will be executed with the new list
+ */
+- (void)scanBTDevicesList;
+    
+/**
+ * Method for connecting to the preferred BT device.
+ * @param iIndex Index of the preferred BT device from the BTDevicesList, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
+ */
+- (void)conncetBTDeviceAtIndex:(NSInteger)iIndex;
+    
+
+    
+    //-----------------------------INITIALIZATION-----------------------------//
 /**
  * Initializer with Currency code and Terminal Id.
  * @param iCurrencyCode three digits of the currency code, e.g. “840” for USD
@@ -113,13 +252,21 @@ typedef void (^ReaderDeviceInfoBlock)(NSDictionary * _Nonnull deviceInfo);
 + (AnetEMVManager * _Nonnull)sharedInstance;
 
 /**
+ * Static method for reseting AnetEMVManager sharedInstance, in case takes too long to process or doesn't respond
+ */
++ (void)resetEMVManager;
+    
+    
+    
+    //-----------------------------TRANSACTION PROCESSING-----------------------------//
+/**
  * TransactionRequest.
  * @returns A AnetEMVTransactionRequest instance.
  */
 - (AnetEMVTransactionRequest * _Nonnull)transactionRequest;
 
 /**
- * Start an EMV transaction wuth EMV request, presenting view controller and completion block.
+ * Start an EMV transaction with EMV request, presenting view controller and completion block.
  * @param iTransactionRequest A request object of AnetEMVTransactionRequest
  * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
  * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
@@ -129,5 +276,132 @@ typedef void (^ReaderDeviceInfoBlock)(NSDictionary * _Nonnull deviceInfo);
                presentingViewController:(UIViewController * _Nonnull)iPresentingController
                     completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
                         andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Start a Quick Chip transaction in background with presenting view controller, this will interact with the card to accept the insert/swipe, Card interaction message like insert or remove the card should be shown by merchant app.
+ * @param iViewController A presenting controller object. EMV controller will be presented on top of it
+ * @param iEmvTransactionType Transaction Type
+ * @param iCardInteractionProgressBlock A Card Intercation progress block. Block wil be executed on successful retreival of card data by SDK
+ * @param iCardIntercationCompletionBlock A Card Intercation completion block. Block wil be executed on successful retreival of card data by SDK
+ */
+- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController
+                                                     transactionType:(EMVTransactionType)iEmvTransactionType
+                                    withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock
+                                        andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock;
+
+/**
+ * Discard the previously processed card data. If merchant application called readQuickChipCardDataWithPredeterminedAmountOnViewController and now it doesn't want to process that card then this method should be called to discard that card.
+ */
+- (BOOL)discardQuickChipCardDataWithPredeterminedAmount;
+
+/**
+ * Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iPaperReceiptCase if this is true then the Merchant needs to get the paper receipt signed by the customer and settle the transaction later on. 
+                            AnetEMVManager will leave the trasaction in Auth_Only state.
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+                         forPaperReceiptCase:(BOOL)iPaperReceiptCase
+              presentingViewController:(UIViewController * _Nonnull)iPresentingController
+                       completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
+                  andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iTipAmount A tip amount which will be added to the total amount and captured
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+                                   tipAmount:(NSString * _Nonnull)iTipAmount
+                    presentingViewController:(UIViewController * _Nonnull)iPresentingController
+                             completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
+                        andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iTipOptions Tip options which will be presented on Signature screen to allow user to tip
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+                                   tipOptions:(NSArray * _Nonnull)iTipOptions
+                    presentingViewController:(UIViewController * _Nonnull)iPresentingController
+                             completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
+                        andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+    
+    
+    
+    
+    
+    
+    
+    //-----------------------------READER DEVICE INFOMARTION-----------------------------//
+/**
+ * Method for getting AnyWhereReaderInfo
+ * @param iReaderDeviceInfoBlock A block will be executed with the device info
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ */
+- (void)getAnyWhereReaderInfo:(ReaderDeviceInfoBlock _Nonnull)iReaderDeviceInfoBlock presentingViewController:(UIViewController * _Nonnull)iPresentingController;
+    
+    
+    
+    
+    
+    
+    
+    //-----------------------------READER DEVICE UPDATE-----------------------------//
+/**
+ * Start OTA Update
+ * @param iPresentingController A presenting controller object. OTA controller will be presented on top of it
+ * @param isTestReader if this is true then SDK will treat the reader as test reader and will try to update from TMS demo site else it will connect the TMS live version site
+        please make sure that the reader is registered at tms website
+        https://tms-demo.bbpos.com/login
+        https://tms.bbpos.com/login
+ */
+- (void)startOTAUpdateFromPresentingViewController:(UIViewController * _Nonnull) iPresentingController
+                                      isTestReader:(BOOL)isTestReader;
+
+/**
+ * Start OTA Update
+ * @param isTestReader if this is true then SDK will treat the reader as test reader and will try to update from TMS demo site else it will connect the TMS live version site
+        please make sure that the reader is registered at tms website
+        https://tms-demo.bbpos.com/login
+        https://tms.bbpos.com/login
+ * @param iUpdateCheckBlock This block will be executed once SDK finds the status of the update, application will be notified if any of the following is outdated
+    i)  Reader Device Firmware
+    ii) Reader Device Configuration
+ */
+- (void)checkForOTAUpdateIsTestReader:(BOOL)isTestReader
+                  withOTAUpdateStatus:(OTACheckUpdateRequiredBlock _Nonnull)iUpdateCheckBlock;
+
+/**
+ * Start OTA Update
+ * @param isTestReader if this is true then SDK will treat the reader as test reader and will try to update from TMS demo site else it will connect the TMS live version site
+        please make sure that the reader is registered at tms website
+        https://tms-demo.bbpos.com/login
+        https://tms.bbpos.com/login
+ * @param iOTAProgressBlock This block will be exceuted on change in progress of update, Application will be notified about the progress of the update
+ * @param iUpdateCompleteBlock This block will be executed on completion of update, Application will be notified about the update in case of success or failure
+ */
+- (void)startOTAUpdateIsTestReader:(BOOL)isTestReader
+                      withProgress:(OTAUpdateProgressBlock _Nonnull)iOTAProgressBlock
+             andOTACompletionBlock:(OTACheckUpdateCompletedBlock _Nonnull)iUpdateCompleteBlock;
+
+/**
+ * Stop OTA Update, Application can only stop the update in case application called 
+    "- (void)startOTAUpdateIsTestReader:(BOOL)isTestReader withProgress:(OTAUpdateProgressBlock _Nonnull)iOTAProgress andOTACompletionBlock:(OTACheckUpdateCompletedBlock _Nonnull)iUpdateCompleteBlock"
+    to update
+ */
+- (void)stopOTAUpdate;
+
 @end
 

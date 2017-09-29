@@ -43,6 +43,7 @@
 		4155B2781D8B651700ED634D /* CreditCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B21F1D8B651700ED634D /* CreditCardType.h */; };
 		4155B2791D8B651700ED634D /* CustomerAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2201D8B651700ED634D /* CustomerAddressType.h */; };
 		4155B27A1D8B651700ED634D /* CustomerDataType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2211D8B651700ED634D /* CustomerDataType.h */; };
+		4155B27B1D8B651700ED634D /* EmvSwipeController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2221D8B651700ED634D /* EmvSwipeController.h */; };
 		4155B27C1D8B651700ED634D /* Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2231D8B651700ED634D /* Error.h */; };
 		4155B27D1D8B651700ED634D /* ExtendedAmountType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2241D8B651700ED634D /* ExtendedAmountType.h */; };
 		4155B27E1D8B651700ED634D /* FDSFilterType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2251D8B651700ED634D /* FDSFilterType.h */; };
@@ -116,10 +117,6 @@
 		4194588C1BE0292F00B9C8EA /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4194588B1BE0292F00B9C8EA /* libxml2.2.tbd */; };
 		41B722761C85187300A02C3A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B722751C85187300A02C3A /* DetailsViewController.swift */; };
 		41E6E0951BE16EFA00CFC79D /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */; };
-		41F4C6411DA9DEFA004F922E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B2BF1D8B6BD000ED634D /* AudioToolbox.framework */; };
-		41F4C6431DA9DF00004F922E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4C6421DA9DF00004F922E /* CoreAudio.framework */; };
-		41F4C6451DA9DF09004F922E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4C6441DA9DF09004F922E /* AVFoundation.framework */; };
-		41F4C6471DA9DF0F004F922E /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F4C6461DA9DF0F004F922E /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,6 +178,7 @@
 		4155B21F1D8B651700ED634D /* CreditCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardType.h; sourceTree = "<group>"; };
 		4155B2201D8B651700ED634D /* CustomerAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAddressType.h; sourceTree = "<group>"; };
 		4155B2211D8B651700ED634D /* CustomerDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDataType.h; sourceTree = "<group>"; };
+		4155B2221D8B651700ED634D /* EmvSwipeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmvSwipeController.h; sourceTree = "<group>"; };
 		4155B2231D8B651700ED634D /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Error.h; sourceTree = "<group>"; };
 		4155B2241D8B651700ED634D /* ExtendedAmountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedAmountType.h; sourceTree = "<group>"; };
 		4155B2251D8B651700ED634D /* FDSFilterType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSFilterType.h; sourceTree = "<group>"; };
@@ -263,9 +261,6 @@
 		41B722751C85187300A02C3A /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		41E1210F1D87629D0047B9DB /* AnetEMVDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnetEMVDemo.entitlements; sourceTree = "<group>"; };
 		41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
-		41F4C6421DA9DF00004F922E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		41F4C6441DA9DF09004F922E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		41F4C6461DA9DF0F004F922E /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,10 +268,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41F4C6471DA9DF0F004F922E /* CoreBluetooth.framework in Frameworks */,
-				41F4C6451DA9DF09004F922E /* AVFoundation.framework in Frameworks */,
-				41F4C6431DA9DF00004F922E /* CoreAudio.framework in Frameworks */,
-				41F4C6411DA9DEFA004F922E /* AudioToolbox.framework in Frameworks */,
 				4155B3641D8B75C800ED634D /* MediaPlayer.framework in Frameworks */,
 				4155B2C21D8B6BD900ED634D /* libstdc++.6.0.9.tbd in Frameworks */,
 				4155B2B71D8B651700ED634D /* libAnetEMVLibrary.a in Frameworks */,
@@ -344,6 +335,7 @@
 				4155B21F1D8B651700ED634D /* CreditCardType.h */,
 				4155B2201D8B651700ED634D /* CustomerAddressType.h */,
 				4155B2211D8B651700ED634D /* CustomerDataType.h */,
+				4155B2221D8B651700ED634D /* EmvSwipeController.h */,
 				4155B2231D8B651700ED634D /* Error.h */,
 				4155B2241D8B651700ED634D /* ExtendedAmountType.h */,
 				4155B2251D8B651700ED634D /* FDSFilterType.h */,
@@ -408,9 +400,6 @@
 		4155B2B81D8B6B1900ED634D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				41F4C6461DA9DF0F004F922E /* CoreBluetooth.framework */,
-				41F4C6441DA9DF09004F922E /* AVFoundation.framework */,
-				41F4C6421DA9DF00004F922E /* CoreAudio.framework */,
 				4155B2C11D8B6BD900ED634D /* libstdc++.6.0.9.tbd */,
 				4155B2BF1D8B6BD000ED634D /* AudioToolbox.framework */,
 				4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */,
@@ -537,6 +526,7 @@
 				4155B2891D8B651700ED634D /* GetUnsettledTransactionListRequest.h in Headers */,
 				4155B2B41D8B651700ED634D /* UserField.h in Headers */,
 				4155B2A91D8B651700ED634D /* SplitTenderPayment.h in Headers */,
+				4155B27B1D8B651700ED634D /* EmvSwipeController.h in Headers */,
 				4155B2B11D8B651700ED634D /* TransactionResponse.h in Headers */,
 				4155B2641D8B651700ED634D /* AnetEMVResponse.h in Headers */,
 				4155B29D1D8B651700ED634D /* NSString+stringWithEscapedXMLValue.h in Headers */,

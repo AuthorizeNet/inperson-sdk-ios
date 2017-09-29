@@ -32,8 +32,10 @@ typedef NS_ENUM (NSInteger, EMVTransactionType) {
 @interface AnetEMVTransactionRequest : AuthNetRequest {
     NSString *transactionType;
     NSString *amount;
+    NSString *terminalID;
     NSString *authCode;
     NSString *refTransId;
+    NSString *date;
     NSString *splitTenderId;
     OrderType *order;
     NSMutableArray *lineItems;
@@ -47,16 +49,19 @@ typedef NS_ENUM (NSInteger, EMVTransactionType) {
     NameAndAddressType *shipTo;
     NSString *customerIP;
     TransRetailInfoType *retail;
+    NSString *employeeId;
     NSMutableArray *transactionSettings;
     NSMutableArray *userFields;
-    NSString *terminalID;
+    ExtendedAmountType *tip;
 }
 
 @property (nonatomic, assign) EMVTransactionType emvTransactionType;
 @property (nonatomic, strong) NSString *transactionType;
 @property (nonatomic, strong) NSString *amount;
+@property (nonatomic, strong) NSString *terminalID;
 @property (nonatomic, strong) NSString *authCode;
 @property (nonatomic, strong) NSString *refTransId;
+@property (nonatomic, strong) NSString *transactionDate;
 @property (nonatomic, strong) NSString *splitTenderId;
 @property (nonatomic, strong) OrderType *order;
 @property (nonatomic, strong) NSMutableArray *lineItems;
@@ -70,9 +75,11 @@ typedef NS_ENUM (NSInteger, EMVTransactionType) {
 @property (nonatomic, strong) NameAndAddressType *shipTo;
 @property (nonatomic, strong) NSString *customerIP;
 @property (nonatomic, strong) TransRetailInfoType *retail;
+@property (nonatomic, strong) NSString *employeeId;
 @property (nonatomic, strong) NSMutableArray *transactionSettings;
 @property (nonatomic, strong) NSMutableArray *userFields;
-@property (nonatomic, strong) NSString *terminalID;
+@property (nonatomic, strong) ExtendedAmountType *tip;
+
 
 /**
  * Creates an autoreleased  object

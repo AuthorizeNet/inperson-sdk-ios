@@ -10,25 +10,26 @@ import UIKit
 import LocalAuthentication
 
 class ViewController: UIViewController, AuthNetDelegate {
-
+    
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var pasword: UITextField!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var switchButton: UISwitch!
-
+    
     var sessionToken:String? = nil
     var context = LAContext()
     var authnet = AuthNet(environment: ENV_TEST);
     
     override func viewWillAppear(_ animated: Bool) {
+        AnetEMVDemoUISettings.sharedInstance().registerDefaultsFromSettingsBundle()
         super.viewWillAppear(true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func loginAction() {
         if self.switchButton.isOn {
             authnet = AuthNet(environment: ENV_TEST);
@@ -37,12 +38,15 @@ class ViewController: UIViewController, AuthNetDelegate {
         }
         AuthNet.getInstance().delegate = self
         AuthNet.getInstance().setLoggingEnabled(true)
-
+        
         self.activity.startAnimating()
         let mobileDeviceLoginRequest = MobileDeviceLoginRequest()
         
         mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = self.login.text
         mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = self.pasword.text
+        
+        //        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = "vitalretailowner1"
+        //        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = "Authnet102"
         
         mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
         AuthNet.getInstance().mobileDeviceLoginRequest(mobileDeviceLoginRequest)
@@ -59,7 +63,7 @@ class ViewController: UIViewController, AuthNetDelegate {
         
         let alertAction:UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: ({(action:UIAlertAction) -> Void  in
             
-            }))
+        }))
         let alert:UIAlertController = UIAlertController(title: "Login failed", message: response.responseReasonText, preferredStyle: .alert)
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: { () -> () in
