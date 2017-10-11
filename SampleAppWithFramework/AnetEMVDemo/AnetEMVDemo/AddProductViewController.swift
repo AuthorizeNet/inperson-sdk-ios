@@ -17,7 +17,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
 
     var selectedProducts:NSMutableArray = NSMutableArray()
     
-    var emvManager = AnetEMVManager.initWithCurrecyCode("840", terminalID: "", skipSignature: UserDefaults.standard.bool(forKey: "signature"), showReceipt: UserDefaults.standard.bool(forKey: "receipt"))
+    
+
+    var emvManager:AnetEMVManager? = nil
     
     var sessionToken:String? = nil
     var response:AnetEMVTransactionResponse? = nil
@@ -30,15 +32,25 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func loadView() {
         super.loadView()
+        var currencyCode = "840" // USD
+        
+        if (Locale.current.currencyCode! == "INR") {
+            currencyCode = "356"
+        } else if (Locale.current.currencyCode! == "EUR") {
+            currencyCode = "978"
+        } else {
+            // choose the correct one as per your supported currency
+        }
+        emvManager = AnetEMVManager.initWithCurrecyCode(currencyCode, terminalID: "", skipSignature: UserDefaults.standard.bool(forKey: "signature"), showReceipt: UserDefaults.standard.bool(forKey: "receipt"))
         self.navigationItem.hidesBackButton = true
         AuthNet.getInstance().delegate = self
-        emvManager.setLoggingEnabled(true)
+        emvManager?.setLoggingEnabled(true)
         
         let connectionMode = ((UserDefaults.standard.value(forKey: "connectionMode")!) as! NSString) as String
         if connectionMode == "BT" {
-            emvManager.setConnectionMode(.bluetooth)
+            emvManager?.setConnectionMode(.bluetooth)
         } else {
-            emvManager.setConnectionMode(.audio)
+            emvManager?.setConnectionMode(.audio)
         }
         print(AnetEMVManager.anetSDKVersion())
     }
@@ -277,9 +289,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             let terminalMode:String = ((UserDefaults.standard.value(forKey: "terminalMode")!) as! NSString) as String
             
             if (terminalMode == "M") {
-                emvManager.setTerminalMode(.modeSwipe)
+                emvManager?.setTerminalMode(.modeSwipe)
             } else {
-                emvManager.setTerminalMode(.modeInsertOrSwipe)
+                emvManager?.setTerminalMode(.modeInsertOrSwipe)
             }
         }
         
