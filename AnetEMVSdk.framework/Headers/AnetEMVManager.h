@@ -158,7 +158,7 @@ typedef void (^BTScanDeviceListBlock)(NSArray * _Nullable iBTDeviceList);
 /**
  The completion handler, it will be invoked with device info
  */
-typedef void (^BTDeviceConnted)(BOOL isConnectionSuccessful);
+typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nullable iDeviceName);
 
 
 
@@ -169,7 +169,7 @@ typedef void (^BTDeviceConnted)(BOOL isConnectionSuccessful);
     
     //-----------------------------PROPERTIES-----------------------------//
 @property (nonatomic, copy) BTScanDeviceListBlock _Nullable deviceListBlock;
-@property (nonatomic, copy) BTDeviceConnted _Nullable deviceConnectedBlock;
+@property (nonatomic, copy) BTDeviceConnected _Nullable deviceConnectedBlock;
 
     
     //-----------------------------SDK VERSION-----------------------------//
@@ -179,7 +179,7 @@ typedef void (^BTDeviceConnted)(BOOL isConnectionSuccessful);
  */
 + (NSString * _Nonnull)anetSDKVersion;
 
-    
+
     //-----------------------------LOGGING-----------------------------//
 /**
  * Method for enabling/disabling logging.
@@ -228,9 +228,7 @@ typedef void (^BTDeviceConnted)(BOOL isConnectionSuccessful);
  * @param iIndex Index of the preferred BT device from the BTDevicesList, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
  */
 - (void)conncetBTDeviceAtIndex:(NSInteger)iIndex;
-    
 
-    
     //-----------------------------INITIALIZATION-----------------------------//
 /**
  * Initializer with Currency code and Terminal Id.
