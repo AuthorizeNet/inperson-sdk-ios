@@ -228,9 +228,7 @@ typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nulla
  * @param iIndex Index of the preferred BT device from the BTDevicesList, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
  */
 - (void)conncetBTDeviceAtIndex:(NSInteger)iIndex;
-    
 
-    
     //-----------------------------INITIALIZATION-----------------------------//
 /**
  * Initializer with Currency code and Terminal Id.

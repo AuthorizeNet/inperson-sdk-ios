@@ -85,6 +85,7 @@
 #import <AnetEMVSdk/AnetEMVUISettings.h>
 #import <AnetEMVSdk/GetMerchantDetailsRequest.h>
 #import <AnetEMVSdk/GetMerchantDetailsResponse.h>
+#import <AnetEMVSdk/AnetBTObject.h>
 
 #import <AnetEMVSdk/Processor.h>
 #import <AnetEMVSdk/MarketType.h>
