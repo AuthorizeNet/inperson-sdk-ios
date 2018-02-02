@@ -153,12 +153,24 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
     a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
     b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+    
+    c)  Set the connection mode of the EMV reader device. EMV reader can be connected to the iOS device either with Audio or Bluetooth connection.
+    `- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;`
+    
+    * Audio connection is selected by default.
+    * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
+    
+    d) Set the terminal mode, SDK allows AnetEMVModeSwipe or AnetEMVModeInsertOrSwipe. AnetEMVModeInsertOrSwipe accepts CHIP Based transactions as well as Swipe/MSR transaction, AnetEMVModeSwipe accepts only MSR/Swipe transactions. 
+    `- (void)setTerminalMode:(AnetEMVTerminalMode)iTerminalMode;`
+    
+    * AnetEMVModeInsertOrSwipe is selected by default
+    * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
+    
+    e)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
-    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
+    f)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
-    d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
-
-    e)	After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
+    d)	After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
 
     #### Quickchip Transaction 
 
