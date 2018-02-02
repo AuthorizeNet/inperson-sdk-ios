@@ -152,25 +152,30 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+    b) `initWithCurrencyCode: terminalID: skipSignature: showReceipt`
     
-    c)  Set the connection mode of the EMV reader device. EMV reader can be connected to the iOS device either with Audio or Bluetooth connection.
-    `- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;`
-    
-    * Audio connection is selected by default.
-    * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
-    
-    d) Set the terminal mode, SDK allows AnetEMVModeSwipe or AnetEMVModeInsertOrSwipe. AnetEMVModeInsertOrSwipe accepts CHIP Based transactions as well as Swipe/MSR transaction, AnetEMVModeSwipe accepts only MSR/Swipe transactions. 
+    c) Set the terminal mode, SDK allows AnetEMVModeSwipe or AnetEMVModeInsertOrSwipe. AnetEMVModeInsertOrSwipe accepts CHIP Based transactions as well as Swipe/MSR transaction, AnetEMVModeSwipe accepts only MSR/Swipe transactions. 
     `- (void)setTerminalMode:(AnetEMVTerminalMode)iTerminalMode;`
     
     * AnetEMVModeInsertOrSwipe is selected by default
     * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
     
-    e)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
+    d) Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
-    f)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
+    e) The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.)
 
-    d)	After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
+    f) After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
+    
+    g) Set up bluetooth connecction: this step is needed if application wants to work with Bluetooth connection. 
+        * Set the connection mode of the EMV reader device. EMV reader can be connected to the iOS device either with Audio or Bluetooth connection.
+          `- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;`
+        * Audio connection is selected by default.
+        * Set the BTScanDeviceListBlock(deviceListBlock) and BTDeviceConnected(deviceConnectedBlock) of AnetEMVManager.
+        * Call scanBTDevicesList method of AnetEMVManager. This will search the near by devices and execute the deviceListBlock with the near by devices list. 
+        * Display the list the user.
+        * On user selection, call conncetBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
+        
+        * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
 
     #### Quickchip Transaction 
 
