@@ -4,6 +4,8 @@ The Authorize.Net In-Person SDK provides a Semi-Integrated Solution for EMV paym
 
 The merchant's application invokes this SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. The merchant's application never touches any EMV data at any point.
 
+To determine which processor you use, you can submit an API call to [getMerchantDetailsRequest](https://developer.authorize.net/api/reference/#transaction-reporting-get-merchant-details). The response contains a `processors` object.
+
 ### Supported Encrypted Readers:
 
 [Supported reader devices can be obtained from Authorize.Net POS Portal](https://partner.posportal.com/authorizenet/auth/)
