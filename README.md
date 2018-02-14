@@ -1,10 +1,10 @@
 # Authorize.Net In-Person iOS SDK Integration Guide
 
-The Authorize.Net In-Person SDK provides a Semi-Integrated Solution for EMV payment processing. For an overview of the semi-integrated environment and the transaction workflow within that environment, see our [Authorize.Net In-Person SDK Overview](http://developer.authorize.net/api/reference/features/in-person.html). This SDK builds on the Authorize.Net API for transaction processing. For more in-depth information on the Authorize.Net API, see our [API Reference](http://developer.authorize.net/api/reference/).
+The Authorize.Net In-Person iOS SDK provides a Semi-Integrated Solution for EMV payment processing. For an overview of the semi-integrated environment and the transaction workflow within that environment, see our [Authorize.Net In-Person SDK Overview](http://developer.authorize.net/api/reference/features/in-person.html). This SDK builds on the Authorize.Net API for transaction processing. For more in-depth information on the Authorize.Net API, see our [API Reference](http://developer.authorize.net/api/reference/).
 
-The merchant's application invokes this SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. The merchant's application never touches any EMV data at any point.
+Your application invokes the SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. Your never touches any EMV data at any point.
 
-### Supported Encrypted Readers:
+### Supported Encrypted Readers
 
 [Supported reader devices can be obtained from Authorize.Net POS Portal](https://partner.posportal.com/authorizenet/auth/)
 
@@ -177,19 +177,19 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
         
         * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
 
-    #### Quickchip Transaction 
+    #### Quick Chip Transaction 
 
-    API to initiate a Quick Chip transaction. This API will authorize and capture the transaction if the `iPaperReceiptCase` argument is set to false. If `iPaperReceiptCase` argument is set to true then SDK will only authorize the transaction, later on merchant application needs to settle/capture the transaction with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction.
+This API will authorize and capture the transaction if the `iPaperReceiptCase` argument is set to false. If `iPaperReceiptCase` argument is set to true then SDK will only authorize the transaction. Your application must settle/capture the transaction with/without tip amount. the authorized amount will be released after few days if your application fails to settle/capture the transaction.
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
-    #### Quickchip Transaction with Tip Amount
+   #### Quick Chip Transaction with Tip Amount
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipAmount:(NSString * _Nonnull)iTipAmount presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
-    #### Quickchip Transaction with Tip Options
+   #### Quick Chip Transaction with Tip Options
     
-    This API will display the passed in tips percentages on SDK's signature screen. Merchant application can send three tips percentages options. Tips options must be whole number. SDK will calculate and capture the tip amount based on selected tip option.
+This API will display the tip percentages on the SDK's signature screen. Your application can send three tip percentages options. Tip options must be whole numbers. The SDK will calculate and capture the tip amount based on the selected tip option.
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
@@ -209,18 +209,18 @@ Refer to _AnetEMVError.h_ for more details. Also, refer to _AnetEMVManager.h_ fo
 
 ### Process Card Data
 
-The SDK's Quick Chip functionality allows merchant application to process the card data even before the final amount is ready. Processing the card does not authorize or capture the transaction; however, it retrieves the card data and stores in inflight mode inside the SDK. When merchant application is ready with the final amount, applicaton must initiate a Quick Chip transaction to capture the processed card data. When merchant application calls the process card method, the following Quick Chip transaction charges the processed card data.
+The SDK's Quick Chip functionality enables your application to process the card data before the final amount is ready. Processing the card does not authorize or capture the transaction. It retrieves the card data and stores it in in-flight mode inside the SDK. When your application is ready with the final amount, your applicaton must initiate a Quick Chip transaction to capture the processed card data. When your application calls the process card method, the following Quick Chip transaction charges the processed card data.
 
     [- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController transactionType:(EMVTransactionType)iEmvTransactionType 
     withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock]
 
-In case merchant application decides not to charge processed card, merchant application must call discard card data method. Any Quick Chip call after process card will charge the processed card, once the SDK charges the processed card card data will be deleted. 
+If your application does not charge the processed card, your application must call discard thr card data method. Any Quick Chip call after process card will charge the processed card, once the SDK charges the processed card card data will be deleted. 
 
     [- (BOOL)discardQuickChipCardDataWithPredeterminedAmount]
 
 ### Configuring the UI
 
-You can configure the UI of the In-Person SDK to match the UI of the merchant application.  The merchant application must initialize these values before using the SDK.  If no values are set or null is set for any of the parameters, the SDK defaults to its original theme.
+You can configure the UI of the In-Person SDK to match the UI of your application.  Your application must initialize these values before using the SDK.  If no values are set or null is set for any of the parameters, the SDK defaults to its original theme.
 
 The merchant application can configure the following UI parameters:
 
