@@ -2,11 +2,12 @@
 
 The Authorize.Net In-Person SDK provides a Semi-Integrated Solution for EMV payment processing. For an overview of the semi-integrated environment and the transaction workflow within that environment, see our [Authorize.Net In-Person SDK Overview](http://developer.authorize.net/api/reference/features/in-person.html). This SDK builds on the Authorize.Net API for transaction processing. For more in-depth information on the Authorize.Net API, see our [API Reference](http://developer.authorize.net/api/reference/). For frequently asked questions, see [the EMV FAQ page](https://www.authorize.net/support/emvfaqs/).
 
-The merchant's application invokes this SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. The merchant's application never touches any EMV data at any point.
+Your application invokes the SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. Your never touches any EMV data at any point.
 
-To determine which processor you use, you can submit an API call to [getMerchantDetailsRequest](https://developer.authorize.net/api/reference/#transaction-reporting-get-merchant-details). The response contains a `processors` object.
 
 ### Supported Encrypted Readers:
+=======
+To determine which processor you use, you can submit an API call to [getMerchantDetailsRequest](https://developer.authorize.net/api/reference/#transaction-reporting-get-merchant-details). The response contains a `processors` object.
 
 [Supported reader devices can be obtained from Authorize.Net POS Portal](https://partner.posportal.com/authorizenet/auth/)
 
@@ -154,27 +155,44 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+    b) `initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+    
+    c) Set the terminal mode, SDK allows AnetEMVModeSwipe or AnetEMVModeInsertOrSwipe. AnetEMVModeInsertOrSwipe accepts CHIP Based transactions as well as Swipe/MSR transaction, AnetEMVModeSwipe accepts only MSR/Swipe transactions. 
+    `- (void)setTerminalMode:(AnetEMVTerminalMode)iTerminalMode;`
+    
+    * AnetEMVModeInsertOrSwipe is selected by default
+    * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
+    
+    d) Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
-    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
+    e) The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.)
 
-    d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
+    f) After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
+    
+    g) Set up bluetooth connecction: this step is needed if application wants to work with Bluetooth connection. 
+        * Set the connection mode of the EMV reader device. EMV reader can be connected to the iOS device either with Audio or Bluetooth connection.
+          `- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;`
+        * Audio connection is selected by default.
+        * Set the BTScanDeviceListBlock(deviceListBlock) and BTDeviceConnected(deviceConnectedBlock) of AnetEMVManager.
+        * Call scanBTDevicesList method of AnetEMVManager. This will search the near by devices and execute the deviceListBlock with the near by devices list. 
+        * Display the list the user.
+        * On user selection, call conncetBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
+        
+        * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
 
-    e)	After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
+    #### Quick Chip Transaction 
 
-    #### Quickchip Transaction 
-
-    API to initiate a Quick Chip transaction. This API will authorize and capture the transaction if the `iPaperReceiptCase` argument is set to false. If `iPaperReceiptCase` argument is set to true then SDK will only authorize the transaction, later on merchant application needs to settle/capture the transaction with/without tip amount. Authorized amount will be released after few days if merchant app fails to settle/capture the transaction.
+This API will authorize and capture the transaction if the `iPaperReceiptCase` argument is set to false. If `iPaperReceiptCase` argument is set to true then SDK will only authorize the transaction. Your application must settle/capture the transaction with/without tip amount. the authorized amount will be released after few days if your application fails to settle/capture the transaction.
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest forPaperReceiptCase:(BOOL)iPaperReceiptCase presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
-    #### Quickchip Transaction with Tip Amount
+   #### Quick Chip Transaction with Tip Amount
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipAmount:(NSString * _Nonnull)iTipAmount presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
-    #### Quickchip Transaction with Tip Options
+   #### Quick Chip Transaction with Tip Options
     
-    This API will display the passed in tips percentages on SDK's signature screen. Merchant application can send three tips percentages options. Tips options must be whole number. SDK will calculate and capture the tip amount based on selected tip option.
+This API will display the tip percentages on the SDK's signature screen. Your application can send three tip percentages options. Tip options must be whole numbers. The SDK will calculate and capture the tip amount based on the selected tip option.
 
     `[- (void)startQuickChipWithTransactionRequest:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest tipOptions:(NSArray * _Nonnull)iTipOptions presentingViewController:(UIViewController * _Nonnull)iPresentingController completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock]`
 
@@ -194,18 +212,18 @@ Refer to _AnetEMVError.h_ for more details. Also, refer to _AnetEMVManager.h_ fo
 
 ### Process Card Data
 
-The SDK's Quick Chip functionality allows merchant application to process the card data even before the final amount is ready. Processing the card does not authorize or capture the transaction; however, it retrieves the card data and stores in inflight mode inside the SDK. When merchant application is ready with the final amount, applicaton must initiate a Quick Chip transaction to capture the processed card data. When merchant application calls the process card method, the following Quick Chip transaction charges the processed card data.
+The SDK's Quick Chip functionality enables your application to process the card data before the final amount is ready. Processing the card does not authorize or capture the transaction. It retrieves the card data and stores it in in-flight mode inside the SDK. When your application is ready with the final amount, your applicaton must initiate a Quick Chip transaction to capture the processed card data. When your application calls the process card method, the following Quick Chip transaction charges the processed card data.
 
     [- (void)readQuickChipCardDataWithPredeterminedAmountOnViewController:(UIViewController * _Nonnull)iViewController transactionType:(EMVTransactionType)iEmvTransactionType 
     withCardInteractionProgressBlock:(CardIntercationProgressBlock _Nonnull)iCardInteractionProgressBlock andCardIntercationCompletionBlock:(CardIntercationCompletionBlock _Nonnull)iCardIntercationCompletionBlock]
 
-In case merchant application decides not to charge processed card, merchant application must call discard card data method. Any Quick Chip call after process card will charge the processed card, once the SDK charges the processed card card data will be deleted. 
+If your application does not charge the processed card, your application must call discard thr card data method. Any Quick Chip call after process card will charge the processed card, once the SDK charges the processed card card data will be deleted. 
 
     [- (BOOL)discardQuickChipCardDataWithPredeterminedAmount]
 
 ### Configuring the UI
 
-You can configure the UI of the In-Person SDK to match the UI of the merchant application.  The merchant application must initialize these values before using the SDK.  If no values are set or null is set for any of the parameters, the SDK defaults to its original theme.
+You can configure the UI of the In-Person SDK to match the UI of your application.  Your application must initialize these values before using the SDK.  If no values are set or null is set for any of the parameters, the SDK defaults to its original theme.
 
 The merchant application can configure the following UI parameters:
 
