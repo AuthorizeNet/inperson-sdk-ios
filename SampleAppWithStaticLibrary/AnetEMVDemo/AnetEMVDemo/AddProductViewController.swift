@@ -14,10 +14,12 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var cardInteraction: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var isTestReader: UISwitch!
-    
+
     var selectedProducts:NSMutableArray = NSMutableArray()
     
-    var emvManager = AnetEMVManager.initWithCurrecyCode("840", terminalID: "", skipSignature: UserDefaults.standard.bool(forKey: "signature"), showReceipt: UserDefaults.standard.bool(forKey: "receipt"))
+    
+
+    var emvManager:AnetEMVManager? = nil
     
     var sessionToken:String? = nil
     var response:AnetEMVTransactionResponse? = nil
@@ -27,19 +29,39 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var amountTextField:UITextField? = nil
     var keyedINAmount:Bool = false
     // View life cycle
-    
+
     override func loadView() {
         super.loadView()
+        var currencyCode = "840" // USD
+        
+        if (Locale.current.currencyCode! == "INR") {
+            currencyCode = "356"
+        } else if (Locale.current.currencyCode! == "EUR") {
+            currencyCode = "978"
+        } else {
+            // choose the correct one as per your supported currency
+        }
+        emvManager = AnetEMVManager.initWithCurrecyCode(currencyCode, terminalID: "", skipSignature: UserDefaults.standard.bool(forKey: "signature"), showReceipt: UserDefaults.standard.bool(forKey: "receipt"))
         self.navigationItem.hidesBackButton = true
         AuthNet.getInstance().delegate = self
-        emvManager.setLoggingEnabled(true)
+        emvManager?.setLoggingEnabled(true)
+        
+        let connectionMode = ((UserDefaults.standard.value(forKey: "connectionMode")!) as! NSString) as String
+        if connectionMode == "BT" {
+            emvManager?.setConnectionMode(.bluetooth)
+        } else {
+            emvManager?.setConnectionMode(.audio)
+        }
         print(AnetEMVManager.anetSDKVersion())
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
     // TableView delegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,11 +71,19 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             aCell?.textLabel?.text = "Last Transaction Status"
             aCell?.detailTextLabel?.text = nil
             return aCell!
+        } else if ((indexPath as NSIndexPath).row == 1) {
+            aCell?.textLabel?.text = "Merchant Details"
+            aCell?.detailTextLabel?.text = nil
+            return aCell!
+        } else if ((indexPath as NSIndexPath).row == 2) {
+            aCell?.textLabel?.text = "Reset SDK"
+            aCell?.detailTextLabel?.text = nil
+            return aCell!
         } else {
-            //            aCell?.textLabel?.text = "Item \((indexPath as NSIndexPath).row)"
-            
+//            aCell?.textLabel?.text = "Item \((indexPath as NSIndexPath).row)"
+
             let beers:NSMutableArray = self.beers()
-            aCell?.textLabel?.text = beers.object(at: (((indexPath as NSIndexPath).row) + 1)) as? String
+            aCell?.textLabel?.text = beers.object(at: (((indexPath as NSIndexPath).row) - 3)) as? String
             aCell?.detailTextLabel?.text = "$\((indexPath as NSIndexPath).row)"
             aCell?.imageView?.image = UIImage(named: "beer.png")
             
@@ -84,12 +114,21 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 12
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ((indexPath as NSIndexPath).row == 0) {
             self.performSegue(withIdentifier: "details", sender: self)
+        } else if ((indexPath as NSIndexPath).row == 1) {
+            let request:GetMerchantDetailsRequest = GetMerchantDetailsRequest()
+            request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
+            request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+            AuthNet.getInstance().delegate = self
+            AuthNet.getInstance().getMerchantDetailsRequest(request)
+        } else if ((indexPath as NSIndexPath).row == 2) {
+            AnetEMVManager.resetEMVManager()
+            self.cardInteraction.text = "No activity in process."
         } else {
             if self.selectedProducts.contains(indexPath) {
                 self.selectedProducts .remove(indexPath)
@@ -98,6 +137,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             self.tableView.reloadData()
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -136,7 +176,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.emvPayment()
         }
         actionSheetController.addAction(qcInBAction)
-        
+
         let emvAction: UIAlertAction = UIAlertAction(title: "Process Card for QuickChip", style: .default) { action -> Void in
             self.quickChipInBackground()
         }
@@ -146,17 +186,17 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.discardPreviousProcessedCard()
         }
         actionSheetController.addAction(discardAction)
-        
+
         let qcAction: UIAlertAction = UIAlertAction(title: "Quick Chip Transaction", style: .default) { action -> Void in
             self.quickChipPayment()
         }
         actionSheetController.addAction(qcAction)
-        
+
         let qcWTAction: UIAlertAction = UIAlertAction(title: "Quick Chip with Tip Amount", style: .default) { action -> Void in
             self.quickChipPaymentWithTipAmount()
         }
         actionSheetController.addAction(qcWTAction)
-        
+
         let qcWTOAction: UIAlertAction = UIAlertAction(title: "Quick Chip with Tip Options", style: .default) { action -> Void in
             self.quickChipPaymentWithTipOptions()
         }
@@ -167,7 +207,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.discardPreviousProcessedCard()
         }
         actionSheetController.addAction(cancelAction)
-        
+
         self.present(actionSheetController, animated: true, completion: nil)
     }
     
@@ -183,27 +223,27 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             (cardProgress : AnetEMVCardInteractionProgress) -> () in
             
             switch cardProgress {
-            case .waitingForCard:
-                self.cardInteraction.text = "Please insert the card"
-                print("waiting for card")
-                break
-            case .processingCard:
-                self.cardInteraction.text = "Processing the card..."
-                print("Processing the card...")
-                break
-            case .doneWithCard:
-                self.cardInteraction.text = "Done with the card."
-                print("Done with the card.")
-                break
-            case .retryInsertOrSwipe:
-                self.cardInteraction.text = "Please retry swipe/insert."
-                break
-            case .swipe:
-                self.cardInteraction.text = "Please swipe."
-                break
-            case .swipeOrTryAnotherCard:
-                self.cardInteraction.text = "Please swipe or try another card."
-                break
+                case .waitingForCard:
+                    self.cardInteraction.text = "Please insert the card"
+                    print("waiting for card")
+                    break
+                case .processingCard:
+                    self.cardInteraction.text = "Processing the card..."
+                    print("Processing the card...")
+                    break
+                case .doneWithCard:
+                    self.cardInteraction.text = "Done with the card."
+                    print("Done with the card.")
+                    break
+                case .retryInsertOrSwipe:
+                    self.cardInteraction.text = "Please retry swipe/insert."
+                    break
+                case .swipe:
+                    self.cardInteraction.text = "Please swipe."
+                    break
+                case .swipeOrTryAnotherCard:
+                    self.cardInteraction.text = "Please swipe or try another card."
+                    break
             }
         }, andCardIntercationCompletionBlock: {
             (isSuccess : Bool, error : AnetEMVError?) -> () in
@@ -241,28 +281,21 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         aRequest.retail.marketType = "2"
         aRequest.retail.deviceType = "7"
         
-        
-        
         if (UserDefaults.standard.value(forKey: "employeeId") != nil) {
             aRequest.employeeId = ((UserDefaults.standard.value(forKey: "employeeId")!) as! NSString) as String
-        }
-        
-        
-        if (UserDefaults.standard.value(forKey: "tableNumber") != nil) {
-            aRequest.tableNumber = ((UserDefaults.standard.value(forKey: "tableNumber")!) as! NSString) as String
         }
         
         if (UserDefaults.standard.value(forKey: "terminalMode") != nil) {
             let terminalMode:String = ((UserDefaults.standard.value(forKey: "terminalMode")!) as! NSString) as String
             
             if (terminalMode == "M") {
-                emvManager.setTerminalMode(.modeSwipe)
+                emvManager?.setTerminalMode(.modeSwipe)
             } else {
-                emvManager.setTerminalMode(.modeInsertOrSwipe)
+                emvManager?.setTerminalMode(.modeInsertOrSwipe)
             }
         }
         
-        
+
         AnetEMVDemoUISettings.sharedInstance().readFromSettingsBundle()
         
         AnetEMVUISettings.shared().backgroundColor = AnetEMVDemoUISettings.sharedInstance().backgroundColor
@@ -298,7 +331,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func quickChipPayment() -> () {
         self.cardInteraction.text = "No activity in process."
-        
+                
         
         AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), forPaperReceiptCase:UserDefaults.standard.bool(forKey: "paperReceipt"), presenting: self, completionBlock: {
             (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
@@ -346,7 +379,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         tipOptions?.add(UserDefaults.standard.value(forKey: "tipOption1")!)
         tipOptions?.add(UserDefaults.standard.value(forKey: "tipOption2")!)
         tipOptions?.add(UserDefaults.standard.value(forKey: "tipOption3")!)
-        
+
         AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), tipOptions: (tipOptions! as NSArray) as! [Any], presenting: self, completionBlock: {
             (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
             
@@ -365,34 +398,99 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func deviceInfo(_ sender: AnyObject) {
+        self.cardInteraction.text = "Getting device info..."
+
         let aBlock:ReaderDeviceInfoBlock = {
             (deviceInfo : [AnyHashable:Any]) -> Void in
             print(deviceInfo)
-            
+            self.cardInteraction.text = "No activit in progress."
+
             let actionSheetController: UIAlertController = UIAlertController(title: "", message: deviceInfo.description, preferredStyle: .alert)
             let yesAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in
             }
             actionSheetController.addAction(yesAction)
-            self.present(actionSheetController, animated: true, completion: nil)
+            self.present(actionSheetController, animated: true, completion: nil)            
         }
         
-        AnetEMVManager.sharedInstance().getAnyWhereReaderInfo(aBlock)
+        AnetEMVManager.sharedInstance().getAnyWhereReaderInfo(aBlock, presenting: self)
     }
     
     @IBAction func mail(_ sender: AnyObject) {
-        let mailController:MFMailComposeViewController = AnetEMVDemoUISettings.mail(to: "", withSubject: "", withBody: "", from: self)
-        self.present(mailController, animated: true, completion: nil)
+        let mailController:MFMailComposeViewController? = AnetEMVDemoUISettings.mail(to: "", withSubject: "", withBody: "", from: self)
+        
+        if (mailController != nil) {
+            self.present(mailController!, animated: true, completion: nil)
+        } else {
+            let dialog = UIAlertController(title: "", message: "Please setup your e-mail account", preferredStyle: UIAlertControllerStyle.alert)
+            let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+            }
+            dialog.addAction(chargeAction)
+            self.present(dialog, animated: true, completion: {
+            })
+        }
     }
     
     @IBAction func OTAUpdate(_ sender: AnyObject) {
-        AnetEMVManager.sharedInstance().startOTAUpdate(fromPresenting: self, isTestReader: self.isTestReader.isOn)
+        let actionSheetController: UIAlertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        
+        let firstAction: UIAlertAction = UIAlertAction(title: "Check for update", style: .cancel) { action -> Void in
+            self.cardInteraction.text = "Checking for OTA updates..."
+            
+            AnetEMVManager.sharedInstance().check(forOTAUpdateIsTestReader: self.isTestReader.isOn, withOTAUpdateStatus: {
+                (iFirmwareUpdate: Bool, iConfigurationUpdate : Bool, iErrorType: AnetOTAErrorCode, iErrorString : String?) -> Void in
+                print("Check for update completed.")
+                self.cardInteraction.text = "No activit in progress."
+
+                let dialog = UIAlertController(title: "Firmware and Config status", message: "Firmware:\(iFirmwareUpdate) Config:\(iConfigurationUpdate) Error:\(iErrorType.rawValue)", preferredStyle: UIAlertControllerStyle.alert)
+                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+                }
+                dialog.addAction(chargeAction)
+                self.present(dialog, animated: true, completion: {
+                })
+            })
+        }
+        actionSheetController.addAction(firstAction)
+        
+        let secondAction: UIAlertAction = UIAlertAction(title: "Update Headless", style: .default) { action -> Void in
+            
+            self.cardInteraction.text = "Updating OTA..."
+
+            AnetEMVManager.sharedInstance().startOTAUpdateIsTestReader(self.isTestReader.isOn, withProgress: {
+                (iProgress : Float, iUpdateType : OTAUpdateType) -> Void in
+                print("Updating progress.")
+                
+                if (iUpdateType == OTAUpdateType.OTAFirmwareUpdate) {
+                    self.cardInteraction.text = "Updating firmware...\(iProgress)%"
+                } else {
+                    self.cardInteraction.text = "Updating configuration...\(iProgress)%"
+                }
+            }, andOTACompletionBlock: {
+                (iUpdateSuccessful: Bool, iErrorType: AnetOTAErrorCode, iErrorString : String?) -> Void in
+                print("Update completed.")
+                self.cardInteraction.text = "No activit in progress."
+
+                let dialog = UIAlertController(title: "Update completed", message: "Status:\(iUpdateSuccessful) Error:\(iErrorType)", preferredStyle: UIAlertControllerStyle.alert)
+                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+                }
+                dialog.addAction(chargeAction)
+                self.present(dialog, animated: true, completion: {
+                })
+            })
+        }
+        actionSheetController.addAction(secondAction)
+        
+        let thirdAction: UIAlertAction = UIAlertAction(title: "Update", style: .default) { action -> Void in
+            AnetEMVManager.sharedInstance().startOTAUpdate(fromPresenting: self, isTestReader: self.isTestReader.isOn)
+        }
+        actionSheetController.addAction(thirdAction)
+        self.present(actionSheetController, animated: true, completion: nil)
         
     }
     
     @IBAction func enteredAmount(_ sender: AnyObject)
     {
         let dialog = UIAlertController(title: "Please enter amount", message: "amount in USD, max 2 decimals", preferredStyle: UIAlertControllerStyle.alert)
-        
+
         
         let chargeAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.default) {(_) in
             self.keyedINAmount = true
@@ -414,7 +512,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // Utility
-    
+
     func totalAmountAndProduct() -> (products:NSMutableArray, totalAmount:Double) {
         
         let productArray:NSMutableArray = NSMutableArray()
@@ -488,5 +586,14 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             return false
         }
         return true
+    }
+    
+    
+    func getMerchantDetailsResponseSucceeded(_ response: GetMerchantDetailsResponse!) {
+        let actionSheetController: UIAlertController = UIAlertController(title: "", message: response.description, preferredStyle: .alert)
+        let yesAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in
+        }
+        actionSheetController.addAction(yesAction)
+        self.present(actionSheetController, animated: true, completion: nil)
     }
 }

@@ -13,7 +13,6 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AnetEMVState.h"
-#import "AuthNet+Addition.h"
 
 @class AnetEMVTransactionResponse;
 
