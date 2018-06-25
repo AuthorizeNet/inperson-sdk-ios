@@ -22,6 +22,11 @@ class ViewController: UIViewController, AuthNetDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         AnetEMVDemoUISettings.sharedInstance().registerDefaultsFromSettingsBundle()
+        //AnetEMVUISettings.shared().signaturePadBackgroundImage = UIImage.init(named: "image2_bg.png")
+        AnetEMVUISettings.shared().signaturePadCornerRadius = 5
+        AnetEMVUISettings.shared().signaturePadBorderWidth  = 5
+        AnetEMVUISettings.shared().signaturePadBorderColor = UIColor.black
+        //AnetEMVUISettings.shared().signatureScreenBackgroundImage = UIImage.init(named: "bg.jpg")
         super.viewWillAppear(true)
     }
 

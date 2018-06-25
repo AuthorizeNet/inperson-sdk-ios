@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "AnetEMVTransactionRequest.h"
 #import <Foundation/Foundation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @class AnetEMVError;
 @class AnetEMVTransactionResponse;
 
+typedef NS_ENUM (NSUInteger, BBDeviceErrorType);
 
 typedef NS_ENUM (NSInteger, ANETEmvErrorCode) {
     ANETEmvTransactionTerminated = 1,
@@ -47,6 +49,7 @@ typedef NS_ENUM (NSInteger, ANETEmvErrorCode) {
     ANETEmvErrorTypeRequestTimedout,
     ANETEmvErrorTypeSessionTimedout,
     AnetEmvErrorDeviceNotResponding,
+    AnetEmvErrorBTSettingsOff,
     ANETEmvErrorCouldNotRetrieveCardData
 };
 
@@ -61,7 +64,16 @@ typedef NS_ENUM(NSInteger, AnetOTAErrorCode) {
     AnetOTANoUpdateRequired,
     AnetOTAInvalidControllerStateError,
     AnetOTAIncompatibleFirmwareHex,
-    AnetOTAConfigHex
+    AnetOTAConfigHex,
+    AnetOTAErrorInvalidInputs,
+    AnetOTAErrorCommError,
+    AnetOTAErrorDeviceBusy,
+    AnetOTAErrorCommLinkUninitialized,
+    AnetOTAErrorBTv4NotSupported,
+    AnetOTAErrorFailedToStart,
+    AnetOTAErrorIllegalException,
+    AnetOTABTSettingsOff,
+    AnetOTAErrorAlreadyConnected
 };
 
 typedef NS_ENUM (NSInteger, AnetEMVCardInteractionProgress) {
@@ -98,6 +110,21 @@ typedef NS_ENUM (NSInteger, OTAUpdateType) {
     OTAConfigUpdate
 };
 
+typedef NS_ENUM(NSInteger, AnetBTDeviceStatusCode) {
+    AnetBTDeviceNoError = 0,
+    AnetBTDeviceConnected,
+    AnetBTDeviceDisconnected,
+    AnetBTDeviceConnectionTimeout,
+    AnetBTDeviceAlreadyConnectedError,
+    AnetBTDeviceFailToStart,
+    AnetBTDeviceIllegalStateException,
+    AnetBTDeviceScanStarted,
+    AnetBTDeviceScanStopped,
+    AnetBTDeviceScanSuccess,
+    AnetBTDeviceScanTimeout,
+    AnetBluetoothSettingsOff,
+    AnetBTDeviceGenericError
+};
 
 
 
@@ -153,19 +180,17 @@ typedef void (^OTAUpdateProgressBlock)(float iPercentage, OTAUpdateType iUpdateT
 /**
  The completion handler, it will be invoked with device info
  */
-typedef void (^BTScanDeviceListBlock)(NSArray * _Nullable iBTDeviceList);
+typedef void (^BTScanDeviceListBlock)(NSArray * _Nullable iBTDeviceList, AnetBTDeviceStatusCode status);
 
 /**
  The completion handler, it will be invoked with device info
  */
-typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nullable iDeviceName);
+typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nullable iDeviceName, AnetBTDeviceStatusCode status);
 
 
 
 
 @interface AnetEMVManager : NSObject
-
-    
     
     //-----------------------------PROPERTIES-----------------------------//
 @property (nonatomic, copy) BTScanDeviceListBlock _Nullable deviceListBlock;
@@ -211,7 +236,7 @@ typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nulla
 
 /**
  * Method for Auto Dismiss Confirmation, In case user doesn't take action when transaction gets completed
- * @param iAutoDismissConfirmation 
+ * @param iAutoDismissConfirmation
  */
 - (void)setAutoDismissConfirmation:(BOOL)iAutoDismissConfirmation;
     
@@ -222,12 +247,51 @@ typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nulla
     Application can call this method to refresh the list. BTScanDeviceListBlock will be executed with the new list
  */
 - (void)scanBTDevicesList;
-    
+
+/**
+ * Method for refrshing/discovering the specified nearby bluetooth devices
+ * @param namesArray Array of device names to scan
+    Application can call this method to refresh the list. BTScanDeviceListBlock will be executed with the new list
+ */
+- (void)scanBTDevicesWithNamesArray:(NSArray * _Nonnull)namesArray;
+
+/**
+ * Method for stop scanning for bluetooth devices
+ */
+- (void)stopScanBTDevices;
+
+/**
+ * Method for stop scanning for bluetooth devices and disconnect any connected bluetooth device
+ */
+- (void)stopScanAndDisconnetBTDevices;
+
+/**
+ * Method for disconnecting any connected bluetooth device
+ */
+- (void)disconnetBTDevices;
+
+/**
+ * Method for reseting BT handlers
+ */
+- (void)resetBTHandlers;
+
 /**
  * Method for connecting to the preferred BT device.
  * @param iIndex Index of the preferred BT device from the BTDevicesList, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
  */
 - (void)conncetBTDeviceAtIndex:(NSInteger)iIndex;
+
+/**
+ * Method for connecting to the preferred BT device.
+ * @param peripheralData BT device data to connect, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
+ */
+- (void)conncetBTDeviceWithPeripheralData:(CBPeripheral * _Nonnull)peripheralData;
+
+/**
+ * Method for connecting to the preferred BT device.
+ * @param deviceName BT device name to connect, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
+ */
+- (void)conncetBTDeviceWithName:(NSString * _Nonnull)deviceName;
 
     //-----------------------------INITIALIZATION-----------------------------//
 /**
