@@ -45,4 +45,30 @@
  */
 @property (nonatomic, strong) UIColor *bannerBackgroundColor;
 
+/*!
+ signature screen background image
+ */
+@property (nonatomic, strong) UIImage *signatureScreenBackgroundImage;
+
+/*!
+ signature pad background image
+ */
+@property (nonatomic, strong) UIImage *signaturePadBackgroundImage;
+
+/*!
+ signature pad border color
+ */
+@property (nonatomic, strong) UIColor *signaturePadBorderColor;
+
+/*!
+ signature pad border width
+ */
+@property (nonatomic, assign) CGFloat signaturePadBorderWidth;
+
+/*!
+ signature pad corner radius
+ */
+@property (nonatomic, assign) CGFloat signaturePadCornerRadius;
+
+
 @end

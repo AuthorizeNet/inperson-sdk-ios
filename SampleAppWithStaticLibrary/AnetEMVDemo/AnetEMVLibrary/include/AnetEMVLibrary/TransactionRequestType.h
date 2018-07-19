@@ -42,8 +42,7 @@
     NSString *employeeId;
     NSMutableArray *transactionSettings;
     NSMutableArray *userFields;
-    NSString *tipAmount;
-    NSString *tableNumber;
+    ExtendedAmountType *tip;
 }
 
 
@@ -70,8 +69,7 @@
 @property (nonatomic, strong) NSString *employeeId;
 @property (nonatomic, strong) NSMutableArray *transactionSettings;
 @property (nonatomic, strong) NSMutableArray *userFields;
-@property (nonatomic, strong) NSString *tipAmount;
-@property (nonatomic, strong) NSString *tableNumber;
+@property (nonatomic, strong) ExtendedAmountType *tip;
 
 /**
  * Creates an autoreleased  object
