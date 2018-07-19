@@ -36,7 +36,7 @@
     
     if (!settingsBundle) {
         return;
-    }   
+    }
     
     NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent: @"Root.plist"]];
     NSArray *preferences = [settings valueForKey: @"PreferenceSpecifiers"];
@@ -72,7 +72,7 @@
     NSString *udButtonColor = [[NSUserDefaults standardUserDefaults] valueForKey:@"button_background_color_preference"];
     NSString *udButtonTextColor = [[NSUserDefaults standardUserDefaults] valueForKey:@"button_font_color_preference"];
     NSString *udBackgroundImage = [[NSUserDefaults standardUserDefaults] valueForKey:@"background_image_preference"];
-
+    
     SEL selector = NULL;
     
     if (![udBackgroundColor isEqualToString:@"none"] && udBackgroundColor != NULL) {
@@ -98,7 +98,7 @@
         selector = NSSelectorFromString(udButtonColor);
         self.buttonColor = [UIColor performSelector:selector withObject:nil];
     }
-
+    
     if (![udButtonTextColor isEqualToString:@"none"] && udButtonTextColor != NULL) {
         selector = NSSelectorFromString(udButtonTextColor);
         self.buttonTextColor = [UIColor performSelector:selector withObject:nil];
@@ -115,26 +115,22 @@
 }
 
 + (MFMailComposeViewController *)mailTo:(NSString *)iEmail withSubject:(NSString *)iSubject withBody:(NSString *) iBody fromController:(UIViewController *)iController {
+    //put email info here:
+    NSString *subject = @"EMV SDK LOGS";
+    NSString *body = @"EMV TRANSACTION LOGS";
     
-    if ([MFMailComposeViewController canSendMail]) {
-        //put email info here:
-        NSString *subject = @"EMV SDK LOGS";
-        NSString *body = @"EMV TRANSACTION LOGS";
-        
-        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-        mc.mailComposeDelegate = iController;
-        [mc setSubject:subject];
-        [mc setMessageBody:body isHTML:NO];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *path = [documentsDirectory stringByAppendingPathComponent:@"EMV_SDK_Logs.txt"];
-        
-        NSData *fileData = [NSData dataWithContentsOfFile:path];
-        [mc addAttachmentData:fileData mimeType:@"text/plain" fileName:@"EMV_SDK_Logs.txt"];
-        return mc;
-    } else {
-        return nil;
-    }
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = iController;
+    [mc setSubject:subject];
+    [mc setMessageBody:body isHTML:NO];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"EMV_SDK_Logs.txt"];
+    
+    NSData *fileData = [NSData dataWithContentsOfFile:path];
+    [mc addAttachmentData:fileData mimeType:@"text/plain" fileName:@"EMV_SDK_Logs.txt"];
+    return mc;
+    
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(nullable NSError *)error {

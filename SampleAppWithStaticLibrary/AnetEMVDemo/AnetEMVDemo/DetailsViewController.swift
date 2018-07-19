@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailsViewController: UIViewController, AuthNetDelegate {
-
+    
     @IBOutlet weak var settleButton: UIButton!
     @IBOutlet weak var action: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -23,7 +23,7 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.indicator.startAnimating()
-
+        
         let request:GetTransactionDetailsRequest = GetTransactionDetailsRequest()
         request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
         request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         AuthNet.getInstance().delegate = self
         AuthNet.getInstance().getTransactionDetailsRequest(request)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,15 +44,9 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         transactionRequest.refTransId = self.response.transactionDetails.transId
         transactionRequest.payment = nil
         transactionRequest.employeeId = ((UserDefaults.standard.value(forKey: "employeeId")!) as! NSString) as String
+        transactionRequest.tableNumber = ((UserDefaults.standard.value(forKey: "tableNumber")!) as! NSString) as String
+        transactionRequest.tipAmount = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
         
-        let tipValue:String? = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
-        
-        if (tipValue != nil) {
-            let tip = ExtendedAmountType()
-            tip.amount = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
-            transactionRequest.tip = tip
-        }
-
         let request = CreateTransactionRequest()
         request.transactionRequest = transactionRequest
         request.transactionType = PRIOR_AUTH_CAPTURE
@@ -76,7 +70,7 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         } else {
             request.transactionRequest.payment = nil
         }
-
+        
         AuthNet.getInstance().delegate = self
         AuthNet.getInstance().void(with: request)
     }
@@ -149,5 +143,5 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
             
         })
     }
-
+    
 }

@@ -52,7 +52,8 @@ typedef NS_ENUM (NSInteger, EMVTransactionType) {
     NSString *employeeId;
     NSMutableArray *transactionSettings;
     NSMutableArray *userFields;
-    ExtendedAmountType *tip;
+    NSString *tipAmount;
+    NSString *tableNumber;
 }
 
 @property (nonatomic, assign) EMVTransactionType emvTransactionType;
@@ -78,7 +79,8 @@ typedef NS_ENUM (NSInteger, EMVTransactionType) {
 @property (nonatomic, strong) NSString *employeeId;
 @property (nonatomic, strong) NSMutableArray *transactionSettings;
 @property (nonatomic, strong) NSMutableArray *userFields;
-@property (nonatomic, strong) ExtendedAmountType *tip;
+@property (nonatomic, strong) NSString *tipAmount;
+@property (nonatomic, strong) NSString *tableNumber;
 
 
 /**
