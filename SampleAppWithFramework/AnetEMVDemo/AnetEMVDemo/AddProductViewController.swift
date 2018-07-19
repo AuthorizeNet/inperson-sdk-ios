@@ -398,21 +398,52 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func deviceInfo(_ sender: AnyObject) {
-        self.cardInteraction.text = "Getting device info..."
-
-        let aBlock:ReaderDeviceInfoBlock = {
-            (deviceInfo : [AnyHashable:Any]) -> Void in
-            print(deviceInfo)
-            self.cardInteraction.text = "No activit in progress."
-
-            let actionSheetController: UIAlertController = UIAlertController(title: "", message: deviceInfo.description, preferredStyle: .alert)
-            let yesAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in
-            }
-            actionSheetController.addAction(yesAction)
-            self.present(actionSheetController, animated: true, completion: nil)            
-        }
         
-        AnetEMVManager.sharedInstance().getAnyWhereReaderInfo(aBlock, presenting: self)
+        let actionSheetController: UIAlertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        
+        let firstAction: UIAlertAction = UIAlertAction(title: "Scan neay by devices", style: .cancel) { action -> Void in
+            AnetEMVManager.sharedInstance().setConnectionMode(.bluetooth)
+            
+            AnetEMVManager.sharedInstance().deviceListBlock = {
+                (deviceInfo : Any?) -> () in
+                
+                if let list = deviceInfo as? NSArray {
+                    
+                    for value in list {
+                        let object:AnetBTObject = value as! AnetBTObject
+                        print(object.name)
+                    }
+                }
+            }
+            AnetEMVManager.sharedInstance().scanBTDevicesList();
+        }
+        actionSheetController.addAction(firstAction)
+        
+        let secondAction: UIAlertAction = UIAlertAction(title: "Device Info", style: .default) { action -> Void in
+            
+            self.cardInteraction.text = "Getting device info..."
+            
+            let aBlock:ReaderDeviceInfoBlock = {
+                (deviceInfo : [AnyHashable:Any]) -> Void in
+                print(deviceInfo)
+                self.cardInteraction.text = "No activit in progress."
+                
+                let actionSheetController: UIAlertController = UIAlertController(title: "", message: deviceInfo.description, preferredStyle: .alert)
+                let yesAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in
+                }
+                actionSheetController.addAction(yesAction)
+                self.present(actionSheetController, animated: true, completion: nil)
+            }
+            
+            AnetEMVManager.sharedInstance().getAnyWhereReaderInfo(aBlock, presenting: self)
+        }
+        actionSheetController.addAction(secondAction)
+        
+        let thirdAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .destructive) { action -> Void in
+        }
+        actionSheetController.addAction(thirdAction)
+        
+        self.present(actionSheetController, animated: true, completion: nil)
     }
     
     @IBAction func mail(_ sender: AnyObject) {
@@ -483,8 +514,13 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             AnetEMVManager.sharedInstance().startOTAUpdate(fromPresenting: self, isTestReader: self.isTestReader.isOn)
         }
         actionSheetController.addAction(thirdAction)
-        self.present(actionSheetController, animated: true, completion: nil)
         
+        
+        let fourthAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .destructive) { action -> Void in
+        }
+        actionSheetController.addAction(fourthAction)
+        
+        self.present(actionSheetController, animated: true, completion: nil)
     }
     
     @IBAction func enteredAmount(_ sender: AnyObject)
