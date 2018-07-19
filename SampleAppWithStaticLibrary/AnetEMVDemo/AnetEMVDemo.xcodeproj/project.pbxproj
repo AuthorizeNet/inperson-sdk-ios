@@ -101,6 +101,8 @@
 		4155B2B21D8B651700ED634D /* TransactionSummaryType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2591D8B651700ED634D /* TransactionSummaryType.h */; };
 		4155B2B31D8B651700ED634D /* TransRetailInfoType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B25A1D8B651700ED634D /* TransRetailInfoType.h */; };
 		4155B2B41D8B651700ED634D /* UserField.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B25B1D8B651700ED634D /* UserField.h */; };
+		4155B2B51D8B651700ED634D /* AnetEMVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4155B25C1D8B651700ED634D /* AnetEMVStoryboard.storyboard */; };
+		4155B2B61D8B651700ED634D /* eject.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4155B25D1D8B651700ED634D /* eject.mp3 */; };
 		4155B2B71D8B651700ED634D /* libAnetEMVLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B25E1D8B651700ED634D /* libAnetEMVLibrary.a */; };
 		4155B2C21D8B6BD900ED634D /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B2C11D8B6BD900ED634D /* libstdc++.6.0.9.tbd */; };
 		4155B3641D8B75C800ED634D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */; };
@@ -115,8 +117,6 @@
 		4194588C1BE0292F00B9C8EA /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4194588B1BE0292F00B9C8EA /* libxml2.2.tbd */; };
 		41B722761C85187300A02C3A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B722751C85187300A02C3A /* DetailsViewController.swift */; };
 		41E6E0951BE16EFA00CFC79D /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */; };
-		A093912820D76C65000390F6 /* AnetEMVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A093912620D76C65000390F6 /* AnetEMVStoryboard.storyboard */; };
-		A093912920D76C65000390F6 /* eject.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A093912720D76C65000390F6 /* eject.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +236,8 @@
 		4155B2591D8B651700ED634D /* TransactionSummaryType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionSummaryType.h; sourceTree = "<group>"; };
 		4155B25A1D8B651700ED634D /* TransRetailInfoType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransRetailInfoType.h; sourceTree = "<group>"; };
 		4155B25B1D8B651700ED634D /* UserField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserField.h; sourceTree = "<group>"; };
+		4155B25C1D8B651700ED634D /* AnetEMVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnetEMVStoryboard.storyboard; sourceTree = "<group>"; };
+		4155B25D1D8B651700ED634D /* eject.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eject.mp3; sourceTree = "<group>"; };
 		4155B25E1D8B651700ED634D /* libAnetEMVLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAnetEMVLibrary.a; sourceTree = "<group>"; };
 		4155B2B91D8B6B1900ED634D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4155B2BB1D8B6BAA00ED634D /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
@@ -259,8 +261,6 @@
 		41B722751C85187300A02C3A /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		41E1210F1D87629D0047B9DB /* AnetEMVDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnetEMVDemo.entitlements; sourceTree = "<group>"; };
 		41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
-		A093912620D76C65000390F6 /* AnetEMVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnetEMVStoryboard.storyboard; sourceTree = "<group>"; };
-		A093912720D76C65000390F6 /* eject.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eject.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,8 +290,6 @@
 			children = (
 				4155B2041D8B651700ED634D /* include */,
 				4155B25E1D8B651700ED634D /* libAnetEMVLibrary.a */,
-				A093912620D76C65000390F6 /* AnetEMVStoryboard.storyboard */,
-				A093912720D76C65000390F6 /* eject.mp3 */,
 			);
 			path = AnetEMVLibrary;
 			sourceTree = "<group>";
@@ -300,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				4155B2051D8B651700ED634D /* AnetEMVLibrary */,
+				4155B25C1D8B651700ED634D /* AnetEMVStoryboard.storyboard */,
+				4155B25D1D8B651700ED634D /* eject.mp3 */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -660,10 +660,10 @@
 				411EEC781D7A0DEA006B766A /* bg.jpg in Resources */,
 				4108BD1C1D9AED040009125F /* image1_bg.png in Resources */,
 				4108BD1D1D9AED040009125F /* image2_bg.png in Resources */,
-				A093912820D76C65000390F6 /* AnetEMVStoryboard.storyboard in Resources */,
-				A093912920D76C65000390F6 /* eject.mp3 in Resources */,
 				4194586C1BE0200800B9C8EA /* LaunchScreen.storyboard in Resources */,
 				419458691BE0200800B9C8EA /* Assets.xcassets in Resources */,
+				4155B2B51D8B651700ED634D /* AnetEMVStoryboard.storyboard in Resources */,
+				4155B2B61D8B651700ED634D /* eject.mp3 in Resources */,
 				41062F241D4937BC003D5AA6 /* logo.png in Resources */,
 				419458821BE0250300B9C8EA /* Fingerprint.png in Resources */,
 				419458641BE0200800B9C8EA /* Main.storyboard in Resources */,
