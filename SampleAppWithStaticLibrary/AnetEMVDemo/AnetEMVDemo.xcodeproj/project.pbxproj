@@ -15,95 +15,6 @@
 		411EEC781D7A0DEA006B766A /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 411EEC771D7A0DEA006B766A /* bg.jpg */; };
 		4155AFDD1D8B4F3F00ED634D /* AnetEMVDemoUISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 41062F201D49356F003D5AA6 /* AnetEMVDemoUISettings.h */; };
 		4155AFDE1D8B4F3F00ED634D /* AnetEMVDemo-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 419458871BE027E900B9C8EA /* AnetEMVDemo-Bridging-Header.h */; };
-		4155B25F1D8B651700ED634D /* ANetApiRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2061D8B651700ED634D /* ANetApiRequest.h */; };
-		4155B2601D8B651700ED634D /* ANetApiResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2071D8B651700ED634D /* ANetApiResponse.h */; };
-		4155B2611D8B651700ED634D /* AnetEMVError.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2081D8B651700ED634D /* AnetEMVError.h */; };
-		4155B2621D8B651700ED634D /* AnetEMVLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2091D8B651700ED634D /* AnetEMVLibrary.h */; };
-		4155B2631D8B651700ED634D /* AnetEMVManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B20A1D8B651700ED634D /* AnetEMVManager.h */; };
-		4155B2641D8B651700ED634D /* AnetEMVResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B20B1D8B651700ED634D /* AnetEMVResponse.h */; };
-		4155B2651D8B651700ED634D /* AnetEMVTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B20C1D8B651700ED634D /* AnetEMVTag.h */; };
-		4155B2661D8B651700ED634D /* AnetEMVTransactionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B20D1D8B651700ED634D /* AnetEMVTransactionRequest.h */; };
-		4155B2671D8B651700ED634D /* AnetEMVTransactionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B20E1D8B651700ED634D /* AnetEMVTransactionResponse.h */; };
-		4155B2681D8B651700ED634D /* AnetEMVUISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B20F1D8B651700ED634D /* AnetEMVUISettings.h */; };
-		4155B2691D8B651700ED634D /* ANetSolution.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2101D8B651700ED634D /* ANetSolution.h */; };
-		4155B26A1D8B651700ED634D /* AnetViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2111D8B651700ED634D /* AnetViewController.h */; };
-		4155B26B1D8B651700ED634D /* AuthNet.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2121D8B651700ED634D /* AuthNet.h */; };
-		4155B26C1D8B651700ED634D /* AuthNetMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2131D8B651700ED634D /* AuthNetMessage.h */; };
-		4155B26D1D8B651700ED634D /* AuthNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2141D8B651700ED634D /* AuthNetRequest.h */; };
-		4155B26E1D8B651700ED634D /* AuthNetResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2151D8B651700ED634D /* AuthNetResponse.h */; };
-		4155B26F1D8B651700ED634D /* BankAccountMaskedType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2161D8B651700ED634D /* BankAccountMaskedType.h */; };
-		4155B2701D8B651700ED634D /* BankAccountType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2171D8B651700ED634D /* BankAccountType.h */; };
-		4155B2711D8B651700ED634D /* BatchDetailsType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2181D8B651700ED634D /* BatchDetailsType.h */; };
-		4155B2721D8B651700ED634D /* BatchStatisticType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2191D8B651700ED634D /* BatchStatisticType.h */; };
-		4155B2731D8B651700ED634D /* CCAuthenticationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B21A1D8B651700ED634D /* CCAuthenticationType.h */; };
-		4155B2741D8B651700ED634D /* CreateTransactionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B21B1D8B651700ED634D /* CreateTransactionRequest.h */; };
-		4155B2751D8B651700ED634D /* CreateTransactionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B21C1D8B651700ED634D /* CreateTransactionResponse.h */; };
-		4155B2761D8B651700ED634D /* CreditCardMaskedType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B21D1D8B651700ED634D /* CreditCardMaskedType.h */; };
-		4155B2771D8B651700ED634D /* CreditCardTrackType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B21E1D8B651700ED634D /* CreditCardTrackType.h */; };
-		4155B2781D8B651700ED634D /* CreditCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B21F1D8B651700ED634D /* CreditCardType.h */; };
-		4155B2791D8B651700ED634D /* CustomerAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2201D8B651700ED634D /* CustomerAddressType.h */; };
-		4155B27A1D8B651700ED634D /* CustomerDataType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2211D8B651700ED634D /* CustomerDataType.h */; };
-		4155B27B1D8B651700ED634D /* EmvSwipeController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2221D8B651700ED634D /* EmvSwipeController.h */; };
-		4155B27C1D8B651700ED634D /* Error.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2231D8B651700ED634D /* Error.h */; };
-		4155B27D1D8B651700ED634D /* ExtendedAmountType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2241D8B651700ED634D /* ExtendedAmountType.h */; };
-		4155B27E1D8B651700ED634D /* FDSFilterType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2251D8B651700ED634D /* FDSFilterType.h */; };
-		4155B27F1D8B651700ED634D /* FingerPrintObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2261D8B651700ED634D /* FingerPrintObjectType.h */; };
-		4155B2801D8B651700ED634D /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2271D8B651700ED634D /* GDataXMLNode.h */; };
-		4155B2811D8B651700ED634D /* GetBatchStatisticsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2281D8B651700ED634D /* GetBatchStatisticsRequest.h */; };
-		4155B2821D8B651700ED634D /* GetBatchStatisticsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2291D8B651700ED634D /* GetBatchStatisticsResponse.h */; };
-		4155B2831D8B651700ED634D /* GetSettledBatchListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B22A1D8B651700ED634D /* GetSettledBatchListRequest.h */; };
-		4155B2841D8B651700ED634D /* GetSettledBatchListResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B22B1D8B651700ED634D /* GetSettledBatchListResponse.h */; };
-		4155B2851D8B651700ED634D /* GetTransactionDetailsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B22C1D8B651700ED634D /* GetTransactionDetailsRequest.h */; };
-		4155B2861D8B651700ED634D /* GetTransactionDetailsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B22D1D8B651700ED634D /* GetTransactionDetailsResponse.h */; };
-		4155B2871D8B651700ED634D /* GetTransactionListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B22E1D8B651700ED634D /* GetTransactionListRequest.h */; };
-		4155B2881D8B651700ED634D /* GetTransactionListResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B22F1D8B651700ED634D /* GetTransactionListResponse.h */; };
-		4155B2891D8B651700ED634D /* GetUnsettledTransactionListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2301D8B651700ED634D /* GetUnsettledTransactionListRequest.h */; };
-		4155B28A1D8B651700ED634D /* GetUnsettledTransactionListResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2311D8B651700ED634D /* GetUnsettledTransactionListResponse.h */; };
-		4155B28B1D8B651700ED634D /* LineItemType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2321D8B651700ED634D /* LineItemType.h */; };
-		4155B28C1D8B651700ED634D /* LogoutRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2331D8B651700ED634D /* LogoutRequest.h */; };
-		4155B28D1D8B651700ED634D /* LogoutResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2341D8B651700ED634D /* LogoutResponse.h */; };
-		4155B28E1D8B651700ED634D /* MerchantAccountType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2351D8B651700ED634D /* MerchantAccountType.h */; };
-		4155B28F1D8B651700ED634D /* MerchantAuthenticationType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2361D8B651700ED634D /* MerchantAuthenticationType.h */; };
-		4155B2901D8B651700ED634D /* MerchantContactType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2371D8B651700ED634D /* MerchantContactType.h */; };
-		4155B2911D8B651700ED634D /* Messages.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2381D8B651700ED634D /* Messages.h */; };
-		4155B2921D8B651700ED634D /* MobileDeviceLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2391D8B651700ED634D /* MobileDeviceLoginRequest.h */; };
-		4155B2931D8B651700ED634D /* MobileDeviceLoginResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B23A1D8B651700ED634D /* MobileDeviceLoginResponse.h */; };
-		4155B2941D8B651700ED634D /* MobileDeviceRegistrationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B23B1D8B651700ED634D /* MobileDeviceRegistrationRequest.h */; };
-		4155B2951D8B651700ED634D /* MobileDeviceRegistrationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B23C1D8B651700ED634D /* MobileDeviceRegistrationResponse.h */; };
-		4155B2961D8B651700ED634D /* MobileDeviceType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B23D1D8B651700ED634D /* MobileDeviceType.h */; };
-		4155B2971D8B651700ED634D /* NameAndAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B23E1D8B651700ED634D /* NameAndAddressType.h */; };
-		4155B2981D8B651700ED634D /* NSArray+PerformSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B23F1D8B651700ED634D /* NSArray+PerformSelector.h */; };
-		4155B2991D8B651700ED634D /* NSString+dataFromFilename.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2401D8B651700ED634D /* NSString+dataFromFilename.h */; };
-		4155B29A1D8B651700ED634D /* NSString+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2411D8B651700ED634D /* NSString+Hex.h */; };
-		4155B29B1D8B651700ED634D /* NSString+stringForRFC3339DateTimeString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2421D8B651700ED634D /* NSString+stringForRFC3339DateTimeString.h */; };
-		4155B29C1D8B651700ED634D /* NSString+stringValueOfXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2431D8B651700ED634D /* NSString+stringValueOfXMLElement.h */; };
-		4155B29D1D8B651700ED634D /* NSString+stringWithEscapedXMLValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2441D8B651700ED634D /* NSString+stringWithEscapedXMLValue.h */; };
-		4155B29E1D8B651700ED634D /* NSString+stringWithXMLTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2451D8B651700ED634D /* NSString+stringWithXMLTag.h */; };
-		4155B29F1D8B651700ED634D /* OpaqueDataType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2461D8B651700ED634D /* OpaqueDataType.h */; };
-		4155B2A01D8B651700ED634D /* OrderExType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2471D8B651700ED634D /* OrderExType.h */; };
-		4155B2A11D8B651700ED634D /* OrderType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2481D8B651700ED634D /* OrderType.h */; };
-		4155B2A21D8B651700ED634D /* PaymentMaskedType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2491D8B651700ED634D /* PaymentMaskedType.h */; };
-		4155B2A31D8B651700ED634D /* PaymentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B24A1D8B651700ED634D /* PaymentType.h */; };
-		4155B2A41D8B651700ED634D /* PermissionType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B24B1D8B651700ED634D /* PermissionType.h */; };
-		4155B2A51D8B651700ED634D /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B24C1D8B651700ED634D /* Reachability.h */; };
-		4155B2A61D8B651700ED634D /* SendCustomerTransactionReceiptRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B24D1D8B651700ED634D /* SendCustomerTransactionReceiptRequest.h */; };
-		4155B2A71D8B651700ED634D /* SendCustomerTransactionReceiptResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B24E1D8B651700ED634D /* SendCustomerTransactionReceiptResponse.h */; };
-		4155B2A81D8B651700ED634D /* SettingType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B24F1D8B651700ED634D /* SettingType.h */; };
-		4155B2A91D8B651700ED634D /* SplitTenderPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2501D8B651700ED634D /* SplitTenderPayment.h */; };
-		4155B2AA1D8B651700ED634D /* SwiperDataType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2511D8B651700ED634D /* SwiperDataType.h */; };
-		4155B2AB1D8B651700ED634D /* TestAccountCaptchaRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2521D8B651700ED634D /* TestAccountCaptchaRequest.h */; };
-		4155B2AC1D8B651700ED634D /* TestAccountCaptchaResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2531D8B651700ED634D /* TestAccountCaptchaResponse.h */; };
-		4155B2AD1D8B651700ED634D /* TestAccountRegistrationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2541D8B651700ED634D /* TestAccountRegistrationRequest.h */; };
-		4155B2AE1D8B651700ED634D /* TestAccountRegistrationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2551D8B651700ED634D /* TestAccountRegistrationResponse.h */; };
-		4155B2AF1D8B651700ED634D /* TransactionDetailsType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2561D8B651700ED634D /* TransactionDetailsType.h */; };
-		4155B2B01D8B651700ED634D /* TransactionRequestType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2571D8B651700ED634D /* TransactionRequestType.h */; };
-		4155B2B11D8B651700ED634D /* TransactionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2581D8B651700ED634D /* TransactionResponse.h */; };
-		4155B2B21D8B651700ED634D /* TransactionSummaryType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B2591D8B651700ED634D /* TransactionSummaryType.h */; };
-		4155B2B31D8B651700ED634D /* TransRetailInfoType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B25A1D8B651700ED634D /* TransRetailInfoType.h */; };
-		4155B2B41D8B651700ED634D /* UserField.h in Headers */ = {isa = PBXBuildFile; fileRef = 4155B25B1D8B651700ED634D /* UserField.h */; };
-		4155B2B51D8B651700ED634D /* AnetEMVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4155B25C1D8B651700ED634D /* AnetEMVStoryboard.storyboard */; };
-		4155B2B61D8B651700ED634D /* eject.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4155B25D1D8B651700ED634D /* eject.mp3 */; };
-		4155B2B71D8B651700ED634D /* libAnetEMVLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B25E1D8B651700ED634D /* libAnetEMVLibrary.a */; };
 		4155B2C21D8B6BD900ED634D /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B2C11D8B6BD900ED634D /* libstdc++.6.0.9.tbd */; };
 		4155B3641D8B75C800ED634D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */; };
 		4194585F1BE0200800B9C8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194585E1BE0200800B9C8EA /* AppDelegate.swift */; };
@@ -117,6 +28,103 @@
 		4194588C1BE0292F00B9C8EA /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4194588B1BE0292F00B9C8EA /* libxml2.2.tbd */; };
 		41B722761C85187300A02C3A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B722751C85187300A02C3A /* DetailsViewController.swift */; };
 		41E6E0951BE16EFA00CFC79D /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */; };
+		A03F0CC720ADD9C700323FA4 /* eject.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A03F0CC520ADD9C700323FA4 /* eject.mp3 */; };
+		A03F0CC820ADD9C700323FA4 /* AnetEMVStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A03F0CC620ADD9C700323FA4 /* AnetEMVStoryboard.storyboard */; };
+		A03F0DF120ADEA6100323FA4 /* ANetApiRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9220ADEA6100323FA4 /* ANetApiRequest.h */; };
+		A03F0DF220ADEA6100323FA4 /* ANetApiResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9320ADEA6100323FA4 /* ANetApiResponse.h */; };
+		A03F0DF320ADEA6100323FA4 /* AnetBTObject.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9420ADEA6100323FA4 /* AnetBTObject.h */; };
+		A03F0DF420ADEA6100323FA4 /* AnetEMVError.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9520ADEA6100323FA4 /* AnetEMVError.h */; };
+		A03F0DF520ADEA6100323FA4 /* AnetEMVLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9620ADEA6100323FA4 /* AnetEMVLibrary.h */; };
+		A03F0DF620ADEA6100323FA4 /* AnetEMVManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9720ADEA6100323FA4 /* AnetEMVManager.h */; };
+		A03F0DF720ADEA6100323FA4 /* AnetEMVResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9820ADEA6100323FA4 /* AnetEMVResponse.h */; };
+		A03F0DF820ADEA6100323FA4 /* AnetEMVTag.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9920ADEA6100323FA4 /* AnetEMVTag.h */; };
+		A03F0DF920ADEA6100323FA4 /* AnetEMVTransactionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9A20ADEA6100323FA4 /* AnetEMVTransactionRequest.h */; };
+		A03F0DFA20ADEA6100323FA4 /* AnetEMVTransactionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9B20ADEA6100323FA4 /* AnetEMVTransactionResponse.h */; };
+		A03F0DFB20ADEA6100323FA4 /* AnetEMVUISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9C20ADEA6100323FA4 /* AnetEMVUISettings.h */; };
+		A03F0DFC20ADEA6100323FA4 /* ANetSolution.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9D20ADEA6100323FA4 /* ANetSolution.h */; };
+		A03F0DFD20ADEA6100323FA4 /* AnetViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9E20ADEA6100323FA4 /* AnetViewController.h */; };
+		A03F0DFE20ADEA6100323FA4 /* AuthNet.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0D9F20ADEA6100323FA4 /* AuthNet.h */; };
+		A03F0DFF20ADEA6100323FA4 /* AuthNetMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA020ADEA6100323FA4 /* AuthNetMessage.h */; };
+		A03F0E0020ADEA6100323FA4 /* AuthNetRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA120ADEA6100323FA4 /* AuthNetRequest.h */; };
+		A03F0E0120ADEA6100323FA4 /* AuthNetResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA220ADEA6100323FA4 /* AuthNetResponse.h */; };
+		A03F0E0220ADEA6100323FA4 /* BankAccountMaskedType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA320ADEA6100323FA4 /* BankAccountMaskedType.h */; };
+		A03F0E0320ADEA6100323FA4 /* BankAccountType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA420ADEA6100323FA4 /* BankAccountType.h */; };
+		A03F0E0420ADEA6100323FA4 /* BatchDetailsType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA520ADEA6100323FA4 /* BatchDetailsType.h */; };
+		A03F0E0520ADEA6100323FA4 /* BatchStatisticType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA620ADEA6100323FA4 /* BatchStatisticType.h */; };
+		A03F0E0620ADEA6100323FA4 /* CardType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA720ADEA6100323FA4 /* CardType.h */; };
+		A03F0E0720ADEA6100323FA4 /* CCAuthenticationType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA820ADEA6100323FA4 /* CCAuthenticationType.h */; };
+		A03F0E0820ADEA6100323FA4 /* CreateTransactionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DA920ADEA6100323FA4 /* CreateTransactionRequest.h */; };
+		A03F0E0920ADEA6100323FA4 /* CreateTransactionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DAA20ADEA6100323FA4 /* CreateTransactionResponse.h */; };
+		A03F0E0A20ADEA6100323FA4 /* CreditCardMaskedType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DAB20ADEA6100323FA4 /* CreditCardMaskedType.h */; };
+		A03F0E0B20ADEA6100323FA4 /* CreditCardTrackType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DAC20ADEA6100323FA4 /* CreditCardTrackType.h */; };
+		A03F0E0C20ADEA6100323FA4 /* CreditCardType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DAD20ADEA6100323FA4 /* CreditCardType.h */; };
+		A03F0E0D20ADEA6100323FA4 /* Currency.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DAE20ADEA6100323FA4 /* Currency.h */; };
+		A03F0E0E20ADEA6100323FA4 /* CustomerAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DAF20ADEA6100323FA4 /* CustomerAddressType.h */; };
+		A03F0E0F20ADEA6100323FA4 /* CustomerDataType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB020ADEA6100323FA4 /* CustomerDataType.h */; };
+		A03F0E1020ADEA6100323FA4 /* Error.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB120ADEA6100323FA4 /* Error.h */; };
+		A03F0E1120ADEA6100323FA4 /* ExtendedAmountType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB220ADEA6100323FA4 /* ExtendedAmountType.h */; };
+		A03F0E1220ADEA6100323FA4 /* FDSFilterType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB320ADEA6100323FA4 /* FDSFilterType.h */; };
+		A03F0E1320ADEA6100323FA4 /* FingerPrintObjectType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB420ADEA6100323FA4 /* FingerPrintObjectType.h */; };
+		A03F0E1420ADEA6100323FA4 /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB520ADEA6100323FA4 /* GDataXMLNode.h */; };
+		A03F0E1520ADEA6100323FA4 /* GetBatchStatisticsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB620ADEA6100323FA4 /* GetBatchStatisticsRequest.h */; };
+		A03F0E1620ADEA6100323FA4 /* GetBatchStatisticsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB720ADEA6100323FA4 /* GetBatchStatisticsResponse.h */; };
+		A03F0E1720ADEA6100323FA4 /* GetMerchantDetailsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB820ADEA6100323FA4 /* GetMerchantDetailsRequest.h */; };
+		A03F0E1820ADEA6100323FA4 /* GetMerchantDetailsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DB920ADEA6100323FA4 /* GetMerchantDetailsResponse.h */; };
+		A03F0E1920ADEA6100323FA4 /* GetSettledBatchListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DBA20ADEA6100323FA4 /* GetSettledBatchListRequest.h */; };
+		A03F0E1A20ADEA6100323FA4 /* GetSettledBatchListResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DBB20ADEA6100323FA4 /* GetSettledBatchListResponse.h */; };
+		A03F0E1B20ADEA6100323FA4 /* GetTransactionDetailsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DBC20ADEA6100323FA4 /* GetTransactionDetailsRequest.h */; };
+		A03F0E1C20ADEA6100323FA4 /* GetTransactionDetailsResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DBD20ADEA6100323FA4 /* GetTransactionDetailsResponse.h */; };
+		A03F0E1D20ADEA6100323FA4 /* GetTransactionListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DBE20ADEA6100323FA4 /* GetTransactionListRequest.h */; };
+		A03F0E1E20ADEA6100323FA4 /* GetTransactionListResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DBF20ADEA6100323FA4 /* GetTransactionListResponse.h */; };
+		A03F0E1F20ADEA6100323FA4 /* GetUnsettledTransactionListRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC020ADEA6100323FA4 /* GetUnsettledTransactionListRequest.h */; };
+		A03F0E2020ADEA6100323FA4 /* GetUnsettledTransactionListResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC120ADEA6100323FA4 /* GetUnsettledTransactionListResponse.h */; };
+		A03F0E2120ADEA6100323FA4 /* LineItemType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC220ADEA6100323FA4 /* LineItemType.h */; };
+		A03F0E2220ADEA6100323FA4 /* LogoutRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC320ADEA6100323FA4 /* LogoutRequest.h */; };
+		A03F0E2320ADEA6100323FA4 /* LogoutResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC420ADEA6100323FA4 /* LogoutResponse.h */; };
+		A03F0E2420ADEA6100323FA4 /* MarketType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC520ADEA6100323FA4 /* MarketType.h */; };
+		A03F0E2520ADEA6100323FA4 /* MerchantAccountType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC620ADEA6100323FA4 /* MerchantAccountType.h */; };
+		A03F0E2620ADEA6100323FA4 /* MerchantAuthenticationType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC720ADEA6100323FA4 /* MerchantAuthenticationType.h */; };
+		A03F0E2720ADEA6100323FA4 /* MerchantContactType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC820ADEA6100323FA4 /* MerchantContactType.h */; };
+		A03F0E2820ADEA6100323FA4 /* Messages.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DC920ADEA6100323FA4 /* Messages.h */; };
+		A03F0E2920ADEA6100323FA4 /* MobileDeviceLoginRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DCA20ADEA6100323FA4 /* MobileDeviceLoginRequest.h */; };
+		A03F0E2A20ADEA6100323FA4 /* MobileDeviceLoginResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DCB20ADEA6100323FA4 /* MobileDeviceLoginResponse.h */; };
+		A03F0E2B20ADEA6100323FA4 /* MobileDeviceRegistrationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DCC20ADEA6100323FA4 /* MobileDeviceRegistrationRequest.h */; };
+		A03F0E2C20ADEA6100323FA4 /* MobileDeviceRegistrationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DCD20ADEA6100323FA4 /* MobileDeviceRegistrationResponse.h */; };
+		A03F0E2D20ADEA6100323FA4 /* MobileDeviceType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DCE20ADEA6100323FA4 /* MobileDeviceType.h */; };
+		A03F0E2E20ADEA6100323FA4 /* NameAndAddressType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DCF20ADEA6100323FA4 /* NameAndAddressType.h */; };
+		A03F0E2F20ADEA6100323FA4 /* NSArray+PerformSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD020ADEA6100323FA4 /* NSArray+PerformSelector.h */; };
+		A03F0E3020ADEA6100323FA4 /* NSString+dataFromFilename.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD120ADEA6100323FA4 /* NSString+dataFromFilename.h */; };
+		A03F0E3120ADEA6100323FA4 /* NSString+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD220ADEA6100323FA4 /* NSString+Hex.h */; };
+		A03F0E3220ADEA6100323FA4 /* NSString+stringForRFC3339DateTimeString.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD320ADEA6100323FA4 /* NSString+stringForRFC3339DateTimeString.h */; };
+		A03F0E3320ADEA6100323FA4 /* NSString+stringValueOfXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD420ADEA6100323FA4 /* NSString+stringValueOfXMLElement.h */; };
+		A03F0E3420ADEA6100323FA4 /* NSString+stringWithEscapedXMLValue.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD520ADEA6100323FA4 /* NSString+stringWithEscapedXMLValue.h */; };
+		A03F0E3520ADEA6100323FA4 /* NSString+stringWithXMLTag.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD620ADEA6100323FA4 /* NSString+stringWithXMLTag.h */; };
+		A03F0E3620ADEA6100323FA4 /* OpaqueDataType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD720ADEA6100323FA4 /* OpaqueDataType.h */; };
+		A03F0E3720ADEA6100323FA4 /* OrderExType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD820ADEA6100323FA4 /* OrderExType.h */; };
+		A03F0E3820ADEA6100323FA4 /* OrderType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DD920ADEA6100323FA4 /* OrderType.h */; };
+		A03F0E3920ADEA6100323FA4 /* PaymentMaskedType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DDA20ADEA6100323FA4 /* PaymentMaskedType.h */; };
+		A03F0E3A20ADEA6100323FA4 /* PaymentMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DDB20ADEA6100323FA4 /* PaymentMethod.h */; };
+		A03F0E3B20ADEA6100323FA4 /* PaymentType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DDC20ADEA6100323FA4 /* PaymentType.h */; };
+		A03F0E3C20ADEA6100323FA4 /* PermissionType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DDD20ADEA6100323FA4 /* PermissionType.h */; };
+		A03F0E3D20ADEA6100323FA4 /* Processor.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DDE20ADEA6100323FA4 /* Processor.h */; };
+		A03F0E3E20ADEA6100323FA4 /* ProductCode.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DDF20ADEA6100323FA4 /* ProductCode.h */; };
+		A03F0E3F20ADEA6100323FA4 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE020ADEA6100323FA4 /* Reachability.h */; };
+		A03F0E4020ADEA6100323FA4 /* SendCustomerTransactionReceiptRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE120ADEA6100323FA4 /* SendCustomerTransactionReceiptRequest.h */; };
+		A03F0E4120ADEA6100323FA4 /* SendCustomerTransactionReceiptResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE220ADEA6100323FA4 /* SendCustomerTransactionReceiptResponse.h */; };
+		A03F0E4220ADEA6100323FA4 /* SettingType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE320ADEA6100323FA4 /* SettingType.h */; };
+		A03F0E4320ADEA6100323FA4 /* SplitTenderPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE420ADEA6100323FA4 /* SplitTenderPayment.h */; };
+		A03F0E4420ADEA6100323FA4 /* SwiperDataType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE520ADEA6100323FA4 /* SwiperDataType.h */; };
+		A03F0E4520ADEA6100323FA4 /* TestAccountCaptchaRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE620ADEA6100323FA4 /* TestAccountCaptchaRequest.h */; };
+		A03F0E4620ADEA6100323FA4 /* TestAccountCaptchaResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE720ADEA6100323FA4 /* TestAccountCaptchaResponse.h */; };
+		A03F0E4720ADEA6100323FA4 /* TestAccountRegistrationRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE820ADEA6100323FA4 /* TestAccountRegistrationRequest.h */; };
+		A03F0E4820ADEA6100323FA4 /* TestAccountRegistrationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DE920ADEA6100323FA4 /* TestAccountRegistrationResponse.h */; };
+		A03F0E4920ADEA6100323FA4 /* TransactionDetailsType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DEA20ADEA6100323FA4 /* TransactionDetailsType.h */; };
+		A03F0E4A20ADEA6100323FA4 /* TransactionRequestType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DEB20ADEA6100323FA4 /* TransactionRequestType.h */; };
+		A03F0E4B20ADEA6100323FA4 /* TransactionResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DEC20ADEA6100323FA4 /* TransactionResponse.h */; };
+		A03F0E4C20ADEA6100323FA4 /* TransactionSummaryType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DED20ADEA6100323FA4 /* TransactionSummaryType.h */; };
+		A03F0E4D20ADEA6100323FA4 /* TransRetailInfoType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DEE20ADEA6100323FA4 /* TransRetailInfoType.h */; };
+		A03F0E4E20ADEA6100323FA4 /* UserField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DEF20ADEA6100323FA4 /* UserField.h */; };
+		A03F0E4F20ADEA6100323FA4 /* libAnetEMVLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03F0DF020ADEA6100323FA4 /* libAnetEMVLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,95 +158,6 @@
 		4108BD1B1D9AED040009125F /* image2_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image2_bg.png; sourceTree = "<group>"; };
 		4109BD6B1D50819900B2A5B1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = AnetEMVDemo/Settings.bundle; sourceTree = "<group>"; };
 		411EEC771D7A0DEA006B766A /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
-		4155B2061D8B651700ED634D /* ANetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiRequest.h; sourceTree = "<group>"; };
-		4155B2071D8B651700ED634D /* ANetApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiResponse.h; sourceTree = "<group>"; };
-		4155B2081D8B651700ED634D /* AnetEMVError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVError.h; sourceTree = "<group>"; };
-		4155B2091D8B651700ED634D /* AnetEMVLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVLibrary.h; sourceTree = "<group>"; };
-		4155B20A1D8B651700ED634D /* AnetEMVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVManager.h; sourceTree = "<group>"; };
-		4155B20B1D8B651700ED634D /* AnetEMVResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVResponse.h; sourceTree = "<group>"; };
-		4155B20C1D8B651700ED634D /* AnetEMVTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVTag.h; sourceTree = "<group>"; };
-		4155B20D1D8B651700ED634D /* AnetEMVTransactionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVTransactionRequest.h; sourceTree = "<group>"; };
-		4155B20E1D8B651700ED634D /* AnetEMVTransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVTransactionResponse.h; sourceTree = "<group>"; };
-		4155B20F1D8B651700ED634D /* AnetEMVUISettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVUISettings.h; sourceTree = "<group>"; };
-		4155B2101D8B651700ED634D /* ANetSolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetSolution.h; sourceTree = "<group>"; };
-		4155B2111D8B651700ED634D /* AnetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetViewController.h; sourceTree = "<group>"; };
-		4155B2121D8B651700ED634D /* AuthNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNet.h; sourceTree = "<group>"; };
-		4155B2131D8B651700ED634D /* AuthNetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetMessage.h; sourceTree = "<group>"; };
-		4155B2141D8B651700ED634D /* AuthNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetRequest.h; sourceTree = "<group>"; };
-		4155B2151D8B651700ED634D /* AuthNetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetResponse.h; sourceTree = "<group>"; };
-		4155B2161D8B651700ED634D /* BankAccountMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountMaskedType.h; sourceTree = "<group>"; };
-		4155B2171D8B651700ED634D /* BankAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountType.h; sourceTree = "<group>"; };
-		4155B2181D8B651700ED634D /* BatchDetailsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchDetailsType.h; sourceTree = "<group>"; };
-		4155B2191D8B651700ED634D /* BatchStatisticType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchStatisticType.h; sourceTree = "<group>"; };
-		4155B21A1D8B651700ED634D /* CCAuthenticationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAuthenticationType.h; sourceTree = "<group>"; };
-		4155B21B1D8B651700ED634D /* CreateTransactionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTransactionRequest.h; sourceTree = "<group>"; };
-		4155B21C1D8B651700ED634D /* CreateTransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTransactionResponse.h; sourceTree = "<group>"; };
-		4155B21D1D8B651700ED634D /* CreditCardMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardMaskedType.h; sourceTree = "<group>"; };
-		4155B21E1D8B651700ED634D /* CreditCardTrackType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardTrackType.h; sourceTree = "<group>"; };
-		4155B21F1D8B651700ED634D /* CreditCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardType.h; sourceTree = "<group>"; };
-		4155B2201D8B651700ED634D /* CustomerAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAddressType.h; sourceTree = "<group>"; };
-		4155B2211D8B651700ED634D /* CustomerDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDataType.h; sourceTree = "<group>"; };
-		4155B2221D8B651700ED634D /* EmvSwipeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmvSwipeController.h; sourceTree = "<group>"; };
-		4155B2231D8B651700ED634D /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Error.h; sourceTree = "<group>"; };
-		4155B2241D8B651700ED634D /* ExtendedAmountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedAmountType.h; sourceTree = "<group>"; };
-		4155B2251D8B651700ED634D /* FDSFilterType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSFilterType.h; sourceTree = "<group>"; };
-		4155B2261D8B651700ED634D /* FingerPrintObjectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerPrintObjectType.h; sourceTree = "<group>"; };
-		4155B2271D8B651700ED634D /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
-		4155B2281D8B651700ED634D /* GetBatchStatisticsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatchStatisticsRequest.h; sourceTree = "<group>"; };
-		4155B2291D8B651700ED634D /* GetBatchStatisticsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatchStatisticsResponse.h; sourceTree = "<group>"; };
-		4155B22A1D8B651700ED634D /* GetSettledBatchListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSettledBatchListRequest.h; sourceTree = "<group>"; };
-		4155B22B1D8B651700ED634D /* GetSettledBatchListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSettledBatchListResponse.h; sourceTree = "<group>"; };
-		4155B22C1D8B651700ED634D /* GetTransactionDetailsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionDetailsRequest.h; sourceTree = "<group>"; };
-		4155B22D1D8B651700ED634D /* GetTransactionDetailsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionDetailsResponse.h; sourceTree = "<group>"; };
-		4155B22E1D8B651700ED634D /* GetTransactionListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionListRequest.h; sourceTree = "<group>"; };
-		4155B22F1D8B651700ED634D /* GetTransactionListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionListResponse.h; sourceTree = "<group>"; };
-		4155B2301D8B651700ED634D /* GetUnsettledTransactionListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnsettledTransactionListRequest.h; sourceTree = "<group>"; };
-		4155B2311D8B651700ED634D /* GetUnsettledTransactionListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnsettledTransactionListResponse.h; sourceTree = "<group>"; };
-		4155B2321D8B651700ED634D /* LineItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineItemType.h; sourceTree = "<group>"; };
-		4155B2331D8B651700ED634D /* LogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutRequest.h; sourceTree = "<group>"; };
-		4155B2341D8B651700ED634D /* LogoutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutResponse.h; sourceTree = "<group>"; };
-		4155B2351D8B651700ED634D /* MerchantAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantAccountType.h; sourceTree = "<group>"; };
-		4155B2361D8B651700ED634D /* MerchantAuthenticationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantAuthenticationType.h; sourceTree = "<group>"; };
-		4155B2371D8B651700ED634D /* MerchantContactType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantContactType.h; sourceTree = "<group>"; };
-		4155B2381D8B651700ED634D /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
-		4155B2391D8B651700ED634D /* MobileDeviceLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceLoginRequest.h; sourceTree = "<group>"; };
-		4155B23A1D8B651700ED634D /* MobileDeviceLoginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceLoginResponse.h; sourceTree = "<group>"; };
-		4155B23B1D8B651700ED634D /* MobileDeviceRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceRegistrationRequest.h; sourceTree = "<group>"; };
-		4155B23C1D8B651700ED634D /* MobileDeviceRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceRegistrationResponse.h; sourceTree = "<group>"; };
-		4155B23D1D8B651700ED634D /* MobileDeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceType.h; sourceTree = "<group>"; };
-		4155B23E1D8B651700ED634D /* NameAndAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndAddressType.h; sourceTree = "<group>"; };
-		4155B23F1D8B651700ED634D /* NSArray+PerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PerformSelector.h"; sourceTree = "<group>"; };
-		4155B2401D8B651700ED634D /* NSString+dataFromFilename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dataFromFilename.h"; sourceTree = "<group>"; };
-		4155B2411D8B651700ED634D /* NSString+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hex.h"; sourceTree = "<group>"; };
-		4155B2421D8B651700ED634D /* NSString+stringForRFC3339DateTimeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringForRFC3339DateTimeString.h"; sourceTree = "<group>"; };
-		4155B2431D8B651700ED634D /* NSString+stringValueOfXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringValueOfXMLElement.h"; sourceTree = "<group>"; };
-		4155B2441D8B651700ED634D /* NSString+stringWithEscapedXMLValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringWithEscapedXMLValue.h"; sourceTree = "<group>"; };
-		4155B2451D8B651700ED634D /* NSString+stringWithXMLTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringWithXMLTag.h"; sourceTree = "<group>"; };
-		4155B2461D8B651700ED634D /* OpaqueDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpaqueDataType.h; sourceTree = "<group>"; };
-		4155B2471D8B651700ED634D /* OrderExType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderExType.h; sourceTree = "<group>"; };
-		4155B2481D8B651700ED634D /* OrderType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderType.h; sourceTree = "<group>"; };
-		4155B2491D8B651700ED634D /* PaymentMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentMaskedType.h; sourceTree = "<group>"; };
-		4155B24A1D8B651700ED634D /* PaymentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentType.h; sourceTree = "<group>"; };
-		4155B24B1D8B651700ED634D /* PermissionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionType.h; sourceTree = "<group>"; };
-		4155B24C1D8B651700ED634D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		4155B24D1D8B651700ED634D /* SendCustomerTransactionReceiptRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCustomerTransactionReceiptRequest.h; sourceTree = "<group>"; };
-		4155B24E1D8B651700ED634D /* SendCustomerTransactionReceiptResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCustomerTransactionReceiptResponse.h; sourceTree = "<group>"; };
-		4155B24F1D8B651700ED634D /* SettingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingType.h; sourceTree = "<group>"; };
-		4155B2501D8B651700ED634D /* SplitTenderPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitTenderPayment.h; sourceTree = "<group>"; };
-		4155B2511D8B651700ED634D /* SwiperDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiperDataType.h; sourceTree = "<group>"; };
-		4155B2521D8B651700ED634D /* TestAccountCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaRequest.h; sourceTree = "<group>"; };
-		4155B2531D8B651700ED634D /* TestAccountCaptchaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaResponse.h; sourceTree = "<group>"; };
-		4155B2541D8B651700ED634D /* TestAccountRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationRequest.h; sourceTree = "<group>"; };
-		4155B2551D8B651700ED634D /* TestAccountRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationResponse.h; sourceTree = "<group>"; };
-		4155B2561D8B651700ED634D /* TransactionDetailsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDetailsType.h; sourceTree = "<group>"; };
-		4155B2571D8B651700ED634D /* TransactionRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionRequestType.h; sourceTree = "<group>"; };
-		4155B2581D8B651700ED634D /* TransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionResponse.h; sourceTree = "<group>"; };
-		4155B2591D8B651700ED634D /* TransactionSummaryType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionSummaryType.h; sourceTree = "<group>"; };
-		4155B25A1D8B651700ED634D /* TransRetailInfoType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransRetailInfoType.h; sourceTree = "<group>"; };
-		4155B25B1D8B651700ED634D /* UserField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserField.h; sourceTree = "<group>"; };
-		4155B25C1D8B651700ED634D /* AnetEMVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnetEMVStoryboard.storyboard; sourceTree = "<group>"; };
-		4155B25D1D8B651700ED634D /* eject.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eject.mp3; sourceTree = "<group>"; };
-		4155B25E1D8B651700ED634D /* libAnetEMVLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAnetEMVLibrary.a; sourceTree = "<group>"; };
 		4155B2B91D8B6B1900ED634D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4155B2BB1D8B6BAA00ED634D /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
 		4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -261,6 +180,103 @@
 		41B722751C85187300A02C3A /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		41E1210F1D87629D0047B9DB /* AnetEMVDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnetEMVDemo.entitlements; sourceTree = "<group>"; };
 		41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		A03F0CC520ADD9C700323FA4 /* eject.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eject.mp3; sourceTree = "<group>"; };
+		A03F0CC620ADD9C700323FA4 /* AnetEMVStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnetEMVStoryboard.storyboard; sourceTree = "<group>"; };
+		A03F0D9220ADEA6100323FA4 /* ANetApiRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiRequest.h; sourceTree = "<group>"; };
+		A03F0D9320ADEA6100323FA4 /* ANetApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetApiResponse.h; sourceTree = "<group>"; };
+		A03F0D9420ADEA6100323FA4 /* AnetBTObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetBTObject.h; sourceTree = "<group>"; };
+		A03F0D9520ADEA6100323FA4 /* AnetEMVError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVError.h; sourceTree = "<group>"; };
+		A03F0D9620ADEA6100323FA4 /* AnetEMVLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVLibrary.h; sourceTree = "<group>"; };
+		A03F0D9720ADEA6100323FA4 /* AnetEMVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVManager.h; sourceTree = "<group>"; };
+		A03F0D9820ADEA6100323FA4 /* AnetEMVResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVResponse.h; sourceTree = "<group>"; };
+		A03F0D9920ADEA6100323FA4 /* AnetEMVTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVTag.h; sourceTree = "<group>"; };
+		A03F0D9A20ADEA6100323FA4 /* AnetEMVTransactionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVTransactionRequest.h; sourceTree = "<group>"; };
+		A03F0D9B20ADEA6100323FA4 /* AnetEMVTransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVTransactionResponse.h; sourceTree = "<group>"; };
+		A03F0D9C20ADEA6100323FA4 /* AnetEMVUISettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVUISettings.h; sourceTree = "<group>"; };
+		A03F0D9D20ADEA6100323FA4 /* ANetSolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANetSolution.h; sourceTree = "<group>"; };
+		A03F0D9E20ADEA6100323FA4 /* AnetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetViewController.h; sourceTree = "<group>"; };
+		A03F0D9F20ADEA6100323FA4 /* AuthNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNet.h; sourceTree = "<group>"; };
+		A03F0DA020ADEA6100323FA4 /* AuthNetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetMessage.h; sourceTree = "<group>"; };
+		A03F0DA120ADEA6100323FA4 /* AuthNetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetRequest.h; sourceTree = "<group>"; };
+		A03F0DA220ADEA6100323FA4 /* AuthNetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthNetResponse.h; sourceTree = "<group>"; };
+		A03F0DA320ADEA6100323FA4 /* BankAccountMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountMaskedType.h; sourceTree = "<group>"; };
+		A03F0DA420ADEA6100323FA4 /* BankAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankAccountType.h; sourceTree = "<group>"; };
+		A03F0DA520ADEA6100323FA4 /* BatchDetailsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchDetailsType.h; sourceTree = "<group>"; };
+		A03F0DA620ADEA6100323FA4 /* BatchStatisticType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchStatisticType.h; sourceTree = "<group>"; };
+		A03F0DA720ADEA6100323FA4 /* CardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardType.h; sourceTree = "<group>"; };
+		A03F0DA820ADEA6100323FA4 /* CCAuthenticationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAuthenticationType.h; sourceTree = "<group>"; };
+		A03F0DA920ADEA6100323FA4 /* CreateTransactionRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTransactionRequest.h; sourceTree = "<group>"; };
+		A03F0DAA20ADEA6100323FA4 /* CreateTransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTransactionResponse.h; sourceTree = "<group>"; };
+		A03F0DAB20ADEA6100323FA4 /* CreditCardMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardMaskedType.h; sourceTree = "<group>"; };
+		A03F0DAC20ADEA6100323FA4 /* CreditCardTrackType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardTrackType.h; sourceTree = "<group>"; };
+		A03F0DAD20ADEA6100323FA4 /* CreditCardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardType.h; sourceTree = "<group>"; };
+		A03F0DAE20ADEA6100323FA4 /* Currency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Currency.h; sourceTree = "<group>"; };
+		A03F0DAF20ADEA6100323FA4 /* CustomerAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAddressType.h; sourceTree = "<group>"; };
+		A03F0DB020ADEA6100323FA4 /* CustomerDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerDataType.h; sourceTree = "<group>"; };
+		A03F0DB120ADEA6100323FA4 /* Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Error.h; sourceTree = "<group>"; };
+		A03F0DB220ADEA6100323FA4 /* ExtendedAmountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedAmountType.h; sourceTree = "<group>"; };
+		A03F0DB320ADEA6100323FA4 /* FDSFilterType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDSFilterType.h; sourceTree = "<group>"; };
+		A03F0DB420ADEA6100323FA4 /* FingerPrintObjectType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingerPrintObjectType.h; sourceTree = "<group>"; };
+		A03F0DB520ADEA6100323FA4 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		A03F0DB620ADEA6100323FA4 /* GetBatchStatisticsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatchStatisticsRequest.h; sourceTree = "<group>"; };
+		A03F0DB720ADEA6100323FA4 /* GetBatchStatisticsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBatchStatisticsResponse.h; sourceTree = "<group>"; };
+		A03F0DB820ADEA6100323FA4 /* GetMerchantDetailsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMerchantDetailsRequest.h; sourceTree = "<group>"; };
+		A03F0DB920ADEA6100323FA4 /* GetMerchantDetailsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetMerchantDetailsResponse.h; sourceTree = "<group>"; };
+		A03F0DBA20ADEA6100323FA4 /* GetSettledBatchListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSettledBatchListRequest.h; sourceTree = "<group>"; };
+		A03F0DBB20ADEA6100323FA4 /* GetSettledBatchListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSettledBatchListResponse.h; sourceTree = "<group>"; };
+		A03F0DBC20ADEA6100323FA4 /* GetTransactionDetailsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionDetailsRequest.h; sourceTree = "<group>"; };
+		A03F0DBD20ADEA6100323FA4 /* GetTransactionDetailsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionDetailsResponse.h; sourceTree = "<group>"; };
+		A03F0DBE20ADEA6100323FA4 /* GetTransactionListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionListRequest.h; sourceTree = "<group>"; };
+		A03F0DBF20ADEA6100323FA4 /* GetTransactionListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTransactionListResponse.h; sourceTree = "<group>"; };
+		A03F0DC020ADEA6100323FA4 /* GetUnsettledTransactionListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnsettledTransactionListRequest.h; sourceTree = "<group>"; };
+		A03F0DC120ADEA6100323FA4 /* GetUnsettledTransactionListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUnsettledTransactionListResponse.h; sourceTree = "<group>"; };
+		A03F0DC220ADEA6100323FA4 /* LineItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineItemType.h; sourceTree = "<group>"; };
+		A03F0DC320ADEA6100323FA4 /* LogoutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutRequest.h; sourceTree = "<group>"; };
+		A03F0DC420ADEA6100323FA4 /* LogoutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutResponse.h; sourceTree = "<group>"; };
+		A03F0DC520ADEA6100323FA4 /* MarketType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketType.h; sourceTree = "<group>"; };
+		A03F0DC620ADEA6100323FA4 /* MerchantAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantAccountType.h; sourceTree = "<group>"; };
+		A03F0DC720ADEA6100323FA4 /* MerchantAuthenticationType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantAuthenticationType.h; sourceTree = "<group>"; };
+		A03F0DC820ADEA6100323FA4 /* MerchantContactType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantContactType.h; sourceTree = "<group>"; };
+		A03F0DC920ADEA6100323FA4 /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
+		A03F0DCA20ADEA6100323FA4 /* MobileDeviceLoginRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceLoginRequest.h; sourceTree = "<group>"; };
+		A03F0DCB20ADEA6100323FA4 /* MobileDeviceLoginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceLoginResponse.h; sourceTree = "<group>"; };
+		A03F0DCC20ADEA6100323FA4 /* MobileDeviceRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceRegistrationRequest.h; sourceTree = "<group>"; };
+		A03F0DCD20ADEA6100323FA4 /* MobileDeviceRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceRegistrationResponse.h; sourceTree = "<group>"; };
+		A03F0DCE20ADEA6100323FA4 /* MobileDeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDeviceType.h; sourceTree = "<group>"; };
+		A03F0DCF20ADEA6100323FA4 /* NameAndAddressType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndAddressType.h; sourceTree = "<group>"; };
+		A03F0DD020ADEA6100323FA4 /* NSArray+PerformSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PerformSelector.h"; sourceTree = "<group>"; };
+		A03F0DD120ADEA6100323FA4 /* NSString+dataFromFilename.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+dataFromFilename.h"; sourceTree = "<group>"; };
+		A03F0DD220ADEA6100323FA4 /* NSString+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hex.h"; sourceTree = "<group>"; };
+		A03F0DD320ADEA6100323FA4 /* NSString+stringForRFC3339DateTimeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringForRFC3339DateTimeString.h"; sourceTree = "<group>"; };
+		A03F0DD420ADEA6100323FA4 /* NSString+stringValueOfXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringValueOfXMLElement.h"; sourceTree = "<group>"; };
+		A03F0DD520ADEA6100323FA4 /* NSString+stringWithEscapedXMLValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringWithEscapedXMLValue.h"; sourceTree = "<group>"; };
+		A03F0DD620ADEA6100323FA4 /* NSString+stringWithXMLTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+stringWithXMLTag.h"; sourceTree = "<group>"; };
+		A03F0DD720ADEA6100323FA4 /* OpaqueDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpaqueDataType.h; sourceTree = "<group>"; };
+		A03F0DD820ADEA6100323FA4 /* OrderExType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderExType.h; sourceTree = "<group>"; };
+		A03F0DD920ADEA6100323FA4 /* OrderType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderType.h; sourceTree = "<group>"; };
+		A03F0DDA20ADEA6100323FA4 /* PaymentMaskedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentMaskedType.h; sourceTree = "<group>"; };
+		A03F0DDB20ADEA6100323FA4 /* PaymentMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentMethod.h; sourceTree = "<group>"; };
+		A03F0DDC20ADEA6100323FA4 /* PaymentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentType.h; sourceTree = "<group>"; };
+		A03F0DDD20ADEA6100323FA4 /* PermissionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionType.h; sourceTree = "<group>"; };
+		A03F0DDE20ADEA6100323FA4 /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
+		A03F0DDF20ADEA6100323FA4 /* ProductCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCode.h; sourceTree = "<group>"; };
+		A03F0DE020ADEA6100323FA4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A03F0DE120ADEA6100323FA4 /* SendCustomerTransactionReceiptRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCustomerTransactionReceiptRequest.h; sourceTree = "<group>"; };
+		A03F0DE220ADEA6100323FA4 /* SendCustomerTransactionReceiptResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCustomerTransactionReceiptResponse.h; sourceTree = "<group>"; };
+		A03F0DE320ADEA6100323FA4 /* SettingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingType.h; sourceTree = "<group>"; };
+		A03F0DE420ADEA6100323FA4 /* SplitTenderPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitTenderPayment.h; sourceTree = "<group>"; };
+		A03F0DE520ADEA6100323FA4 /* SwiperDataType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiperDataType.h; sourceTree = "<group>"; };
+		A03F0DE620ADEA6100323FA4 /* TestAccountCaptchaRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaRequest.h; sourceTree = "<group>"; };
+		A03F0DE720ADEA6100323FA4 /* TestAccountCaptchaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountCaptchaResponse.h; sourceTree = "<group>"; };
+		A03F0DE820ADEA6100323FA4 /* TestAccountRegistrationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationRequest.h; sourceTree = "<group>"; };
+		A03F0DE920ADEA6100323FA4 /* TestAccountRegistrationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAccountRegistrationResponse.h; sourceTree = "<group>"; };
+		A03F0DEA20ADEA6100323FA4 /* TransactionDetailsType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionDetailsType.h; sourceTree = "<group>"; };
+		A03F0DEB20ADEA6100323FA4 /* TransactionRequestType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionRequestType.h; sourceTree = "<group>"; };
+		A03F0DEC20ADEA6100323FA4 /* TransactionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionResponse.h; sourceTree = "<group>"; };
+		A03F0DED20ADEA6100323FA4 /* TransactionSummaryType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionSummaryType.h; sourceTree = "<group>"; };
+		A03F0DEE20ADEA6100323FA4 /* TransRetailInfoType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransRetailInfoType.h; sourceTree = "<group>"; };
+		A03F0DEF20ADEA6100323FA4 /* UserField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserField.h; sourceTree = "<group>"; };
+		A03F0DF020ADEA6100323FA4 /* libAnetEMVLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAnetEMVLibrary.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,7 +286,7 @@
 			files = (
 				4155B3641D8B75C800ED634D /* MediaPlayer.framework in Frameworks */,
 				4155B2C21D8B6BD900ED634D /* libstdc++.6.0.9.tbd in Frameworks */,
-				4155B2B71D8B651700ED634D /* libAnetEMVLibrary.a in Frameworks */,
+				A03F0E4F20ADEA6100323FA4 /* libAnetEMVLibrary.a in Frameworks */,
 				4194588C1BE0292F00B9C8EA /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,111 +304,10 @@
 		4155B2031D8B651700ED634D /* AnetEMVLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				4155B2041D8B651700ED634D /* include */,
-				4155B25E1D8B651700ED634D /* libAnetEMVLibrary.a */,
-			);
-			path = AnetEMVLibrary;
-			sourceTree = "<group>";
-		};
-		4155B2041D8B651700ED634D /* include */ = {
-			isa = PBXGroup;
-			children = (
-				4155B2051D8B651700ED634D /* AnetEMVLibrary */,
-				4155B25C1D8B651700ED634D /* AnetEMVStoryboard.storyboard */,
-				4155B25D1D8B651700ED634D /* eject.mp3 */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		4155B2051D8B651700ED634D /* AnetEMVLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				4155B2061D8B651700ED634D /* ANetApiRequest.h */,
-				4155B2071D8B651700ED634D /* ANetApiResponse.h */,
-				4155B2081D8B651700ED634D /* AnetEMVError.h */,
-				4155B2091D8B651700ED634D /* AnetEMVLibrary.h */,
-				4155B20A1D8B651700ED634D /* AnetEMVManager.h */,
-				4155B20B1D8B651700ED634D /* AnetEMVResponse.h */,
-				4155B20C1D8B651700ED634D /* AnetEMVTag.h */,
-				4155B20D1D8B651700ED634D /* AnetEMVTransactionRequest.h */,
-				4155B20E1D8B651700ED634D /* AnetEMVTransactionResponse.h */,
-				4155B20F1D8B651700ED634D /* AnetEMVUISettings.h */,
-				4155B2101D8B651700ED634D /* ANetSolution.h */,
-				4155B2111D8B651700ED634D /* AnetViewController.h */,
-				4155B2121D8B651700ED634D /* AuthNet.h */,
-				4155B2131D8B651700ED634D /* AuthNetMessage.h */,
-				4155B2141D8B651700ED634D /* AuthNetRequest.h */,
-				4155B2151D8B651700ED634D /* AuthNetResponse.h */,
-				4155B2161D8B651700ED634D /* BankAccountMaskedType.h */,
-				4155B2171D8B651700ED634D /* BankAccountType.h */,
-				4155B2181D8B651700ED634D /* BatchDetailsType.h */,
-				4155B2191D8B651700ED634D /* BatchStatisticType.h */,
-				4155B21A1D8B651700ED634D /* CCAuthenticationType.h */,
-				4155B21B1D8B651700ED634D /* CreateTransactionRequest.h */,
-				4155B21C1D8B651700ED634D /* CreateTransactionResponse.h */,
-				4155B21D1D8B651700ED634D /* CreditCardMaskedType.h */,
-				4155B21E1D8B651700ED634D /* CreditCardTrackType.h */,
-				4155B21F1D8B651700ED634D /* CreditCardType.h */,
-				4155B2201D8B651700ED634D /* CustomerAddressType.h */,
-				4155B2211D8B651700ED634D /* CustomerDataType.h */,
-				4155B2221D8B651700ED634D /* EmvSwipeController.h */,
-				4155B2231D8B651700ED634D /* Error.h */,
-				4155B2241D8B651700ED634D /* ExtendedAmountType.h */,
-				4155B2251D8B651700ED634D /* FDSFilterType.h */,
-				4155B2261D8B651700ED634D /* FingerPrintObjectType.h */,
-				4155B2271D8B651700ED634D /* GDataXMLNode.h */,
-				4155B2281D8B651700ED634D /* GetBatchStatisticsRequest.h */,
-				4155B2291D8B651700ED634D /* GetBatchStatisticsResponse.h */,
-				4155B22A1D8B651700ED634D /* GetSettledBatchListRequest.h */,
-				4155B22B1D8B651700ED634D /* GetSettledBatchListResponse.h */,
-				4155B22C1D8B651700ED634D /* GetTransactionDetailsRequest.h */,
-				4155B22D1D8B651700ED634D /* GetTransactionDetailsResponse.h */,
-				4155B22E1D8B651700ED634D /* GetTransactionListRequest.h */,
-				4155B22F1D8B651700ED634D /* GetTransactionListResponse.h */,
-				4155B2301D8B651700ED634D /* GetUnsettledTransactionListRequest.h */,
-				4155B2311D8B651700ED634D /* GetUnsettledTransactionListResponse.h */,
-				4155B2321D8B651700ED634D /* LineItemType.h */,
-				4155B2331D8B651700ED634D /* LogoutRequest.h */,
-				4155B2341D8B651700ED634D /* LogoutResponse.h */,
-				4155B2351D8B651700ED634D /* MerchantAccountType.h */,
-				4155B2361D8B651700ED634D /* MerchantAuthenticationType.h */,
-				4155B2371D8B651700ED634D /* MerchantContactType.h */,
-				4155B2381D8B651700ED634D /* Messages.h */,
-				4155B2391D8B651700ED634D /* MobileDeviceLoginRequest.h */,
-				4155B23A1D8B651700ED634D /* MobileDeviceLoginResponse.h */,
-				4155B23B1D8B651700ED634D /* MobileDeviceRegistrationRequest.h */,
-				4155B23C1D8B651700ED634D /* MobileDeviceRegistrationResponse.h */,
-				4155B23D1D8B651700ED634D /* MobileDeviceType.h */,
-				4155B23E1D8B651700ED634D /* NameAndAddressType.h */,
-				4155B23F1D8B651700ED634D /* NSArray+PerformSelector.h */,
-				4155B2401D8B651700ED634D /* NSString+dataFromFilename.h */,
-				4155B2411D8B651700ED634D /* NSString+Hex.h */,
-				4155B2421D8B651700ED634D /* NSString+stringForRFC3339DateTimeString.h */,
-				4155B2431D8B651700ED634D /* NSString+stringValueOfXMLElement.h */,
-				4155B2441D8B651700ED634D /* NSString+stringWithEscapedXMLValue.h */,
-				4155B2451D8B651700ED634D /* NSString+stringWithXMLTag.h */,
-				4155B2461D8B651700ED634D /* OpaqueDataType.h */,
-				4155B2471D8B651700ED634D /* OrderExType.h */,
-				4155B2481D8B651700ED634D /* OrderType.h */,
-				4155B2491D8B651700ED634D /* PaymentMaskedType.h */,
-				4155B24A1D8B651700ED634D /* PaymentType.h */,
-				4155B24B1D8B651700ED634D /* PermissionType.h */,
-				4155B24C1D8B651700ED634D /* Reachability.h */,
-				4155B24D1D8B651700ED634D /* SendCustomerTransactionReceiptRequest.h */,
-				4155B24E1D8B651700ED634D /* SendCustomerTransactionReceiptResponse.h */,
-				4155B24F1D8B651700ED634D /* SettingType.h */,
-				4155B2501D8B651700ED634D /* SplitTenderPayment.h */,
-				4155B2511D8B651700ED634D /* SwiperDataType.h */,
-				4155B2521D8B651700ED634D /* TestAccountCaptchaRequest.h */,
-				4155B2531D8B651700ED634D /* TestAccountCaptchaResponse.h */,
-				4155B2541D8B651700ED634D /* TestAccountRegistrationRequest.h */,
-				4155B2551D8B651700ED634D /* TestAccountRegistrationResponse.h */,
-				4155B2561D8B651700ED634D /* TransactionDetailsType.h */,
-				4155B2571D8B651700ED634D /* TransactionRequestType.h */,
-				4155B2581D8B651700ED634D /* TransactionResponse.h */,
-				4155B2591D8B651700ED634D /* TransactionSummaryType.h */,
-				4155B25A1D8B651700ED634D /* TransRetailInfoType.h */,
-				4155B25B1D8B651700ED634D /* UserField.h */,
+				A03F0D9020ADEA6100323FA4 /* include */,
+				A03F0DF020ADEA6100323FA4 /* libAnetEMVLibrary.a */,
+				A03F0CC620ADD9C700323FA4 /* AnetEMVStoryboard.storyboard */,
+				A03F0CC520ADD9C700323FA4 /* eject.mp3 */,
 			);
 			path = AnetEMVLibrary;
 			sourceTree = "<group>";
@@ -465,6 +380,115 @@
 			path = AnetEMVDemoTests;
 			sourceTree = "<group>";
 		};
+		A03F0D9020ADEA6100323FA4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A03F0D9120ADEA6100323FA4 /* AnetEMVLibrary */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A03F0D9120ADEA6100323FA4 /* AnetEMVLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				A03F0D9220ADEA6100323FA4 /* ANetApiRequest.h */,
+				A03F0D9320ADEA6100323FA4 /* ANetApiResponse.h */,
+				A03F0D9420ADEA6100323FA4 /* AnetBTObject.h */,
+				A03F0D9520ADEA6100323FA4 /* AnetEMVError.h */,
+				A03F0D9620ADEA6100323FA4 /* AnetEMVLibrary.h */,
+				A03F0D9720ADEA6100323FA4 /* AnetEMVManager.h */,
+				A03F0D9820ADEA6100323FA4 /* AnetEMVResponse.h */,
+				A03F0D9920ADEA6100323FA4 /* AnetEMVTag.h */,
+				A03F0D9A20ADEA6100323FA4 /* AnetEMVTransactionRequest.h */,
+				A03F0D9B20ADEA6100323FA4 /* AnetEMVTransactionResponse.h */,
+				A03F0D9C20ADEA6100323FA4 /* AnetEMVUISettings.h */,
+				A03F0D9D20ADEA6100323FA4 /* ANetSolution.h */,
+				A03F0D9E20ADEA6100323FA4 /* AnetViewController.h */,
+				A03F0D9F20ADEA6100323FA4 /* AuthNet.h */,
+				A03F0DA020ADEA6100323FA4 /* AuthNetMessage.h */,
+				A03F0DA120ADEA6100323FA4 /* AuthNetRequest.h */,
+				A03F0DA220ADEA6100323FA4 /* AuthNetResponse.h */,
+				A03F0DA320ADEA6100323FA4 /* BankAccountMaskedType.h */,
+				A03F0DA420ADEA6100323FA4 /* BankAccountType.h */,
+				A03F0DA520ADEA6100323FA4 /* BatchDetailsType.h */,
+				A03F0DA620ADEA6100323FA4 /* BatchStatisticType.h */,
+				A03F0DA720ADEA6100323FA4 /* CardType.h */,
+				A03F0DA820ADEA6100323FA4 /* CCAuthenticationType.h */,
+				A03F0DA920ADEA6100323FA4 /* CreateTransactionRequest.h */,
+				A03F0DAA20ADEA6100323FA4 /* CreateTransactionResponse.h */,
+				A03F0DAB20ADEA6100323FA4 /* CreditCardMaskedType.h */,
+				A03F0DAC20ADEA6100323FA4 /* CreditCardTrackType.h */,
+				A03F0DAD20ADEA6100323FA4 /* CreditCardType.h */,
+				A03F0DAE20ADEA6100323FA4 /* Currency.h */,
+				A03F0DAF20ADEA6100323FA4 /* CustomerAddressType.h */,
+				A03F0DB020ADEA6100323FA4 /* CustomerDataType.h */,
+				A03F0DB120ADEA6100323FA4 /* Error.h */,
+				A03F0DB220ADEA6100323FA4 /* ExtendedAmountType.h */,
+				A03F0DB320ADEA6100323FA4 /* FDSFilterType.h */,
+				A03F0DB420ADEA6100323FA4 /* FingerPrintObjectType.h */,
+				A03F0DB520ADEA6100323FA4 /* GDataXMLNode.h */,
+				A03F0DB620ADEA6100323FA4 /* GetBatchStatisticsRequest.h */,
+				A03F0DB720ADEA6100323FA4 /* GetBatchStatisticsResponse.h */,
+				A03F0DB820ADEA6100323FA4 /* GetMerchantDetailsRequest.h */,
+				A03F0DB920ADEA6100323FA4 /* GetMerchantDetailsResponse.h */,
+				A03F0DBA20ADEA6100323FA4 /* GetSettledBatchListRequest.h */,
+				A03F0DBB20ADEA6100323FA4 /* GetSettledBatchListResponse.h */,
+				A03F0DBC20ADEA6100323FA4 /* GetTransactionDetailsRequest.h */,
+				A03F0DBD20ADEA6100323FA4 /* GetTransactionDetailsResponse.h */,
+				A03F0DBE20ADEA6100323FA4 /* GetTransactionListRequest.h */,
+				A03F0DBF20ADEA6100323FA4 /* GetTransactionListResponse.h */,
+				A03F0DC020ADEA6100323FA4 /* GetUnsettledTransactionListRequest.h */,
+				A03F0DC120ADEA6100323FA4 /* GetUnsettledTransactionListResponse.h */,
+				A03F0DC220ADEA6100323FA4 /* LineItemType.h */,
+				A03F0DC320ADEA6100323FA4 /* LogoutRequest.h */,
+				A03F0DC420ADEA6100323FA4 /* LogoutResponse.h */,
+				A03F0DC520ADEA6100323FA4 /* MarketType.h */,
+				A03F0DC620ADEA6100323FA4 /* MerchantAccountType.h */,
+				A03F0DC720ADEA6100323FA4 /* MerchantAuthenticationType.h */,
+				A03F0DC820ADEA6100323FA4 /* MerchantContactType.h */,
+				A03F0DC920ADEA6100323FA4 /* Messages.h */,
+				A03F0DCA20ADEA6100323FA4 /* MobileDeviceLoginRequest.h */,
+				A03F0DCB20ADEA6100323FA4 /* MobileDeviceLoginResponse.h */,
+				A03F0DCC20ADEA6100323FA4 /* MobileDeviceRegistrationRequest.h */,
+				A03F0DCD20ADEA6100323FA4 /* MobileDeviceRegistrationResponse.h */,
+				A03F0DCE20ADEA6100323FA4 /* MobileDeviceType.h */,
+				A03F0DCF20ADEA6100323FA4 /* NameAndAddressType.h */,
+				A03F0DD020ADEA6100323FA4 /* NSArray+PerformSelector.h */,
+				A03F0DD120ADEA6100323FA4 /* NSString+dataFromFilename.h */,
+				A03F0DD220ADEA6100323FA4 /* NSString+Hex.h */,
+				A03F0DD320ADEA6100323FA4 /* NSString+stringForRFC3339DateTimeString.h */,
+				A03F0DD420ADEA6100323FA4 /* NSString+stringValueOfXMLElement.h */,
+				A03F0DD520ADEA6100323FA4 /* NSString+stringWithEscapedXMLValue.h */,
+				A03F0DD620ADEA6100323FA4 /* NSString+stringWithXMLTag.h */,
+				A03F0DD720ADEA6100323FA4 /* OpaqueDataType.h */,
+				A03F0DD820ADEA6100323FA4 /* OrderExType.h */,
+				A03F0DD920ADEA6100323FA4 /* OrderType.h */,
+				A03F0DDA20ADEA6100323FA4 /* PaymentMaskedType.h */,
+				A03F0DDB20ADEA6100323FA4 /* PaymentMethod.h */,
+				A03F0DDC20ADEA6100323FA4 /* PaymentType.h */,
+				A03F0DDD20ADEA6100323FA4 /* PermissionType.h */,
+				A03F0DDE20ADEA6100323FA4 /* Processor.h */,
+				A03F0DDF20ADEA6100323FA4 /* ProductCode.h */,
+				A03F0DE020ADEA6100323FA4 /* Reachability.h */,
+				A03F0DE120ADEA6100323FA4 /* SendCustomerTransactionReceiptRequest.h */,
+				A03F0DE220ADEA6100323FA4 /* SendCustomerTransactionReceiptResponse.h */,
+				A03F0DE320ADEA6100323FA4 /* SettingType.h */,
+				A03F0DE420ADEA6100323FA4 /* SplitTenderPayment.h */,
+				A03F0DE520ADEA6100323FA4 /* SwiperDataType.h */,
+				A03F0DE620ADEA6100323FA4 /* TestAccountCaptchaRequest.h */,
+				A03F0DE720ADEA6100323FA4 /* TestAccountCaptchaResponse.h */,
+				A03F0DE820ADEA6100323FA4 /* TestAccountRegistrationRequest.h */,
+				A03F0DE920ADEA6100323FA4 /* TestAccountRegistrationResponse.h */,
+				A03F0DEA20ADEA6100323FA4 /* TransactionDetailsType.h */,
+				A03F0DEB20ADEA6100323FA4 /* TransactionRequestType.h */,
+				A03F0DEC20ADEA6100323FA4 /* TransactionResponse.h */,
+				A03F0DED20ADEA6100323FA4 /* TransactionSummaryType.h */,
+				A03F0DEE20ADEA6100323FA4 /* TransRetailInfoType.h */,
+				A03F0DEF20ADEA6100323FA4 /* UserField.h */,
+			);
+			path = AnetEMVLibrary;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -472,94 +496,102 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4155B2761D8B651700ED634D /* CreditCardMaskedType.h in Headers */,
-				4155B2971D8B651700ED634D /* NameAndAddressType.h in Headers */,
-				4155B2AC1D8B651700ED634D /* TestAccountCaptchaResponse.h in Headers */,
-				4155B2681D8B651700ED634D /* AnetEMVUISettings.h in Headers */,
-				4155B2661D8B651700ED634D /* AnetEMVTransactionRequest.h in Headers */,
-				4155B2A21D8B651700ED634D /* PaymentMaskedType.h in Headers */,
-				4155B2881D8B651700ED634D /* GetTransactionListResponse.h in Headers */,
-				4155B2921D8B651700ED634D /* MobileDeviceLoginRequest.h in Headers */,
-				4155B2701D8B651700ED634D /* BankAccountType.h in Headers */,
-				4155B2711D8B651700ED634D /* BatchDetailsType.h in Headers */,
-				4155B28B1D8B651700ED634D /* LineItemType.h in Headers */,
-				4155B2841D8B651700ED634D /* GetSettledBatchListResponse.h in Headers */,
-				4155B27F1D8B651700ED634D /* FingerPrintObjectType.h in Headers */,
-				4155B26D1D8B651700ED634D /* AuthNetRequest.h in Headers */,
-				4155B27A1D8B651700ED634D /* CustomerDataType.h in Headers */,
-				4155B27C1D8B651700ED634D /* Error.h in Headers */,
-				4155B2611D8B651700ED634D /* AnetEMVError.h in Headers */,
-				4155B2951D8B651700ED634D /* MobileDeviceRegistrationResponse.h in Headers */,
-				4155B2AD1D8B651700ED634D /* TestAccountRegistrationRequest.h in Headers */,
-				4155B2671D8B651700ED634D /* AnetEMVTransactionResponse.h in Headers */,
-				4155B26C1D8B651700ED634D /* AuthNetMessage.h in Headers */,
-				4155B28D1D8B651700ED634D /* LogoutResponse.h in Headers */,
-				4155B2A61D8B651700ED634D /* SendCustomerTransactionReceiptRequest.h in Headers */,
-				4155B2941D8B651700ED634D /* MobileDeviceRegistrationRequest.h in Headers */,
-				4155B2781D8B651700ED634D /* CreditCardType.h in Headers */,
-				4155B2621D8B651700ED634D /* AnetEMVLibrary.h in Headers */,
-				4155B26A1D8B651700ED634D /* AnetViewController.h in Headers */,
-				4155B2601D8B651700ED634D /* ANetApiResponse.h in Headers */,
-				4155B2A11D8B651700ED634D /* OrderType.h in Headers */,
-				4155B2A71D8B651700ED634D /* SendCustomerTransactionReceiptResponse.h in Headers */,
-				4155B2801D8B651700ED634D /* GDataXMLNode.h in Headers */,
-				4155B2741D8B651700ED634D /* CreateTransactionRequest.h in Headers */,
-				4155B29A1D8B651700ED634D /* NSString+Hex.h in Headers */,
+				A03F0E2C20ADEA6100323FA4 /* MobileDeviceRegistrationResponse.h in Headers */,
+				A03F0E3820ADEA6100323FA4 /* OrderType.h in Headers */,
+				A03F0E2920ADEA6100323FA4 /* MobileDeviceLoginRequest.h in Headers */,
+				A03F0E3320ADEA6100323FA4 /* NSString+stringValueOfXMLElement.h in Headers */,
+				A03F0E2320ADEA6100323FA4 /* LogoutResponse.h in Headers */,
+				A03F0E1720ADEA6100323FA4 /* GetMerchantDetailsRequest.h in Headers */,
+				A03F0E1820ADEA6100323FA4 /* GetMerchantDetailsResponse.h in Headers */,
+				A03F0DF220ADEA6100323FA4 /* ANetApiResponse.h in Headers */,
+				A03F0E3A20ADEA6100323FA4 /* PaymentMethod.h in Headers */,
+				A03F0E1E20ADEA6100323FA4 /* GetTransactionListResponse.h in Headers */,
+				A03F0E0120ADEA6100323FA4 /* AuthNetResponse.h in Headers */,
+				A03F0E0720ADEA6100323FA4 /* CCAuthenticationType.h in Headers */,
+				A03F0DFC20ADEA6100323FA4 /* ANetSolution.h in Headers */,
+				A03F0E0A20ADEA6100323FA4 /* CreditCardMaskedType.h in Headers */,
+				A03F0E0E20ADEA6100323FA4 /* CustomerAddressType.h in Headers */,
+				A03F0E3D20ADEA6100323FA4 /* Processor.h in Headers */,
+				A03F0E3920ADEA6100323FA4 /* PaymentMaskedType.h in Headers */,
+				A03F0E1420ADEA6100323FA4 /* GDataXMLNode.h in Headers */,
+				A03F0E3F20ADEA6100323FA4 /* Reachability.h in Headers */,
+				A03F0E3220ADEA6100323FA4 /* NSString+stringForRFC3339DateTimeString.h in Headers */,
+				A03F0E3B20ADEA6100323FA4 /* PaymentType.h in Headers */,
+				A03F0E1A20ADEA6100323FA4 /* GetSettledBatchListResponse.h in Headers */,
+				A03F0DF920ADEA6100323FA4 /* AnetEMVTransactionRequest.h in Headers */,
+				A03F0E3720ADEA6100323FA4 /* OrderExType.h in Headers */,
+				A03F0E0620ADEA6100323FA4 /* CardType.h in Headers */,
+				A03F0E2B20ADEA6100323FA4 /* MobileDeviceRegistrationRequest.h in Headers */,
+				A03F0E2620ADEA6100323FA4 /* MerchantAuthenticationType.h in Headers */,
+				A03F0DFF20ADEA6100323FA4 /* AuthNetMessage.h in Headers */,
+				A03F0E3620ADEA6100323FA4 /* OpaqueDataType.h in Headers */,
+				A03F0E2020ADEA6100323FA4 /* GetUnsettledTransactionListResponse.h in Headers */,
+				A03F0E4120ADEA6100323FA4 /* SendCustomerTransactionReceiptResponse.h in Headers */,
+				A03F0E4A20ADEA6100323FA4 /* TransactionRequestType.h in Headers */,
+				A03F0DF620ADEA6100323FA4 /* AnetEMVManager.h in Headers */,
+				A03F0DF520ADEA6100323FA4 /* AnetEMVLibrary.h in Headers */,
+				A03F0DFB20ADEA6100323FA4 /* AnetEMVUISettings.h in Headers */,
 				4155AFDD1D8B4F3F00ED634D /* AnetEMVDemoUISettings.h in Headers */,
-				4155B2731D8B651700ED634D /* CCAuthenticationType.h in Headers */,
-				4155B29B1D8B651700ED634D /* NSString+stringForRFC3339DateTimeString.h in Headers */,
-				4155B2911D8B651700ED634D /* Messages.h in Headers */,
-				4155B25F1D8B651700ED634D /* ANetApiRequest.h in Headers */,
-				4155B2AB1D8B651700ED634D /* TestAccountCaptchaRequest.h in Headers */,
-				4155B2B01D8B651700ED634D /* TransactionRequestType.h in Headers */,
-				4155B2691D8B651700ED634D /* ANetSolution.h in Headers */,
-				4155B2991D8B651700ED634D /* NSString+dataFromFilename.h in Headers */,
-				4155B2931D8B651700ED634D /* MobileDeviceLoginResponse.h in Headers */,
-				4155B2631D8B651700ED634D /* AnetEMVManager.h in Headers */,
-				4155B2861D8B651700ED634D /* GetTransactionDetailsResponse.h in Headers */,
-				4155B2AE1D8B651700ED634D /* TestAccountRegistrationResponse.h in Headers */,
-				4155B2791D8B651700ED634D /* CustomerAddressType.h in Headers */,
-				4155B2AF1D8B651700ED634D /* TransactionDetailsType.h in Headers */,
-				4155B2651D8B651700ED634D /* AnetEMVTag.h in Headers */,
-				4155B28E1D8B651700ED634D /* MerchantAccountType.h in Headers */,
-				4155B2961D8B651700ED634D /* MobileDeviceType.h in Headers */,
-				4155B2891D8B651700ED634D /* GetUnsettledTransactionListRequest.h in Headers */,
-				4155B2B41D8B651700ED634D /* UserField.h in Headers */,
-				4155B2A91D8B651700ED634D /* SplitTenderPayment.h in Headers */,
-				4155B27B1D8B651700ED634D /* EmvSwipeController.h in Headers */,
-				4155B2B11D8B651700ED634D /* TransactionResponse.h in Headers */,
-				4155B2641D8B651700ED634D /* AnetEMVResponse.h in Headers */,
-				4155B29D1D8B651700ED634D /* NSString+stringWithEscapedXMLValue.h in Headers */,
-				4155B26F1D8B651700ED634D /* BankAccountMaskedType.h in Headers */,
-				4155B2901D8B651700ED634D /* MerchantContactType.h in Headers */,
-				4155B27D1D8B651700ED634D /* ExtendedAmountType.h in Headers */,
-				4155B2811D8B651700ED634D /* GetBatchStatisticsRequest.h in Headers */,
-				4155B2AA1D8B651700ED634D /* SwiperDataType.h in Headers */,
-				4155B2851D8B651700ED634D /* GetTransactionDetailsRequest.h in Headers */,
-				4155B29E1D8B651700ED634D /* NSString+stringWithXMLTag.h in Headers */,
-				4155B2981D8B651700ED634D /* NSArray+PerformSelector.h in Headers */,
+				A03F0E4520ADEA6100323FA4 /* TestAccountCaptchaRequest.h in Headers */,
+				A03F0E0D20ADEA6100323FA4 /* Currency.h in Headers */,
+				A03F0E0520ADEA6100323FA4 /* BatchStatisticType.h in Headers */,
+				A03F0E0220ADEA6100323FA4 /* BankAccountMaskedType.h in Headers */,
+				A03F0DF120ADEA6100323FA4 /* ANetApiRequest.h in Headers */,
+				A03F0E1920ADEA6100323FA4 /* GetSettledBatchListRequest.h in Headers */,
+				A03F0E0920ADEA6100323FA4 /* CreateTransactionResponse.h in Headers */,
+				A03F0E1220ADEA6100323FA4 /* FDSFilterType.h in Headers */,
+				A03F0DFE20ADEA6100323FA4 /* AuthNet.h in Headers */,
+				A03F0E1D20ADEA6100323FA4 /* GetTransactionListRequest.h in Headers */,
+				A03F0E1120ADEA6100323FA4 /* ExtendedAmountType.h in Headers */,
+				A03F0E2420ADEA6100323FA4 /* MarketType.h in Headers */,
+				A03F0E0020ADEA6100323FA4 /* AuthNetRequest.h in Headers */,
+				A03F0E2F20ADEA6100323FA4 /* NSArray+PerformSelector.h in Headers */,
+				A03F0E0320ADEA6100323FA4 /* BankAccountType.h in Headers */,
+				A03F0E0F20ADEA6100323FA4 /* CustomerDataType.h in Headers */,
+				A03F0E3020ADEA6100323FA4 /* NSString+dataFromFilename.h in Headers */,
+				A03F0E4720ADEA6100323FA4 /* TestAccountRegistrationRequest.h in Headers */,
+				A03F0E2E20ADEA6100323FA4 /* NameAndAddressType.h in Headers */,
+				A03F0E0C20ADEA6100323FA4 /* CreditCardType.h in Headers */,
+				A03F0E4320ADEA6100323FA4 /* SplitTenderPayment.h in Headers */,
+				A03F0E1C20ADEA6100323FA4 /* GetTransactionDetailsResponse.h in Headers */,
+				A03F0E3C20ADEA6100323FA4 /* PermissionType.h in Headers */,
+				A03F0E1B20ADEA6100323FA4 /* GetTransactionDetailsRequest.h in Headers */,
+				A03F0E2D20ADEA6100323FA4 /* MobileDeviceType.h in Headers */,
+				A03F0E1520ADEA6100323FA4 /* GetBatchStatisticsRequest.h in Headers */,
 				4155AFDE1D8B4F3F00ED634D /* AnetEMVDemo-Bridging-Header.h in Headers */,
-				4155B2B21D8B651700ED634D /* TransactionSummaryType.h in Headers */,
-				4155B2771D8B651700ED634D /* CreditCardTrackType.h in Headers */,
-				4155B2A01D8B651700ED634D /* OrderExType.h in Headers */,
-				4155B2A81D8B651700ED634D /* SettingType.h in Headers */,
-				4155B2A41D8B651700ED634D /* PermissionType.h in Headers */,
-				4155B2A51D8B651700ED634D /* Reachability.h in Headers */,
-				4155B26B1D8B651700ED634D /* AuthNet.h in Headers */,
-				4155B27E1D8B651700ED634D /* FDSFilterType.h in Headers */,
-				4155B28C1D8B651700ED634D /* LogoutRequest.h in Headers */,
-				4155B2821D8B651700ED634D /* GetBatchStatisticsResponse.h in Headers */,
-				4155B29F1D8B651700ED634D /* OpaqueDataType.h in Headers */,
-				4155B28F1D8B651700ED634D /* MerchantAuthenticationType.h in Headers */,
-				4155B2721D8B651700ED634D /* BatchStatisticType.h in Headers */,
-				4155B2831D8B651700ED634D /* GetSettledBatchListRequest.h in Headers */,
-				4155B2A31D8B651700ED634D /* PaymentType.h in Headers */,
-				4155B29C1D8B651700ED634D /* NSString+stringValueOfXMLElement.h in Headers */,
-				4155B28A1D8B651700ED634D /* GetUnsettledTransactionListResponse.h in Headers */,
-				4155B2B31D8B651700ED634D /* TransRetailInfoType.h in Headers */,
-				4155B26E1D8B651700ED634D /* AuthNetResponse.h in Headers */,
-				4155B2871D8B651700ED634D /* GetTransactionListRequest.h in Headers */,
-				4155B2751D8B651700ED634D /* CreateTransactionResponse.h in Headers */,
+				A03F0E3420ADEA6100323FA4 /* NSString+stringWithEscapedXMLValue.h in Headers */,
+				A03F0E0B20ADEA6100323FA4 /* CreditCardTrackType.h in Headers */,
+				A03F0E1020ADEA6100323FA4 /* Error.h in Headers */,
+				A03F0DF420ADEA6100323FA4 /* AnetEMVError.h in Headers */,
+				A03F0E2220ADEA6100323FA4 /* LogoutRequest.h in Headers */,
+				A03F0E4E20ADEA6100323FA4 /* UserField.h in Headers */,
+				A03F0E4C20ADEA6100323FA4 /* TransactionSummaryType.h in Headers */,
+				A03F0E2820ADEA6100323FA4 /* Messages.h in Headers */,
+				A03F0DF720ADEA6100323FA4 /* AnetEMVResponse.h in Headers */,
+				A03F0E2720ADEA6100323FA4 /* MerchantContactType.h in Headers */,
+				A03F0DF820ADEA6100323FA4 /* AnetEMVTag.h in Headers */,
+				A03F0E2520ADEA6100323FA4 /* MerchantAccountType.h in Headers */,
+				A03F0E2120ADEA6100323FA4 /* LineItemType.h in Headers */,
+				A03F0E0420ADEA6100323FA4 /* BatchDetailsType.h in Headers */,
+				A03F0E4020ADEA6100323FA4 /* SendCustomerTransactionReceiptRequest.h in Headers */,
+				A03F0DFD20ADEA6100323FA4 /* AnetViewController.h in Headers */,
+				A03F0E3520ADEA6100323FA4 /* NSString+stringWithXMLTag.h in Headers */,
+				A03F0E2A20ADEA6100323FA4 /* MobileDeviceLoginResponse.h in Headers */,
+				A03F0E1320ADEA6100323FA4 /* FingerPrintObjectType.h in Headers */,
+				A03F0DF320ADEA6100323FA4 /* AnetBTObject.h in Headers */,
+				A03F0DFA20ADEA6100323FA4 /* AnetEMVTransactionResponse.h in Headers */,
+				A03F0E1620ADEA6100323FA4 /* GetBatchStatisticsResponse.h in Headers */,
+				A03F0E3120ADEA6100323FA4 /* NSString+Hex.h in Headers */,
+				A03F0E4920ADEA6100323FA4 /* TransactionDetailsType.h in Headers */,
+				A03F0E4620ADEA6100323FA4 /* TestAccountCaptchaResponse.h in Headers */,
+				A03F0E4D20ADEA6100323FA4 /* TransRetailInfoType.h in Headers */,
+				A03F0E1F20ADEA6100323FA4 /* GetUnsettledTransactionListRequest.h in Headers */,
+				A03F0E4B20ADEA6100323FA4 /* TransactionResponse.h in Headers */,
+				A03F0E4420ADEA6100323FA4 /* SwiperDataType.h in Headers */,
+				A03F0E4820ADEA6100323FA4 /* TestAccountRegistrationResponse.h in Headers */,
+				A03F0E0820ADEA6100323FA4 /* CreateTransactionRequest.h in Headers */,
+				A03F0E3E20ADEA6100323FA4 /* ProductCode.h in Headers */,
+				A03F0E4220ADEA6100323FA4 /* SettingType.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,12 +690,12 @@
 			files = (
 				4109BD6C1D50819900B2A5B1 /* Settings.bundle in Resources */,
 				411EEC781D7A0DEA006B766A /* bg.jpg in Resources */,
+				A03F0CC720ADD9C700323FA4 /* eject.mp3 in Resources */,
 				4108BD1C1D9AED040009125F /* image1_bg.png in Resources */,
 				4108BD1D1D9AED040009125F /* image2_bg.png in Resources */,
 				4194586C1BE0200800B9C8EA /* LaunchScreen.storyboard in Resources */,
 				419458691BE0200800B9C8EA /* Assets.xcassets in Resources */,
-				4155B2B51D8B651700ED634D /* AnetEMVStoryboard.storyboard in Resources */,
-				4155B2B61D8B651700ED634D /* eject.mp3 in Resources */,
+				A03F0CC820ADD9C700323FA4 /* AnetEMVStoryboard.storyboard in Resources */,
 				41062F241D4937BC003D5AA6 /* logo.png in Resources */,
 				419458821BE0250300B9C8EA /* Fingerprint.png in Resources */,
 				419458641BE0200800B9C8EA /* Main.storyboard in Resources */,
@@ -875,7 +907,7 @@
 					"$(PROJECT_DIR)/Debug-iphonesimulator",
 					"$(PROJECT_DIR)/AnetEMVLibrary",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = net.authorize.mobilemerchant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -913,6 +945,7 @@
 					"$(PROJECT_DIR)/Debug-iphonesimulator",
 					"$(PROJECT_DIR)/AnetEMVLibrary",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = net.authorize.mobilemerchant;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -52,7 +52,7 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
             tip.amount = ((UserDefaults.standard.value(forKey: "tipAmount")!) as! NSString) as String
             transactionRequest.tip = tip
         }
-
+        
         let request = CreateTransactionRequest()
         request.transactionRequest = transactionRequest
         request.transactionType = PRIOR_AUTH_CAPTURE

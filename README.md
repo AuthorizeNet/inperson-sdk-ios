@@ -266,6 +266,21 @@ The `AnetEMVUISettings` field exposes the properties to set
 **Background Image**  
 `AnetEMVUISettings.sharedUISettings ().backgroundImage = [UIImage imageNamed:@"ANetBgImage.png"];`
 
+**Signature screen Background Image**
+`AnetEMVUISettings.sharedUISettings ().signatureScreenBackgroundImage = [UIImage imageNamed:@"ANetSignatureScreenBgImage.png"];`
+
+**Signature pad Background Image**
+`AnetEMVUISettings.sharedUISettings ().signaturePadBackgroundImage = [UIImage imageNamed:@"ANetSignaturePadBgImage.png"];`
+
+**Signature pad Border Color**
+`AnetEMVUISettings.sharedUISettings ().signaturePadBorderColor = [UIColor blackColor];`
+
+**Signature pad Border Width**
+`AnetEMVUISettings.sharedUISettings ().signaturePadBorderWidth = 5.0;`
+
+**Signature pad Corner Radius**
+`AnetEMVUISettings.sharedUISettings ().signaturePadCornerRadius = 5.0;`
+
 ## Non-EMV Transaction Processing
 
 The SDK includes APIs for each of the supported API methods in AuthNet class: 
