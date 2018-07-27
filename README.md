@@ -370,7 +370,18 @@ Perform a credit request.  The application will receive delegate call back for s
 Perform an unlinked credit request without using the UIButton call 
 back mechanism.  The application will receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
 
+A Solution ID is a soution for Authorize.Net's partners to identify the application creating a transaction for every merchant using your software regardless of who sold the application, gateway or merchant account. For more information, see the [Solution ID Implementation Guide](https://developer.authorize.net/api/solution_id/).
 
+To include a Solution ID with your API requests, set your class as a delegate of the `ANetSolution`class, 
+implement `netSolutionDelegate`, and return the Solution ID as shown below.
+
+```
+- (NSString *)anetSolutionID {
+
+      Return “SOLUTION_ID”;
+```
+
+Replace `SOLUTION_ID` with your Solution ID.
 
 ## Customer Email Receipt
 
