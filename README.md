@@ -169,14 +169,14 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
     f) After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
     
-    g) Set up bluetooth connecction: this step is needed if application wants to work with Bluetooth connection. 
+    g) Set up bluetooth connection: this step is needed if application wants to work with Bluetooth connection. 
         * Set the connection mode of the EMV reader device. EMV reader can be connected to the iOS device either with Audio or Bluetooth connection.
           `- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;`
         * Audio connection is selected by default.
         * Set the BTScanDeviceListBlock(deviceListBlock) and BTDeviceConnected(deviceConnectedBlock) of AnetEMVManager.
         * Call scanBTDevicesList method of AnetEMVManager. This will search the near by devices and execute the deviceListBlock with the near by devices list. 
         * Display the list the user.
-        * On user selection, call conncetBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
+        * On user selection, call connectBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
         
         * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
 
