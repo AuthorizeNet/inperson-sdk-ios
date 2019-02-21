@@ -263,12 +263,12 @@ typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nulla
 /**
  * Method for stop scanning for bluetooth devices and disconnect any connected bluetooth device
  */
-- (void)stopScanAndDisconnetBTDevices;
+- (void)stopScanAndDisconnectBTDevices;
 
 /**
  * Method for disconnecting any connected bluetooth device
  */
-- (void)disconnetBTDevices;
+- (void)disconnectBTDevices;
 
 /**
  * Method for reseting BT handlers
@@ -279,19 +279,19 @@ typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nulla
  * Method for connecting to the preferred BT device.
  * @param iIndex Index of the preferred BT device from the BTDevicesList, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
  */
-- (void)conncetBTDeviceAtIndex:(NSInteger)iIndex;
+- (void)connectBTDeviceAtIndex:(NSInteger)iIndex;
 
 /**
  * Method for connecting to the preferred BT device.
  * @param peripheralData BT device data to connect, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
  */
-- (void)conncetBTDeviceWithPeripheralData:(CBPeripheral * _Nonnull)peripheralData;
+- (void)connectBTDeviceWithPeripheralData:(CBPeripheral * _Nonnull)peripheralData;
 
 /**
  * Method for connecting to the preferred BT device.
  * @param deviceName BT device name to connect, once device is connected BTDeviceConnted will be executed to notify about the successfull connection
  */
-- (void)conncetBTDeviceWithName:(NSString * _Nonnull)deviceName;
+- (void)connectBTDeviceWithName:(NSString * _Nonnull)deviceName;
 
     //-----------------------------INITIALIZATION-----------------------------//
 /**

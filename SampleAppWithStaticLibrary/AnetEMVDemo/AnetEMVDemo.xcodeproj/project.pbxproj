@@ -15,7 +15,6 @@
 		411EEC781D7A0DEA006B766A /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 411EEC771D7A0DEA006B766A /* bg.jpg */; };
 		4155AFDD1D8B4F3F00ED634D /* AnetEMVDemoUISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 41062F201D49356F003D5AA6 /* AnetEMVDemoUISettings.h */; };
 		4155AFDE1D8B4F3F00ED634D /* AnetEMVDemo-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 419458871BE027E900B9C8EA /* AnetEMVDemo-Bridging-Header.h */; };
-		4155B2C21D8B6BD900ED634D /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B2C11D8B6BD900ED634D /* libstdc++.6.0.9.tbd */; };
 		4155B3641D8B75C800ED634D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */; };
 		4194585F1BE0200800B9C8EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4194585E1BE0200800B9C8EA /* AppDelegate.swift */; };
 		419458611BE0200800B9C8EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419458601BE0200800B9C8EA /* ViewController.swift */; };
@@ -125,6 +124,7 @@
 		A03F0E4D20ADEA6100323FA4 /* TransRetailInfoType.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DEE20ADEA6100323FA4 /* TransRetailInfoType.h */; };
 		A03F0E4E20ADEA6100323FA4 /* UserField.h in Headers */ = {isa = PBXBuildFile; fileRef = A03F0DEF20ADEA6100323FA4 /* UserField.h */; };
 		A03F0E4F20ADEA6100323FA4 /* libAnetEMVLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A03F0DF020ADEA6100323FA4 /* libAnetEMVLibrary.a */; };
+		A0ECBAB0221EA9250080DB31 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0ECBAAF221EA9250080DB31 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,7 +162,6 @@
 		4155B2BB1D8B6BAA00ED634D /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
 		4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		4155B2BF1D8B6BD000ED634D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		4155B2C11D8B6BD900ED634D /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		4194585B1BE0200800B9C8EA /* AnetEMVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnetEMVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4194585E1BE0200800B9C8EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		419458601BE0200800B9C8EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +276,7 @@
 		A03F0DEE20ADEA6100323FA4 /* TransRetailInfoType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransRetailInfoType.h; sourceTree = "<group>"; };
 		A03F0DEF20ADEA6100323FA4 /* UserField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserField.h; sourceTree = "<group>"; };
 		A03F0DF020ADEA6100323FA4 /* libAnetEMVLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAnetEMVLibrary.a; sourceTree = "<group>"; };
+		A0ECBAAF221EA9250080DB31 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,8 +284,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0ECBAB0221EA9250080DB31 /* libc++.tbd in Frameworks */,
 				4155B3641D8B75C800ED634D /* MediaPlayer.framework in Frameworks */,
-				4155B2C21D8B6BD900ED634D /* libstdc++.6.0.9.tbd in Frameworks */,
 				A03F0E4F20ADEA6100323FA4 /* libAnetEMVLibrary.a in Frameworks */,
 				4194588C1BE0292F00B9C8EA /* libxml2.2.tbd in Frameworks */,
 			);
@@ -315,7 +315,7 @@
 		4155B2B81D8B6B1900ED634D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4155B2C11D8B6BD900ED634D /* libstdc++.6.0.9.tbd */,
+				A0ECBAAF221EA9250080DB31 /* libc++.tbd */,
 				4155B2BF1D8B6BD000ED634D /* AudioToolbox.framework */,
 				4155B2BD1D8B6BBD00ED634D /* MediaPlayer.framework */,
 				4155B2BB1D8B6BAA00ED634D /* openssl.framework */,
@@ -904,8 +904,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AnetEMVLibrary/**",
-					"$(PROJECT_DIR)/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/AnetEMVLibrary",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -942,8 +940,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AnetEMVLibrary/**",
-					"$(PROJECT_DIR)/Debug-iphonesimulator",
-					"$(PROJECT_DIR)/AnetEMVLibrary",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
