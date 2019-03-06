@@ -79,6 +79,13 @@
 #import "TestAccountRegistrationRequest.h"
 #import "TestAccountRegistrationResponse.h"
 #import "AnetEMVTransactionResponse.h"
+#import "AnetCustomerProfileTransactionResponse.h"
+#import "AnetUpdateCustomerProfileResponse.h"
+#import "AnetCreateCustomerPaymentProfileResponse.h"
+#import "AnetCustomerProfileError.h"
+#import "AnetUpdateCustomerPaymentProfileResponse.h"
+#import "AnetGetCustomerPaymentProfileResponse.h"
+#import "AnetGetCustomerProfileResponse.h"
 
 extern NSString *kTestURL;
 extern NSString *kLiveURL;
@@ -181,14 +188,49 @@ typedef enum AuthNetEnvironment {
  */
  - (void) CaptchaImageSucceeded:(TestAccountCaptchaResponse *)response;
 
+// Customer Profile DELEGATE METHODS
+/**
+ * Optional delegate: method is called when a createCustomerProfileTransaction response is returned from the server,
+ * including status and error responses.
+ */
+- (void) createCustomerProfileTransactionSucceeded:(AnetCustomerProfileTransactionResponse *)response withError:(AnetCustomerProfileError *)error;
+
+/**
+ * Optional delegate: method is called when a updateCustomerProfile response is returned from the server,
+ * including status and error responses.
+ */
+- (void) updateCustomerProfileSucceeded:(AnetUpdateCustomerProfileResponse *)response withError:(AnetCustomerProfileError *)error;
+
+/**
+ * Optional delegate: method is called when a createCustomerPaymentProfile response is returned from the server,
+ * including status and error responses.
+ */
+- (void) createCustomerPaymentProfileSucceeded:(AnetCreateCustomerPaymentProfileResponse *)response withError:(AnetCustomerProfileError *)error;
+
+/**
+ * Optional delegate: method is called when a updateCustomerProfile response is returned from the server,
+ * including status and error responses.
+ */
+- (void) updateCustomerPaymentProfileSucceeded:(AnetUpdateCustomerPaymentProfileResponse *)response withError:(AnetCustomerProfileError *)error;
+
+/**
+ * Optional delegate: method is called when a updateCustomerProfile response is returned from the server,
+ * including status and error responses.
+ */
+- (void) getCustomerProfileSucceeded:(AnetGetCustomerProfileResponse *)response withError:(AnetCustomerProfileError *)error;
+
+/**
+ * Optional delegate: method is called when a updateCustomerProfile response is returned from the server,
+ * including status and error responses.
+ */
+- (void) getCustomerPaymentProfileSucceeded:(AnetGetCustomerPaymentProfileResponse *)response withError:(AnetCustomerProfileError *)error;
+
 // MOBILE DELEGATE METHODS
 /**
  * Optional delegate: method is called when a testAccountRegistration response is returned from the server,
  * including Account creation status and error responses.
  */
 - (void) testAccountRegistrationSucceeded:(TestAccountRegistrationResponse *)response;
-
-
 /**
  * Optional delegate: method is called when a MobileDeviceLoginResponse response is returned from the server,
  * including MobileDeviceLoginResponse error responses.

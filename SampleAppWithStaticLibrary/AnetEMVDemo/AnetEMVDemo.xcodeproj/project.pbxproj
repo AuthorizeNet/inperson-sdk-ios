@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2CFA3D222FC561002E2EE0 /* AnetProfileDemoUISettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFA39222FC561002E2EE0 /* AnetProfileDemoUISettings.m */; };
+		2E2CFA3E222FC561002E2EE0 /* HeadlessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFA3A222FC561002E2EE0 /* HeadlessTableViewCell.swift */; };
+		2E2CFA3F222FC561002E2EE0 /* CreateProfileHeadlessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFA3B222FC561002E2EE0 /* CreateProfileHeadlessViewController.swift */; };
+		2E2CFA40222FC561002E2EE0 /* AnetProfileDemoUISettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E2CFA3C222FC561002E2EE0 /* AnetProfileDemoUISettings.h */; };
 		41062F221D49356F003D5AA6 /* AnetEMVDemoUISettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 41062F211D49356F003D5AA6 /* AnetEMVDemoUISettings.m */; };
 		41062F241D4937BC003D5AA6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41062F231D4937BC003D5AA6 /* logo.png */; };
 		4108BD1C1D9AED040009125F /* image1_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4108BD1A1D9AED040009125F /* image1_bg.png */; };
@@ -151,6 +155,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E2CFA39222FC561002E2EE0 /* AnetProfileDemoUISettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnetProfileDemoUISettings.m; sourceTree = "<group>"; };
+		2E2CFA3A222FC561002E2EE0 /* HeadlessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadlessTableViewCell.swift; sourceTree = "<group>"; };
+		2E2CFA3B222FC561002E2EE0 /* CreateProfileHeadlessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileHeadlessViewController.swift; sourceTree = "<group>"; };
+		2E2CFA3C222FC561002E2EE0 /* AnetProfileDemoUISettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetProfileDemoUISettings.h; sourceTree = "<group>"; };
 		41062F201D49356F003D5AA6 /* AnetEMVDemoUISettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVDemoUISettings.h; sourceTree = "<group>"; };
 		41062F211D49356F003D5AA6 /* AnetEMVDemoUISettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnetEMVDemoUISettings.m; sourceTree = "<group>"; };
 		41062F231D4937BC003D5AA6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -361,6 +369,10 @@
 				419458601BE0200800B9C8EA /* ViewController.swift */,
 				41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */,
 				41B722751C85187300A02C3A /* DetailsViewController.swift */,
+				2E2CFA3C222FC561002E2EE0 /* AnetProfileDemoUISettings.h */,
+				2E2CFA39222FC561002E2EE0 /* AnetProfileDemoUISettings.m */,
+				2E2CFA3B222FC561002E2EE0 /* CreateProfileHeadlessViewController.swift */,
+				2E2CFA3A222FC561002E2EE0 /* HeadlessTableViewCell.swift */,
 				419458621BE0200800B9C8EA /* Main.storyboard */,
 				419458681BE0200800B9C8EA /* Assets.xcassets */,
 				419458811BE0250300B9C8EA /* Fingerprint.png */,
@@ -580,6 +592,7 @@
 				A03F0E1320ADEA6100323FA4 /* FingerPrintObjectType.h in Headers */,
 				A03F0DF320ADEA6100323FA4 /* AnetBTObject.h in Headers */,
 				A03F0DFA20ADEA6100323FA4 /* AnetEMVTransactionResponse.h in Headers */,
+				2E2CFA40222FC561002E2EE0 /* AnetProfileDemoUISettings.h in Headers */,
 				A03F0E1620ADEA6100323FA4 /* GetBatchStatisticsResponse.h in Headers */,
 				A03F0E3120ADEA6100323FA4 /* NSString+Hex.h in Headers */,
 				A03F0E4920ADEA6100323FA4 /* TransactionDetailsType.h in Headers */,
@@ -746,9 +759,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2CFA3D222FC561002E2EE0 /* AnetProfileDemoUISettings.m in Sources */,
 				41062F221D49356F003D5AA6 /* AnetEMVDemoUISettings.m in Sources */,
+				2E2CFA3E222FC561002E2EE0 /* HeadlessTableViewCell.swift in Sources */,
 				419458671BE0200800B9C8EA /* AnetEMVDemo.xcdatamodeld in Sources */,
 				419458611BE0200800B9C8EA /* ViewController.swift in Sources */,
+				2E2CFA3F222FC561002E2EE0 /* CreateProfileHeadlessViewController.swift in Sources */,
 				41E6E0951BE16EFA00CFC79D /* AddProductViewController.swift in Sources */,
 				4194585F1BE0200800B9C8EA /* AppDelegate.swift in Sources */,
 				41B722761C85187300A02C3A /* DetailsViewController.swift in Sources */,

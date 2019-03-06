@@ -93,3 +93,5 @@
 #import <AnetEMVLibrary/Currency.h>
 #import <AnetEMVLibrary/CardType.h>
 #import <AnetEMVLibrary/AnetBTObject.h>
+#import <AnetEMVLibrary/AnetCustomerProfileManager.h>
+#import <AnetEMVLibrary/AnetCustomerProfileUISettings.h>

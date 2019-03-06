@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2CFA36222FC260002E2EE0 /* AnetProfileDemoUISettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFA33222FC260002E2EE0 /* AnetProfileDemoUISettings.m */; };
+		2E2CFA37222FC260002E2EE0 /* CreateProfileHeadlessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFA34222FC260002E2EE0 /* CreateProfileHeadlessViewController.swift */; };
+		2E2CFA38222FC260002E2EE0 /* HeadlessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFA35222FC260002E2EE0 /* HeadlessTableViewCell.swift */; };
 		41062F221D49356F003D5AA6 /* AnetEMVDemoUISettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 41062F211D49356F003D5AA6 /* AnetEMVDemoUISettings.m */; };
 		41062F241D4937BC003D5AA6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 41062F231D4937BC003D5AA6 /* logo.png */; };
 		4108BD141D9AECDE0009125F /* image1_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4108BD121D9AECDE0009125F /* image1_bg.png */; };
@@ -60,6 +63,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E2CFA32222FC260002E2EE0 /* AnetProfileDemoUISettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetProfileDemoUISettings.h; sourceTree = "<group>"; };
+		2E2CFA33222FC260002E2EE0 /* AnetProfileDemoUISettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnetProfileDemoUISettings.m; sourceTree = "<group>"; };
+		2E2CFA34222FC260002E2EE0 /* CreateProfileHeadlessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileHeadlessViewController.swift; sourceTree = "<group>"; };
+		2E2CFA35222FC260002E2EE0 /* HeadlessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadlessTableViewCell.swift; sourceTree = "<group>"; };
 		41062F201D49356F003D5AA6 /* AnetEMVDemoUISettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnetEMVDemoUISettings.h; sourceTree = "<group>"; };
 		41062F211D49356F003D5AA6 /* AnetEMVDemoUISettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnetEMVDemoUISettings.m; sourceTree = "<group>"; };
 		41062F231D4937BC003D5AA6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -165,6 +172,10 @@
 				419458601BE0200800B9C8EA /* ViewController.swift */,
 				41E6E0941BE16EFA00CFC79D /* AddProductViewController.swift */,
 				41B722751C85187300A02C3A /* DetailsViewController.swift */,
+				2E2CFA32222FC260002E2EE0 /* AnetProfileDemoUISettings.h */,
+				2E2CFA33222FC260002E2EE0 /* AnetProfileDemoUISettings.m */,
+				2E2CFA34222FC260002E2EE0 /* CreateProfileHeadlessViewController.swift */,
+				2E2CFA35222FC260002E2EE0 /* HeadlessTableViewCell.swift */,
 				419458621BE0200800B9C8EA /* Main.storyboard */,
 				419458681BE0200800B9C8EA /* Assets.xcassets */,
 				419458811BE0250300B9C8EA /* Fingerprint.png */,
@@ -340,6 +351,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2CFA36222FC260002E2EE0 /* AnetProfileDemoUISettings.m in Sources */,
+				2E2CFA37222FC260002E2EE0 /* CreateProfileHeadlessViewController.swift in Sources */,
+				2E2CFA38222FC260002E2EE0 /* HeadlessTableViewCell.swift in Sources */,
 				41062F221D49356F003D5AA6 /* AnetEMVDemoUISettings.m in Sources */,
 				419458671BE0200800B9C8EA /* AnetEMVDemo.xcdatamodeld in Sources */,
 				419458611BE0200800B9C8EA /* ViewController.swift in Sources */,

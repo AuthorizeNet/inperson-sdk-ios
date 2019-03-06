@@ -28,6 +28,11 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     var createTransaction:CreateTransactionRequest? = nil
     var amountTextField:UITextField? = nil
     var keyedINAmount:Bool = false
+    var isAdditionalProfile:Bool = false
+    var transID:String? = nil
+    var profileID:String? = nil
+    
+    
     // View life cycle
 
     override func loadView() {
@@ -186,28 +191,83 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.discardPreviousProcessedCard()
         }
         actionSheetController.addAction(discardAction)
-
+        
         let qcAction: UIAlertAction = UIAlertAction(title: "Quick Chip Transaction", style: .default) { action -> Void in
             self.quickChipPayment()
         }
         actionSheetController.addAction(qcAction)
-
+        
         let qcWTAction: UIAlertAction = UIAlertAction(title: "Quick Chip with Tip Amount", style: .default) { action -> Void in
             self.quickChipPaymentWithTipAmount()
         }
         actionSheetController.addAction(qcWTAction)
-
+        
         let qcWTOAction: UIAlertAction = UIAlertAction(title: "Quick Chip with Tip Options", style: .default) { action -> Void in
             self.quickChipPaymentWithTipOptions()
         }
         
         actionSheetController.addAction(qcWTOAction)
         
+        let qcWPCAction: UIAlertAction = UIAlertAction(title: "Customer Profile Before", style: .default) { action -> Void in
+            self.quickChipPaymentWithProfile(iConsentBefore: true)
+        }
+        
+        actionSheetController.addAction(qcWPCAction)
+        
+        let qcCCPAAction: UIAlertAction = UIAlertAction(title: "Customer Profile After", style: .default) { action -> Void in
+            self.quickChipPaymentWithProfile(iConsentBefore: false)
+        }
+        
+        actionSheetController.addAction(qcCCPAAction)
+        
+        let qcCCHBAction: UIAlertAction = UIAlertAction(title: "Customer Profile Headless Before", style: .default) { action -> Void in
+            
+            let alert = UIAlertController(title: "", message: "Do you want to create a customer profile?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.quickChipPaymentCreateProfileHeadLessBefore(isConsent: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        actionSheetController.addAction(qcCCHBAction)
+        
+        let qcCCHAAction: UIAlertAction = UIAlertAction(title: "Customer Profile Headless After", style: .default) { action -> Void in
+            self.quickChipPaymentCreateProfileHeadLessAfter()
+        }
+        actionSheetController.addAction(qcCCHAAction)
+        
+        let qcAddPPAction: UIAlertAction = UIAlertAction(title: "Add Payment Profile Before", style: .default) { action -> Void in
+            self.additionalProfileClicked(isBefore: true)
+        }
+        actionSheetController.addAction(qcAddPPAction)
+        
+        let qcAddPPAfterAction: UIAlertAction = UIAlertAction(title: "Add Payment Profile After", style: .default) { action -> Void in
+            self.additionalProfileClicked(isBefore: false)
+        }
+        actionSheetController.addAction(qcAddPPAfterAction)
+        
+        let qcAddPPHBAction: UIAlertAction = UIAlertAction(title: "Add Payment Profile Headless Before", style: .default) { action -> Void in
+            let alert = UIAlertController(title: "", message: "Do you want to create an additional payment profile?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                self.quickChipPaymentCreateAdditionalProfileHeadLessBefore()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        actionSheetController.addAction(qcAddPPHBAction)
+        
+        let qcAddPPAAfterAction: UIAlertAction = UIAlertAction(title: "Add Payment Profile Headless After", style: .default) { action -> Void in
+            self.quickChipPaymentCreateAdditionalProfileHeadLessAfter()
+        }
+        actionSheetController.addAction(qcAddPPAAfterAction)
+        
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
             self.discardPreviousProcessedCard()
         }
         actionSheetController.addAction(cancelAction)
-
+        
         self.present(actionSheetController, animated: true, completion: nil)
     }
     
@@ -223,27 +283,27 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             (cardProgress : AnetEMVCardInteractionProgress) -> () in
             
             switch cardProgress {
-                case .waitingForCard:
-                    self.cardInteraction.text = "Please insert the card"
-                    print("waiting for card")
-                    break
-                case .processingCard:
-                    self.cardInteraction.text = "Processing the card..."
-                    print("Processing the card...")
-                    break
-                case .doneWithCard:
-                    self.cardInteraction.text = "Done with the card."
-                    print("Done with the card.")
-                    break
-                case .retryInsertOrSwipe:
-                    self.cardInteraction.text = "Please retry swipe/insert."
-                    break
-                case .swipe:
-                    self.cardInteraction.text = "Please swipe."
-                    break
-                case .swipeOrTryAnotherCard:
-                    self.cardInteraction.text = "Please swipe or try another card."
-                    break
+            case .waitingForCard:
+                self.cardInteraction.text = "Please insert the card"
+                print("waiting for card")
+                break
+            case .processingCard:
+                self.cardInteraction.text = "Processing the card..."
+                print("Processing the card...")
+                break
+            case .doneWithCard:
+                self.cardInteraction.text = "Done with the card."
+                print("Done with the card.")
+                break
+            case .retryInsertOrSwipe:
+                self.cardInteraction.text = "Please retry swipe/insert."
+                break
+            case .swipe:
+                self.cardInteraction.text = "Please swipe."
+                break
+            case .swipeOrTryAnotherCard:
+                self.cardInteraction.text = "Please swipe or try another card."
+                break
             }
         }, andCardIntercationCompletionBlock: {
             (isSuccess : Bool, error : AnetEMVError?) -> () in
@@ -295,7 +355,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-
+        
         AnetEMVDemoUISettings.sharedInstance().readFromSettingsBundle()
         
         AnetEMVUISettings.shared().backgroundColor = AnetEMVDemoUISettings.sharedInstance().backgroundColor
@@ -305,6 +365,16 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         AnetEMVUISettings.shared().logoImage = AnetEMVDemoUISettings.sharedInstance().logoImage
         AnetEMVUISettings.shared().bannerBackgroundColor = AnetEMVDemoUISettings.sharedInstance().bannerBackgroundColor
         AnetEMVUISettings.shared().backgroundImage = AnetEMVDemoUISettings.sharedInstance().backgroundImage
+        
+        AnetProfileDemoUISettings.sharedInstance().readFromSettingsBundle()
+        
+        AnetCustomerProfileUISettings.shared().backgroundColor = AnetProfileDemoUISettings.sharedInstance().backgroundColor
+        AnetCustomerProfileUISettings.shared().submitButtonColor = AnetProfileDemoUISettings.sharedInstance().submitButtonBGColor
+        AnetCustomerProfileUISettings.shared().submitButtonTextColor = AnetProfileDemoUISettings.sharedInstance().submitButtonTextColor
+        AnetCustomerProfileUISettings.shared().cancelButtonColor = AnetProfileDemoUISettings.sharedInstance().cancelButtonBGColor
+        AnetCustomerProfileUISettings.shared().cancelButtonTextColor = AnetProfileDemoUISettings.sharedInstance().cancelButtonTextColor
+        AnetCustomerProfileUISettings.shared().titleFontColor = AnetProfileDemoUISettings.sharedInstance().titleTextColor
+        AnetCustomerProfileUISettings.shared().textFieldBorderColor = AnetProfileDemoUISettings.sharedInstance().textFieldBorderColor
         
         return aRequest
     }
@@ -331,7 +401,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func quickChipPayment() -> () {
         self.cardInteraction.text = "No activity in process."
-                
+        
         
         AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), forPaperReceiptCase:UserDefaults.standard.bool(forKey: "paperReceipt"), presenting: self, completionBlock: {
             (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
@@ -347,6 +417,113 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }, andCancelActionBlock: {
             print("Tapped cancel")
+        })
+    }
+    
+    func quickChipPaymentCreateProfileHeadLessBefore(isConsent:Bool) -> () {
+        self.cardInteraction.text = "No activity in process."
+        AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), forPaperReceiptCase:UserDefaults.standard.bool(forKey: "paperReceipt"), presenting: self, completionBlock: {
+            (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
+            
+            self.response = response
+            self.error = error
+            
+            if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
+                self.sessionToken = self.response?.sessionToken
+                print("transaction successfull")
+                if (isConsent) {
+                    self.isAdditionalProfile = false
+                    self.performSegue(withIdentifier: "showProfile", sender: self)
+                }
+            } else {
+                print("transaction error")
+            }
+        }, andCancelActionBlock: {
+            print("Tapped cancel")
+            self.performSegue(withIdentifier: "showProfile", sender: self)
+            
+            
+        })
+    }
+    
+    func quickChipPaymentCreateAdditionalProfileHeadLessBefore() -> () {
+        self.cardInteraction.text = "No activity in process."
+        AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), forPaperReceiptCase:UserDefaults.standard.bool(forKey: "paperReceipt"), presenting: self, completionBlock: {
+            (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
+            
+            self.response = response
+            self.error = error
+            
+            if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
+                self.sessionToken = self.response?.sessionToken
+                print("transaction successfull")
+                self.additionalPaymentProfileHeadless()
+                
+            } else {
+                print("transaction error")
+            }
+        }, andCancelActionBlock: {
+            print("Tapped cancel")
+        })
+    }
+    
+    func quickChipPaymentCreateProfileHeadLessAfter() -> () {
+        self.cardInteraction.text = "No activity in process."
+        AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), forPaperReceiptCase:UserDefaults.standard.bool(forKey: "paperReceipt"), presenting: self, completionBlock: {
+            (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
+            
+            self.response = response
+            self.error = error
+            
+            if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
+                self.sessionToken = self.response?.sessionToken
+                print("transaction successfull")
+                let alert = UIAlertController(title: "", message: "Do you want to create a customer profile?", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                    self.isAdditionalProfile = false
+                    self.performSegue(withIdentifier: "showProfile", sender: self)
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                print("transaction error")
+            }
+        }, andCancelActionBlock: {
+            print("Tapped cancel")
+            self.performSegue(withIdentifier: "showProfile", sender: self)
+            
+        })
+    }
+    
+    func quickChipPaymentCreateAdditionalProfileHeadLessAfter() -> () {
+        self.cardInteraction.text = "No activity in process."
+        AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), forPaperReceiptCase:UserDefaults.standard.bool(forKey: "paperReceipt"), presenting: self, completionBlock: {
+            (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
+            
+            self.response = response
+            self.error = error
+            
+            if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
+                self.sessionToken = self.response?.sessionToken
+                print("transaction successfull")
+                let alert = UIAlertController(title: "", message: "Do you want to create an additional customer profile?", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                    self.additionalPaymentProfileHeadless()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                print("transaction error")
+            }
+        }, andCancelActionBlock: {
+            print("Tapped cancel")
+            self.performSegue(withIdentifier: "showProfile", sender: self)
+            
         })
     }
     
@@ -368,8 +545,65 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         }, andCancelActionBlock: {
             print("Tapped cancel")
         })
+    }
+    
+    func quickChipPaymentWithProfile(iConsentBefore:Bool) -> () {
         
         
+        AnetProfileDemoUISettings.sharedInstance().readFromSettingsBundle()
+        
+        
+        
+        self.cardInteraction.text = "No activity in process."
+        AnetEMVManager.sharedInstance().createCustomerProfile(self.transactionObject(), forPaperReceiptCase: UserDefaults.standard.bool(forKey: "paperReceipt"), isConsentBefore: iConsentBefore, presenting: self, completionBlock:  {
+            (response: AnetCustomerProfileTransactionResponse?, error : AnetCustomerProfileError?) -> Void  in
+            if (error == nil) {
+                print("profile successfull \(response?.customerProfileId) & \(response?.customerPaymentProfileIdList)")
+            } else {
+                print("profile error")
+            }
+        },transactionCompletionBlock: {
+            (response: AnetEMVTransactionResponse?) -> Void  in
+            print("Transaction successful")
+        }, andCancelActionBlock: {
+            print("Tapped cancel")
+        })
+    }
+    
+    func additionalPaymentWithProfileBefore(profileID:String) -> () {
+        self.cardInteraction.text = "No activity in process."
+        AnetEMVManager.sharedInstance().createAdditionalPaymentProfile(self.transactionObject(), forPaperReceiptCase: UserDefaults.standard.bool(forKey: "paperReceipt"), isConsentBefore: true, withCustomerProfileID: profileID, presenting: self, completionBlock:  {
+            (response: AnetCustomerProfileTransactionResponse?, error : AnetCustomerProfileError?) -> Void  in
+            if (error == nil) {
+                print("profile successfull")
+                print("Customer Profile ID \(String(describing: response?.customerProfileId))")
+                
+            } else {
+                print("profile error")
+            }
+        },transactionCompletionBlock: {
+            (response: AnetEMVTransactionResponse?) -> Void  in
+            print("Transaction successful")
+        }, andCancelActionBlock: {
+            print("Tapped cancel")
+        })
+    }
+    
+    func additionalPaymentWithProfileAfter(profileID:String) -> () {
+        self.cardInteraction.text = "No activity in process."
+        AnetEMVManager.sharedInstance().createAdditionalPaymentProfile(self.transactionObject(), forPaperReceiptCase: UserDefaults.standard.bool(forKey: "paperReceipt"), isConsentBefore: false, withCustomerProfileID: profileID, presenting: self, completionBlock:  {
+            (response: AnetCustomerProfileTransactionResponse?, error : AnetCustomerProfileError?) -> Void  in
+            if (error == nil) {
+                print("profile successfull")
+            } else {
+                print("profile error")
+            }
+        },transactionCompletionBlock: {
+            (response: AnetEMVTransactionResponse?) -> Void  in
+            print("Transaction successful")
+        }, andCancelActionBlock: {
+            print("Tapped cancel")
+        })
     }
     
     func quickChipPaymentWithTipOptions() -> () {
@@ -379,7 +613,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         tipOptions?.add(UserDefaults.standard.value(forKey: "tipOption1")!)
         tipOptions?.add(UserDefaults.standard.value(forKey: "tipOption2")!)
         tipOptions?.add(UserDefaults.standard.value(forKey: "tipOption3")!)
-
+        
         AnetEMVManager.sharedInstance().startQuickChip(with: self.transactionObject(), tipOptions: (tipOptions! as NSArray) as! [Any], presenting: self, completionBlock: {
             (response: AnetEMVTransactionResponse?, error : AnetEMVError?) -> Void  in
             
@@ -395,6 +629,51 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         }, andCancelActionBlock: {
             print("Tapped cancel")
         })
+    }
+    
+    func additionalPaymentProfileHeadless(){
+        let alertController = UIAlertController(title: "Customer Profile ID", message: "", preferredStyle: .alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Profile ID"
+            textField.text = "1505168385"
+        }
+        let saveAction = UIAlertAction(title: "Continue", style: .default, handler: { alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            self.profileID = firstTextField.text
+            self.isAdditionalProfile = true
+            self.performSegue(withIdentifier: "showProfile", sender: self)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    func additionalProfileClicked(isBefore:Bool){
+        let alertController = UIAlertController(title: "Customer Profile ID", message: "", preferredStyle: .alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Profile ID"
+            textField.text = "1505168385"
+        }
+        let saveAction = UIAlertAction(title: "Continue", style: .default, handler: { alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            if (isBefore) {
+                self.additionalPaymentWithProfileBefore(profileID: firstTextField.text!)
+            }
+            else {
+                self.additionalPaymentWithProfileAfter(profileID: firstTextField.text!)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+        
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func deviceInfo(_ sender: AnyObject) {
@@ -471,7 +750,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                 (iFirmwareUpdate: Bool, iConfigurationUpdate : Bool, iErrorType: AnetOTAErrorCode, iErrorString : String?) -> Void in
                 print("Check for update completed.")
                 self.cardInteraction.text = "No activit in progress."
-
+                
                 let dialog = UIAlertController(title: "Firmware and Config status", message: "Firmware:\(iFirmwareUpdate) Config:\(iConfigurationUpdate) Error:\(iErrorType.rawValue)", preferredStyle: UIAlertControllerStyle.alert)
                 let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
                 }
@@ -485,7 +764,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         let secondAction: UIAlertAction = UIAlertAction(title: "Update Headless", style: .default) { action -> Void in
             
             self.cardInteraction.text = "Updating OTA..."
-
+            
             AnetEMVManager.sharedInstance().startOTAUpdateIsTestReader(self.isTestReader.isOn, withProgress: {
                 (iProgress : Float, iUpdateType : OTAUpdateType) -> Void in
                 print("Updating progress.")
@@ -499,7 +778,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                 (iUpdateSuccessful: Bool, iErrorType: AnetOTAErrorCode, iErrorString : String?) -> Void in
                 print("Update completed.")
                 self.cardInteraction.text = "No activit in progress."
-
+                
                 let dialog = UIAlertController(title: "Update completed", message: "Status:\(iUpdateSuccessful) Error:\(iErrorType)", preferredStyle: UIAlertControllerStyle.alert)
                 let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
                 }
@@ -526,7 +805,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func enteredAmount(_ sender: AnyObject)
     {
         let dialog = UIAlertController(title: "Please enter amount", message: "amount in USD, max 2 decimals", preferredStyle: UIAlertControllerStyle.alert)
-
+        
         
         let chargeAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.default) {(_) in
             self.keyedINAmount = true
@@ -548,22 +827,25 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // Utility
-
+    
     func totalAmountAndProduct() -> (products:NSMutableArray, totalAmount:Double) {
         
         let productArray:NSMutableArray = NSMutableArray()
         var transactionAmount = 0.0
         
         if self.amountTextField != nil {
-            let anItem:LineItemType = LineItemType()
-            anItem.itemName = "KeyedIn Item"
-            anItem.itemTaxable = false
-            anItem.itemQuantity = "1"
-            anItem.itemID = "KI"
-            anItem.itemDescription = "goods"
-            anItem.itemPrice = self.amountTextField?.text
-            productArray.add(anItem)
-            transactionAmount = Double((self.amountTextField?.text)!)!
+            if self.amountTextField?.text != "" {
+                let anItem:LineItemType = LineItemType()
+                anItem.itemName = "KeyedIn Item"
+                anItem.itemTaxable = false
+                anItem.itemQuantity = "1"
+                anItem.itemID = "KI"
+                anItem.itemDescription = "goods"
+                anItem.itemPrice = self.amountTextField?.text
+                productArray.add(anItem)
+                transactionAmount = Double((self.amountTextField?.text)!)!
+            }
+            
         } else {
             self.selectedProducts.enumerateObjects({ object, index, stop in
                 let indexPath:IndexPath = object as! IndexPath
@@ -596,6 +878,14 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             let detailsController:DetailsViewController = segue.destination as! DetailsViewController
             detailsController.sessionToken = self.sessionToken
             detailsController.transId = self.response?.transId
+        }
+        else if segue.identifier == "showProfile" {
+            let viewController: CreateProfileHeadlessViewController = segue.destination as! CreateProfileHeadlessViewController
+            viewController.sessionToken = self.sessionToken
+            viewController.mobileDeviceID = "454545454554"
+            viewController.transactionID = self.response?.transId
+            viewController.isAdditionalProfile = self.isAdditionalProfile
+            viewController.profileID = self.profileID
         }
     }
     
@@ -633,3 +923,4 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         self.present(actionSheetController, animated: true, completion: nil)
     }
 }
+

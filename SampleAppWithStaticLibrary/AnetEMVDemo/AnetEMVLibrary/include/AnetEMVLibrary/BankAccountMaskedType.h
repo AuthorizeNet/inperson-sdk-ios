@@ -39,4 +39,11 @@
  * to parse the data.
  */
 + (BankAccountMaskedType *) buildBankAccountMaskedType:(GDataXMLElement *)element;
+
+/**
+ * NSString of the XML Request for this class
+ * @return NSString of the XML Request structure for this class.
+ */
+- (NSString *) stringOfXMLRequest;
+
 @end

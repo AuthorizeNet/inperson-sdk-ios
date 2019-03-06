@@ -4,24 +4,25 @@ The Authorize.Net In-Person SDK provides a Semi-Integrated Solution for EMV paym
 
 Your application invokes the SDK to complete an EMV transaction. The SDK handles the complex EMV workflow and securely submits the EMV transaction to Authorize.Net for processing. Your never touches any EMV data at any point.
 
+To determine which processor you use, you can submit an API call to [`getMerchantDetailsRequest`](https://developer.authorize.net/api/reference/#transaction-reporting-get-merchant-details). The response contains a `processors` object containing information about the processor that your account is configured to use.
 
 ### Supported Encrypted Readers:
-=======
+
 To determine which processor you use, you can submit an API call to [getMerchantDetailsRequest](https://developer.authorize.net/api/reference/#transaction-reporting-get-merchant-details). The response contains a `processors` object.
 
 [Supported reader devices can be obtained from Authorize.Net POS Portal](https://partner.posportal.com/authorizenet/auth/)
 
 ## Including the Framework
 
-1.	Include the In-Person iOS SDK framework in the merchant's application. Use Xcode to include the *AnetEMVSdk.framework* file under Embedded Binaries. The merchant application must log in and initialize a valid Merchant object with the `password` field.
+1.  Include the In-Person iOS SDK framework in the merchant's application. Use Xcode to include the *AnetEMVSdk.framework* file under Embedded Binaries. The merchant application must log in and initialize a valid Merchant object with the `password` field.
 
-2.	Include additional frameworks and settings.
+2.  Include additional frameworks and settings.
 
-    a)	Include the *libxml2.2.tbd* file in the app. 
+    a)  Include the *libxml2.2.tbd* file in the app. 
 
-    b)	Navigate to **Build Settings > Search Paths > Header Search Paths**.
+    b)  Navigate to **Build Settings > Search Paths > Header Search Paths**.
 
-    c)	Enter the following settings: `Iphoneos/usr/include/libxml2`.
+    c)  Enter the following settings: `Iphoneos/usr/include/libxml2`.
 
     d)  This is required only if you are including SDK as static Library. Please link the following modules in your project:
     
@@ -39,11 +40,11 @@ To determine which processor you use, you can submit an API call to [getMerchant
         
         • CoreBluetooth.framework
 
-3.	Copy Bundle Resources.
+3.  Copy Bundle Resources.
 
-    a)	Include the `AnetEMVStoryBoard.storyboard`, `OTAUpdate.png` and `eject.mp3` fields from the *AnetEMVSdk.framework*             file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy               Bundle Resources.
+    a)  Include the `AnetEMVStoryBoard.storyboard`, `OTAUpdate.png` and `eject.mp3` fields from the *AnetEMVSdk.framework*             file in the application. If you included them correctly, you should be able to see Target > Build Phases > Copy               Bundle Resources.
 
-4.	If the application is developed in the Swift language, it must have a bridging header file because the                             *AnetEMVSdk.framework* file is based on Objective C.
+4.  If the application is developed in the Swift language, it must have a bridging header file because the                             *AnetEMVSdk.framework* file is based on Objective C.
 
 ### Initializing the SDK
 
@@ -105,80 +106,83 @@ Perform a `LogoutRequest` request. The application can still receive delegate ca
 
 #### EMV Transaction Operational Workflow
 
-1.	In the POS application, select Pay By Card.
+1. In the POS application, select Pay By Card.
 
-2.	Attach the card reader to the device.
+2. Attach the card reader to the device.
 
-3.	Insert a card with an EMV chip and do not remove the card until the transaction is complete. Alternatively, swipe a non-EMV card.
+3. Insert a card with an EMV chip and do not remove the card until the transaction is complete. Alternatively, swipe a non-EMV card.
 
-4.	If only a single compatible payment app resides on the chip, the payment app is selected automatically. If prompted, select the payment app. For example, Visa credit or MasterCard debit.
+4. If only a single compatible payment app resides on the chip, the payment app is selected automatically. If prompted, select the payment app. For example, Visa credit or MasterCard debit.
 
-5.	Confirm the amount.
+5. Confirm the amount.
 
-6.	If at any time the user cancels the transaction, the transaction is cancelled. 
+6. If at any time the user cancels the transaction, the transaction is cancelled. 
 
 #### Using the SDK to Create and Submit an EMV Transaction
 
-1.	Initialize the _AnetEMVSdk.framework_ file.
+Initialize the _AnetEMVSdk.framework_ file.
 
-    a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
+1. Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-    b)	`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+2. `initWithCurrencyCode: terminalID: skipSignature: showReceipt`
 
-    c)	Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by the SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction, and a cancellation block to execute the cancel action inside the SDK. 
+3. Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by the SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction, and a cancellation block to execute the cancel action inside the SDK. 
 
-    d)	The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
+4. The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.
 
-    e)	After creating all the required objects, call the following methods of AnetEMVManager and submit the transaction. 
+5. After creating all the required objects, call the following methods of AnetEMVManager and submit the transaction. 
 
-        [startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]
+```smalltalk
+[startEMVWithTransactionRequest:presentingViewController:completionBlock:andCancelActionBlock]
+```
 
 ### Quick Chip
 
 #### Quick Chip Transaction Operational Workflow
 
-1.	From the POS application, select Pay By Card.
+1. From the POS application, select Pay By Card.
 
-2.	Attached the card reader to the device if it is not already attached.
+2. Attached the card reader to the device if it is not already attached.
 
-3.	Insert a card with an EMV chip and do not remove the card until terminal asks you to do so. Alternatively, swipe a non-EMV card.
+3. Insert a card with an EMV chip and do not remove the card until terminal asks you to do so. Alternatively, swipe a non-EMV card.
 
-4.	If only a single compatible payment app resides on the chip, the payment app is selected automatically. If prompted, select the payment app. For example, Visa credit or MasterCard debit.
+4. If only a single compatible payment app resides on the chip, the payment app is selected automatically. If prompted, select the payment app. For example, Visa credit or MasterCard debit.
 
-5.	Confirm the amount.
+5. Confirm the amount.
 
-6.	If at any time the user cancels the transaction, the transaction is cancelled. 
+6. If at any time the user cancels the transaction, the transaction is cancelled. 
 
 #### Using the SDK to Create and Submit a Quick Chip EMV Transaction
 
-1.	Initialize the _AnetEMVSdk.framework_ file.
+Initialize the _AnetEMVSdk.framework_ file.
 
-    a)	Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
+1. Initialize _AnetEMVManager_ with US Currency and terminal ID.  Refer to the _AnetEMVManager.h_ file and the sample app for more details. Parameters include `skipSignature` and `showReceipt`.
 
-    b) `initWithCurrencyCode: terminalID: skipSignature: showReceipt`
+`initWithCurrencyCode: terminalID: skipSignature: showReceipt`
     
-    c) Set the terminal mode, SDK allows AnetEMVModeSwipe or AnetEMVModeInsertOrSwipe. AnetEMVModeInsertOrSwipe accepts CHIP Based transactions as well as Swipe/MSR transaction, AnetEMVModeSwipe accepts only MSR/Swipe transactions. 
-    `- (void)setTerminalMode:(AnetEMVTerminalMode)iTerminalMode;`
+2. Set the terminal mode, SDK allows `AnetEMVModeSwipe` or `AnetEMVModeInsertOrSwipe`. `AnetEMVModeInsertOrSwipe` accepts CHIP Based transactions as well as Swipe/MSR transaction, `AnetEMVModeSwipe` accepts only MSR/Swipe transactions. 
     
-    * AnetEMVModeInsertOrSwipe is selected by default
-    * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
+`- (void)setTerminalMode:(AnetEMVTerminalMode)iTerminalMode;`
     
-    d) Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
+* AnetEMVModeInsertOrSwipe is selected by default
+* Refer to the _AnetEMVManager.h_ file and the sample app for more details.
+    
+3. Instantiate `AnetEMVTransactionRequest` and populate the required values, similar to `AuthNetRequest` for regular transactions. If you are using Swift to build your application, do not use the static methods provided by SDK to initialize the objects. Also, `AnetEMVSdk` requires the app to provide `presentingViewController`, a completion block to get the response from the SDK about the submitted transaction and cancelation block to execute the cancel action inside the SDK. 
 
-    e) The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.)
+4. The `EMVTransactionType` should be mentioned in the `AnetEMVTransactionRequest`. Refer to the _AnetEMVTransactionRequest.h_ file for all the available enums to populate.)
 
-    f) After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
+5. After creating all the required objects, call one of the following method of AnetEMVManager and submit the transaction. 
     
-    g) Set up bluetooth connection: this step is needed if application wants to work with Bluetooth connection. 
-        * Set the connection mode of the EMV reader device. EMV reader can be connected to the iOS device either with Audio or Bluetooth connection.
-          `- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;`
-        * Audio connection is selected by default.
-        * Set the BTScanDeviceListBlock(deviceListBlock) and BTDeviceConnected(deviceConnectedBlock) of AnetEMVManager.
-        * Call scanBTDevicesList method of AnetEMVManager. This will search the near by devices and execute the deviceListBlock with the near by devices list. 
-        * Display the list the user.
-        * On user selection, call connectBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
-        
-        * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
+6. To connect to bluetooth, set the connection mode of the EMV reader device. EMV reader can be connected to the iOS device either with Audio or Bluetooth connection.
+
+`- (void)setConnectionMode:(AnetEMVConnectionMode)iConnectionMode;`
+
+* Audio connection is selected by default.
+* Set the `BTScanDeviceListBlock(deviceListBlock)` and `BTDeviceConnected(deviceConnectedBlock)` of `AnetEMVManager`.
+* Call the `scanBTDevicesList` method of `AnetEMVManager`. This will search the nearby devices and execute the `deviceListBlock`.
+* Display the list to the user.
+* On user selection, call conncetBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
+* Refer to the _AnetEMVManager.h_ file and the sample app for more details.
 
     #### Quick Chip Transaction 
 
@@ -348,7 +352,6 @@ Perform a PRIOR_AUTH_CAPTURE request.  The application will receive delegate cal
 Perform a void request.  The application will receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
 
 ```
-
 /**
 * Perform CREDIT transaction with request.
 * @param r The request to send.
@@ -367,10 +370,204 @@ Perform a credit request.  The application will receive delegate call back for s
 - (void) unlinkedCreditWithRequest:(CreateTransactionRequest *)r;
 ```
 
-Perform an unlinked credit request without using the UIButton call 
-back mechanism.  The application will receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
+Perform an unlinked credit request without using the UIButton callback mechanism.  The application will receive delegate callback for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
+
+## Creating a Customer Profile from a Transaction Using Your Own UI
+The transaction response contains a transaction ID and the customer profile detail that were taken as input from customer after the transaction. The following example does not use the included UI, so you must provide your own profile form in the application to get the inputs from the user.
+
+### Method Call
+```smalltalk
+//Create customer profile object.
+
+ CustomerProfileBaseType *customerProfile = [CustomerProfileBaseType customerProfileBaseType];
+
+customerProfile.email = @"abc@abc.com";
+
+customerProfile.merchantCustomerId = @"abc";
+
+customerProfile.desc = @"xyz";
+```
+
+```smalltalk
+//Create payment profile object.
+
+CustomerPaymentProfileType *customerPaymentProfile = [CustomerPaymentProfileType customerPaymentProfileType];
+        
+CustomerAddressType *address =  [CustomerAddressType customerAddressType];
+
+address.firstName = @"abc";
+
+address.lastName = @"def";
+
+address.city = @"New york";
+
+address.state = @"CA";
+
+address.country = @"USA";
+
+address.zip = @"94585";
+
+address.company = @"lmn";
+
+address.phoneNumber = @"02014585485";
+
+address.address = @"Mt street"; 
+
+address.faxNumber = @"857458547965";
+
+customerPaymentProfile.billTo = address;
+
+```
+
+```smalltalk
+//Call the provided API for creating customer profile
+
+AnetCustomerProfileManager *manager = [AnetCustomerProfileManager sharedInstance];
+
+   [manager createCustomerProfileAndPaymentProfile:self.transactionID withMerchantAuthentication:self.merchantAuthentication withCustomerProfile:customerProfile withCustomerPaymentProfile: customerPaymentProfile successBlock:^ (id _Nullable response) {
+        
+    }
+                                       failureBlock:^ (AnetCustomerProfileError *error){
+                                           
+                                       }];
+```
+
+## Creating a Customer Profile from a Transaction Using the UI Included in the SDK
+
+To create a customer profile from a transaction using the UI included in the SDK, create the profile and payment profile objects and pass them to the EMV transaction object while creating the transaction. You must send the Boolean value which decides whether the consentfor creating profile is to be taken before or after the transaction.
+
+When the transaction is complete, the transaction IS and customer profile are created within SDK itself.  When the profile is created, both the payment transaction result and the profile result object are send simultaneously to the calling application.
+
+### Creating the Objects
+
+```smalltalk
+//Create customer profile object.
+
+CustomerProfileBaseType *customerProfile = [CustomerProfileBaseType customerProfileBaseType];
+
+customerProfile.email = @"abc@abc.com";
+
+customerProfile.merchantCustomerId = @"abc";
+
+customerProfile.desc = @"xyz";
 
 
+//Create payment profile object.
+
+CustomerPaymentProfileType *customerPaymentProfile = [CustomerPaymentProfileType customerPaymentProfileType];
+        
+CustomerAddressType *address =  [CustomerAddressType customerAddressType];
+
+address.firstName = @"abc";
+
+address.lastName = @"def";
+
+address.city = @"New york";
+
+address.state = @"CA";
+
+address.country = @"USA";
+
+address.zip = @"94585";
+
+address.company = @"lmn";
+
+address.phoneNumber = @"02014585485";
+
+address.address = @"Mt street"; 
+
+address.faxNumber = @"857458547965";
+
+customerPaymentProfile.billTo = address;
+```
+
+### Method Details
+```smalltalk
+/**
+ * Create a Customer Profile and Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iPaperReceiptCase if this is true then the Merchant needs to get the paper receipt signed by the customer and settle the transaction later on.
+ * @param iConsentBefore TRUE if consent should be taken before transaction otherwise FALSE.
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of Customer Profile creation
+ * @param iTransactionCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+ ```
+
+```smalltalk
+- (void)createCustomerProfile:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+
+                         forPaperReceiptCase:(BOOL)iPaperReceiptCase
+
+                        isConsentBefore:(BOOL)iConsentBefore
+
+                    presentingViewController:(UIViewController * _Nonnull)iPresentingController
+
+                             completionBlock:(ProfileCompletionBlock _Nonnull)iRequestCompletionBlock
+
+                             transactionCompletionBlock:(TransactionCompletionBlock _Nonnull)iTransactionCompletionBlock
+
+                        andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+```
+
+## Creating an Additional Payment Profile From a Transaction Using Your Own UI
+
+To add an additional payment profile to a customer profile using transaction information, send the payment details object, customer profile ID, and the transaction ID to the SDK after the transaction is completed. You can create customized UI to collect the customer data.
+
+### Method Details
+
+```smalltalk
+/**
+
+ * Create an additional payment profile.
+
+ * @param iProfileID CustomerAddressType iTransactionID: Profile ID, Transaction ID and AnetCustomerProfileManager will provide success and failure block.
+
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success with response object.
+
+ * @param iRequestFailureBlock A failure block. Block will be executed when request is failure with AnetCustomerProfileError object.
+
+ */
+
+- (void)createAdditionalPaymentProfileWithProfileID:(NSString *_Nonnull)iProfileID withCustomerPaymentProfile:(CustomerAddressType *_Nonnull)iAddress withTransactionID:(NSString *_Nonnull)iTransactionID withMerchantAuthentication:(MerchantAuthenticationType *_Nonnull)iMerchant successBlock:(CustomerProfileSuccessBlock _Nonnull)iRequestCompletionBlock failureBlock:(FailureBlock _Nonnull)iRequestFailureBlock;
+
+```
+
+## Creating an Additional Payment Profile From a Transaction Usingthe UI Included in the SDK
+
+During the transaction, the user sends the customer profile ID with the transaction details. When the payment transaction is complete, the payment profile is created for an existing customer with consent from the user within SDK itself.
+
+### Method Details
+
+```smalltalk
+/**
+ * Create an Additional Payment Profile and Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iPaperReceiptCase if this is true then the Merchant needs to get the paper receipt signed by the customer and settle the transaction later on.
+ * @param iConsentBefore TRUE if consent should be taken before transaction otherwise FALSE.
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of Additional Payment Profile
+ * @param iTransactionCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+
+- (void)createAdditionalPaymentProfile:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+
+  forPaperReceiptCase:(BOOL)iPaperReceiptCase
+
+      isConsentBefore:(BOOL)iConsentBefore
+
+    withCustomerProfileID:(NSString *_Nonnull)iProfileID
+
+presentingViewController:(UIViewController * _Nonnull)iPresentingController
+
+      completionBlock:(ProfileCompletionBlock _Nonnull)iRequestCompletionBlock
+
+transactionCompletionBlock:(TransactionCompletionBlock _Nonnull)iTransactionCompletionBlock
+
+ andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+ ```
 
 ## Customer Email Receipt
 
@@ -894,13 +1091,13 @@ r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVIC
 ## Error  Codes
 You can view these error messages at our [Reason Response Code Tool](http://developer.authorize.net/api/reference/responseCodes.html) by entering the specific Response Reason Code into the tool. There will be additional information and suggestions there.
 
-Field Order	| Response Code | Response Reason Code | Text
+Field Order | Response Code | Response Reason Code | Text
 --- | --- | --- | ---
-3 | 2 | 355	| An error occurred while parsing the EMV data.
-3 | 2 | 356	| EMV-based transactions are not currently supported for this processor and card type.
-3 | 2 | 357	| Opaque Descriptor is required.
-3 | 2 | 358	| EMV data is not supported with this transaction type.
-3 | 2 | 359	| EMV data is not supported with this market type.
-3 | 2 | 360	| An error occurred while decrypting the EMV data.
-3 | 2 | 361	| The EMV version is invalid.
-3 | 2 | 362	| x_emv_version is required.
+3 | 2 | 355 | An error occurred while parsing the EMV data.
+3 | 2 | 356 | EMV-based transactions are not currently supported for this processor and card type.
+3 | 2 | 357 | Opaque Descriptor is required.
+3 | 2 | 358 | EMV data is not supported with this transaction type.
+3 | 2 | 359 | EMV data is not supported with this market type.
+3 | 2 | 360 | An error occurred while decrypting the EMV data.
+3 | 2 | 361 | The EMV version is invalid.
+3 | 2 | 362 | x_emv_version is required.

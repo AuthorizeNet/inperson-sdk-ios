@@ -98,7 +98,7 @@ typedef NSUInteger GDataXMLNodeKind;
   // like
   //   "prefix:name"
   // or
-  //   "{http://uri}:name"
+  //   "{https://uri}:name"
   //
   // We will fix up the node's namespace and name (and those of any children)
   // later when adding the node to a tree with addChild: or addAttribute:.

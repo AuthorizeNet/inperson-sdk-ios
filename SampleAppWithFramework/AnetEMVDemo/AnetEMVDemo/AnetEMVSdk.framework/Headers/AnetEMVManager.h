@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AnetEMVTransactionRequest.h"
+#import "AnetCreateCustomerProfileFromTransactionRequest.h"
+#import "AnetUpdateCustomerPaymentProfileRequest.h"
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @class AnetEMVError;
 @class AnetEMVTransactionResponse;
+
+@class AnetCustomerProfileError;
+@class AnetCustomerProfileTransactionResponse;
 
 typedef NS_ENUM (NSUInteger, BBDeviceErrorType);
 
@@ -136,6 +141,15 @@ typedef NS_ENUM(NSInteger, AnetBTDeviceStatusCode) {
  * @param error AnetEMVError error object, on successful transaction this object will be Nil
  */
 typedef void (^RequestCompletionBlock) (AnetEMVTransactionResponse * _Nullable response, AnetEMVError *_Nullable error);
+
+typedef void (^ProfileCompletionBlock) (AnetCustomerProfileTransactionResponse * _Nullable response, AnetCustomerProfileError *_Nullable error);
+
+typedef void (^TransactionCompletionBlock) (AnetEMVTransactionResponse * _Nullable response);
+/**
+ The completion handler, will be invoked on error of Customer Profile request
+ * @param error AnetCustomerProfileError object
+ */
+typedef void (^FailureBlock) (AnetCustomerProfileError *_Nullable error);
 
 /**
  The completion handler, if provided, will be invoked if cancel action is taken during the process
@@ -399,12 +413,40 @@ typedef void (^BTDeviceConnected)(BOOL isConnectionSuccessful, NSString * _Nulla
                              completionBlock:(RequestCompletionBlock _Nonnull)iRequestCompletionBlock
                         andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
 
-    
-    
-    
-    
-    
-    
+/**
+ * Create a Customer Profile and Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iTipOptions Tip options which will be presented on Signature screen to allow user to tip
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)createCustomerProfile:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+                         forPaperReceiptCase:(BOOL)iPaperReceiptCase
+                        isConsentBefore:(BOOL)iConsentBefore
+                    presentingViewController:(UIViewController * _Nonnull)iPresentingController
+                             completionBlock:(ProfileCompletionBlock _Nonnull)iRequestCompletionBlock
+                             transactionCompletionBlock:(TransactionCompletionBlock _Nonnull)iTransactionCompletionBlock
+                        andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+/**
+ * Create an Additional Payment Profile and Start a Quick Chip transaction with EMV request, presenting view controller and completion block.
+ * @param iTransactionRequest A request object of AnetEMVTransactionRequest
+ * @param iTipOptions Tip options which will be presented on Signature screen to allow user to tip
+ * @param iPresentingController A presenting controller object. EMV controller will be presented on top of it
+ * @param iRequestCompletionBlock A completion block. Block will be executed on success or failure of EMV transaction
+ * @param iCancelActionBlock A Cancel block. Block will be executed when cancel action is taken
+ */
+- (void)createAdditionalPaymentProfile:(AnetEMVTransactionRequest * _Nonnull)iTransactionRequest
+  forPaperReceiptCase:(BOOL)iPaperReceiptCase
+      isConsentBefore:(BOOL)iConsentBefore
+    withCustomerProfileID:(NSString *_Nonnull)iProfileID
+presentingViewController:(UIViewController * _Nonnull)iPresentingController
+      completionBlock:(ProfileCompletionBlock _Nonnull)iRequestCompletionBlock
+transactionCompletionBlock:(TransactionCompletionBlock _Nonnull)iTransactionCompletionBlock
+ andCancelActionBlock:(CancelActionBlock _Nonnull)iCancelActionBlock;
+
+
     
     //-----------------------------READER DEVICE INFOMARTION-----------------------------//
 /**

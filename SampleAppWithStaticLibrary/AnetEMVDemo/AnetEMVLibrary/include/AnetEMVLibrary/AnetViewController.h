@@ -17,13 +17,31 @@
 @class AnetEMVTransactionResponse;
 
 typedef void (^EmvCompletionBlock) (AnetEMVTransactionResponse *iResponse, AnetEMVError *iError);
+
+typedef void (^ProfileCompletionBlock) (AnetCustomerProfileTransactionResponse * _Nullable response, AnetCustomerProfileError *_Nullable error);
+
+typedef void (^TransactionCompletionBlock) (AnetEMVTransactionResponse * _Nullable response);
+
 typedef void (^EmvCancelBlock) ();
+
+typedef NS_ENUM (NSInteger, CreateProfileType) {
+    ProfileHeadFull,
+    ProfileHeadLessBefore,
+    ProfileHeadLessAfter,
+    AdditionalHeadFull,
+    Other
+};
+
+static CreateProfileType profileType;
 
 @interface AnetViewController : UIViewController <AnetEMVViewDelegate, AuthNetDelegate>
 @property (nonatomic, strong) AnetEMVTransactionRequest *transactionRequest;
 @property (nonatomic, strong) AVAudioPlayer *backgroundMusicPlayer;
 
 @property (nonatomic, copy) EmvCompletionBlock completionBlock;
+@property (nonatomic, copy) ProfileCompletionBlock profileCompletionBlock;
+@property (nonatomic, copy) TransactionCompletionBlock transactionCompletionBlock;
+
 @property (nonatomic, copy) EmvCancelBlock cancelBlock;
 @property (nonatomic, copy) ReaderDeviceInfoBlock deviceInfoBlock;
 @property (nonatomic, copy) CardIntercationProgressBlock cardIntercationProgressBlock;
@@ -38,6 +56,9 @@ typedef void (^EmvCancelBlock) ();
 
 @property (nonatomic, strong) AnetEMVError *error;
 @property (nonatomic, strong) AnetEMVTransactionResponse *emvResponse;
+
+@property (nonatomic, strong) AnetCustomerProfileError *profileError;
+@property (nonatomic, strong) AnetCustomerProfileTransactionResponse *profileResponse;
 
 @property (nonatomic, strong) NSString  *currencyCode;
 @property (nonatomic, strong) NSString  *terminalID;
@@ -59,6 +80,9 @@ typedef void (^EmvCancelBlock) ();
 @property (nonatomic, assign) BOOL showReceipt;
 @property (nonatomic, assign) BOOL signatureMode;
 @property (nonatomic, assign) BOOL isPaperReceiptCase;
+
+@property (nonatomic, assign) BOOL isCreateProfile;
+
 
 @property (atomic, assign) BOOL waitingForConfirmation;
 

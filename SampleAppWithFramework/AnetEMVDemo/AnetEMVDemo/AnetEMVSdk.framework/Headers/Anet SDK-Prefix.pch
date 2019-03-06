@@ -3,12 +3,14 @@
 //
 
 #ifdef __OBJC__
-    #import <Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 #endif
 
-
-
-
+#ifdef DEBUG
+#define ANETLOG(...) NSLog(__VA_ARGS__)
+#else
+#define ANETLOG(...) TRUE
+#endif
 
 
 

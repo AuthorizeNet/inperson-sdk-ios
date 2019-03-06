@@ -4,3 +4,4 @@
 
 #import <AnetEMVSdk/AnetEMVSdk.h>
 #import "AnetEMVDemoUISettings.h"
+#import "AnetProfileDemoUISettings.h"
