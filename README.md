@@ -181,7 +181,7 @@ Initialize the _AnetEMVSdk.framework_ file.
 * Set the `BTScanDeviceListBlock(deviceListBlock)` and `BTDeviceConnected(deviceConnectedBlock)` of `AnetEMVManager`.
 * Call the `scanBTDevicesList` method of `AnetEMVManager`. This will search the nearby devices and execute the `deviceListBlock`.
 * Display the list to the user.
-* On user selection, call conncetBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
+* On user selection, call connectBTDeviceAtIndex and pass in the selected index. SDK tries to connect with selected devices from the list. On Successful/failure of connection, SDK will execute deviceConnectedBlock.
 * Refer to the _AnetEMVManager.h_ file and the sample app for more details.
 
     #### Quick Chip Transaction 
