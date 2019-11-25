@@ -70,7 +70,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     // TableView delegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aCell = tableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
+        let aCell = tableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell?
         
         if ((indexPath as NSIndexPath).row == 0) {
             aCell?.textLabel?.text = "Last Transaction Status"
@@ -147,11 +147,11 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view : UIView = UIView.init(frame: CGRect(x: 0, y: 100, width: self.tableView.frame.size.width, height: 80))
-        let button : UIButton = UIButton.init(type: UIButtonType.custom)
+        let button : UIButton = UIButton.init(type: UIButton.ButtonType.custom)
         button.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: 80)
-        button.setTitleColor(UIColor.blue, for: UIControlState())
-        button.setTitle("LOGOUT", for: UIControlState())
-        button.addTarget(self, action: #selector(AddProductViewController.logout), for: UIControlEvents.touchUpInside)
+        button.setTitleColor(UIColor.blue, for: UIControl.State())
+        button.setTitle("LOGOUT", for: UIControl.State())
+        button.addTarget(self, action: #selector(AddProductViewController.logout), for: UIControl.Event.touchUpInside)
         view.addSubview(button)
         return view
     }
@@ -160,8 +160,14 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func logout() {
         let actionSheetController: UIAlertController = UIAlertController(title: "", message: "Are you sure you want to logout?", preferredStyle: .alert)
-        let yesAction: UIAlertAction = UIAlertAction(title: "YES", style: .cancel) { action -> Void in
-            self.navigationController?.popToRootViewController(animated: true)
+        let yesAction: UIAlertAction = UIAlertAction(title: "YES", style: .cancel){ action -> Void in
+            
+            let request:LogoutRequest = LogoutRequest()
+            request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
+            request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+            AuthNet.getInstance().delegate = self
+            AuthNet.getInstance()?.logoutRequest(request)
+            
         }
         actionSheetController.addAction(yesAction)
         let noAction: UIAlertAction = UIAlertAction(title: "NO", style: .default) { action -> Void in
@@ -222,7 +228,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let qcCCHBAction: UIAlertAction = UIAlertAction(title: "Customer Profile Headless Before", style: .default) { action -> Void in
             
-            let alert = UIAlertController(title: "", message: "Do you want to create a customer profile?", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "", message: "Do you want to create a customer profile?", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 self.quickChipPaymentCreateProfileHeadLessBefore(isConsent: true)
             }))
@@ -248,7 +254,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         actionSheetController.addAction(qcAddPPAfterAction)
         
         let qcAddPPHBAction: UIAlertAction = UIAlertAction(title: "Add Payment Profile Headless Before", style: .default) { action -> Void in
-            let alert = UIAlertController(title: "", message: "Do you want to create an additional payment profile?", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "", message: "Do you want to create an additional payment profile?", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                 self.quickChipPaymentCreateAdditionalProfileHeadLessBefore()
             }))
@@ -478,7 +484,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
                 self.sessionToken = self.response?.sessionToken
                 print("transaction successfull")
-                let alert = UIAlertController(title: "", message: "Do you want to create a customer profile?", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "", message: "Do you want to create a customer profile?", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                     self.isAdditionalProfile = false
                     self.performSegue(withIdentifier: "showProfile", sender: self)
@@ -509,7 +515,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
                 self.sessionToken = self.response?.sessionToken
                 print("transaction successfull")
-                let alert = UIAlertController(title: "", message: "Do you want to create an additional customer profile?", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "", message: "Do you want to create an additional customer profile?", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
                     self.additionalPaymentProfileHeadless()
                 }))
@@ -684,15 +690,17 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             AnetEMVManager.sharedInstance().setConnectionMode(.bluetooth)
             
             AnetEMVManager.sharedInstance().deviceListBlock = {
-                (deviceInfo : Any?) -> () in
-                
+                (deviceInfo : Any?, statusCode: AnetBTDeviceStatusCode) -> () in
                 if let list = deviceInfo as? NSArray {
                     
                     for value in list {
-                        let object:AnetBTObject = value as! AnetBTObject
-                        print(object.name)
+                        if let object = value as? AnetBTObject {
+                            print(object.name)
+
+                        }
                     }
                 }
+
             }
             AnetEMVManager.sharedInstance().scanBTDevicesList();
         }
@@ -731,8 +739,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         if (mailController != nil) {
             self.present(mailController!, animated: true, completion: nil)
         } else {
-            let dialog = UIAlertController(title: "", message: "Please setup your e-mail account", preferredStyle: UIAlertControllerStyle.alert)
-            let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+            let dialog = UIAlertController(title: "", message: "Please setup your e-mail account", preferredStyle: UIAlertController.Style.alert)
+            let chargeAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {(_) in
             }
             dialog.addAction(chargeAction)
             self.present(dialog, animated: true, completion: {
@@ -751,8 +759,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("Check for update completed.")
                 self.cardInteraction.text = "No activit in progress."
                 
-                let dialog = UIAlertController(title: "Firmware and Config status", message: "Firmware:\(iFirmwareUpdate) Config:\(iConfigurationUpdate) Error:\(iErrorType.rawValue)", preferredStyle: UIAlertControllerStyle.alert)
-                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+                let dialog = UIAlertController(title: "Firmware and Config status", message: "Firmware:\(iFirmwareUpdate) Config:\(iConfigurationUpdate) Error:\(iErrorType.rawValue)", preferredStyle: UIAlertController.Style.alert)
+                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {(_) in
                 }
                 dialog.addAction(chargeAction)
                 self.present(dialog, animated: true, completion: {
@@ -779,8 +787,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
                 print("Update completed.")
                 self.cardInteraction.text = "No activit in progress."
                 
-                let dialog = UIAlertController(title: "Update completed", message: "Status:\(iUpdateSuccessful) Error:\(iErrorType)", preferredStyle: UIAlertControllerStyle.alert)
-                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {(_) in
+                let dialog = UIAlertController(title: "Update completed", message: "Status:\(iUpdateSuccessful) Error:\(iErrorType)", preferredStyle: UIAlertController.Style.alert)
+                let chargeAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {(_) in
                 }
                 dialog.addAction(chargeAction)
                 self.present(dialog, animated: true, completion: {
@@ -804,15 +812,15 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func enteredAmount(_ sender: AnyObject)
     {
-        let dialog = UIAlertController(title: "Please enter amount", message: "amount in USD, max 2 decimals", preferredStyle: UIAlertControllerStyle.alert)
+        let dialog = UIAlertController(title: "Please enter amount", message: "amount in USD, max 2 decimals", preferredStyle: UIAlertController.Style.alert)
         
         
-        let chargeAction = UIAlertAction(title: "Pay", style: UIAlertActionStyle.default) {(_) in
+        let chargeAction = UIAlertAction(title: "Pay", style: UIAlertAction.Style.default) {(_) in
             self.keyedINAmount = true
             self.pay(nil)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
         dialog.addAction(chargeAction)
         dialog.addAction(cancelAction)
         dialog.addTextField()  { (textField) in
@@ -921,6 +929,10 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         actionSheetController.addAction(yesAction)
         self.present(actionSheetController, animated: true, completion: nil)
+    }
+    
+    func logoutSucceeded(_ response: LogoutResponse!) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
