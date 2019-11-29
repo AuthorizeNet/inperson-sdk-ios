@@ -25,7 +25,7 @@ class CreateProfileHeadlessViewController: UIViewController, UITableViewDelegate
     var profileID: String? = nil
     
     func showAlert(alertTitle: String, alertMessage: String, alertAction: String) {
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             self.navigationController?.popViewController(animated: true)
         }))
@@ -54,7 +54,7 @@ class CreateProfileHeadlessViewController: UIViewController, UITableViewDelegate
         }
         else {
             if ((tableData["Email ID"] as! String == "") &&  (tableData["Merchant Customer ID"]as! String == "") && (tableData["Description"] as! String == "")) {
-                let alert = UIAlertController(title: "Alert", message: "At least one of the fields Customer ID, Description, or Email are required to save a Customer Profile", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Alert", message: "At least one of the fields Customer ID, Description, or Email are required to save a Customer Profile", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     
                 }))
@@ -73,7 +73,7 @@ class CreateProfileHeadlessViewController: UIViewController, UITableViewDelegate
     }
     
     func showConsentAlert() {
-        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             
         }))
@@ -109,7 +109,7 @@ class CreateProfileHeadlessViewController: UIViewController, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell: HeadlessTableViewCell = tableView.dequeueReusableCell(withIdentifier: "headlessCell") as! HeadlessTableViewCell
-        tableViewCell.selectionStyle = UITableViewCellSelectionStyle.none
+        tableViewCell.selectionStyle = UITableViewCell.SelectionStyle.none
         tableViewCell.layoutMargins = UIEdgeInsets.zero
         tableViewCell.accessoryType = .none
         tableViewCell.label?.text = settingItems[indexPath.row]
