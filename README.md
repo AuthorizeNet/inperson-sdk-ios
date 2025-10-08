@@ -16,7 +16,7 @@ To determine which processor you use, you can submit an API call to [getMerchant
 
 ## Including the Framework
 
-1.  Include the In-Person iOS SDK framework in the merchant's application. Use Xcode to include the *AnetEMVSdk.framework* file under Embedded Binaries. The merchant application must log in and initialize a valid Merchant object with the `password` field.
+1.  Include the In-Person iOS SDK framework in the merchant's application. Use Xcode to include the *AnetEMVSdk.framework* file under Embedded Binaries. The merchant application must initialize a valid Merchant object with the API login ID and transaction key.
 
 2.  Include additional frameworks and settings.
 
@@ -62,7 +62,7 @@ Initialize the singleton with the AUTHNET_ENVIRONMENT setting either at the Appl
 
 The Authorize.Net SDK supports the following features of an MPoS solution:
 
-1. [Mobile Device Authentication](#mobile-device-authentication)
+1. [Authentication](#authentication)
 2. [EMV Transaction Processing](#emv-transaction-processing)
 
     i)  [Traditional EMV](#traditional-emv)
@@ -76,9 +76,27 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 7. [Configuring the UI](#configuring-the-ui)
 8. [Code Snippets](#code-snippets)
 
-## Mobile Device Authentication
+## Authentication
 
-### Device Login
+The SDK supports authentication via a transaction key:
+
+### Transaction Key Authentication
+
+```
+/**
+* In merchant portal, navigate to Account → Account and API Settings -> API Credentials and Keys.
+* Obtain API Login ID and Transaction Key.
+*/
+MerchantAuthenticationType *merchantAuthentication = [MerchantAuthenticationType merchantAuthentication];
+merchantAuthentication.name = <API_LOGIN_ID>;
+merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// Use this authentication in your transaction requests
+CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
+request.anetApiRequest.merchantAuthentication = merchantAuthentication;
+```
+
+### (DEPRECATED) Password Authentication
 
 ```
 /**
@@ -90,7 +108,9 @@ The Authorize.Net SDK supports the following features of an MPoS solution:
 
 This request logs in the mobile device.  The application can still receive a delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class. Application must populate `sessionToken` generated from login request in all the subsequent API calls to the Authorize.Net gateway.
 
-### Device Logout
+This method is used in the sample app and will be deprecated by November 12, 2025.
+
+### (DEPRECATED) Device Logout
 
 ```
 /**
@@ -100,7 +120,9 @@ This request logs in the mobile device.  The application can still receive a del
 - (void) LogoutRequest:(LogoutRequest *)r;
 ```
 
-Perform a `LogoutRequest` request. The application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
+Performs a `LogoutRequest` request for the legacy password authentication flow. The application can still receive delegate call back for successful, failed, and canceled transaction flows by setting the `UIViewController` with the `setDelegate` call of `AuthNet` class.
+
+This will be deprecated together with password authentication on November 12, 2025. 
 
 ## EMV Transaction Processing
 
@@ -658,9 +680,10 @@ To initiate an update from the your application, call the method and it will pre
 [AuthNet authNetWithEnvironment:ENV_TEST];
 ```
 
-2) #### Log in to the Authorize.Net payment gateway.
+2) #### (DEPRECATED) Log in to the Authorize.Net payment gateway.
 
 ```
+/*
 MobileDeviceLoginRequest *mobileDeviceLoginRequest = [MobileDeviceLoginRequest mobileDeviceLoginRequest];
 mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = <USERNAME>;
 mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = <PASSWORD>;
@@ -674,7 +697,11 @@ Callback for the successful login
 - (void) mobileDeviceLoginSucceeded:(MobileDeviceLoginResponse *)response {
 sessionToken = [response.sessionToken retain];
 };
+*/
 ```
+
+This method will be deprecated by November 12, 2025 and replaced with transaction key authentication, which doesn't require a log in request call or handling session tokens.
+
 3) #### Non EMV transaction using Encrypted Swiper data(IDTech Shuttle Two-Track Secure MagStripe Reader)
 ```
 SwiperDataType *st = [SwiperDataType swiperDataType];
@@ -715,8 +742,14 @@ requestType.shipping = extendedAmountTypeShipping;
 CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
 request.transactionRequest = requestType;
 request.transactionType = AUTH_CAPTURE;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
-request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
@@ -769,8 +802,14 @@ requestType.shipping = extendedAmountTypeShipping;
 CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
 request.transactionRequest = requestType;
 request.transactionType = AUTH_CAPTURE;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
-request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
@@ -812,8 +851,14 @@ requestType.shipping = extendedAmountTypeShipping;
 CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
 request.transactionRequest = requestType;
 request.transactionType = AUTH_ONLY;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
-request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
@@ -856,8 +901,14 @@ requestType.authCode = @"ABC123";
 CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
 request.transactionRequest = requestType;
 request.transactionType = CAPTURE_ONLY;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
-request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
@@ -899,8 +950,14 @@ requestType.shipping = extendedAmountTypeShipping;
 CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
 request.transactionRequest = requestType;
 request.transactionType = AUTH_ONLY;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
-request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
@@ -915,8 +972,14 @@ requestType.amount = lineItem.itemPrice;
 request = [CreateTransactionRequest createTransactionRequest];
 request.transactionRequest = requestType;
 request.transactionType = PRIOR_AUTH_CAPTURE;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
-request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
 an = [AuthNet getInstance];
 [an setDelegate:self];
@@ -938,8 +1001,15 @@ AuthNet *an = [AuthNet getInstance];
 
 request.transactionRequest.refTransId = self.transactionDetails.transId;
 request.transactionRequest.amount = self.transactionDetails.settleAmount;
-request.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
 // Omit payment data for VOIDs
 request.transactionRequest.payment = nil;
 
@@ -957,8 +1027,15 @@ Callback for the Void request
 CreateTransactionRequest *request = [CreateTransactionRequest createTransactionRequest];
 AuthNet *an = [AuthNet getInstance];
 [an setDelegate:self];
-request.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
-request.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
+
+// Authentication using transaction key (preferred method)
+request.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+request.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// request.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// request.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
 request.transactionRequest.refTransId = self.transactionDetails.transId;
 request.transactionRequest.amount = self.transactionDetails.settleAmount;
 request.transactionRequest.payment = [PaymentType paymentType];
@@ -977,8 +1054,15 @@ Callback for the Refund request
 7) #### Request a list of settled batches   
 ```
 GetSettledBatchListRequest *r = [GetSettledBatchListRequest getSettlementBatchListRequest];
-r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
-r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
+
+// Authentication using transaction key (preferred method)
+r.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+r.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// r.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// r.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
 [[AuthNet getInstance] setDelegate:self];
 [[AuthNet getInstance] getSettledBatchListRequest:r];
 
@@ -991,8 +1075,15 @@ Callback
 8) #### Request a transaction's details.  
 ```
 GetTransactionDetailsRequest *r = [GetTransactionDetailsRequest getTransactionDetailsRequest];
-r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
-r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
+
+// Authentication using transaction key (preferred method)
+r.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+r.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// r.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// r.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
 r.transId = transID;
 [[AuthNet getInstance] setDelegate:self];
 [[AuthNet getInstance] getTransactionDetailsRequest:r];
@@ -1005,8 +1096,14 @@ Callback
 9) #### Request a list of transactions.
 ```
 GetTransactionListRequest *r = [GetTransactionListRequest getTransactionListRequest];
-r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
-r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
+
+// Authentication using transaction key (preferred method)
+r.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+r.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// r.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// r.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
 
 // Batch Lists are from oldest to newest so use last object.
 BatchDetailsType *b = [self.batchList lastObject];
@@ -1023,8 +1120,15 @@ r.batchId = [NSString stringWithString:b.batchId];
 10) #### Request a list of unsettled transactions.   
 ```
 GetUnsettledTransactionListRequest *r = [GetUnsettledTransactionListRequest getUnsettledTransactionListRequest];
-r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
-r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
+
+// Authentication using transaction key (preferred method)
+r.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+r.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// r.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// r.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
 [[AuthNet getInstance] setDelegate:self];
 [[AuthNet getInstance] getUnsettledTransactionListRequest:r];
 
@@ -1036,8 +1140,15 @@ r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVIC
 11) #### Send the customer a receipt. 
 ```
 SendCustomerTransactionReceiptRequest *r = [SendCustomerTransactionReceiptRequest sendCustomerTransactionReceiptRequest];
-r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
-r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
+
+// Authentication using transaction key (preferred method)
+r.anetApiRequest.merchantAuthentication.name = <API_LOGIN_ID>;
+r.anetApiRequest.merchantAuthentication.transactionKey = <TRANSACTION_KEY>;
+
+// (DEPRECATED) Password authentication
+// r.anetApiRequest.merchantAuthentication.mobileDeviceId = deviceId;
+// r.anetApiRequest.merchantAuthentication.sessionToken = self.loginResponse.sessionToken;
+
 r.customerEmail = self.currentEmail;
 r.transId = self.transactionId;
 
@@ -1077,8 +1188,9 @@ merchantEmailAddress ? merchantEmailAddress : @""];
 }
 ```
 
-12) #### Logout request.
+12) #### (DEPRECATED) Logout request.
 ```
+/*
 LogoutRequest *r = [LogoutRequest logoutRequest];
 r.anetApiRequest.merchantAuthentication.sessionToken = sessionToken;
 r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVICE IDENTIFIER>;
@@ -1088,6 +1200,7 @@ r.anetApiRequest.merchantAuthentication.mobileDeviceId = <PROVIDE A UNIQUE DEVIC
 // Callback
 - (void) logoutSucceeded:(LogoutResponse *)response {
 }
+*/
 ```
 
 ## Error  Codes
