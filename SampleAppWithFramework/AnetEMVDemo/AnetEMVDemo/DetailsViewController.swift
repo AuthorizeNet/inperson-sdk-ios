@@ -14,7 +14,8 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
     @IBOutlet weak var action: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    var sessionToken: String!
+    var apiLoginID: String!
+    var transactionKeyValue: String!
     var transId: String!
     var response: GetTransactionDetailsResponse!
     var settling = false
@@ -25,8 +26,8 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         self.indicator.startAnimating()
 
         let request:GetTransactionDetailsRequest = GetTransactionDetailsRequest()
-        request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+        request.anetApiRequest.merchantAuthentication.name = self.apiLoginID
+        request.anetApiRequest.merchantAuthentication.transactionKey = self.transactionKeyValue
         request.transId = self.transId
         AuthNet.getInstance().delegate = self
         AuthNet.getInstance().getTransactionDetailsRequest(request)
@@ -56,16 +57,16 @@ class DetailsViewController: UIViewController, AuthNetDelegate {
         let request = CreateTransactionRequest()
         request.transactionRequest = transactionRequest
         request.transactionType = PRIOR_AUTH_CAPTURE
-        request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+        request.anetApiRequest.merchantAuthentication.name = self.apiLoginID
+        request.anetApiRequest.merchantAuthentication.transactionKey = self.transactionKeyValue
         AuthNet.getInstance().capture(with: request)
     }
     
     @IBAction func refund() -> () {
         self.indicator.startAnimating()
         let request:CreateTransactionRequest = CreateTransactionRequest()
-        request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+        request.anetApiRequest.merchantAuthentication.name = self.apiLoginID
+        request.anetApiRequest.merchantAuthentication.transactionKey = self.transactionKeyValue
         request.transactionRequest.refTransId = self.response.transactionDetails.transId
         request.transactionRequest.amount = self.response.transactionDetails.settleAmount
         
