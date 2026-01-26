@@ -20,8 +20,9 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
 
     var emvManager:AnetEMVManager? = nil
-    
-    var sessionToken:String? = nil
+
+    var apiLoginID:String? = nil
+    var transactionKeyValue:String? = nil
     var response:AnetEMVTransactionResponse? = nil
     var error:AnetEMVError? = nil
     let anApplePayRequest:PKPaymentRequest = PKPaymentRequest()
@@ -49,7 +50,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         emvManager = AnetEMVManager.initWithCurrecyCode(currencyCode, terminalID: "", skipSignature: UserDefaults.standard.bool(forKey: "signature"), showReceipt: UserDefaults.standard.bool(forKey: "receipt"))
         self.navigationItem.hidesBackButton = true
         AuthNet.getInstance().delegate = self
-        emvManager?.setLoggingEnabled(true)
+        emvManager?.setLoggingEnabled(false)
         
         let connectionMode = ((UserDefaults.standard.value(forKey: "connectionMode")!) as! NSString) as String
         if connectionMode == "BT" {
@@ -127,8 +128,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.performSegue(withIdentifier: "details", sender: self)
         } else if ((indexPath as NSIndexPath).row == 1) {
             let request:GetMerchantDetailsRequest = GetMerchantDetailsRequest()
-            request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-            request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+            request.anetApiRequest.merchantAuthentication.name = self.apiLoginID
+            request.anetApiRequest.merchantAuthentication.transactionKey = self.transactionKeyValue
             AuthNet.getInstance().delegate = self
             AuthNet.getInstance().getMerchantDetailsRequest(request)
         } else if ((indexPath as NSIndexPath).row == 2) {
@@ -160,14 +161,12 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func logout() {
         let actionSheetController: UIAlertController = UIAlertController(title: "", message: "Are you sure you want to logout?", preferredStyle: .alert)
-        let yesAction: UIAlertAction = UIAlertAction(title: "YES", style: .cancel){ action -> Void in
-            
-            let request:LogoutRequest = LogoutRequest()
-            request.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-            request.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
-            AuthNet.getInstance().delegate = self
-            AuthNet.getInstance()?.logoutRequest(request)
-            
+        let yesAction: UIAlertAction = UIAlertAction(title: "YES", style: .cancel) { action -> Void in
+
+            // No logout request needed with transaction key authentication
+            // Simply navigate back to login screen
+            self.navigationController?.popToRootViewController(animated: true)
+
         }
         actionSheetController.addAction(yesAction)
         let noAction: UIAlertAction = UIAlertAction(title: "NO", style: .default) { action -> Void in
@@ -334,8 +333,8 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         aRequest.emvTransactionType = .goods;
         let amountAndProducts = self.totalAmountAndProduct()
         aRequest.lineItems = amountAndProducts.products
-        aRequest.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        aRequest.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+        aRequest.anetApiRequest.merchantAuthentication.name = self.apiLoginID
+        aRequest.anetApiRequest.merchantAuthentication.transactionKey = self.transactionKeyValue
         aRequest.amount = "\(amountAndProducts.totalAmount)"
         
         let order = OrderType()
@@ -394,7 +393,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
             } else {
                 print("transaction error")
@@ -416,7 +415,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
             } else {
                 print("transaction error")
@@ -435,7 +434,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
                 if (isConsent) {
                     self.isAdditionalProfile = false
@@ -461,7 +460,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
                 self.additionalPaymentProfileHeadless()
                 
@@ -482,7 +481,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
                 let alert = UIAlertController(title: "", message: "Do you want to create a customer profile?", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
@@ -513,7 +512,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
                 let alert = UIAlertController(title: "", message: "Do you want to create an additional customer profile?", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
@@ -543,7 +542,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
             } else {
                 print("transaction error")
@@ -627,7 +626,7 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
             self.error = error
             
             if (response?.responds(to: #selector(getter: AnetEMVTransactionResponse.isTransactionSuccessful)) == true && response?.isTransactionSuccessful == true && error == nil) {
-                self.sessionToken = self.response?.sessionToken
+                // Transaction key authentication does not use session tokens
                 print("transaction successfull")
             } else {
                 print("transaction error")
@@ -687,23 +686,36 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         let actionSheetController: UIAlertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
         
         let firstAction: UIAlertAction = UIAlertAction(title: "Scan neay by devices", style: .cancel) { action -> Void in
-            AnetEMVManager.sharedInstance().setConnectionMode(.bluetooth)
-            
-            AnetEMVManager.sharedInstance().deviceListBlock = {
-                (deviceInfo : Any?, statusCode: AnetBTDeviceStatusCode) -> () in
-                if let list = deviceInfo as? NSArray {
+                    AnetEMVManager.sharedInstance().setConnectionMode(.bluetooth)
                     
-                    for value in list {
-                        if let object = value as? AnetBTObject {
-                            print(object.name)
+                    AnetEMVManager.sharedInstance().deviceListBlock = {
+                        (deviceInfo : Any?, statusCode: AnetBTDeviceStatusCode) -> () in
+                        if let list = deviceInfo as? NSArray {
+                            
+                            for value in list {
+                                if let object = value as? AnetBTObject {
+                                    print(object.name)
 
+                                }
+                            }
                         }
-                    }
-                }
 
-            }
-            AnetEMVManager.sharedInstance().scanBTDevicesList();
-        }
+                    }
+                    
+        //            AnetEMVManager.sharedInstance().deviceListBlock = {
+        //                (deviceInfo : Any?, statusCode: AnetBTDeviceStatusCode) -> () in
+        //
+        //                if let list = deviceInfo as? NSArray {
+        //
+        //                    for value in list {
+        //                        let object:AnetBTObject = value as! AnetBTObject
+        //                        print(object.name)
+        //                    }
+        //                }
+        //            }
+                    
+                    AnetEMVManager.sharedInstance().scanBTDevicesList();
+                }
         actionSheetController.addAction(firstAction)
         
         let secondAction: UIAlertAction = UIAlertAction(title: "Device Info", style: .default) { action -> Void in
@@ -884,13 +896,14 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "details" {
             let detailsController:DetailsViewController = segue.destination as! DetailsViewController
-            detailsController.sessionToken = self.sessionToken
+            detailsController.apiLoginID = self.apiLoginID
+            detailsController.transactionKeyValue = self.transactionKeyValue
             detailsController.transId = self.response?.transId
         }
         else if segue.identifier == "showProfile" {
             let viewController: CreateProfileHeadlessViewController = segue.destination as! CreateProfileHeadlessViewController
-            viewController.sessionToken = self.sessionToken
-            viewController.mobileDeviceID = "454545454554"
+            viewController.apiLoginID = self.apiLoginID
+            viewController.transactionKeyValue = self.transactionKeyValue
             viewController.transactionID = self.response?.transId
             viewController.isAdditionalProfile = self.isAdditionalProfile
             viewController.profileID = self.profileID
@@ -929,10 +942,6 @@ class AddProductViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         actionSheetController.addAction(yesAction)
         self.present(actionSheetController, animated: true, completion: nil)
-    }
-    
-    func logoutSucceeded(_ response: LogoutResponse!) {
-        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 

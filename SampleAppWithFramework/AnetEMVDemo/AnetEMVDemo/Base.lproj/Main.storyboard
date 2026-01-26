@@ -43,7 +43,7 @@
                                 <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o7s-tf-94B">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="API Login ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o7s-tf-94B">
                                 <rect key="frame" x="43" y="202" width="289" height="33"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -65,7 +65,7 @@
                                 </constraints>
                                 <color key="color" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1S0-Df-f4d">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Transaction Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1S0-Df-f4d">
                                 <rect key="frame" x="43" y="234" width="289" height="36"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
@@ -123,7 +123,7 @@
                     <connections>
                         <outlet property="activity" destination="kuL-Bv-QkA" id="L5u-zm-4eI"/>
                         <outlet property="login" destination="o7s-tf-94B" id="auE-pZ-b3M"/>
-                        <outlet property="pasword" destination="1S0-Df-f4d" id="hzI-XI-oy4"/>
+                        <outlet property="transactionKey" destination="1S0-Df-f4d" id="hzI-XI-oy4"/>
                         <outlet property="switchButton" destination="6MR-7z-ZRa" id="Nuc-da-zVt"/>
                         <segue destination="E6y-oC-gF7" kind="show" identifier="showCart" id="cEC-1q-M5U"/>
                     </connections>

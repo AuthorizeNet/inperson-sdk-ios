@@ -15,9 +15,8 @@ class CreateProfileHeadlessViewController: UIViewController, UITableViewDelegate
     var settingItems: [String] = []
     var tableData = [String:String?]()
     var tableTextFieldData = [String]()
-    var sessionToken: String? = nil
-    var mobileDeviceID: String? = nil
-    var mobileDeviceName: String? = nil
+    var apiLoginID: String? = nil
+    var transactionKeyValue: String? = nil
     var transactionID: String? = nil
     var isConsentBefore: Bool = false
     var transactionObject: AnetEMVTransactionRequest? = nil
@@ -213,8 +212,8 @@ class CreateProfileHeadlessViewController: UIViewController, UITableViewDelegate
         
         let req:AnetCreateCustomerProfileFromTransactionRequest = AnetCreateCustomerProfileFromTransactionRequest()
         req.transId = self.transactionID
-        req.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        req.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+        req.anetApiRequest.merchantAuthentication.name = self.apiLoginID
+        req.anetApiRequest.merchantAuthentication.transactionKey = self.transactionKeyValue
         
         let customerPaymentProfile: CustomerPaymentProfileType = CustomerPaymentProfileType()
         customerPaymentProfile.billTo = self.createAddressBillto()
@@ -249,8 +248,8 @@ class CreateProfileHeadlessViewController: UIViewController, UITableViewDelegate
         let req:AnetCreateCustomerProfileFromTransactionRequest = AnetCreateCustomerProfileFromTransactionRequest()
         req.transId = self.transactionID
         req.customer = customer
-        req.anetApiRequest.merchantAuthentication.sessionToken = self.sessionToken
-        req.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
+        req.anetApiRequest.merchantAuthentication.name = self.apiLoginID
+        req.anetApiRequest.merchantAuthentication.transactionKey = self.transactionKeyValue
         
         let customerPaymentProfile: CustomerPaymentProfileType = CustomerPaymentProfileType()
         customerPaymentProfile.billTo = self.createAddressBillto()

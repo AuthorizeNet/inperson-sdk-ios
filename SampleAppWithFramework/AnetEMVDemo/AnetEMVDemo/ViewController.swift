@@ -12,11 +12,12 @@ import LocalAuthentication
 class ViewController: UIViewController, AuthNetDelegate {
 
     @IBOutlet weak var login: UITextField!
-    @IBOutlet weak var pasword: UITextField!
+    @IBOutlet weak var transactionKey: UITextField!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var switchButton: UISwitch!
 
-    var sessionToken:String? = nil
+    var apiLoginID:String? = nil
+    var transactionKeyValue:String? = nil
     var context = LAContext()
     var authnet = AuthNet(environment: ENV_TEST);
     
@@ -42,24 +43,26 @@ class ViewController: UIViewController, AuthNetDelegate {
             authnet = AuthNet(environment: ENV_LIVE);
         }
         AuthNet.getInstance().delegate = self
-        AuthNet.getInstance().setLoggingEnabled(true)
+        AuthNet.getInstance().setLoggingEnabled(false)
 
         self.activity.startAnimating()
-        let mobileDeviceLoginRequest = MobileDeviceLoginRequest()
-        
-        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = self.login.text
-        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = self.pasword.text
-        
-//        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.name = "vitalretailowner1"
-//        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.password = "Authnet102"
-        
-        mobileDeviceLoginRequest.anetApiRequest.merchantAuthentication.mobileDeviceId = "454545454545454545454"
-        AuthNet.getInstance().mobileDeviceLoginRequest(mobileDeviceLoginRequest)
-    }
-    
-    func mobileDeviceLoginSucceeded(_ response: MobileDeviceLoginResponse) {
+
+        // Store credentials for use in transactions
+        self.apiLoginID = self.login.text
+        self.transactionKeyValue = self.transactionKey.text
+
+        // Validate credentials are provided
+        guard let loginID = self.apiLoginID, !loginID.isEmpty,
+              let transKey = self.transactionKeyValue, !transKey.isEmpty else {
+            self.activity.stopAnimating()
+            let alert = UIAlertController(title: "Invalid Input", message: "Please enter both API Login ID and Transaction Key", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+
+        // No login request needed with transaction key authentication
         self.activity.stopAnimating()
-        self.sessionToken = response.sessionToken
         self.performSegue(withIdentifier: "showCart", sender: self)
     }
     
@@ -92,7 +95,8 @@ class ViewController: UIViewController, AuthNetDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let addProduct = segue.destination as! AddProductViewController
-        addProduct.sessionToken = self.sessionToken
+        addProduct.apiLoginID = self.apiLoginID
+        addProduct.transactionKeyValue = self.transactionKeyValue
     }
 }
 
